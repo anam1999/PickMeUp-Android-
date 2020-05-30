@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/radius"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/ivHadiah"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:padding="4dp"/>
+
+            <TextView
+                android:id="@+id/tvNamaHadiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="Nama Hadiah"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tvDeskripsis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNamaHadiah"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="Deskripsi :"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <TextView
+                android:id="@+id/tvDeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDeskripsis"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text=""
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <TextView
+                android:id="@+id/TotalPoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDeskripsi"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text=""
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <TextView
+                android:id="@+id/TotalPoinsesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDeskripsi"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/TotalPoin"
+                android:text="Poin"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+        </RelativeLayout>
+
+</LinearLayout>

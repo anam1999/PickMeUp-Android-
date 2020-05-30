@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/bgs"
+    android:layout_centerInParent="true"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progesbar"
+        android:layout_centerHorizontal="true"
+        android:text="@string/_0"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        />
+    <ProgressBar
+        android:id="@+id/progesbar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profils"
+        android:foregroundGravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/logoaplikasi"
+        />
+
+</RelativeLayout>

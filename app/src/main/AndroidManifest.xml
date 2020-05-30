@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.proyekakhir_khoirulanam">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logoaplikasi"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Profil.ProfilPetugasKontenReward"></activity>
+        <activity android:name=".Profil.ProfilPetugasLapangan" />
+        <activity android:name=".Profil.ProfilPimpinan" />
+        <activity android:name=".Feedback.TambahFeedback" />
+        <activity android:name=".Hadiah.LihatTransaksi" />
+        <activity android:name=".SampahPintar.MonitoringSampahPintar" />
+        <activity android:name=".Profil.UpdateProfil" />
+        <activity android:name=".KontenAnimasi.TambahKontenAnimasiPKW" />
+        <activity android:name=".KontenAnimasi.LihatKontenAnimasiPKW" />
+        <activity android:name=".KontenAnimasi.UpdateKontenAnimasiPKW" />
+        <activity android:name=".Agenda.LihatAgendaP" />
+        <activity android:name=".Agenda.LihatAgenda" />
+        <activity android:name=".Agenda.TambahAgendaP" />
+        <activity android:name=".Agenda.UpdateAgendaP" />
+        <activity android:name=".Hadiah.DetailHadiah2" />
+        <activity android:name=".Hadiah.TambahHadiahPKW" />
+        <activity android:name=".Hadiah.LihatHadiahPKW" />
+        <activity android:name=".Feedback.LihatFeedback" />
+        <activity android:name=".Hadiah.UpdateHadiahPKW" />
+        <activity android:name=".Hadiah.LihatHadiah" />
+        <activity android:name=".Feedback.DetailFeedback" />
+        <activity android:name=".KontenAnimasi.DetailKontenAnimasi" />
+        <activity android:name=".Agenda.DetailAgenda" />
+        <activity android:name=".Profil.Profil"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Beranda.BerandaMasyarakat"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Beranda.BerandaPetugasKontenReward"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Beranda.BerandaPetugasLapangan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Beranda.BerandaPimpinan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".KontenAnimasi.LihatKontenAnimasi"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Daftar" />
+        <activity android:name=".Masuk" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDv-h2II7DbFQkpL9pDxNRq3GWXqS5Epts" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+    </application>
+
+</manifest>

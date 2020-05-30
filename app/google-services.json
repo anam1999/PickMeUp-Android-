@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "796850709937",
+    "firebase_url": "https://proyekakhir-khoirulanam.firebaseio.com",
+    "project_id": "proyekakhir-khoirulanam",
+    "storage_bucket": "proyekakhir-khoirulanam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796850709937:android:712fcf6cb9a31ba92e0990",
+        "android_client_info": {
+          "package_name": "com.example.proyekakhir_khoirulanam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796850709937-d8pu3j4ibrl8gcs1sk4pcotrp50cneek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU5g0PefhSlSxS1Ue6JYKpfWunIbMaS9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796850709937-d8pu3j4ibrl8gcs1sk4pcotrp50cneek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

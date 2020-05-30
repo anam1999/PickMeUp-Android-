@@ -1,0 +1,48 @@
+<resources>
+
+    <!-- Base application theme. -->
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--    </style>-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ecoranger</item>
+        <item name="colorPrimaryDark">@color/ecoranger</item>
+        <item name="colorAccent">@color/ecoranger</item>
+    </style>
+    <style name="AppThemelapangan" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/petugaslapangan</item>
+        <item name="colorPrimaryDark">@color/petugaslapangan</item>
+        <item name="colorAccent">@color/petugaslapangan</item>
+    </style>
+
+    <style name="AppThemekonten" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/petugaskontenreward</item>
+        <item name="colorPrimaryDark">@color/petugaskontenreward</item>
+        <item name="colorAccent">@color/petugaskontenreward</item>
+    </style>
+    <style name="AppThemepimpinan" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/pimpinan</item>
+        <item name="colorPrimaryDark">@color/pimpinan</item>
+        <item name="colorAccent">@color/pimpinan</item>
+    </style>
+    <style name="AppThememasyarakat" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/masyarakat</item>
+        <item name="colorPrimaryDark">@color/masyarakat</item>
+        <item name="colorAccent">@color/masyarakat</item>
+    </style>
+
+    <style name="netral" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#9adee9</item>
+        <item name="colorPrimaryDark">#9adee9</item>
+        <item name="colorAccent">#9adee9</item>
+    </style>
+</resources>

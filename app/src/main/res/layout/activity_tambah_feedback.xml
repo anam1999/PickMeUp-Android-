@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Feedback.TambahFeedback">
+
+    <GridLayout
+        android:background="#d3d3d3"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteX="0dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/radius"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="6dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:inputType="textMultiLine"
+                    android:gravity="center"
+                    android:textStyle="italic"
+                    android:text="@string/feedback"
+                    android:textAllCaps="true"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/tv_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="Masukkan username"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView" />
+
+                <EditText
+                    android:id="@+id/tv_komentar"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:hint="kritik dan saran"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nama" />
+
+                <TextView
+                    android:id="@+id/opsional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:ems="10"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:inputType="textMultiLine"
+                    android:gravity="center"
+                    android:hint="Masukkan gambar (opsional)"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_komentar" />
+
+                <ImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="250dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/opsional"
+                    app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+                <Button
+                    android:id="@+id/btn_simpan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="simpan"
+                    android:background="@drawable/radius4"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_photo" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
+</LinearLayout>
+</ScrollView>

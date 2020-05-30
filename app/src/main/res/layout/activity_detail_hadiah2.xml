@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Hadiah.DetailHadiah2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/ivHadiah"
+                android:layout_width="120dp"
+                android:layout_marginTop="20dp"
+                android:layout_height="170dp"
+                android:padding="4dp"/>
+
+            <TextView
+                android:id="@+id/tvNamaHadiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="Nama Hadiah"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+            <TextView
+                android:id="@+id/poinsaya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0dp"
+                android:text="Poin Saya:"
+                android:textColor="@color/black"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/tvDeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivHadiah"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Deskripsi"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <Button
+                android:id="@+id/kurang"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNamaHadiah"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="-"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <TextView
+                android:id="@+id/nilai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNamaHadiah"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:textSize="30sp"
+                android:layout_toRightOf="@id/kurang"
+                android:text=""
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <Button
+                android:id="@+id/tambahi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNamaHadiah"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/nilai"
+                android:text="+"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/TotalPoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/kurang"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="Total Point:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+
+            <Button
+                android:id="@+id/tukarkan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TotalPoin"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="Checkout"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tukarkan"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="status:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/jumlahdanharga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TotalPoin"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/tukarkan"
+                android:text="Total Jumlah:"
+
+                />
+
+            <TextView
+                android:id="@+id/cek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivHadiah"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="100dp"
+                android:textColor="@color/black"
+                android:text="Check Out Penukaran"/>
+
+
+            <TextView
+                android:id="@+id/namahadiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cek"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/black"
+                android:text="Nama Hadiah"/>
+
+            <TextView
+                android:id="@+id/harga_hadiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namahadiah"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="Harga Hadiah"/>
+
+            <TextView
+                android:id="@+id/sisapoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/harga_hadiah"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="Sisa Poin"/>
+
+            <Button
+                android:id="@+id/cektukar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sisapoin"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Tukarkan" />
+
+        </RelativeLayout>
+</LinearLayout>

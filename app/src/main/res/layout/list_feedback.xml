@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/radius"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/ivFeedback"
+                android:text="Nama"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/ivFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:padding="4dp"/>
+
+            <TextView
+                android:id="@+id/tvKomentar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNama"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivFeedback"
+                android:text="KOMENTAR"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <TextView
+                android:id="@+id/tvusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvKomentar"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/ivFeedback"
+                android:text="Username"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+        </LinearLayout>
+
+</LinearLayout>
