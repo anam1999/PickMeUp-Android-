@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgs"
     tools:context=".Beranda.BerandaPetugasLapangan"
     android:orientation="vertical">
 
@@ -64,7 +65,7 @@
         </androidx.cardview.widget.CardView>
         <GridLayout
             android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_height="270dp"
             android:layout_gravity="center"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
@@ -97,7 +98,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:id="@+id/monitoring"
                         android:background="@drawable/ikon_monitoring" />

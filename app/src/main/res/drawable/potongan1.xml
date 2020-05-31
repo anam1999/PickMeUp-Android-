@@ -8,9 +8,9 @@
 
         />
     <gradient
-        android:startColor="@color/netral"
-        android:centerColor="@color/netral"
-        android:endColor="@color/netral"
+        android:startColor="@color/white"
+        android:centerColor="@color/white"
+        android:endColor="@color/white"
         android:useLevel="true"
         android:gradientRadius="100dp"
         />

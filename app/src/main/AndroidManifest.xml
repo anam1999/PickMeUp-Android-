@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Profil.ProfilPetugasKontenReward"></activity>
+        <activity android:name=".TukarKodePoin"></activity>
+        <activity android:name=".Profil.ProfilPetugasKontenReward" />
         <activity android:name=".Profil.ProfilPetugasLapangan" />
         <activity android:name=".Profil.ProfilPimpinan" />
         <activity android:name=".Feedback.TambahFeedback" />
@@ -39,18 +40,24 @@
         <activity android:name=".Feedback.DetailFeedback" />
         <activity android:name=".KontenAnimasi.DetailKontenAnimasi" />
         <activity android:name=".Agenda.DetailAgenda" />
-        <activity android:name=".Profil.Profil"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Beranda.BerandaMasyarakat"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Beranda.BerandaPetugasKontenReward"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Beranda.BerandaPetugasLapangan"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Beranda.BerandaPimpinan"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".KontenAnimasi.LihatKontenAnimasi"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Profil.Profil"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Beranda.BerandaMasyarakat"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Beranda.BerandaPetugasKontenReward"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Beranda.BerandaPetugasLapangan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Beranda.BerandaPimpinan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".KontenAnimasi.LihatKontenAnimasi"
+            android:screenOrientation="portrait" />
         <activity android:name=".Daftar" />
         <activity android:name=".Masuk" />
         <activity android:name=".MainActivity">

@@ -73,26 +73,7 @@ public class Masuk extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-//hapus ae
 
-        final EditText cp = findViewById(R.id.cp);
-        Button logTokenButton = findViewById(R.id.btn_token);
-        logTokenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
-                    @Override
-                    public void onSuccess(InstanceIdResult instanceIdResult) {
-                        String deviceToken = instanceIdResult.getToken();
-                        String msg = getString(R.string.msg_token_fmt, deviceToken);
-                        Toast.makeText(Masuk.this, msg, Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "Refreshed token: " + deviceToken);
-                        cp.setText(deviceToken);
-
-                    }
-                });
-            }
-        });
 
 
         txt_email = findViewById(R.id.email);

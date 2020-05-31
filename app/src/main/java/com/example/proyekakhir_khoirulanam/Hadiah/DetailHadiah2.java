@@ -165,7 +165,7 @@ public class DetailHadiah2 extends AppCompatActivity {
     private void getPoin() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/showpoin/"+(Preferences.getId(getBaseContext()));
+        String url = "http://192.168.43.229/relasi/public/api/show/"+(Preferences.getId(getBaseContext()));
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override

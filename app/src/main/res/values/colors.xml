@@ -3,13 +3,13 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="pimpinan">#03DAC5</color>
+    <color name="pimpinan">#068ac7</color>
     <color name="masyarakat">#6777ef</color>
     <color name="black">#000000</color>
     <color name="putih">#f0f0f0</color>
-    <color name="white">#f0f0f0</color>
-    <color name="petugaskontenreward">#ffa426</color>
-    <color name="petugaslapangan">#47c363</color>
+    <color name="white">#fcfcfc</color>
+    <color name="petugaskontenreward">#faea0f</color>
+    <color name="petugaslapangan">#62d182</color>
     <color name="biru">#03DAC5</color>
     <color name="netral">#9adee9</color>
     <color name="ecoranger">#1BBADD</color>
