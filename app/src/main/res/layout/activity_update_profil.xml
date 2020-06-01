@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profil.UpdateProfil"
-    android:background="@color/white"
+    android:background="@drawable/bgs"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="260dp">
+        android:layout_height="300dp">
         <LinearLayout
-            android:background="#9adee9"
+
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:orientation="vertical">
@@ -23,12 +29,12 @@
                 android:background="@drawable/back"
                 android:layout_height="50dp"/>
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profilupdate"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:background="@color/white"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:background="@drawable/userikon"
                 />
             <EditText
                 android:layout_marginTop="10dp"
@@ -59,6 +65,8 @@
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/radius"
         android:layout_gravity="center">
         <LinearLayout
             android:orientation="horizontal"
@@ -149,8 +157,9 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/radius"
         android:layout_height="50dp"
         android:text="Update Profil"/>
 
 </LinearLayout>
+</ScrollView>

@@ -21,8 +21,8 @@ public class DetailAgenda extends AppCompatActivity {
         TextView rvNamaagenda = findViewById(R.id.tvNamaAgenda);
         TextView rvKeterangan = findViewById(R.id.tvKeterangan);
         ImageView ivAgenda = findViewById(R.id.ivAgenda);
-        Agenda agenda = getIntent().getParcelableExtra(EXTRA_AGENDA);
 
+        Agenda agenda = getIntent().getParcelableExtra(EXTRA_AGENDA);
         rvNamaagenda.setText(agenda.getNama_agenda());
         rvKeterangan.setText(agenda.getKeterangan());
         Glide.with(this)

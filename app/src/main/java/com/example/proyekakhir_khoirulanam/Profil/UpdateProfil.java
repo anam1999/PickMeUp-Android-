@@ -3,6 +3,7 @@ package com.example.proyekakhir_khoirulanam.Profil;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,6 +48,7 @@ public class UpdateProfil extends AppCompatActivity {
     String StringImage;
     Uri UriPhoto;
     Bitmap BitPhoto;
+    ProgressDialog pDialog;
     SharedPreferences sharedpreferences;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
@@ -131,10 +133,7 @@ public class UpdateProfil extends AppCompatActivity {
 
 
     private void SEND() {
-        Intent profils = new Intent(UpdateProfil.this, Profil.class);
-        profils.putExtra(TAG_ID, id);
 
-        startActivity(profils);
 
     }
 
@@ -185,11 +184,18 @@ public class UpdateProfil extends AppCompatActivity {
 
 
     private void UPDATE() {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Update Profil ...");
+        showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="http://192.168.43.229/relasi/public/api/edit/"+getIntent().getStringExtra(TAG_ID) ;
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Intent profils = new Intent(UpdateProfil.this, Profil.class);
+                profils.putExtra(TAG_ID, id);
+                startActivity(profils);
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
 
 
@@ -198,7 +204,8 @@ public class UpdateProfil extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(getBaseContext(), "gagal"+error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "gagal update profil", Toast.LENGTH_SHORT).show();
+                hideDialog();
 
             }
         }){
@@ -227,5 +234,14 @@ public class UpdateProfil extends AppCompatActivity {
 
         String encodeImage = Base64.encodeToString(imageByte, Base64.DEFAULT);
         return encodeImage;
+    }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

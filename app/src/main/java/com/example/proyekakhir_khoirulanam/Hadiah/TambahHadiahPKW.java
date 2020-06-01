@@ -2,6 +2,7 @@ package com.example.proyekakhir_khoirulanam.Hadiah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,6 +38,7 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
     Uri UriPhoto;
     Bitmap BitPhoto;
     String StringImage;
+    ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,13 +57,6 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
 
             case R.id.btn_simpan:
                 sendData();
-                sendToMain();
-                if (tvNama.getText().toString().length()==0) {
-                    tvNama.setError("Harap diisi terlebih dahulu");
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_SHORT).show();
-                }
                 break;
 
             case R.id.iv_photo:
@@ -113,23 +108,35 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void sendToMain() {
-        Intent intent = new Intent(this, LihatHadiahPKW.class);
-        startActivity(intent);
-        finish();
-    }
-
     private void sendData() {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Menambahkan ...");
+        showDialog();
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahhadiah", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(TambahHadiahPKW.this, response, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(TambahHadiahPKW.this, LihatHadiahPKW.class);
+                Toast.makeText(TambahHadiahPKW.this, "Data Hadiah Berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                startActivity(intent);
+                finish();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                 Toast.makeText(TambahHadiah.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+                if (tvNama.getText().toString().length()==0){
+                    tvNama.setError("nama hadiah tidak boleh kosong");
+                    hideDialog();
+                }else if(tvdeskripsi.getText().toString().length()==0) {
+                    tvdeskripsi.setError("deskripsi tidak boleh kosong");
+                    hideDialog();
+                }else if(poin.getText().toString().length()==0) {
+                    poin.setError("Poin tidak boleh kosong");
+                    hideDialog();
+                }
+                 Toast.makeText(TambahHadiahPKW.this, "Maaf ada kesalahan menambah Data Hadiah  ", Toast.LENGTH_LONG).show();
+                hideDialog();
             }
         }){
             @Override
@@ -161,5 +168,13 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
 
         return encodeImage;
     }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
 
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 }

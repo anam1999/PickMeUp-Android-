@@ -7,13 +7,14 @@ public class Hadiah implements Parcelable {
 
 
     private int id;
-    private String nama_hadiah, deskripsi, gambar, poin;
+    private String nama_hadiah, deskripsi, gambar, poin, jumlah;
 
-    public Hadiah(int id, String nama_hadiah, String gambar, String deskripsi, String poin) {
+    public Hadiah(int id, String nama_hadiah, String gambar, String deskripsi, String poin,String jumlah) {
         this.id = id;
         this.deskripsi = deskripsi;
         this.gambar = gambar;
         this.poin = poin;
+        this.jumlah = jumlah;
         this.nama_hadiah = nama_hadiah;
 
     }
@@ -24,6 +25,7 @@ public class Hadiah implements Parcelable {
         deskripsi = in.readString();
         gambar = in.readString();
         poin = in.readString();
+        jumlah = in.readString();
     }
 
     public static final Creator<Hadiah> CREATOR = new Creator<Hadiah>() {
@@ -49,6 +51,7 @@ public class Hadiah implements Parcelable {
     }
 
     public String getPoin() {return poin; }
+    public String getJumlah(){return jumlah;}
 
     @Override
     public int describeContents() {
@@ -62,5 +65,6 @@ public class Hadiah implements Parcelable {
         dest.writeString((deskripsi));
         dest.writeString(gambar);
         dest.writeString(poin);
+        dest.writeString(jumlah);
     }
 }

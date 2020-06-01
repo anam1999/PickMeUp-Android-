@@ -72,7 +72,7 @@ public class LihatHadiah extends AppCompatActivity {
     private void getpoin() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/showpoin/"+getIntent().getStringExtra(TAG_ID);
+        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override

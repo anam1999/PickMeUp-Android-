@@ -170,7 +170,7 @@ public class Masuk extends AppCompatActivity {
     private void checkLogin(final String email_1, final String password_1) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Logging in ...");
+        pDialog.setMessage("Proses Login ...");
         showDialog();
         final String token = FirebaseInstanceId.getInstance().getToken();
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

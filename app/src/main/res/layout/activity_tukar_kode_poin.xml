@@ -55,7 +55,7 @@
                     android:id="@+id/isikode"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="1222222222"
+                    android:hint="Masukkan Kode Voucher"
                     android:layout_marginBottom="30dp"
                     />
                 <Button

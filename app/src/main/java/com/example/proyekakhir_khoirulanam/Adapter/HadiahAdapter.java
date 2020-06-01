@@ -53,6 +53,7 @@ public class HadiahAdapter extends RecyclerView.Adapter<HadiahAdapter.ViewHolder
         holder.tvHadiah.setText(hadiah.getNama_hadiah());
         holder.tvdeskripsi.setText(hadiah.getDeskripsi());
         holder.poin.setText(hadiah.getPoin());
+        holder.jumlah.setText(hadiah.getJumlah());
 
 //        holder.tvidku.setText(hadiah.getId());
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
@@ -131,7 +132,7 @@ public class HadiahAdapter extends RecyclerView.Adapter<HadiahAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvHadiah,tvdeskripsi,poin;
+        TextView tvHadiah,tvdeskripsi,poin, jumlah;
         ImageView ivHadiah;
 
         public ViewHolder(@NonNull View itemView) {
@@ -141,6 +142,7 @@ public class HadiahAdapter extends RecyclerView.Adapter<HadiahAdapter.ViewHolder
             tvHadiah = itemView.findViewById(R.id.tvNamaHadiah);
             tvdeskripsi = itemView.findViewById(R.id.tvDeskripsi);
             ivHadiah = itemView.findViewById(R.id.ivHadiah);
+            jumlah =itemView.findViewById(R.id.jumlahhadiah);
 
         }
 

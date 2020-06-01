@@ -3,6 +3,7 @@ package com.example.proyekakhir_khoirulanam.Feedback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyekakhir_khoirulanam.Agenda.TambahAgendaP;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -38,6 +40,7 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
     Uri UriPhoto;
     Bitmap BitPhoto;
     Button btnSimpan;
+    ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +64,6 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
 
             case R.id.btn_simpan:
                 sendData();
-                sendToMain();
                 break;
 
             case R.id.iv_photo:
@@ -110,24 +112,36 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void sendToMain() {
-        Intent intent = new Intent(this, LihatFeedback.class);
-        startActivity(intent);
-        finish();
-    }
+
 
     private void sendData() {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Menambahkan ...");
+        showDialog();
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahfeedback", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(TambahFeedback.this, response, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(TambahFeedback.this, LihatFeedback.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if (tvNama.getText().toString().length()==0){
+                    tvNama.setError("judul tidak boleh kosong");
+                    hideDialog();
+                }else if(tvKomentar.getText().toString().length()==0) {
+                    tvKomentar.setError("keterangan tidak boleh kosong");
+                    hideDialog();
+                }
+                Toast.makeText(TambahFeedback.this, "Maaf ada kesalahan menambah Data Agenda  ", Toast.LENGTH_LONG).show();
+                hideDialog();
 //                Toast.makeText(TambahFeedback.this, ""+error, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext() ,"Email/kritik_saran tidak boleh kosong", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext() ,"Email/kritik_saran tidak boleh kosong", Toast.LENGTH_LONG).show();
             }
         }){
             @Override
@@ -152,5 +166,14 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
 
         String encodeImage = Base64.encodeToString(imageByte, Base64.DEFAULT);
         return encodeImage;
+    }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

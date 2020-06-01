@@ -28,12 +28,22 @@
                 android:text="Nama Hadiah"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
-
+            <TextView
+                android:id="@+id/jumlahhadiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNamaHadiah"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="jumlah hadiah"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
             <TextView
                 android:id="@+id/tvDeskripsis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvNamaHadiah"
+                android:layout_below="@id/jumlahhadiah"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/ivHadiah"

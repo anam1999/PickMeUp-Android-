@@ -31,13 +31,14 @@ import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Profil.Profil;
 import com.example.proyekakhir_khoirulanam.R;
+import com.example.proyekakhir_khoirulanam.TukarKodePoin;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class BerandaMasyarakat extends AppCompatActivity {
     String  nama,id,email,point;
-    ImageView tukarkode,tukarhadiah,konten,feedback,agenda,keluar,profil;
+    ImageView transaksi,tukarhadiah,konten,feedback,agenda,kode,profil;
     SharedPreferences sharedpreferences;
     TextView txt_nama,emailku,poin;
     public final static String TAG_NAMA = "username";
@@ -63,12 +64,13 @@ public class BerandaMasyarakat extends AppCompatActivity {
 
         nama = getIntent().getStringExtra(TAG_NAMA);
         email = getIntent().getStringExtra(TAG_EMAIL);
-        tukarkode =findViewById(R.id.tukarkode);
+        transaksi =findViewById(R.id.tukarkode);
         tukarhadiah =findViewById(R.id.tukarhadiah);
         konten=findViewById(R.id.kontenanimasi);
         feedback = findViewById(R.id.feedback);
         agenda=findViewById(R.id.agenda);
         poin =findViewById(R.id.poinsesion);
+        kode=findViewById(R.id.kode);
 
         //setText
         txt_nama.setText(nama);
@@ -81,12 +83,18 @@ public class BerandaMasyarakat extends AppCompatActivity {
                 startActivity(profils);
             }
         });
-
-        tukarkode.setOnClickListener(new View.OnClickListener() {
+        kode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent kode= new Intent(BerandaMasyarakat.this, LihatTransaksi.class);
-                startActivity(kode);
+                Intent Kode = new Intent(BerandaMasyarakat.this, TukarKodePoin.class);
+                startActivity(Kode);
+            }
+        });
+        transaksi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent transaksi= new Intent(BerandaMasyarakat.this, LihatTransaksi.class);
+                startActivity(transaksi);
             }
         });
         feedback.setOnClickListener(new View.OnClickListener() {

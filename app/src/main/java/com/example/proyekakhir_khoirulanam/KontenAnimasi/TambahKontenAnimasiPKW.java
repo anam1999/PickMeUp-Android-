@@ -3,6 +3,7 @@ package com.example.proyekakhir_khoirulanam.KontenAnimasi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -38,6 +39,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
     Uri UriPhoto;
     Bitmap BitPhoto;
     Button btnSimpan;
+    ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +64,6 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
 
             case R.id.btn_simpan:
                 sendData();
-                sendToMain();
                 break;
 
             case R.id.iv_photo:
@@ -110,23 +111,33 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
 
     }
 
-    private void sendToMain() {
-        Intent intent = new Intent(this, LihatKontenAnimasiPKW.class);
-        startActivity(intent);
-        finish();
-    }
-
     private void sendData() {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Menambahkan ...");
+        showDialog();
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahkonten", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(TambahKontenAnimasiPKW.this, response, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(TambahKontenAnimasiPKW.this, LihatKontenAnimasiPKW.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(TambahKontenAnimasiPKW.this, "Data Konten Animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(TambahKontenAnimasiPKW.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+                if (tvJudul.getText().toString().length()==0){
+                    tvJudul.setError("judul tidak boleh kosong");
+                    hideDialog();
+                }else if(tvDeskripsi.getText().toString().length()==0) {
+                    tvDeskripsi.setError("deskripsi tidak boleh kosong");
+                    hideDialog();
+                }
+                Toast.makeText(TambahKontenAnimasiPKW.this, "Maaf ada kesalahan menambah Data Konten Animasi  ", Toast.LENGTH_LONG).show();
+                hideDialog();
+//                Toast.makeText(TambahKontenAnimasiPKW.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }
         }){
             @Override
@@ -149,5 +160,14 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
 
         String encodeImage = Base64.encodeToString(imageByte, Base64.DEFAULT);
         return encodeImage;
+    }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

@@ -36,9 +36,9 @@ public class ModelHadiah extends ViewModel {
                         String title = objek.getString("nama_hadiah");
                         String deskripsi = objek.getString("deskripsi");
                         String image = objek.getString("file");
-                        String poin =objek.getString("jumlah_poin");
-
-                        Hadiah hadiah = new Hadiah(id, title,image,deskripsi,poin);
+                        String poin =objek.getString("harga_hadiah");
+                        String jumlah = objek.getString("jumlah_hadiah");
+                        Hadiah hadiah = new Hadiah(id, title,image,deskripsi,poin,jumlah);
                         hadiahArrayList.add(hadiah);
 
                     }

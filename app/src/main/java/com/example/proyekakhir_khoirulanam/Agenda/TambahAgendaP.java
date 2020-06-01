@@ -3,6 +3,7 @@ package com.example.proyekakhir_khoirulanam.Agenda;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -38,6 +40,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
     Uri UriPhoto;
     Bitmap BitPhoto;
     Button btnSimpan;
+    ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +67,6 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
 
             case R.id.btn_simpan:
                 sendData();
-                sendToMain();
                 break;
 
             case R.id.iv_photo:
@@ -113,23 +115,34 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void sendToMain() {
-        Intent intent = new Intent(this, LihatAgenda.class);
-        startActivity(intent);
-        finish();
-    }
 
     private void sendData() {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Menambahkan ...");
+        showDialog();
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahagenda", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(TambahAgendaP.this, response, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(TambahAgendaP.this, LihatAgenda.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(TambahAgendaP.this, "Data Agenda berhasil ditambahkan", Toast.LENGTH_LONG).show();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(TambahAgendaP.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+                if (tvAgenda.getText().toString().length()==0){
+                    tvAgenda.setError("judul tidak boleh kosong");
+                    hideDialog();
+                }else if(tvKeterangan.getText().toString().length()==0) {
+                    tvKeterangan.setError("keterangan tidak boleh kosong");
+                    hideDialog();
+                }
+                Toast.makeText(TambahAgendaP.this, "Maaf ada kesalahan menambah Data Agenda  ", Toast.LENGTH_LONG).show();
+                hideDialog();
+//                Toast.makeText(TambahAgendaP.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }
         }){
             @Override
@@ -152,5 +165,14 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
 
         String encodeImage = Base64.encodeToString(imageByte, Base64.DEFAULT);
         return encodeImage;
+    }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

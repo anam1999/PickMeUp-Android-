@@ -3,7 +3,9 @@ package com.example.proyekakhir_khoirulanam.Hadiah;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -36,17 +38,19 @@ import java.util.Map;
 
 public class DetailHadiah2 extends AppCompatActivity {
     Hadiah hadiah ;
-    TextView poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,kurang,tambah,isi,jumlahharga,namahadiah,hargahadiah,sisa,nilai;
-    Button checkout,tukarkan;
+    TextView jumlahhadiahs,jumlahhadiah, poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,isi,jumlahharga,namahadiah,hargahadiah,sisa,nilai;
+    Button checkout,tukarkan,kurang,tambah;
     HitungTukarHadiah hitungTukarHadiah =new HitungTukarHadiah();
     SharedPreferences sharedpreferences;
+    ProgressDialog pDialog;
     int quantity,j,k = 0;
 //    int ss=0;
-    int poinku,hargaha,cobas=0;
-    String hadiahhargas,coba;
+    int poinku,hargaha,stokku,stokhadiah=0;
+    String hadiahhargas,stoks,stokhad;
     String alamatgambarhadiah;
     int poinkus=0;
-    public static String  id, poinsa="";
+    int ids;
+    public static String  id, poinsa,stokpesan="";
     public final static String TAG_ID = "id";
     public static final String EXTRA_DETAILs ="penukaranhadiah";
     public static int poins,poinhadiah,a=0 ;
@@ -59,6 +63,8 @@ public class DetailHadiah2 extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         getSupportActionBar().setTitle("Penukaran Hadiah");
         actionBar.show();
+
+
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id=getIntent().getStringExtra(TAG_ID);
         nilai = (TextView) findViewById(R.id.nilai);
@@ -78,12 +84,16 @@ public class DetailHadiah2 extends AppCompatActivity {
         namahadiah = findViewById(R.id.namahadiah);
         tukarkan=findViewById(R.id.cektukar);
         nilai =findViewById(R.id.nilai);
+        jumlahhadiah=findViewById(R.id.jumlahhadiah);
+        jumlahhadiahs=findViewById(R.id.jumlahhadiahs);
 
         hadiah = getIntent().getParcelableExtra(EXTRA_DETAILs);
-        rvHadiah.setText(hadiah.getNama_hadiah());
+        ids = hadiah.getId();
+        rvHadiah.setText("Nama Hadiah :"+hadiah.getNama_hadiah());
         rvDeskripsi.setText("Deskripsi :"+hadiah.getDeskripsi());
         rvpoin.setText(hadiah.getPoin()+"Poin");
         poinhadiah= Integer.parseInt(hadiah.getPoin());
+        jumlahhadiah.setText("Jumlah Hadiah"+hadiah.getJumlah());
 //        String sss= String.valueOf(ss);
 //        String hitungs = String.valueOf((k*ss));
 //        nilai.setText(sss);
@@ -143,6 +153,7 @@ public class DetailHadiah2 extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 updatepoin();
+                                updatejumlahhadiah();
                             }
 //                                if (poinku >= cobas){
 //                                    updatepoin();
@@ -155,6 +166,8 @@ public class DetailHadiah2 extends AppCompatActivity {
 
 
     }
+
+
     private void display(int number) {
         nilai.setText("" + number);
         j = (number);
@@ -175,7 +188,7 @@ public class DetailHadiah2 extends AppCompatActivity {
                         JSONObject data = response.getJSONObject(i);
                         poinsa = data.getString("poin");
                     }
-                    poinsaya.setText(poinsa);
+                    poinsaya.setText("Poin Anda: "+poinsa);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -191,13 +204,27 @@ public class DetailHadiah2 extends AppCompatActivity {
     }
 
     private void Checkout() {
+        stokpesan=(hadiah.getJumlah());
+        stokhad= String.valueOf(j);
 
+        stokhadiah=j;
+        stokku= Integer.parseInt(hadiah.getJumlah());
+
+        isi.setText(hitungTukarHadiah.jumlahhadiah(Double.parseDouble(stokpesan), Double.parseDouble(stokhad)));
+        if (stokku >= stokhadiah){
+            Toast.makeText(getBaseContext(),"hadiah ada ",Toast.LENGTH_SHORT).show();
+            tukarkan.setEnabled(true);
+        }else {
+            Toast.makeText(getBaseContext(),"hadiah habis",Toast.LENGTH_SHORT).show();
+            tukarkan.setEnabled(false);
+        }
+        //
         k = Integer.parseInt(hadiah.getPoin());
         hadiahhargas = String.valueOf(j * k);
         hargaha= Integer.parseInt(hadiahhargas);
         poinku= Integer.parseInt(poinsa);
         isi.setText(hitungTukarHadiah.hadiah1(Double.parseDouble(poinsa), Double.parseDouble(hadiahhargas)));
-        if (poinku >= hargaha){
+        if (poinku >= hargaha&&stokku>=stokhadiah){
             Toast.makeText(getBaseContext(),"Anda bisa menukar ",Toast.LENGTH_SHORT).show();
 //            updatepoin();
             tukarkan.setEnabled(true);
@@ -209,25 +236,31 @@ public class DetailHadiah2 extends AppCompatActivity {
         jumlahharga.setText(hadiahhargas);
         namahadiah.setText(hadiah.getNama_hadiah());
         hargahadiah.setText(hadiah.getPoin());
+        jumlahhadiahs.setText(stokpesan);
         sisa.setText(poinsa);
+
 
     }
 
     private void updatepoin() {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Menukar ...");
+        showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="http://192.168.43.229/relasi/public/api/transaksi/"+(Preferences.getId(getBaseContext()));
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Selamat, Anda Berhasil Menukar ", Toast.LENGTH_SHORT).show();
-
+                hideDialog();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
-                Toast.makeText(getBaseContext(), "gagal"+error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Maaf Terjadi Kesalahan Saat Proses Menukar", Toast.LENGTH_SHORT).show();
+                hideDialog();
 
             }
         }){
@@ -238,6 +271,7 @@ public class DetailHadiah2 extends AppCompatActivity {
                 MyData.put("nama_hadiah", namahadiah.getText().toString());
                 MyData.put("harga_hadiah", hargahadiah.getText().toString());
                 MyData.put("sisapoin", sisa.getText().toString());
+                MyData.put("jumlah_hadiah", jumlahhadiahs.getText().toString());
                 MyData.put("file", alamatgambarhadiah.toString());
 
                 return MyData;
@@ -247,6 +281,40 @@ public class DetailHadiah2 extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+    private void updatejumlahhadiah() {
+        RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
+        String url ="http://192.168.43.229/relasi/public/api/upjumlah/"+ids;
+        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
 
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getBaseContext(), "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> MyData = new HashMap<String, String>();
+                MyData.put("jumlah_hadiah", jumlahhadiahs.getText().toString());
+                return MyData;
+            }
+        };
+
+        requestQueue.add(stringRequest);
+    }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 
 }

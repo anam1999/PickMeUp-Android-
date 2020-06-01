@@ -4,6 +4,7 @@ public class HitungTukarHadiah {
     public String status = "";
 
     public double poinSementara;
+    public double stoksementara;
 
     public String hadiah1(double poinsaya, double hadiah1) {
         if (poinsaya >= hadiah1) {
@@ -18,15 +19,15 @@ public class HitungTukarHadiah {
         return (status);
 
     }
-    public String kondisi(double poinsaya, double hadiah) {
-        if (poinsaya >= hadiah) {
-            poinSementara = poinsaya - hadiah;
-            status = "Hadiah berhasil ditukar";
-            DetailHadiah2.poinsa = String.valueOf((int)poinSementara);
+    public String jumlahhadiah(double pesanansaya, double jumlah) {
+        if (pesanansaya >= jumlah) {
+            poinSementara = pesanansaya - jumlah;
+            status = "Jumlah  Hadiah ada";
+            DetailHadiah2.stokpesan = String.valueOf((int)stoksementara);
 
 
         } else {
-            status = "Poin anda tidak cukup";
+            status = "Jumlah Hadiah telah habis ";
 
         }
         return (status);

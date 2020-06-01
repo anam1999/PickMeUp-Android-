@@ -8,8 +8,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-
+            android:layout_height="match_parent"
             android:padding="8dp">
 
             <ImageView
@@ -19,16 +18,6 @@
                 android:layout_height="170dp"
                 android:padding="4dp"/>
 
-            <TextView
-                android:id="@+id/tvNamaHadiah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/ivHadiah"
-                android:text="Nama Hadiah"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
             <TextView
                 android:id="@+id/poinsaya"
                 android:layout_width="wrap_content"
@@ -45,16 +34,37 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ivHadiah"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="25dp"
                 android:text="Deskripsi"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-            <Button
-                android:id="@+id/kurang"
+            <TextView
+                android:id="@+id/tvNamaHadiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="Nama Hadiah"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
 
+            <TextView
+                android:id="@+id/jumlahhadiah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNamaHadiah"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="jumlah hadiah"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+            <Button
+                android:id="@+id/kurang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/jumlahhadiah"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/ivHadiah"
@@ -64,18 +74,18 @@
                 android:id="@+id/nilai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvNamaHadiah"
+                android:layout_below="@id/jumlahhadiah"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:textSize="30sp"
                 android:layout_toRightOf="@id/kurang"
-                android:text=""
+                android:text="0"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
             <Button
                 android:id="@+id/tambahi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvNamaHadiah"
+                android:layout_below="@id/jumlahhadiah"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/nilai"
@@ -90,7 +100,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/ivHadiah"
-                android:text="Total Point:"
+                android:text="HargaHadiah:"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
 
@@ -169,12 +179,22 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:text="Sisa Poin"/>
+            <TextView
+                android:id="@+id/jumlahhadiahs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sisapoin"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="jml"/>
+
 
             <Button
                 android:id="@+id/cektukar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/sisapoin"
+                android:layout_below="@id/jumlahhadiahs"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:text="Tukarkan" />

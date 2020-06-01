@@ -45,6 +45,7 @@ public class HadiahAdapterView extends RecyclerView.Adapter<HadiahAdapterView.Vi
         holder.tvHadiah.setText(hadiah.getNama_hadiah());
         holder.tvdeskripsi.setText(hadiah.getDeskripsi());
         holder.poin.setText(hadiah.getPoin());
+        holder.jumlah.setText(hadiah.getJumlah());
 
 
 
@@ -73,7 +74,7 @@ public class HadiahAdapterView extends RecyclerView.Adapter<HadiahAdapterView.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvHadiah,tvdeskripsi,poin,kus;
+        TextView tvHadiah,tvdeskripsi,poin,jumlah;
         ImageView ivHadiah;
 
         public ViewHolder(@NonNull View itemView) {
@@ -83,6 +84,8 @@ public class HadiahAdapterView extends RecyclerView.Adapter<HadiahAdapterView.Vi
             tvHadiah = itemView.findViewById(R.id.tvNamaHadiah);
             tvdeskripsi = itemView.findViewById(R.id.tvDeskripsi);
             ivHadiah = itemView.findViewById(R.id.ivHadiah);
+            jumlah = itemView.findViewById(R.id.jumlahhadiah);
+
 
         }
 
