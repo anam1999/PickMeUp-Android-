@@ -12,7 +12,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiahPKW;
@@ -20,7 +29,11 @@ import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.Profil;
+import com.example.proyekakhir_khoirulanam.Profil.ProfilPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.R;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class BerandaPetugasKontenReward extends AppCompatActivity {
     TextView txt_nama,emailku;
@@ -38,6 +51,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        getProfil();
         konten = findViewById(R.id.kontenanimasi);
         cekhadiah = findViewById(R.id.cekhadiah);
         feedback = findViewById(R.id.feedback);
@@ -58,7 +72,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profils = new Intent(BerandaPetugasKontenReward.this, Profil.class);
+                Intent profils = new Intent(BerandaPetugasKontenReward.this, ProfilPetugasKontenReward.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
                 profils.putExtra(TAG_EMAIL, email);
@@ -104,6 +118,42 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             }
         });
     }
+
+    private void getProfil() {
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
+
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+
+                    for( int i=0; i < response.length();i++){
+                        JSONObject data = response.getJSONObject(i);
+                        Glide.with(getBaseContext())
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .apply(new RequestOptions().centerCrop())
+                                .into(profil);
+                    }
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getBaseContext(), error.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        queue.add(arrayRequest);
+
+    }
+
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,7 @@ import java.util.Map;
 public class Daftar extends AppCompatActivity {
     ProgressDialog pDialog;
     EditText editText1,editText2,editText3;
+    ConnectivityManager conMgr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,14 +53,24 @@ public class Daftar extends AppCompatActivity {
             //Finally we need to implement a method to store this unique id to our server
             @Override
             public void onClick(View view) {
-                daftar();
+
+                String user = editText1.getText().toString();
+                String password = editText2.getText().toString();
+                String email = editText3.getText().toString();
+
+                // mengecek kolom yang kosong
+                if (email.trim().length() > 0 && password.trim().length() > 0&& user.trim().length() > 0) {
+                        daftar(user,password,email);
+                }else {
+                    Toast.makeText(getApplicationContext() ,"Username ,Email atau Paswword tidak boleh kosong", Toast.LENGTH_LONG).show();
+                }
 
 
             }
         });
     }
 
-    private void daftar() {
+    private void daftar(final String email, final String password,final String user) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Mendaftar ...");
@@ -79,25 +91,26 @@ public class Daftar extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (editText1.getText().toString().length()==0){
-                    editText1.setError("username tidak boleh ksong");
-                    hideDialog();
-                }else if(editText2.getText().toString().length()==0) {
-                    editText2.setError(" email tidak boleh kosong");
-                    hideDialog();
-                }else if(editText3.getText().toString().length()==0) {
-                    editText3.setError("password tidak boleh kosong");
-                    hideDialog();
-                }
+//                if (editText1.getText().toString().length()==0){
+//                    editText1.setError("username tidak boleh ksong");
+//                    hideDialog();
+//                }else if(editText2.getText().toString().length()==0) {
+//                    editText2.setError(" email tidak boleh kosong");
+//                    hideDialog();
+//                }else if(editText3.getText().toString().length()==0) {
+//                    editText3.setError("password tidak boleh kosong");
+//                    hideDialog();
+//                }
+
             }
         }){
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> MyData = new HashMap<String, String>();
                 final String a ="masyarakat";
-                MyData.put("username", editText1.getText().toString());
-                MyData.put("email", editText2.getText().toString());
-                MyData.put("password",editText3.getText().toString());
+                MyData.put("username", user);
+                MyData.put("email", email);
+                MyData.put("password",password);
                 MyData.put("role",a);
                 MyData.put("token",token);
                 return MyData;

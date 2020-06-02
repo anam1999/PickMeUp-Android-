@@ -62,6 +62,7 @@ public class BerandaMasyarakat extends AppCompatActivity {
         id=getIntent().getStringExtra(TAG_ID);
 
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
+        Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
 
         nama = getIntent().getStringExtra(TAG_NAMA);
         email = getIntent().getStringExtra(TAG_EMAIL);

@@ -54,7 +54,7 @@ public class Profil extends AppCompatActivity {
         getSupportActionBar().setTitle("Profil");
         actionBar.hide();
         getprofil();
-        getprofilpimpinan();
+
         username = findViewById(R.id.usernameku);
         emails =findViewById(R.id.emailku);
         emailnya =findViewById(R.id.emails);
@@ -109,51 +109,6 @@ public class Profil extends AppCompatActivity {
         });
     }
 
-
-    private void showDialog(){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-
-        // set title dialog
-        alertDialogBuilder.setTitle("Keluar dari aplikasi?");
-
-        // set pesan dari dialog
-        alertDialogBuilder
-                .setIcon((R.drawable.ikonku))
-                .setCancelable(false)
-                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // jika tombol diklik, maka akan menutup activity ini
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putBoolean(Masuk.session_status, false);
-                        editor.putString(TAG_ID, null);
-                        editor.putString(TAG_NAMA, null);
-                        editor.putString(TAG_EMAIL, null);
-                        editor.putString(TAG_ROLE,null);
-                        editor.commit();
-                        Intent ua = new Intent(Profil.this, Masuk.class);
-                        ua.addCategory(Intent.CATEGORY_HOME);
-                        ua.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        finish();
-                        startActivity(ua);
-
-                    }
-                })
-                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // jika tombol ini diklik, akan menutup dialog
-                        // dan tidak terjadi apa2
-                        dialog.cancel();
-                    }
-                });
-
-        // membuat alert dialog dari builder
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // menampilkan alert dialog
-        alertDialog.show();
-
-    }
     private void getprofil() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -195,45 +150,47 @@ public class Profil extends AppCompatActivity {
         queue.add(arrayRequest);
 
     }
-    private void getprofilpimpinan() {
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/showpimpinan/"+getIntent().getStringExtra(TAG_ID);
 
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
+    private void showDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
 
-                try {
+        // set title dialog
+        alertDialogBuilder.setTitle("Keluar dari aplikasi?");
 
-                    for( int i=0; i < response.length();i++){
-                        JSONObject data = response.getJSONObject(i);
-                        namaku.setText(data.getString("nama"));
-                        alamat.setText(data.getString("alamat"));
-                        nohp.setText(data.getString("nohp"));
-                        username.setText(data.getString("username"));
-                        emailnya.setText(data.getString("email"));
-                        Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
-                                .apply(new RequestOptions().centerCrop())
-                                .into(profil);
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setIcon((R.drawable.ikonku))
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putBoolean(Masuk.session_status, false);
+                        editor.putString(TAG_ID, null);
+                        editor.putString(TAG_NAMA, null);
+                        editor.putString(TAG_EMAIL, null);
+                        editor.putString(TAG_ROLE,null);
+                        editor.commit();
+                        Intent ua = new Intent(Profil.this, Masuk.class);
+                        finish();
+                        startActivity(ua);
+
                     }
+                })
+                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // jika tombol ini diklik, akan menutup dialog
+                        // dan tidak terjadi apa2
+                        dialog.cancel();
+                    }
+                });
 
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
 
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        queue.add(arrayRequest);
+        // menampilkan alert dialog
+        alertDialog.show();
 
     }
-
 }

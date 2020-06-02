@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Agenda.TambahAgendaP;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -56,6 +57,7 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         btnSimpan = findViewById(R.id.btn_simpan);
         btnSimpan.setOnClickListener(this);
         ivPhoto.setOnClickListener(this);
+        tvNama.setText(Preferences.getLoggedInUser(getBaseContext()));
     }
 
     @Override

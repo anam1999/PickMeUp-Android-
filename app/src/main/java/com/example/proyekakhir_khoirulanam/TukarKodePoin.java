@@ -45,7 +45,17 @@ String poin,kodeku;
         Tukarkan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TukarKode();
+
+                String tukarkode = Kode.getText().toString();
+
+                // mengecek kolom yang kosong
+                if (tukarkode.trim().length() > 0) {
+                    TukarKode(tukarkode);
+                } else {
+                    // Prompt user to enter credentials
+                    Toast.makeText(getApplicationContext() ,"Field tidak boleh kosong", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -78,7 +88,7 @@ String poin,kodeku;
     }
 
 
-    private void TukarKode() {
+    private void TukarKode(final String tukarkode) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menukar Mohon Tunggu ...");
@@ -99,20 +109,15 @@ String poin,kodeku;
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                kodeku = Kode.getText().toString();
-                 if (kodeku.matches("")){
-                    Toast.makeText(getBaseContext(), "Maaf Input tidak boleh kosong", Toast.LENGTH_SHORT).show();
-                    hideDialog();
-                }else {
-                     Toast.makeText(getBaseContext(), "Maaf Salah input anda kode sudah digunakan", Toast.LENGTH_SHORT).show();
-                     hideDialog();
-                 }
+                Toast.makeText(getBaseContext(), "Maaf Terjadi Kesalahan.Silahkan Coba Lagi", Toast.LENGTH_SHORT).show();
+                hideDialog();
+
             }
         }){
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> MyData = new HashMap<String, String>();
-                MyData.put("kode_reward", Kode.getText().toString());
+                MyData.put("kode_reward", tukarkode);
                 return MyData;
             }
         };
