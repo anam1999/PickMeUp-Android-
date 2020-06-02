@@ -37,13 +37,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class BerandaMasyarakat extends AppCompatActivity {
-    String  nama,id,email,point;
+    String  nama,id,email,role;
     ImageView transaksi,tukarhadiah,konten,feedback,agenda,kode,profil;
     SharedPreferences sharedpreferences;
     TextView txt_nama,emailku,poin;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
     public final static String TAG_EMAIL = "email";
+    public final static String TAG_ROLE = "role";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +80,9 @@ public class BerandaMasyarakat extends AppCompatActivity {
             public void onClick(View v) {
                 Intent profils = new Intent(BerandaMasyarakat.this, Profil.class);
                 profils.putExtra(TAG_ID, id);
-
+                profils.putExtra(TAG_NAMA, nama);
+                profils.putExtra(TAG_EMAIL, email);
+                profils.putExtra(TAG_ROLE, role);
                 startActivity(profils);
             }
         });
@@ -204,6 +207,7 @@ public class BerandaMasyarakat extends AppCompatActivity {
         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 //if user pressed "yes", then he is allowed to exit from application
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
