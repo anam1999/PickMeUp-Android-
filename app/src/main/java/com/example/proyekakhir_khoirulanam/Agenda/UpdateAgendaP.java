@@ -39,6 +39,7 @@ public class UpdateAgendaP extends AppCompatActivity {
     EditText Namaagenda,Keterangan;
     ImageView ivAgenda;
     String StringImage;
+    String alamatagenda;
     Uri UriPhoto;
     Bitmap BitPhoto;
     ProgressDialog pDialog;
@@ -59,6 +60,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         Namaagenda.setText(agenda.getNama_agenda());
         Keterangan.setText(agenda.getKeterangan());
 
+        alamatagenda=( "http://192.168.43.229/relasi/public/agenda/" +agenda.getGambar());
         Glide.with(this)
                 .load( "http://192.168.43.229/relasi/public/agenda/" +agenda.getGambar())
                 .apply(new RequestOptions().centerCrop())
@@ -132,6 +134,7 @@ public class UpdateAgendaP extends AppCompatActivity {
                 agenda.putExtra(EXTRA_AGENDA,id);
                 startActivity(agenda);
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                hideDialog();
 
 
             }

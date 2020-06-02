@@ -24,6 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakat;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.R;
@@ -32,7 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Profil extends AppCompatActivity {
-    String nama,id,email;
+    String nama,id,email,role;
     TextView username,emails, namaku,alamat,nohp,emailnya;
     ImageButton keluar,kembali;
     SharedPreferences sharedpreferences;
@@ -42,6 +43,7 @@ public class Profil extends AppCompatActivity {
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
     public final static String TAG_EMAIL = "email";
+    public final static String TAG_ROLE = "role";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class Profil extends AppCompatActivity {
         getSupportActionBar().setTitle("Profil");
         actionBar.hide();
         getprofil();
+        getprofilpimpinan();
         username = findViewById(R.id.usernameku);
         emails =findViewById(R.id.emailku);
         emailnya =findViewById(R.id.emails);
@@ -78,6 +81,7 @@ public class Profil extends AppCompatActivity {
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
                 profils.putExtra(TAG_EMAIL, email);
+                profils.putExtra(TAG_ROLE, role);
 
                 startActivity(profils);
             }
@@ -86,10 +90,11 @@ public class Profil extends AppCompatActivity {
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Profil.this, BerandaPimpinan.class);
+                Intent intent=new Intent(Profil.this, BerandaMasyarakat.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
                 intent.putExtra(TAG_EMAIL, email);
+                intent.putExtra(TAG_ROLE, role);
                 startActivity(intent);
             }
         });
@@ -103,6 +108,8 @@ public class Profil extends AppCompatActivity {
             }
         });
     }
+
+
     private void showDialog(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
@@ -122,10 +129,14 @@ public class Profil extends AppCompatActivity {
                         editor.putString(TAG_ID, null);
                         editor.putString(TAG_NAMA, null);
                         editor.putString(TAG_EMAIL, null);
+                        editor.putString(TAG_ROLE,null);
                         editor.commit();
                         Intent ua = new Intent(Profil.this, Masuk.class);
+                        ua.addCategory(Intent.CATEGORY_HOME);
+                        ua.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         finish();
                         startActivity(ua);
+
                     }
                 })
                 .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
@@ -177,11 +188,52 @@ public class Profil extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT).show();
 
             }
         });
         queue.add(arrayRequest);
 
     }
+    private void getprofilpimpinan() {
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        String url = "http://192.168.43.229/relasi/public/api/showpimpinan/"+getIntent().getStringExtra(TAG_ID);
+
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+
+                try {
+
+                    for( int i=0; i < response.length();i++){
+                        JSONObject data = response.getJSONObject(i);
+                        namaku.setText(data.getString("nama"));
+                        alamat.setText(data.getString("alamat"));
+                        nohp.setText(data.getString("nohp"));
+                        username.setText(data.getString("username"));
+                        emailnya.setText(data.getString("email"));
+                        Glide.with(getBaseContext())
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .apply(new RequestOptions().centerCrop())
+                                .into(profil);
+                    }
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        queue.add(arrayRequest);
+
+    }
+
 }

@@ -42,6 +42,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
     EditText rvHadiah;
     EditText rvDeskripsi;
     EditText rvpoin;
+    EditText jumlahhadiah;
     Button updatehadiah;
     String StringImage;
     Uri UriPhoto;
@@ -61,12 +62,14 @@ public class UpdateHadiahPKW extends AppCompatActivity {
         rvDeskripsi = findViewById(R.id.tv_deskripsi);
         rvpoin = findViewById(R.id.tv_poin);
         updatehadiah =findViewById(R.id.updatehadiah);
+        jumlahhadiah = findViewById(R.id.tv_jumlah);
 
         Hadiah hadiah = getIntent().getParcelableExtra(EXTRA_DETAILs);
         id =hadiah.getId();
         rvHadiah.setText(hadiah.getNama_hadiah());
         rvDeskripsi.setText(hadiah.getDeskripsi());
         rvpoin.setText(hadiah.getPoin());
+        jumlahhadiah.setText(hadiah.getJumlah());
 
         Glide.with(this)
                 .load( "http://192.168.43.229/relasi/public/hadiah/" +hadiah.getGambar())
@@ -140,6 +143,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
                 profils.putExtra(EXTRA_DETAILs,id);
                 startActivity(profils);
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                hideDialog();
 
 
             }
@@ -156,8 +160,9 @@ public class UpdateHadiahPKW extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> MyData = new HashMap<String, String>();
                 MyData.put("nama_hadiah", rvHadiah.getText().toString());
+                MyData.put("harga_hadiah",rvpoin.getText().toString());
                 MyData.put("deskripsi", rvDeskripsi.getText().toString());
-                MyData.put("jumlah_poin",rvpoin.getText().toString());
+                MyData.put("jumlah_hadiah",jumlahhadiah.getText().toString());
                 if(StringImage!=null){
                     MyData.put("file",StringImage);
                 }

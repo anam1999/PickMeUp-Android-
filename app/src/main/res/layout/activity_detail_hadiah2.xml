@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgs"
+    android:orientation="vertical"
     tools:context=".Hadiah.DetailHadiah2">
-
+    <TextView
+        android:id="@+id/penukaran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:text="Penukaran Hadiah"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
         <RelativeLayout
+            android:background="@drawable/radius"
             android:layout_width="match_parent"
+            android:layout_margin="10dp"
             android:layout_height="match_parent"
             android:padding="8dp">
 
@@ -15,7 +36,7 @@
                 android:id="@+id/ivHadiah"
                 android:layout_width="120dp"
                 android:layout_marginTop="20dp"
-                android:layout_height="170dp"
+                android:layout_height="150dp"
                 android:padding="4dp"/>
 
             <TextView
@@ -28,15 +49,6 @@
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-            <TextView
-                android:id="@+id/tvDeskripsi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ivHadiah"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="25dp"
-                android:text="Deskripsi"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <TextView
                 android:id="@+id/tvNamaHadiah"
@@ -50,24 +62,60 @@
                 android:textColor="#000000" />
 
             <TextView
-                android:id="@+id/jumlahhadiah"
+                android:id="@+id/textharga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNamaHadiah"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
                 android:layout_toRightOf="@id/ivHadiah"
-                android:text="jumlah hadiah"
+                android:text="HargaHadiah:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <TextView
+                android:id="@+id/TotalPoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNamaHadiah"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/textjumlah"
+                android:text="0"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <TextView
+                android:id="@+id/textjumlah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textharga"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/ivHadiah"
+                android:text="jumlah hadiah :"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
+            <TextView
+                android:id="@+id/jumlahhadiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TotalPoin"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/textjumlah"
+                android:text="0"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+
             <Button
                 android:id="@+id/kurang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/jumlahhadiah"
+                android:layout_below="@id/textjumlah"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/ivHadiah"
+                android:background="@color/ecoranger"
                 android:text="-"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
             <TextView
@@ -89,28 +137,21 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/nilai"
+                android:background="@color/ecoranger"
                 android:text="+"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-            <TextView
-                android:id="@+id/TotalPoin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/kurang"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/ivHadiah"
-                android:text="HargaHadiah:"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
 
 
             <Button
                 android:id="@+id/tukarkan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TotalPoin"
+                android:layout_below="@id/kurang"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
+                android:background="@color/ecoranger"
                 android:layout_toRightOf="@id/ivHadiah"
                 android:text="Checkout"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
@@ -123,6 +164,7 @@
                 android:layout_below="@id/tukarkan"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
+                android:textColor="@color/black"
                 android:layout_toRightOf="@id/ivHadiah"
                 android:text="status:"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
@@ -131,73 +173,152 @@
                 android:id="@+id/jumlahdanharga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TotalPoin"
+                android:layout_below="@id/kurang"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/black"
                 android:layout_toRightOf="@id/tukarkan"
                 android:text="Total Jumlah:"
 
                 />
-
+            <TextView
+                android:id="@+id/tvDeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivHadiah"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="50dp"
+                android:text="Deskripsi"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+        </RelativeLayout>
+    <RelativeLayout
+        android:background="@drawable/radius"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="match_parent"
+        android:padding="8dp">
             <TextView
                 android:id="@+id/cek"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ivHadiah"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:text="Check Out Penukaran"/>
-
+        <TextView
+            android:id="@+id/textnamahadiah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cek"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="Nama Hadiah :"/>
 
             <TextView
                 android:id="@+id/namahadiah"
+                android:layout_toRightOf="@id/textnamahadiah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cek"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:textColor="@color/black"
-                android:text="Nama Hadiah"/>
+                android:text="Hadiah"/>
+
+        <TextView
+            android:id="@+id/textharga_hadiah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/namahadiah"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="Harga Hadiah :"/>
 
             <TextView
                 android:id="@+id/harga_hadiah"
+                android:layout_toRightOf="@id/textharga_hadiah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/namahadiah"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
-                android:text="Harga Hadiah"/>
+                android:text="0"/>
+        <TextView
+            android:id="@+id/textsisapoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/harga_hadiah"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="Sisa Poin :"/>
 
             <TextView
                 android:id="@+id/sisapoin"
+                android:layout_toRightOf="@id/textsisapoin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/harga_hadiah"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
-                android:text="Sisa Poin"/>
+                android:text="0"/>
+        <TextView
+            android:id="@+id/editjumlah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sisapoin"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="Jumlah Hadiah :"/>
             <TextView
                 android:id="@+id/jumlahhadiahs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/sisapoin"
+                android:layout_toRightOf="@id/editjumlah"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
-                android:text="jml"/>
+                android:text="0"/>
 
+        <TextView
+            android:id="@+id/textjumlahharga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_below="@id/jumlahhadiahs"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="Total Jumlah harga :"
 
+            />
+        <TextView
+            android:id="@+id/jumlahharga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/textjumlahharga"
+            android:layout_below="@id/jumlahhadiahs"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="0"/>
             <Button
                 android:id="@+id/cektukar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/jumlahhadiahs"
+                android:layout_below="@id/jumlahharga"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/ecoranger"
                 android:text="Tukarkan" />
 
         </RelativeLayout>
 </LinearLayout>
+</ScrollView>

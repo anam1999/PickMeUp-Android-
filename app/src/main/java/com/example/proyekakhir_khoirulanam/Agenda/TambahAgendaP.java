@@ -128,6 +128,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 finish();
                 Toast.makeText(TambahAgendaP.this, "Data Agenda berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                hideDialog();
 
             }
         }, new Response.ErrorListener() {

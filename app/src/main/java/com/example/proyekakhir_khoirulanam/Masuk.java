@@ -60,6 +60,7 @@ public class Masuk extends AppCompatActivity {
     public final static String TAG_EMAIL = "email";
     public final static String TAG_ROLE = "role";
 
+
     SharedPreferences sharedpreferences;
     Boolean session = false;
     String id, nama, email,role;
@@ -72,9 +73,6 @@ public class Masuk extends AppCompatActivity {
         setContentView(R.layout.activity_masuk);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
-
-
 
         txt_email = findViewById(R.id.email);
         txt_password = findViewById(R.id.paswword);
@@ -205,7 +203,6 @@ public class Masuk extends AppCompatActivity {
                         editor.putString(TAG_NAMA, nama);
                         editor.putString(TAG_EMAIL, email);
                         editor.putString(TAG_ROLE, role);
-
                         editor.commit();
 
                         // Memanggil Dashboards
@@ -214,6 +211,7 @@ public class Masuk extends AppCompatActivity {
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_NAMA, nama);
                             intent.putExtra(TAG_EMAIL, email);
+                            intent.putExtra(TAG_ROLE, role);
                             finish();
                             startActivity(intent);
                         }else if(role.equals("petugaslapangan")){
@@ -221,6 +219,7 @@ public class Masuk extends AppCompatActivity {
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_NAMA, nama);
                             intent.putExtra(TAG_EMAIL, email);
+                            intent.putExtra(TAG_ROLE, role);
                             finish();
                             startActivity(intent);
                         }else if(role.equals("petugaskontenreward")){
@@ -228,15 +227,19 @@ public class Masuk extends AppCompatActivity {
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_NAMA, nama);
                             intent.putExtra(TAG_EMAIL, email);
+                            intent.putExtra(TAG_ROLE, role);
                             finish();
                             startActivity(intent);
+
                         }else if(role.equals("masyarakat")){
                             Intent intent = new Intent(Masuk.this,BerandaMasyarakat.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_NAMA, nama);
                             intent.putExtra(TAG_EMAIL, email);
+                            intent.putExtra(TAG_ROLE, role);
                             finish();
                             startActivity(intent);
+
                         }
 //                        Intent intent = new Intent(Masuk.this, BerandaAdmin.class);
 //                        intent.putExtra(TAG_ID, id);
@@ -247,13 +250,14 @@ public class Masuk extends AppCompatActivity {
                     } else {
                         //Toast.makeText(getApplicationContext(),
                         //jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "Email / Password salah!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Maaf Email / Password salah!", Toast.LENGTH_LONG).show();
+                        hideDialog();
 
                     }
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "ERROR PP!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Email / Password salah!", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -306,8 +310,9 @@ public class Masuk extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
+
 //                dialog.dismiss();
 //                System.exit(0);
             }

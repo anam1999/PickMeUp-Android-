@@ -120,10 +120,10 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahKontenAnimasiPKW.this, LihatKontenAnimasiPKW.class);
+                Toast.makeText(TambahKontenAnimasiPKW.this, "Data Konten Animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
-                Toast.makeText(TambahKontenAnimasiPKW.this, "Data Konten Animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
-
+                hideDialog();
             }
         }, new Response.ErrorListener() {
             @Override

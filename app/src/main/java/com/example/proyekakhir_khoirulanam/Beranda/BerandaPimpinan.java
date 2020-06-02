@@ -26,19 +26,19 @@ public class BerandaPimpinan extends AppCompatActivity {
     TextView txt_nama,emailku;
 
     ImageView monitorings,konten,cekhadiah,feedback,agenda,keluar,profil;
-    String nama,id,email;
+    String nama,id,email, role;
     SharedPreferences sharedpreferences;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
     public final static String TAG_EMAIL = "email";
+    public final static String TAG_ROLE = "role";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {  ActionBar actionBar = getSupportActionBar();
+    protected void onCreate(Bundle savedInstanceState) {
+        ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda_pimpinan);
-
-
         txt_nama = findViewById(R.id.username);
         emailku =findViewById(R.id.txt_nama_dashboard);
         monitorings = findViewById(R.id.monitoring);
@@ -53,6 +53,7 @@ public class BerandaPimpinan extends AppCompatActivity {
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
         email = getIntent().getStringExtra(TAG_EMAIL);
+        role=getIntent().getStringExtra(TAG_ROLE);
 
         //setText
         txt_nama.setText(" "+nama);
@@ -71,7 +72,7 @@ public class BerandaPimpinan extends AppCompatActivity {
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
                 profils.putExtra(TAG_EMAIL, email);
-
+                profils.putExtra(TAG_ROLE, role);
                 startActivity(profils);
             }
         });
@@ -113,12 +114,14 @@ public class BerandaPimpinan extends AppCompatActivity {
         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 //if user pressed "yes", then he is allowed to exit from application
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
+
             }
         });
         builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

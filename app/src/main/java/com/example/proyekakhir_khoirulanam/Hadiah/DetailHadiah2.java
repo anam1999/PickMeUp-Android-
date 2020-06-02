@@ -89,11 +89,11 @@ public class DetailHadiah2 extends AppCompatActivity {
 
         hadiah = getIntent().getParcelableExtra(EXTRA_DETAILs);
         ids = hadiah.getId();
-        rvHadiah.setText("Nama Hadiah :"+hadiah.getNama_hadiah());
+        rvHadiah.setText(hadiah.getNama_hadiah());
         rvDeskripsi.setText("Deskripsi :"+hadiah.getDeskripsi());
         rvpoin.setText(hadiah.getPoin()+"Poin");
         poinhadiah= Integer.parseInt(hadiah.getPoin());
-        jumlahhadiah.setText("Jumlah Hadiah"+hadiah.getJumlah());
+        jumlahhadiah.setText(hadiah.getJumlah());
 //        String sss= String.valueOf(ss);
 //        String hitungs = String.valueOf((k*ss));
 //        nilai.setText(sss);

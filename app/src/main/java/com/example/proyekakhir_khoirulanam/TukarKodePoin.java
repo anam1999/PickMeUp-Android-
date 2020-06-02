@@ -103,7 +103,10 @@ String poin,kodeku;
                  if (kodeku.matches("")){
                     Toast.makeText(getBaseContext(), "Maaf Input tidak boleh kosong", Toast.LENGTH_SHORT).show();
                     hideDialog();
-                }
+                }else {
+                     Toast.makeText(getBaseContext(), "Maaf Salah input anda kode sudah digunakan", Toast.LENGTH_SHORT).show();
+                     hideDialog();
+                 }
             }
         }){
             @Override

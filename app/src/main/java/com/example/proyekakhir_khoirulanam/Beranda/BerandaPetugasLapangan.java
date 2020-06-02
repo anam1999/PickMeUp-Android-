@@ -22,13 +22,14 @@ import com.example.proyekakhir_khoirulanam.R;
 
 public class BerandaPetugasLapangan extends AppCompatActivity {
     TextView txt_nama,emailku;
-    String nama,id,email;
+    String nama,id,email,role;
     ImageView monitorin,agenda,feedback,notif,profil;
     SharedPreferences sharedpreferences;
 
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
     public final static String TAG_EMAIL = "email";
+    public final static String TAG_ROLE = "role";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +69,7 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
                 profils.putExtra(TAG_EMAIL, email);
+                profils.putExtra(TAG_ROLE, role);
                 startActivity(profils);
             }
         });
@@ -115,14 +117,14 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 //if user pressed "yes", then he is allowed to exit from application
-                finish();
-                System.exit(0);
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
+
             }
         });
         builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

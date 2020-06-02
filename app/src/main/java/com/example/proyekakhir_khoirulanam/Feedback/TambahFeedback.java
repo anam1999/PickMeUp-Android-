@@ -126,6 +126,7 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
                 startActivity(intent);
                 finish();
                 Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                hideDialog();
 
             }
         }, new Response.ErrorListener() {

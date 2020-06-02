@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickListener {
-    TextView tvNama,tvdeskripsi,poin;
+    EditText tvNama,tvdeskripsi,poin,jumlah;
     Button btnSimpan;
     ImageView ivPhoto;
     Uri UriPhoto;
@@ -48,6 +49,7 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
         poin=findViewById(R.id.tv_poin);
         tvdeskripsi=findViewById(R.id.tv_deskripsi);
         btnSimpan = findViewById(R.id.btn_simpan);
+        jumlah = findViewById(R.id.tv_jumlah);
         ivPhoto = findViewById(R.id.iv_photo);
         btnSimpan.setOnClickListener(this);
         ivPhoto.setOnClickListener(this);
@@ -120,7 +122,7 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(TambahHadiahPKW.this, "Data Hadiah Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
-
+                hideDialog();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -144,7 +146,8 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
                 Map<String, String> map = new HashMap<>();
                 map.put("nama_hadiah", tvNama.getText().toString());
                 map.put("deskripsi", tvdeskripsi.getText().toString());
-                map.put("jumlah_poin", poin.getText().toString());
+                map.put("harga_hadiah", poin.getText().toString());
+                map.put("jumlah_hadiah", jumlah.getText().toString());
                 if(StringImage!=null){
                     map.put("file",StringImage);
                 }

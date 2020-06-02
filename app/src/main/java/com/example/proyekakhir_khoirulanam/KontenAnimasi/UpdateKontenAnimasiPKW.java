@@ -42,7 +42,7 @@ public class UpdateKontenAnimasiPKW extends AppCompatActivity {
     EditText rvAnimasi;
     EditText rvDeskripsi;
     Button updateanimasi;
-    String StringImage;
+    String StringImage, alamatanimasi;
     Uri UriPhoto;
     Bitmap BitPhoto;
     ProgressDialog pDialog;
@@ -56,7 +56,7 @@ public class UpdateKontenAnimasiPKW extends AppCompatActivity {
         getSupportActionBar().setTitle("Detail Hadiah");
         actionBar.show();
 
-        ivAnimasi = findViewById(R.id.iv_photo);
+        ivAnimasi = findViewById(R.id.ivAnimasi);
         rvAnimasi = findViewById(R.id.tv_namakonten);
         rvDeskripsi = findViewById(R.id.tv_deskripsi);
         updateanimasi =findViewById(R.id.updateanimasi);
@@ -65,7 +65,7 @@ public class UpdateKontenAnimasiPKW extends AppCompatActivity {
         id =animasi.getId();
         rvAnimasi.setText(animasi.getNama_konten());
         rvDeskripsi.setText(animasi.getDeskripsi());
-
+     alamatanimasi =("http://192.168.43.229/relasi/public/animasi/" +animasi.getGambar());
         Glide.with(this)
                 .load( "http://192.168.43.229/relasi/public/animasi/" +animasi.getGambar())
                 .apply(new RequestOptions().centerCrop())
@@ -86,6 +86,7 @@ public class UpdateKontenAnimasiPKW extends AppCompatActivity {
         });
 
     }
+
 
     private void pickImage() {
         CropImage.activity()
@@ -139,6 +140,7 @@ public class UpdateKontenAnimasiPKW extends AppCompatActivity {
                 profils.putExtra(EXTRA_DETAILs,id);
                 startActivity(profils);
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                hideDialog();
 
             }
         }, new Response.ErrorListener() {
@@ -155,6 +157,7 @@ public class UpdateKontenAnimasiPKW extends AppCompatActivity {
                 Map<String, String> MyData = new HashMap<String, String>();
                 MyData.put("nama_konten", rvAnimasi.getText().toString());
                 MyData.put("deskripsi", rvDeskripsi.getText().toString());
+//                MyData.put("file", alamatanimasi.toString());
                 if(StringImage!=null){
                     MyData.put("file",StringImage);
                 }

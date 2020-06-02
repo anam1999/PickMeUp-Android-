@@ -193,10 +193,11 @@ public class UpdateProfil extends AppCompatActivity {
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
                 Intent profils = new Intent(UpdateProfil.this, Profil.class);
                 profils.putExtra(TAG_ID, id);
                 startActivity(profils);
-                Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                hideDialog();
 
 
             }

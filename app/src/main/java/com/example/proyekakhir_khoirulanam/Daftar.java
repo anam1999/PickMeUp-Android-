@@ -80,13 +80,13 @@ public class Daftar extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 if (editText1.getText().toString().length()==0){
-                    editText1.setError("harap isi username");
+                    editText1.setError("username tidak boleh ksong");
                     hideDialog();
                 }else if(editText2.getText().toString().length()==0) {
-                    editText2.setError("Harap diisi email");
+                    editText2.setError(" email tidak boleh kosong");
                     hideDialog();
                 }else if(editText3.getText().toString().length()==0) {
-                    editText3.setError("Harap diisi");
+                    editText3.setError("password tidak boleh kosong");
                     hideDialog();
                 }
             }
