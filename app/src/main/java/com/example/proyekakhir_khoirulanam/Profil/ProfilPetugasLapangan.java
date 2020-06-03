@@ -164,10 +164,10 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
                         // jika tombol diklik, maka akan menutup activity ini
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(Masuk.session_status, false);
-                        editor.putString(TAG_ID, null);
-                        editor.putString(TAG_NAMA, null);
-                        editor.putString(TAG_EMAIL, null);
-                        editor.putString(TAG_ROLE,null);
+//                        editor.putString(TAG_ID, null);
+//                        editor.putString(TAG_NAMA, null);
+//                        editor.putString(TAG_EMAIL, null);
+//                        editor.putString(TAG_ROLE,null);
                         editor.commit();
                         Intent ua = new Intent(ProfilPetugasLapangan.this, Masuk.class);
                         finish();

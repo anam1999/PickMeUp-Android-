@@ -23,12 +23,12 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatTransaksi;
+import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
 import com.example.proyekakhir_khoirulanam.Masuk;
-import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Profil.Profil;
 import com.example.proyekakhir_khoirulanam.R;
 import com.example.proyekakhir_khoirulanam.TukarKodePoin;
@@ -36,7 +36,7 @@ import com.example.proyekakhir_khoirulanam.TukarKodePoin;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class BerandaMasyarakat extends AppCompatActivity {
+public class BerandaMasyarakats extends AppCompatActivity {
     String  nama,id,email,role;
     ImageView transaksi,tukarhadiah,konten,feedback,agenda,kode,profil;
     SharedPreferences sharedpreferences;
@@ -48,7 +48,7 @@ public class BerandaMasyarakat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_beranda_masyarakat);
+        setContentView(R.layout.activity_beranda_masyarakats);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         getPoin();
@@ -65,20 +65,20 @@ public class BerandaMasyarakat extends AppCompatActivity {
 
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
         Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
-        transaksi =findViewById(R.id.tukarkode);
+        transaksi =findViewById(R.id.riwayat);
         tukarhadiah =findViewById(R.id.tukarhadiah);
         konten=findViewById(R.id.kontenanimasi);
         feedback = findViewById(R.id.feedback);
         agenda=findViewById(R.id.agenda);
         poin =findViewById(R.id.poinsesion);
-        kode=findViewById(R.id.kode);
+        kode=findViewById(R.id.tukarkode);
 
         //setText
         txt_nama.setText(nama);
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profils = new Intent(BerandaMasyarakat.this, Profil.class);
+                Intent profils = new Intent(BerandaMasyarakats.this, Profil.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
                 profils.putExtra(TAG_EMAIL, email);
@@ -86,55 +86,52 @@ public class BerandaMasyarakat extends AppCompatActivity {
                 startActivity(profils);
             }
         });
+
         kode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Kode = new Intent(BerandaMasyarakat.this, TukarKodePoin.class);
+                Intent Kode = new Intent(BerandaMasyarakats.this, TukarKodePoin.class);
                 startActivity(Kode);
             }
         });
         transaksi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent transaksi= new Intent(BerandaMasyarakat.this, LihatTransaksi.class);
+                Intent transaksi= new Intent(BerandaMasyarakats.this, LihatTransaksi.class);
                 startActivity(transaksi);
             }
         });
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent feedback = new Intent(BerandaMasyarakat.this, LihatFeedback.class);
+                Intent feedback = new Intent(BerandaMasyarakats.this, LihatFeedback.class);
                 startActivity(feedback);
             }
         });
         konten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent konten = new Intent(BerandaMasyarakat.this, LihatKontenAnimasi.class);
+                Intent konten = new Intent(BerandaMasyarakats.this, LihatKontenAnimasi.class);
                 startActivity(konten);
             }
         });
         tukarhadiah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent tukarhadiah = new Intent(BerandaMasyarakat.this, LihatHadiah.class);
+                Intent tukarhadiah = new Intent(BerandaMasyarakats.this, LihatHadiah.class);
                 tukarhadiah.putExtra(TAG_ID, id);
-
-
                 startActivity(tukarhadiah);
             }
         });
         agenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent agenda = new Intent(BerandaMasyarakat.this, LihatAgenda.class);
+                Intent agenda = new Intent(BerandaMasyarakats.this, LihatAgenda.class);
                 startActivity(agenda);
             }
         });
 
-
     }
-
     private void getProfil() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);

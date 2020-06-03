@@ -16,53 +16,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TukarKodePoin"></activity>
+        <activity android:name=".Beranda.BerandaMasyarakats"></activity>
+        <activity android:name=".TukarKodePoin" />
         <activity android:name=".Profil.ProfilPetugasKontenReward" />
         <activity android:name=".Profil.ProfilPetugasLapangan" />
         <activity android:name=".Profil.ProfilPimpinan" />
-        <activity android:name=".Feedback.TambahFeedback"
-            android:parentActivityName=".Feedback.LihatFeedback"/>
+        <activity
+            android:name=".Feedback.TambahFeedback"
+            android:parentActivityName=".Feedback.LihatFeedback" />
         <activity android:name=".Hadiah.LihatTransaksi" />
         <activity android:name=".SampahPintar.MonitoringSampahPintar" />
         <activity android:name=".Profil.UpdateProfil" />
-        <activity android:name=".KontenAnimasi.TambahKontenAnimasiPKW"
-            android:parentActivityName=".KontenAnimasi.LihatKontenAnimasiPKW"
-            />
-        <activity android:name=".KontenAnimasi.LihatKontenAnimasiPKW"
-            />
-        <activity android:name=".KontenAnimasi.UpdateKontenAnimasiPKW"
-            android:parentActivityName=".KontenAnimasi.LihatKontenAnimasiPKW"
-            />
+        <activity
+            android:name=".KontenAnimasi.TambahKontenAnimasiPKW"
+            android:parentActivityName=".KontenAnimasi.LihatKontenAnimasiPKW" />
+        <activity android:name=".KontenAnimasi.LihatKontenAnimasiPKW" />
+        <activity
+            android:name=".KontenAnimasi.UpdateKontenAnimasiPKW"
+            android:parentActivityName=".KontenAnimasi.LihatKontenAnimasiPKW" />
         <activity android:name=".Agenda.LihatAgendaP" />
         <activity android:name=".Agenda.LihatAgenda" />
-        <activity android:name=".Agenda.TambahAgendaP"
-            android:parentActivityName=".Agenda.LihatAgendaP"
-            />
+        <activity
+            android:name=".Agenda.TambahAgendaP"
+            android:parentActivityName=".Agenda.LihatAgendaP" />
         <activity android:name=".Agenda.UpdateAgendaP" />
-        <activity android:name=".Hadiah.DetailHadiah2"
-            android:parentActivityName=".Hadiah.LihatHadiah"
-            />
-        <activity android:name=".Hadiah.TambahHadiahPKW"
-            android:parentActivityName=".Hadiah.LihatHadiahPKW"
-            />
+        <activity
+            android:name=".Hadiah.DetailHadiah2"
+            android:parentActivityName=".Hadiah.LihatHadiah" />
+        <activity
+            android:name=".Hadiah.TambahHadiahPKW"
+            android:parentActivityName=".Hadiah.LihatHadiahPKW" />
         <activity android:name=".Hadiah.LihatHadiahPKW" />
         <activity android:name=".Feedback.LihatFeedback" />
-        <activity android:name=".Hadiah.UpdateHadiahPKW"
-            android:parentActivityName=".Hadiah.LihatHadiahPKW"
-            />
-        <activity android:name=".Hadiah.LihatHadiah"
-
-            />
-
-        <activity android:name=".Feedback.DetailFeedback"
-            android:parentActivityName=".Feedback.LihatFeedback"
-            />
-        <activity android:name=".KontenAnimasi.DetailKontenAnimasi"
-            android:parentActivityName=".KontenAnimasi.LihatKontenAnimasi"
-            />
-        <activity android:name=".Agenda.DetailAgenda"
-            android:parentActivityName=".Agenda.LihatAgenda"
-            />
+        <activity
+            android:name=".Hadiah.UpdateHadiahPKW"
+            android:parentActivityName=".Hadiah.LihatHadiahPKW" />
+        <activity android:name=".Hadiah.LihatHadiah" />
+        <activity
+            android:name=".Feedback.DetailFeedback"
+            android:parentActivityName=".Feedback.LihatFeedback" />
+        <activity
+            android:name=".KontenAnimasi.DetailKontenAnimasi"
+            android:parentActivityName=".KontenAnimasi.LihatKontenAnimasi" />
+        <activity
+            android:name=".Agenda.DetailAgenda"
+            android:parentActivityName=".Agenda.LihatAgenda" />
         <activity
             android:name=".Profil.Profil"
             android:screenOrientation="portrait" />

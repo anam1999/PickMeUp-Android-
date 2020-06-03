@@ -121,7 +121,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
 
     private void getProfil() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
+        String url = "http://192.168.43.229/relasi/public/api/showkonten/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -162,7 +162,6 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                //if user pressed "yes", then he is allowed to exit from application
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -173,7 +172,6 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //if user select "No", just cancel this dialog and continue with app
                 dialog.cancel();
             }
         });

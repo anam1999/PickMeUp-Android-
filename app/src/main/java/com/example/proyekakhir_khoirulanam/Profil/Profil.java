@@ -69,7 +69,7 @@ public class Profil extends AppCompatActivity {
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
         email = getIntent().getStringExtra(TAG_EMAIL);
-
+        role = getIntent().getStringExtra(TAG_ROLE);
         username.setText(" "+nama);
         emails.setText(""+id);
 
@@ -160,17 +160,17 @@ public class Profil extends AppCompatActivity {
 
         // set pesan dari dialog
         alertDialogBuilder
-                .setIcon((R.drawable.ikonku))
+                .setIcon((R.drawable.logoaplikasi))
                 .setCancelable(false)
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         // jika tombol diklik, maka akan menutup activity ini
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(Masuk.session_status, false);
-                        editor.putString(TAG_ID, null);
-                        editor.putString(TAG_NAMA, null);
-                        editor.putString(TAG_EMAIL, null);
-                        editor.putString(TAG_ROLE,null);
+//                        editor.putString(TAG_ID, null);
+//                        editor.putString(TAG_NAMA, null);
+//                        editor.putString(TAG_EMAIL, null);
+//                        editor.putString(TAG_ROLE,null);
                         editor.commit();
                         Intent ua = new Intent(Profil.this, Masuk.class);
                         finish();

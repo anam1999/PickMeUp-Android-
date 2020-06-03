@@ -25,6 +25,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.AppController.koneksi;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakat;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
@@ -131,7 +132,7 @@ public class Masuk extends AppCompatActivity {
             finish();
             startActivity(intent);
         }else if (session&&role.equals("masyarakat")){
-            Intent intent = new Intent(Masuk.this, BerandaMasyarakat.class);
+            Intent intent = new Intent(Masuk.this, BerandaMasyarakats.class);
             intent.putExtra(TAG_ID, id);
             intent.putExtra(TAG_NAMA, nama);
             intent.putExtra(TAG_EMAIL, email);
@@ -175,8 +176,6 @@ public class Masuk extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.e(TAG, "Login Response: " + response.toString());
-                hideDialog();
-
                 try {
                     JSONObject jObj = null;
                     try {
@@ -232,7 +231,7 @@ public class Masuk extends AppCompatActivity {
                             startActivity(intent);
 
                         }else if(role.equals("masyarakat")){
-                            Intent intent = new Intent(Masuk.this,BerandaMasyarakat.class);
+                            Intent intent = new Intent(Masuk.this, BerandaMasyarakats.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_NAMA, nama);
                             intent.putExtra(TAG_EMAIL, email);
@@ -251,7 +250,6 @@ public class Masuk extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(),
                         //jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), "Maaf Email / Password salah!", Toast.LENGTH_LONG).show();
-                        hideDialog();
 
                     }
                 } catch (JSONException e) {

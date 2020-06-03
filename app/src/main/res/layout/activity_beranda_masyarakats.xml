@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/bgs"
-    tools:context=".Beranda.BerandaMasyarakat"
-    android:orientation="vertical">
-
+    tools:context=".Beranda.BerandaMasyarakats">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         >
 
@@ -27,7 +25,7 @@
             android:id="@+id/txt_nama_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-176dp"
+            android:layout_marginTop="-156dp"
             android:layout_marginLeft="10dp"
             android:text="Selamat Datang"
             android:textColor="@color/black" />
@@ -36,11 +34,12 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="14dp"
             android:layout_marginLeft="10dp"
             android:text="Nama"
             android:textColor="@color/black"
             />
+
         <TextView
             android:id="@+id/poinsesion"
             android:layout_width="wrap_content"
@@ -54,22 +53,28 @@
             app:layout_constraintHorizontal_bias="0.952"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="-60dp"
+            android:layout_gravity="center"
+            android:background="#ffffff"
+            app:cardCornerRadius="58dp"
+            app:cardElevation="6dp"
+            app:layout_constraintTop_toTopOf="@+id/bgtop">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profil"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="70dp"
+                android:layout_height="71dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="-40dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/ikon_user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/bgtop" />
-
+        </androidx.cardview.widget.CardView>
         <GridLayout
-
             android:layout_width="300dp"
             android:layout_height="400dp"
             android:layout_gravity="center"
@@ -105,15 +110,15 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
-                        android:id="@+id/tukarkode"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikon_tukarreward" />
+                        android:id="@+id/kontenanimasi"
+                        android:background="@drawable/ikon_kontenanimasi" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Riwayat TukarHadiah"
-                        android:textSize="8sp"
+                        android:text="Konten Animasi"
+                        android:textSize="12sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -144,9 +149,10 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
-                        android:id="@+id/kontenanimasi"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ikon_kontenanimasi"
+                        android:layout_gravity="center"
+                        android:id="@+id/tukarhadiah"
+
+
 
                         />
 
@@ -154,46 +160,8 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Konten Animasi"
-                        android:textSize="11sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="#ffffff"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="6dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:id="@+id/tukarhadiah"
-                        android:layout_gravity="center"
-                        android:background="@drawable/ikon_tukarreward" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="Tukar Hadiah"
+                        android:textAlignment="center"
                         android:textSize="13sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -225,8 +193,8 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
-                        android:layout_gravity="center"
                         android:id="@+id/agenda"
+                        android:layout_gravity="center"
                         android:background="@drawable/agenda" />
 
                     <TextView
@@ -279,6 +247,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -303,23 +272,64 @@
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:id="@+id/kode"
-                        android:background="@drawable/ikon_tukarkode" />
+                        android:id="@+id/tukarkode"
+
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tukar KodePoin"
-                        android:textSize="11sp"
+                        android:text="Tukar Kode"
+                        android:textSize="13sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/riwayat"
+
+                       />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Riwayat TukarHadiah"
+                        android:textSize="08sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </GridLayout>
 
 
     </LinearLayout>
 
-    ></LinearLayout>
+</LinearLayout>
