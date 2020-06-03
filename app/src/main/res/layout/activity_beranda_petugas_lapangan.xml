@@ -41,28 +41,16 @@
             android:text="Nama"
             android:textColor="@color/black"
             />
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginTop="-60dp"
-            android:layout_gravity="center"
-            android:background="#ffffff"
-            app:cardCornerRadius="58dp"
-            app:cardElevation="6dp"
-            app:layout_constraintTop_toTopOf="@+id/bgtop">
-
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profil"
-                android:layout_width="70dp"
-                android:layout_height="71dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="-40dp"
                 android:layout_gravity="center"
-                android:background="@drawable/ikonku"
+                android:background="@drawable/userikon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/bgtop" />
-        </androidx.cardview.widget.CardView>
         <GridLayout
             android:layout_width="300dp"
             android:layout_height="270dp"
