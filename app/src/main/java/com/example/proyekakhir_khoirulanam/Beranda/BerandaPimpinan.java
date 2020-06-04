@@ -23,7 +23,9 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaP;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
+import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPimpinan;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
 import com.example.proyekakhir_khoirulanam.Masuk;
@@ -67,7 +69,8 @@ public class BerandaPimpinan extends AppCompatActivity {
         nama = getIntent().getStringExtra(TAG_NAMA);
         email = getIntent().getStringExtra(TAG_EMAIL);
         role=getIntent().getStringExtra(TAG_ROLE);
-
+        Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
+        Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
         //setText
         txt_nama.setText(" "+nama);
 
@@ -108,7 +111,7 @@ public class BerandaPimpinan extends AppCompatActivity {
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent feedback = new Intent(BerandaPimpinan.this, LihatFeedback.class);
+                Intent feedback = new Intent(BerandaPimpinan.this, LihatFeedbackPimpinan.class);
                 startActivity(feedback);
             }
         });

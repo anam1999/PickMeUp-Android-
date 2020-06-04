@@ -41,20 +41,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/tv_nama"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16"
-                    android:layout_marginTop="@dimen/dimen_16"
-                    android:layout_marginEnd="@dimen/dimen_16"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="Masukkan username"
-                    android:editable="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView" />
+<!--                <EditText-->
+<!--                    android:id="@+id/tv_nama"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/dimen_16"-->
+<!--                    android:layout_marginTop="@dimen/dimen_16"-->
+<!--                    android:layout_marginEnd="@dimen/dimen_16"-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="textPersonName"-->
+<!--                    android:hint="Masukkan username"-->
+<!--                    android:editable="false"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/textView" />-->
 
                 <EditText
                     android:id="@+id/tv_komentar"
@@ -66,9 +66,7 @@
                     android:ems="10"
                     android:inputType="textMultiLine"
                     android:hint="kritik dan saran"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_nama" />
+               />
 
                 <TextView
                     android:id="@+id/opsional"

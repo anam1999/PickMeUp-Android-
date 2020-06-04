@@ -37,6 +37,7 @@ import java.util.Map;
 public class TambahFeedback extends AppCompatActivity implements View.OnClickListener {
     TextView tvNama, tvKomentar;
     String StringImage;
+    String email;
     ImageView ivPhoto;
     Uri UriPhoto;
     Bitmap BitPhoto;
@@ -51,13 +52,15 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setTitle("Tambah Feedback");
         actionBar.show();
 
-        tvNama = findViewById(R.id.tv_nama);
+//        tvNama = findViewById(R.id.tv_nama);
         tvKomentar = findViewById(R.id.tv_komentar);
         ivPhoto = findViewById(R.id.iv_photo);
         btnSimpan = findViewById(R.id.btn_simpan);
         btnSimpan.setOnClickListener(this);
         ivPhoto.setOnClickListener(this);
-        tvNama.setText(Preferences.getLoggedInUser(getBaseContext()));
+//        tvNama.setText(Preferences.getLoggedInUser(getBaseContext()));
+        email=(Preferences.getLoggedInUser(getBaseContext()));
+
     }
 
     @Override
@@ -65,7 +68,15 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
 
             case R.id.btn_simpan:
-                sendData();
+                String feedback = tvKomentar.getText().toString();
+
+                // mengecek kolom yang kosong
+                if (feedback.trim().length() > 0) {
+                   sendDataFeedback(feedback);
+                } else {
+                    // Prompt user to enter credentials
+                    Toast.makeText(getApplicationContext() ,"Field tidak boleh kosong", Toast.LENGTH_LONG).show();
+                }
                 break;
 
             case R.id.iv_photo:
@@ -116,7 +127,7 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
 
 
 
-    private void sendData() {
+    private void sendDataFeedback(final String feedback) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menambahkan ...");
@@ -124,34 +135,24 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahfeedback", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(TambahFeedback.this, LihatFeedback.class);
                 startActivity(intent);
                 finish();
-                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 hideDialog();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (tvNama.getText().toString().length()==0){
-                    tvNama.setError("judul tidak boleh kosong");
-                    hideDialog();
-                }else if(tvKomentar.getText().toString().length()==0) {
-                    tvKomentar.setError("keterangan tidak boleh kosong");
-                    hideDialog();
-                }
-                Toast.makeText(TambahFeedback.this, "Maaf ada kesalahan menambah Data Agenda  ", Toast.LENGTH_LONG).show();
-                hideDialog();
-//                Toast.makeText(TambahFeedback.this, ""+error, Toast.LENGTH_LONG).show();
-//                Toast.makeText(getApplicationContext() ,"Email/kritik_saran tidak boleh kosong", Toast.LENGTH_LONG).show();
+
             }
         }){
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
-                map.put("email", tvNama.getText().toString());
-                map.put("kritik_saran", tvKomentar.getText().toString());
+                map.put("email", email);
+                map.put("kritik_saran", feedback);
                 if(StringImage!=null){
                     map.put("file",StringImage);
                 }

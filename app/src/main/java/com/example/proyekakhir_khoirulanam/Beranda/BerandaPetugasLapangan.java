@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.ProfilPetugasLapangan;
@@ -64,7 +65,8 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
         email = getIntent().getStringExtra(TAG_EMAIL);
-
+        Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
+        Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
         //setText
         txt_nama.setText(" "+nama);
 

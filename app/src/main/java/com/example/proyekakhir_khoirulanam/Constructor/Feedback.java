@@ -4,14 +4,14 @@ import android.os.Parcelable;
 
 public class Feedback implements Parcelable {
     private int id;
-    private String nama,komentar,gambar,username;
+    private String nama,komentar,gambar;
 
-    public Feedback(int id, String nama, String komentar , String gambar,String username ) {
+    public Feedback(int id, String nama, String komentar , String gambar ) {
         this.id = id;
         this.gambar = gambar;
         this.nama = nama;
         this.komentar=komentar;
-        this.username = username;
+//        this.username = username;
     }
 
     protected Feedback(Parcel in) {
@@ -19,7 +19,7 @@ public class Feedback implements Parcelable {
         nama = in.readString();
         gambar = in.readString();
         komentar=in.readString();
-        username=in.readString();
+//        username=in.readString();
     }
 
     public static final Creator<Feedback> CREATOR = new Creator<Feedback>() {
@@ -30,7 +30,7 @@ public class Feedback implements Parcelable {
         @Override
         public Feedback[] newArray(int size) {return new Feedback[size]; }
     };
-
+    public  int getId(){return id;}
     public String getGambar() {
         return gambar;
     }
@@ -40,9 +40,9 @@ public class Feedback implements Parcelable {
     public String getKomentar(){
         return komentar;
     }
-    public String getUsername(){
-        return username;
-    }
+//    public String getUsername(){
+//        return username;
+//    }
 
     @Override
     public int describeContents() {
@@ -55,6 +55,6 @@ public class Feedback implements Parcelable {
         dest.writeString(nama);
         dest.writeString(gambar);
         dest.writeString(komentar);
-        dest.writeString(username);
+//        dest.writeString(username);
     }
 }

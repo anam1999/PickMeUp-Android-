@@ -177,7 +177,7 @@ public class Masuk extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.e(TAG, "Login Response: " + response.toString());
                 try {
-                    JSONObject jObj = null;
+                    JSONObject jObj=null;
                     try {
                         jObj = new JSONObject(response);
                     } catch (JSONException e) {
@@ -250,12 +250,13 @@ public class Masuk extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(),
                         //jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), "Maaf Email / Password salah!", Toast.LENGTH_LONG).show();
-
+                        hideDialog();
                     }
-                } catch (JSONException e) {
+                }
+                catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Email / Password salah!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Maaf Jaringan Bermasalah", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -264,7 +265,7 @@ public class Masuk extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(), "Email/Password Salah", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Maaf Jaringan Bermasalah!", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }) {

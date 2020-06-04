@@ -39,16 +39,7 @@
                 android:layout_toRightOf="@id/ivFeedback"
                 android:text="KOMENTAR"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
-            <TextView
-                android:id="@+id/tvusername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvKomentar"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/ivFeedback"
-                android:text="Username"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
 
         </LinearLayout>
 

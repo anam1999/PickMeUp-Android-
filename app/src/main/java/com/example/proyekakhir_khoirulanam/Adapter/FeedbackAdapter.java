@@ -1,15 +1,24 @@
 package com.example.proyekakhir_khoirulanam.Adapter;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Constructor.Feedback;
@@ -38,10 +47,10 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        Feedback feedback = feedbackslist.get(position);
+        final Feedback feedback = feedbackslist.get(position);
         holder.tvNama.setText(feedback.getNama());
         holder.tvKomentar.setText(feedback.getKomentar());
-        holder.tvusername.setText(feedback.getUsername());
+//        holder.tvusername.setText(feedback.getUsername());
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
@@ -55,6 +64,46 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.ViewHo
                 Intent intent = new Intent(holder.itemView.getContext(), DetailFeedback.class);
                 intent.putExtra(DetailFeedback.EXTRA_FEEDBACK,feedback);
                 holder.itemView.getContext().startActivity(intent);
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                new AlertDialog.Builder((holder.itemView.getContext()))
+                        .setMessage("Ingin menghapus  "+ feedback.getKomentar()+" ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+                                RequestQueue queue = Volley.newRequestQueue(holder.itemView.getContext());
+                                String url = "http://192.168.43.229/relasi/public/api/hapusfeedback/"+feedback.getId();
+
+                                StringRequest stringRequest  = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        Toast.makeText(holder.itemView.getContext(), "berhasil"+response.toString(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText(holder.itemView.getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+                                queue.add(stringRequest);
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
+                return false;
             }
         });
     }
@@ -77,7 +126,7 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.ViewHo
             tvNama = itemView.findViewById(R.id.tvNama);
             tvKomentar=itemView.findViewById(R.id.tvKomentar);
             ivFeedback = itemView.findViewById(R.id.ivFeedback);
-            tvusername=itemView.findViewById(R.id.tvusername);
+//            tvusername=itemView.findViewById(R.id.tvusername);
 
         }
 

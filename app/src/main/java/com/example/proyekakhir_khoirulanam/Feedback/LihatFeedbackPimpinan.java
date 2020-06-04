@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapter;
-import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapterView;
 import com.example.proyekakhir_khoirulanam.Constructor.Feedback;
 import com.example.proyekakhir_khoirulanam.Model.ModelFeedback;
 import com.example.proyekakhir_khoirulanam.R;
@@ -23,16 +21,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class LihatFeedback extends AppCompatActivity implements View.OnClickListener{
+public class LihatFeedbackPimpinan extends AppCompatActivity implements View.OnClickListener {
     FloatingActionButton btnTambah;
     RecyclerView rvFeedback;
-    FeedbackAdapterView feedbackAdapter;
+    FeedbackAdapter feedbackAdapter;
     ArrayList<Feedback> agendaArrayList;
     RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_feedback);
+        setContentView(R.layout.activity_lihat_feedback_pimpinan);
 
         ActionBar actionBar = getSupportActionBar();
         getSupportActionBar().setTitle("Lihat Feedback");
@@ -44,7 +42,7 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
         btnTambah.setOnClickListener(this);
         queue = Volley.newRequestQueue(this);
         rvFeedback.setLayoutManager(new LinearLayoutManager(this));
-        feedbackAdapter = new FeedbackAdapterView();
+        feedbackAdapter = new FeedbackAdapter();
 
         ModelFeedback model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelFeedback.class);
         model.simpan(queue,this);
@@ -74,4 +72,5 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
         finish();
     }
+
 }
