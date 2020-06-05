@@ -170,7 +170,7 @@ public class UpdateProfilPimpinan extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Maaf Jaringan bermasalah", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -189,7 +189,7 @@ public class UpdateProfilPimpinan extends AppCompatActivity {
         pDialog.setMessage("Proses Update Profil ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/editpimpinan/"+getIntent().getStringExtra(TAG_ID) ;
+        String url ="http://192.168.43.229/relasi/public/api/editdatapimpinan/"+getIntent().getStringExtra(TAG_ID) ;
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

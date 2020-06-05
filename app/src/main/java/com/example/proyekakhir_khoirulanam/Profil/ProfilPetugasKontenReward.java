@@ -24,6 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakat;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Masuk;
@@ -60,7 +61,6 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
         namaku =findViewById(R.id.namaku);
         alamat=findViewById(R.id.alamat);
         nohp=findViewById(R.id.nohp);
-        profil=findViewById(R.id.profils);
         keluar=findViewById(R.id.logoutaplikasi);
         kembali=findViewById(R.id.back);
         edit=findViewById(R.id.edit);
@@ -81,7 +81,6 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                 profils.putExtra(TAG_NAMA, nama);
                 profils.putExtra(TAG_EMAIL, email);
                 profils.putExtra(TAG_ROLE, role);
-
                 startActivity(profils);
             }
         });
@@ -142,7 +141,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Maaf Jaringan bermasalah", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -154,11 +153,11 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                 this);
 
         // set title dialog
-        alertDialogBuilder.setTitle("Keluar dari aplikasi?");
+        alertDialogBuilder.setTitle("Keluar dari Akun ?"+ Preferences.getLoggedInUser(getBaseContext()));
 
         // set pesan dari dialog
         alertDialogBuilder
-                .setIcon((R.drawable.ikonku))
+                .setIcon((R.drawable.logoaplikasi))
                 .setCancelable(false)
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {

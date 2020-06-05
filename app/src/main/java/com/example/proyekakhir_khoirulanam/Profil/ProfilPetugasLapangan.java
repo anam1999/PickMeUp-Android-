@@ -141,7 +141,7 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Maaf Jaringan bermasalah", Toast.LENGTH_SHORT).show();
 
             }
         });

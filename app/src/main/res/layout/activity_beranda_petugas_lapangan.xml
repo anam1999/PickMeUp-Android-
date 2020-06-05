@@ -125,7 +125,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="70dp"
                         android:id="@+id/feedback"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/feedback"
@@ -138,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:text="Feedback"
                         android:textAlignment="center"
-                        android:textSize="13sp"
+                        android:textSize="12sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -168,7 +168,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:id="@+id/agenda"
                         android:background="@drawable/agenda" />

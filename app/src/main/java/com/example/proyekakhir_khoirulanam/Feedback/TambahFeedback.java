@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Agenda.TambahAgendaP;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
+import com.example.proyekakhir_khoirulanam.Hadiah.TambahHadiahPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -89,7 +90,7 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
     private void pickImage() {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(4,3)
+//                .setAspectRatio(6,5)
                 .start(TambahFeedback.this);
         ;
     }
@@ -136,16 +137,17 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahFeedback.this, LihatFeedback.class);
+                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
-                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 hideDialog();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(TambahFeedback.this, "Maaf ada kesalahan menambah Data  ", Toast.LENGTH_LONG).show();
+                hideDialog();
             }
         }){
             @Override

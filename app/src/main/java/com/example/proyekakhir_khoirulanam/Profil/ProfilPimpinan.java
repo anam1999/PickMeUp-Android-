@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.R;
 
@@ -87,7 +88,7 @@ public class ProfilPimpinan extends AppCompatActivity {
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ProfilPimpinan.this, BerandaPetugasLapangan.class);
+                Intent intent=new Intent(ProfilPimpinan.this, BerandaPimpinan.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
                 intent.putExtra(TAG_EMAIL, email);
@@ -139,7 +140,7 @@ public class ProfilPimpinan extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Maaf Jaringan bermasalah", Toast.LENGTH_SHORT).show();
 
             }
         });

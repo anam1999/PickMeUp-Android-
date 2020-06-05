@@ -2,13 +2,18 @@ package com.example.proyekakhir_khoirulanam.Hadiah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,10 +27,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +47,7 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
     Bitmap BitPhoto;
     String StringImage;
     ProgressDialog pDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +66,19 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()){
 
             case R.id.btn_simpan:
-                sendData();
+                String nama_hadiah = tvNama.getText().toString();
+                String deskripsi = tvdeskripsi.getText().toString();
+                String harga_hadiah = poin.getText().toString();
+                String jumlah_hadiah = jumlah.getText().toString();
+
+                if (nama_hadiah.trim().length() > 0 && deskripsi.trim().length() > 0
+                        && harga_hadiah.trim().length() > 0&& jumlah_hadiah.trim().length() > 0) {
+                    sendData(nama_hadiah, deskripsi,harga_hadiah,jumlah_hadiah);
+                } else {
+                    // Prompt user to enter credentials
+                    Toast.makeText(getApplicationContext(), "Field tidak boleh kosong", Toast.LENGTH_LONG).show();
+                }
+
                 break;
 
             case R.id.iv_photo:
@@ -70,7 +90,7 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
     private void pickImage() {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(4,3)
+//                .setAspectRatio(4,3)
                 .start(TambahHadiahPKW.this);
 
     }
@@ -107,10 +127,11 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
                 Exception error = result.getError();
             }
         }
-
     }
 
-    private void sendData() {
+
+
+    private void sendData(final String nama_hadiah,final String deskripsi,final String harga_hadiah,final String jumlahhadiah) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menambahkan ...");
@@ -127,16 +148,6 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (tvNama.getText().toString().length()==0){
-                    tvNama.setError("nama hadiah tidak boleh kosong");
-                    hideDialog();
-                }else if(tvdeskripsi.getText().toString().length()==0) {
-                    tvdeskripsi.setError("deskripsi tidak boleh kosong");
-                    hideDialog();
-                }else if(poin.getText().toString().length()==0) {
-                    poin.setError("Poin tidak boleh kosong");
-                    hideDialog();
-                }
                  Toast.makeText(TambahHadiahPKW.this, "Maaf ada kesalahan menambah Data Hadiah  ", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
@@ -144,13 +155,14 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
-                map.put("nama_hadiah", tvNama.getText().toString());
-                map.put("deskripsi", tvdeskripsi.getText().toString());
-                map.put("harga_hadiah", poin.getText().toString());
-                map.put("jumlah_hadiah", jumlah.getText().toString());
+                map.put("nama_hadiah",nama_hadiah);
+                map.put("deskripsi", deskripsi);
+                map.put("harga_hadiah", harga_hadiah);
+                map.put("jumlah_hadiah", jumlahhadiah);
                 if(StringImage!=null){
                     map.put("file",StringImage);
                 }
+
                 return map;
             }
         };
@@ -171,6 +183,7 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
 
         return encodeImage;
     }
+
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();

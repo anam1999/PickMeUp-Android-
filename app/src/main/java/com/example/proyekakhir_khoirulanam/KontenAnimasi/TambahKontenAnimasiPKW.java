@@ -3,13 +3,19 @@ package com.example.proyekakhir_khoirulanam.KontenAnimasi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,13 +32,18 @@ import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
-public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.OnClickListener{
+public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.OnClickListener {
     EditText tvJudul, tvDeskripsi;
     String StringImage;
     ImageView ivPhoto;
@@ -40,6 +51,8 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
     Bitmap BitPhoto;
     Button btnSimpan;
     ProgressDialog pDialog;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,17 +73,17 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
 
             case R.id.btn_simpan:
                 String nama_konten = tvJudul.getText().toString();
                 String deskripsi = tvDeskripsi.getText().toString();
 
-                if (nama_konten.trim().length() > 0&&deskripsi.trim().length() > 0) {
-                    sendData(nama_konten,deskripsi);
+                if (nama_konten.trim().length() > 0 && deskripsi.trim().length() > 0) {
+                    sendData(nama_konten, deskripsi);
                 } else {
                     // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext() ,"Field tidak boleh kosong", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Field tidak boleh kosong", Toast.LENGTH_LONG).show();
                 }
                 break;
 
@@ -84,13 +97,14 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
     private void pickImage() {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(4,3)
+//                .setAspectRatio(4,3)
                 .start(TambahKontenAnimasiPKW.this);
-        ;
     }
 
+
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
@@ -118,8 +132,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         }
 
     }
-
-    private void sendData(final String nama_konten,final String deskripsi) {
+    private void sendData(final String nama_konten, final String deskripsi) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menambahkan ...");
@@ -141,13 +154,15 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
                 hideDialog();
 //                Toast.makeText(TambahKontenAnimasiPKW.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
                 map.put("nama_konten", nama_konten);
                 map.put("deskripsi", deskripsi);
-                map.put("file", StringImage);
+                if(StringImage!=null){
+                    map.put("file",StringImage);
+                }
                 return map;
             }
         };
@@ -155,14 +170,15 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         requestQueue.add(srSendData);
     }
 
-    private String imgToString(Bitmap bitmap){
+    private String imgToString(Bitmap bitmap) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
         byte[] imageByte = outputStream.toByteArray();
 
         String encodeImage = Base64.encodeToString(imageByte, Base64.DEFAULT);
         return encodeImage;
     }
+
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -172,4 +188,6 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+
 }

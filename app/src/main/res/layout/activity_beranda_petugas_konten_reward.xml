@@ -90,7 +90,7 @@
                         android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:id="@+id/kontenanimasi"
-                        android:background="@drawable/ikon_kontenanimasi" />
+                        android:background="@drawable/agenda" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
                         android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:id="@+id/uploadkonten"
-                        android:background="@drawable/ikon_uploadkonten"
+                        android:background="@drawable/agenda"
 
                         />
 
@@ -250,7 +250,7 @@
                         android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:id="@+id/cekhadiah"
-                        android:background="@drawable/cekhadiah" />
+                        android:background="@drawable/agenda" />
 
                     <TextView
                         android:layout_width="wrap_content"
