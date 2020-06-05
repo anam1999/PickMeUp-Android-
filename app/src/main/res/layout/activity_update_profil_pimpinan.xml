@@ -10,9 +10,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profil.UpdateProfil"
+    android:orientation="vertical"
     android:background="@drawable/bgs"
-    android:orientation="vertical">
+    tools:context=".Profil.UpdateProfilPimpinan">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300dp">
@@ -160,6 +160,5 @@
         android:background="@drawable/radius"
         android:layout_height="50dp"
         android:text="Update Profil"/>
-
 </LinearLayout>
 </ScrollView>

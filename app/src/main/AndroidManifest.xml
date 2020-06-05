@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Feedback.LihatFeedbackPimpinan"></activity>
+        <activity android:name=".Profil.UpdateProfilPetugasKontenReward"></activity>
+        <activity android:name=".Profil.UpdateProfilPetugasLapangan" />
+        <activity android:name=".Profil.UpdateProfilPimpinan" />
+        <activity android:name=".Feedback.LihatFeedbackPimpinan" />
         <activity android:name=".Beranda.BerandaMasyarakats" />
         <activity android:name=".TukarKodePoin" />
         <activity android:name=".Profil.ProfilPetugasKontenReward" />

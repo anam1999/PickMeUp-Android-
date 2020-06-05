@@ -76,7 +76,7 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profils = new Intent(ProfilPetugasLapangan.this, UpdateProfil.class);
+                Intent profils = new Intent(ProfilPetugasLapangan.this, UpdateProfilPetugasLapangan.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
                 profils.putExtra(TAG_EMAIL, email);

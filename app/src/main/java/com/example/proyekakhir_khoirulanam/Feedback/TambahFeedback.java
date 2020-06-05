@@ -135,10 +135,10 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahfeedback", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(TambahFeedback.this, LihatFeedback.class);
                 startActivity(intent);
                 finish();
+                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 hideDialog();
 
             }

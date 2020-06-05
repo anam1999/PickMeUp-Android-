@@ -63,7 +63,15 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         switch (v.getId()){
 
             case R.id.btn_simpan:
-                sendData();
+                String nama_konten = tvJudul.getText().toString();
+                String deskripsi = tvDeskripsi.getText().toString();
+
+                if (nama_konten.trim().length() > 0&&deskripsi.trim().length() > 0) {
+                    sendData(nama_konten,deskripsi);
+                } else {
+                    // Prompt user to enter credentials
+                    Toast.makeText(getApplicationContext() ,"Field tidak boleh kosong", Toast.LENGTH_LONG).show();
+                }
                 break;
 
             case R.id.iv_photo:
@@ -111,7 +119,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
 
     }
 
-    private void sendData() {
+    private void sendData(final String nama_konten,final String deskripsi) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menambahkan ...");
@@ -128,14 +136,8 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (tvJudul.getText().toString().length()==0){
-                    tvJudul.setError("judul tidak boleh kosong");
-                    hideDialog();
-                }else if(tvDeskripsi.getText().toString().length()==0) {
-                    tvDeskripsi.setError("deskripsi tidak boleh kosong");
-                    hideDialog();
-                }
-                Toast.makeText(TambahKontenAnimasiPKW.this, "Maaf ada kesalahan menambah Data Konten Animasi  ", Toast.LENGTH_LONG).show();
+
+                Toast.makeText(TambahKontenAnimasiPKW.this, "Maaf ada kesalahan menambah Data Konten Animasi(Upload Foto)  ", Toast.LENGTH_LONG).show();
                 hideDialog();
 //                Toast.makeText(TambahKontenAnimasiPKW.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }
@@ -143,8 +145,8 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
-                map.put("nama_konten", tvJudul.getText().toString());
-                map.put("deskripsi", tvDeskripsi.getText().toString());
+                map.put("nama_konten", nama_konten);
+                map.put("deskripsi", deskripsi);
                 map.put("file", StringImage);
                 return map;
             }

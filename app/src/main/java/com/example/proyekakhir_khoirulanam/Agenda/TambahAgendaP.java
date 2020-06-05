@@ -66,7 +66,16 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
 
             case R.id.btn_simpan:
-                sendData();
+                String nama_agenda = tvAgenda.getText().toString();
+                String keterangan = tvKeterangan.getText().toString();
+
+                if (nama_agenda.trim().length() > 0&&keterangan.trim().length() > 0) {
+                    sendData(nama_agenda,keterangan);
+                } else {
+                    // Prompt user to enter credentials
+                    Toast.makeText(getApplicationContext() ,"Nama Agenda/Keterangan tidak boleh kosong", Toast.LENGTH_LONG).show();
+                }
+
                 break;
 
             case R.id.iv_photo:
@@ -116,7 +125,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
     }
 
 
-    private void sendData() {
+    private void sendData(final String nama_agenda,final String keterangan) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menambahkan ...");
@@ -134,13 +143,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (tvAgenda.getText().toString().length()==0){
-                    tvAgenda.setError("judul tidak boleh kosong");
-                    hideDialog();
-                }else if(tvKeterangan.getText().toString().length()==0) {
-                    tvKeterangan.setError("keterangan tidak boleh kosong");
-                    hideDialog();
-                }
+
                 Toast.makeText(TambahAgendaP.this, "Maaf ada kesalahan menambah Data Agenda  ", Toast.LENGTH_LONG).show();
                 hideDialog();
 //                Toast.makeText(TambahAgendaP.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
@@ -149,8 +152,8 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
-                map.put("nama_agenda", tvAgenda.getText().toString());
-                map.put("keterangan", tvKeterangan.getText().toString());
+                map.put("nama_agenda", nama_agenda);
+                map.put("keterangan", keterangan);
                 map.put("file", StringImage);
                 return map;
             }
