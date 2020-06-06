@@ -24,14 +24,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.AppController.koneksi;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakat;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -297,33 +294,25 @@ public class Masuk extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+    long lastPress;
+    Toast backpressToast;
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setMessage("Keluar aplikasi?");
-        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user pressed "yes", then he is allowed to exit from application
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_HOME);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                finish();
-                startActivity(intent);
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - lastPress > 5000){
+            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+            backpressToast.show();
+            lastPress = currentTime;
 
-//                dialog.dismiss();
-//                System.exit(0);
-            }
-        });
-        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user select "No", just cancel this dialog and continue with app
-                dialog.cancel();
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
+        } else {
+            if (backpressToast != null) backpressToast.cancel();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(intent);
+            super.onBackPressed();
+        }
     }
 }

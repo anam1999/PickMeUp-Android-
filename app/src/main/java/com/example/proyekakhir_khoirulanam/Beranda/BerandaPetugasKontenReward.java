@@ -38,13 +38,12 @@ import org.json.JSONObject;
 
 public class BerandaPetugasKontenReward extends AppCompatActivity {
     TextView txt_nama,emailku;
-    String nama,id,email,role;
     ImageView konten,cekhadiah,feedback,agenda,uploadkonten,btn_logout,profil;
     SharedPreferences sharedpreferences;
+    String nama,id;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-    public final static String TAG_EMAIL = "email";
-    public final static String TAG_ROLE = "role";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,26 +58,23 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         agenda = findViewById(R.id.agenda);
         uploadkonten=findViewById(R.id.uploadkonten);
         txt_nama = findViewById(R.id.username);
-        emailku =findViewById(R.id.txt_nama_dashboard);
         profil=findViewById(R.id.profil);
 
         //session
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
-        email = getIntent().getStringExtra(TAG_EMAIL);
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
         Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
         //setText
         txt_nama.setText(": "+nama);
+        txt_nama.setText(" "+Preferences.getLoggedInUser(getBaseContext()));
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent profils = new Intent(BerandaPetugasKontenReward.this, ProfilPetugasKontenReward.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
-                profils.putExtra(TAG_EMAIL, email);
-                profils.putExtra(TAG_ROLE, role);
                 startActivity(profils);
             }
         });
@@ -87,6 +83,8 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent konten = new Intent(BerandaPetugasKontenReward.this, LihatKontenAnimasiPKW.class);
+                konten.putExtra(TAG_ID, id);
+                konten.putExtra(TAG_NAMA, nama);
                 startActivity(konten);
             }
         });
@@ -94,6 +92,8 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent uploadkonten = new Intent(BerandaPetugasKontenReward.this, TambahKontenAnimasiPKW.class);
+                uploadkonten.putExtra(TAG_ID, id);
+                uploadkonten.putExtra(TAG_NAMA, nama);
                 startActivity(uploadkonten);
             }
         });
@@ -102,6 +102,8 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent agenda = new Intent(BerandaPetugasKontenReward.this, LihatAgenda.class);
+                agenda.putExtra(TAG_ID, id);
+                agenda.putExtra(TAG_NAMA, nama);
                 startActivity(agenda);
             }
         });
@@ -109,6 +111,8 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent feedback = new Intent(BerandaPetugasKontenReward.this, LihatFeedback.class);
+                feedback.putExtra(TAG_ID, id);
+                feedback.putExtra(TAG_NAMA, nama);
                 startActivity(feedback);
             }
         });
@@ -116,6 +120,8 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent cekhadiah = new Intent(BerandaPetugasKontenReward.this, LihatHadiahPKW.class);
+                cekhadiah.putExtra(TAG_ID, id);
+                cekhadiah.putExtra(TAG_NAMA, nama);
                 startActivity(cekhadiah);
             }
         });

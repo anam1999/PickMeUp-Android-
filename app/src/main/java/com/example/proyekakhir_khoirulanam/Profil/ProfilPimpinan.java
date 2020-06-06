@@ -42,8 +42,6 @@ public class ProfilPimpinan extends AppCompatActivity {
 
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-    public final static String TAG_EMAIL = "email";
-    public final static String TAG_ROLE = "role";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +64,6 @@ public class ProfilPimpinan extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
-        email = getIntent().getStringExtra(TAG_EMAIL);
-
         username.setText(" "+nama);
         emails.setText(""+id);
 
@@ -78,9 +74,6 @@ public class ProfilPimpinan extends AppCompatActivity {
                 Intent profils = new Intent(ProfilPimpinan.this, UpdateProfilPimpinan.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
-                profils.putExtra(TAG_EMAIL, email);
-                profils.putExtra(TAG_ROLE, role);
-
                 startActivity(profils);
             }
         });
@@ -91,8 +84,6 @@ public class ProfilPimpinan extends AppCompatActivity {
                 Intent intent=new Intent(ProfilPimpinan.this, BerandaPimpinan.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
-                intent.putExtra(TAG_EMAIL, email);
-                intent.putExtra(TAG_ROLE, role);
                 startActivity(intent);
             }
         });
@@ -163,10 +154,9 @@ public class ProfilPimpinan extends AppCompatActivity {
                         // jika tombol diklik, maka akan menutup activity ini
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(Masuk.session_status, false);
-//                        editor.putString(TAG_ID, null);
-//                        editor.putString(TAG_NAMA, null);
-//                        editor.putString(TAG_EMAIL, null);
-//                        editor.putString(TAG_ROLE,null);
+                        editor.putString(TAG_ID, null);
+                        editor.putString(TAG_NAMA, null);
+
                         editor.commit();
                         Intent ua = new Intent(ProfilPimpinan.this, Masuk.class);
                         finish();

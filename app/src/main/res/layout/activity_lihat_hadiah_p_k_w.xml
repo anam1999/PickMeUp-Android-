@@ -4,9 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ecoranger"
+    android:background="@drawable/bgs"
     tools:context=".Hadiah.LihatHadiahPKW">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ecoranger">
+    </androidx.appcompat.widget.Toolbar>
     <TextView
         android:id="@+id/judul"
         android:layout_width="wrap_content"
@@ -14,7 +24,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:text="Hadiah"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -24,10 +34,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        android:layout_marginTop="40dp"
         tools:listitem="@layout/list_hadiah"
       />
-
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_tambah"
         android:layout_width="wrap_content"

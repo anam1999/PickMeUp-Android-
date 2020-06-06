@@ -1,14 +1,17 @@
 package com.example.proyekakhir_khoirulanam.Hadiah;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,11 +22,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.HadiahAdapterView;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Model.ModelHadiah;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.R;
+import com.example.proyekakhir_khoirulanam.TukarKodePoin;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,10 +40,13 @@ public class LihatHadiah extends AppCompatActivity {
     HadiahAdapterView hadiahAdapter;
     ArrayList<Hadiah> hadiahArrayList;
     RequestQueue queue;
-    String id;
+    String id,nama;
     TextView poin,btn;
     SharedPreferences sharedpreferences;
     public final static String TAG_ID = "id";
+    public final static String TAG_NAMA = "username";
+
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +57,25 @@ public class LihatHadiah extends AppCompatActivity {
         getpoin();
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
-
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Transaksi Hadiah ");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
+        id = getIntent().getStringExtra(TAG_ID);
+        nama = getIntent().getStringExtra(TAG_NAMA);
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(LihatHadiah.this, BerandaMasyarakats.class);
+                inten.putExtra(TAG_ID, id);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
+            }
+        });
         btn.setText(Preferences.getId(getBaseContext()));
 
         hadiahArrayList = new ArrayList<>();

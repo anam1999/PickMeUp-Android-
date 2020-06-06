@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     android:background="@color/ecoranger"
     tools:context=".KontenAnimasi.LihatKontenAnimasiPKW">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ecoranger">
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/judul"
@@ -14,10 +25,20 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:text="Konten Animasi"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/rv_Animasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:layout_marginTop="40dp"
+        tools:listitem="@layout/list_kontenanimasi"
+        />
+</LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_tambah"
         android:layout_width="wrap_content"
@@ -32,13 +53,5 @@
         app:fabSize="normal"
         android:layout_marginEnd="10dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
 
-        android:id="@+id/rv_Animasi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:layout_marginTop="40dp"
-        tools:listitem="@layout/list_kontenanimasi"
-         />
 </RelativeLayout>

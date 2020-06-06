@@ -43,8 +43,6 @@ public class BerandaMasyarakats extends AppCompatActivity {
     TextView txt_nama,emailku,poin;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-    public final static String TAG_EMAIL = "email";
-    public final static String TAG_ROLE = "role";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,8 +58,6 @@ public class BerandaMasyarakats extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id=getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
-        email = getIntent().getStringExtra(TAG_EMAIL);
-        role = getIntent().getStringExtra(TAG_ROLE);
 
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
         Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
@@ -81,8 +77,6 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent profils = new Intent(BerandaMasyarakats.this, Profil.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
-                profils.putExtra(TAG_EMAIL, email);
-                profils.putExtra(TAG_ROLE, role);
                 startActivity(profils);
             }
         });
@@ -91,6 +85,8 @@ public class BerandaMasyarakats extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Kode = new Intent(BerandaMasyarakats.this, TukarKodePoin.class);
+                Kode.putExtra(TAG_ID, id);
+                Kode.putExtra(TAG_NAMA,nama);
                 startActivity(Kode);
             }
         });
@@ -98,6 +94,8 @@ public class BerandaMasyarakats extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent transaksi= new Intent(BerandaMasyarakats.this, LihatTransaksi.class);
+                transaksi.putExtra(TAG_ID, id);
+                transaksi.putExtra(TAG_NAMA, nama);
                 startActivity(transaksi);
             }
         });
@@ -105,6 +103,8 @@ public class BerandaMasyarakats extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent feedback = new Intent(BerandaMasyarakats.this, LihatFeedback.class);
+                feedback.putExtra(TAG_ID, id);
+                feedback.putExtra(TAG_NAMA, nama);
                 startActivity(feedback);
             }
         });
@@ -112,6 +112,8 @@ public class BerandaMasyarakats extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent konten = new Intent(BerandaMasyarakats.this, LihatKontenAnimasi.class);
+                konten.putExtra(TAG_ID, id);
+                konten.putExtra(TAG_NAMA, nama);
                 startActivity(konten);
             }
         });
@@ -120,6 +122,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
             public void onClick(View v) {
                 Intent tukarhadiah = new Intent(BerandaMasyarakats.this, LihatHadiah.class);
                 tukarhadiah.putExtra(TAG_ID, id);
+                tukarhadiah.putExtra(TAG_NAMA,nama);
                 startActivity(tukarhadiah);
             }
         });
@@ -127,6 +130,8 @@ public class BerandaMasyarakats extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent agenda = new Intent(BerandaMasyarakats.this, LihatAgenda.class);
+                agenda.putExtra(TAG_ID, id);
+                agenda.putExtra(TAG_NAMA,nama);
                 startActivity(agenda);
             }
         });
@@ -197,6 +202,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         });
         queue.add(arrayRequest);
     }
+
     long lastPress;
     Toast backpressToast;
     @Override

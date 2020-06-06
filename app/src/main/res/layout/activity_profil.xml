@@ -22,14 +22,14 @@
                 android:layout_width="50dp"
                 android:layout_marginRight="3dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/keluars"
                 android:layout_height="50dp"/>
 
             <ImageButton
                 android:id="@+id/back"
                 android:layout_width="50dp"
-                android:layout_marginTop="-50dp"
+                android:layout_marginTop="-60dp"
                 android:layout_marginRight="3dp"
                 android:background="@drawable/back"
                 android:layout_height="50dp"/>

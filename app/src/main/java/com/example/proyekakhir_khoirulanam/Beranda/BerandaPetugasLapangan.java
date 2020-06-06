@@ -42,8 +42,7 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
 
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-    public final static String TAG_EMAIL = "email";
-    public final static String TAG_ROLE = "role";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +63,6 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
-        email = getIntent().getStringExtra(TAG_EMAIL);
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
         Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
         //setText
@@ -84,8 +82,6 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
                 Intent profils = new Intent(BerandaPetugasLapangan.this, ProfilPetugasLapangan.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
-                profils.putExtra(TAG_EMAIL, email);
-                profils.putExtra(TAG_ROLE, role);
                 startActivity(profils);
             }
         });
@@ -93,6 +89,8 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent monitoring = new Intent(BerandaPetugasLapangan.this, MonitoringSampahPintar.class);
+                monitoring.putExtra(TAG_ID, id);
+                monitoring.putExtra(TAG_NAMA, nama);
                 startActivity(monitoring);
             }
         });
@@ -101,6 +99,8 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent agenda = new Intent(BerandaPetugasLapangan.this, LihatAgenda.class);
+                agenda.putExtra(TAG_ID, id);
+                agenda.putExtra(TAG_NAMA, nama);
                 startActivity(agenda);
             }
         });
@@ -108,6 +108,8 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent feedback = new Intent(BerandaPetugasLapangan.this, LihatFeedback.class);
+                feedback.putExtra(TAG_ID, id);
+                feedback.putExtra(TAG_NAMA, nama);
                 startActivity(feedback);
             }
         });

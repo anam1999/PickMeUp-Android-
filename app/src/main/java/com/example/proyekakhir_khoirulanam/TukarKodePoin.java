@@ -1,9 +1,12 @@
 package com.example.proyekakhir_khoirulanam;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +22,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
+import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;
@@ -32,7 +37,11 @@ TextView Totalpoin;
 EditText Kode;
 Button Tukarkan;
 ProgressDialog pDialog;
-String poin,kodeku;
+String poin,kodeku,nama,id;
+public final static String TAG_NAMA = "username";
+public final static String TAG_ID = "id";
+Toolbar toolbar;
+SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +50,26 @@ String poin,kodeku;
         Totalpoin = findViewById(R.id.totalpoins);
         Kode = findViewById(R.id.isikode);
         Tukarkan = findViewById(R.id.tukarkode);
+
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Transaksi Hadiah ");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
+        id = getIntent().getStringExtra(TAG_ID);
+        nama = getIntent().getStringExtra(TAG_NAMA);
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(TukarKodePoin.this, BerandaMasyarakats.class);
+                inten.putExtra(TAG_ID, id);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
+            }
+        });
 
         Tukarkan.setOnClickListener(new View.OnClickListener() {
             @Override

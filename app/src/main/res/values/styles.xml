@@ -13,6 +13,12 @@
         <item name="colorPrimaryDark">@color/ecoranger</item>
         <item name="colorAccent">@color/ecoranger</item>
     </style>
+    <style name="tanpaactionbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ecoranger</item>
+        <item name="colorPrimaryDark">@color/ecoranger</item>
+        <item name="colorAccent">@color/ecoranger</item>
+    </style>
     <style name="AppThemelapangan" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/petugaslapangan</item>

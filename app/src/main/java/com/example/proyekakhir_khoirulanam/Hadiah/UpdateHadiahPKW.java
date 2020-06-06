@@ -2,6 +2,7 @@ package com.example.proyekakhir_khoirulanam.Hadiah;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -24,7 +25,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
+import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.UpdateKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -38,6 +41,10 @@ import java.util.Map;
 
 public class UpdateHadiahPKW extends AppCompatActivity {
     public static final String EXTRA_DETAILs ="penukaranhadiah";
+    public final static String TAG_NAMA = "username";
+    public final static String TAG_ID = "id";
+    Toolbar toolbar;
+    String ids, nama;
     ImageView ivHadiah;
     EditText rvHadiah;
     EditText rvDeskripsi;
@@ -54,9 +61,6 @@ public class UpdateHadiahPKW extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_hadiah_p);
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setTitle("Detail Hadiah");
-        actionBar.show();
         ivHadiah = findViewById(R.id.iv_photo);
         rvHadiah = findViewById(R.id.tv_nama_hadiah);
         rvDeskripsi = findViewById(R.id.tv_deskripsi);
@@ -87,6 +91,25 @@ public class UpdateHadiahPKW extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pickImage();
+            }
+        });
+
+        ids= Preferences.getId(getBaseContext());
+        nama=Preferences.getLoggedInUser(getBaseContext());
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Hadiah ");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(UpdateHadiahPKW.this, LihatKontenAnimasiPKW.class);
+                inten.putExtra(TAG_ID, ids);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
             }
         });
     }
@@ -189,5 +212,25 @@ public class UpdateHadiahPKW extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+    long lastPress;
+    Toast backpressToast;
+    @Override
+    public void onBackPressed() {
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - lastPress > 5000){
+            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+            backpressToast.show();
+            lastPress = currentTime;
+
+        } else {
+            if (backpressToast != null) backpressToast.cancel();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(intent);
+            super.onBackPressed();
+        }
     }
+}
 

@@ -2,17 +2,25 @@ package com.example.proyekakhir_khoirulanam.Agenda;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.AgendaAdapterView;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Constructor.Agenda;
+import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Model.ModelAgenda;
 import com.example.proyekakhir_khoirulanam.R;
 
@@ -23,14 +31,38 @@ public class LihatAgenda extends AppCompatActivity {
     AgendaAdapterView agendaAdapter;
     ArrayList<Agenda> agendaArrayList;
     RequestQueue queue;
+    Toolbar toolbar;
+    SharedPreferences sharedpreferences;
+    String id,nama;
+    public final static String TAG_NAMA = "username";
+    public final static String TAG_ID = "id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_agenda);
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setTitle("Lihat Agenda");
-        actionBar.show();
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Agenda");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
+        id = getIntent().getStringExtra(TAG_ID);
+        nama = getIntent().getStringExtra(TAG_NAMA);
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(LihatAgenda.this, BerandaPetugasKontenReward.class);
+               inten.putExtra(TAG_ID, id);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
+            }
+        });
+//        ActionBar actionBar = getSupportActionBar();
+//        getSupportActionBar().setTitle("Lihat Agenda");
+//        actionBar.show();
 
         agendaArrayList = new ArrayList<>();
         rvNama = findViewById(R.id.rv_Agenda);
@@ -51,4 +83,5 @@ public class LihatAgenda extends AppCompatActivity {
         agendaAdapter.notifyDataSetChanged();
 
     }
+
 }

@@ -15,6 +15,7 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -45,6 +47,7 @@ public class UpdateProfil extends AppCompatActivity {
     EditText nama,nohp,alamat,email,username,emailnya;
     String id,usernames,emailku;
     ImageView profil;
+    ImageButton kembali;
     String StringImage;
     Uri UriPhoto;
     Bitmap BitPhoto;
@@ -52,7 +55,6 @@ public class UpdateProfil extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-    public final static String TAG_EMAIL = "email";
     Button update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +72,23 @@ public class UpdateProfil extends AppCompatActivity {
         nohp=findViewById(R.id.nohp);
         profil=findViewById(R.id.profilupdate);
         update=findViewById(R.id.update);
-
+        kembali=findViewById(R.id.back);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         usernames = getIntent().getStringExtra(TAG_NAMA);
-        emailku = getIntent().getStringExtra(TAG_EMAIL);
 
         username.setText(" "+id);
         email.setText(""+id);
+        kembali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(UpdateProfil.this, Profil.class);
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_NAMA,usernames);
+                startActivity(intent);
+            }
+        });
+
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,5 +255,26 @@ public class UpdateProfil extends AppCompatActivity {
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+
+    long lastPress;
+    Toast backpressToast;
+    @Override
+    public void onBackPressed() {
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - lastPress > 5000){
+            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+            backpressToast.show();
+            lastPress = currentTime;
+
+        } else {
+            if (backpressToast != null) backpressToast.cancel();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(intent);
+            super.onBackPressed();
+        }
     }
 }

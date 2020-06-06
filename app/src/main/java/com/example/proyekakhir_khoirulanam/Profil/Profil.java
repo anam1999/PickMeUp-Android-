@@ -24,8 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakat;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.R;
 
@@ -42,8 +41,6 @@ public class Profil extends AppCompatActivity {
 
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-    public final static String TAG_EMAIL = "email";
-    public final static String TAG_ROLE = "role";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +65,6 @@ public class Profil extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
-        email = getIntent().getStringExtra(TAG_EMAIL);
-        role = getIntent().getStringExtra(TAG_ROLE);
         username.setText(" "+nama);
         emails.setText(""+id);
 
@@ -80,9 +75,6 @@ public class Profil extends AppCompatActivity {
                 Intent profils = new Intent(Profil.this, UpdateProfil.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
-                profils.putExtra(TAG_EMAIL, email);
-                profils.putExtra(TAG_ROLE, role);
-
                 startActivity(profils);
             }
         });
@@ -90,11 +82,9 @@ public class Profil extends AppCompatActivity {
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Profil.this, BerandaMasyarakat.class);
+                Intent intent=new Intent(Profil.this, BerandaMasyarakats.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
-                intent.putExtra(TAG_EMAIL, email);
-                intent.putExtra(TAG_ROLE, role);
                 startActivity(intent);
             }
         });
@@ -156,7 +146,7 @@ public class Profil extends AppCompatActivity {
                 this);
 
         // set title dialog
-        alertDialogBuilder.setTitle("Keluar dari aplikasi?");
+        alertDialogBuilder.setTitle("Keluar dari Akun?");
 
         // set pesan dari dialog
         alertDialogBuilder
@@ -167,10 +157,8 @@ public class Profil extends AppCompatActivity {
                         // jika tombol diklik, maka akan menutup activity ini
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(Masuk.session_status, false);
-//                        editor.putString(TAG_ID, null);
-//                        editor.putString(TAG_NAMA, null);
-//                        editor.putString(TAG_EMAIL, null);
-//                        editor.putString(TAG_ROLE,null);
+                        editor.putString(TAG_ID, null);
+                        editor.putString(TAG_NAMA, null);
                         editor.commit();
                         Intent ua = new Intent(Profil.this, Masuk.class);
                         finish();

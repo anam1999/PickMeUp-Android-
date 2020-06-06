@@ -45,8 +45,6 @@ public class BerandaPimpinan extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-    public final static String TAG_EMAIL = "email";
-    public final static String TAG_ROLE = "role";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ActionBar actionBar = getSupportActionBar();
@@ -67,8 +65,6 @@ public class BerandaPimpinan extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
-        email = getIntent().getStringExtra(TAG_EMAIL);
-        role=getIntent().getStringExtra(TAG_ROLE);
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
         Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
         //setText
@@ -87,8 +83,6 @@ public class BerandaPimpinan extends AppCompatActivity {
                 Intent  profils = new Intent(BerandaPimpinan.this, ProfilPimpinan.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
-                profils.putExtra(TAG_EMAIL, email);
-                profils.putExtra(TAG_ROLE, role);
                 startActivity(profils);
             }
         });
@@ -97,6 +91,8 @@ public class BerandaPimpinan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent konten = new Intent(BerandaPimpinan.this, LihatKontenAnimasi.class);
+                konten.putExtra(TAG_ID, id);
+                konten.putExtra(TAG_NAMA, nama);
                 startActivity(konten);
             }
         });
@@ -105,6 +101,8 @@ public class BerandaPimpinan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent agenda = new Intent(BerandaPimpinan.this, LihatAgendaP.class);
+                agenda.putExtra(TAG_ID, id);
+                agenda.putExtra(TAG_NAMA, nama);
                 startActivity(agenda);
             }
         });
@@ -112,6 +110,8 @@ public class BerandaPimpinan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent feedback = new Intent(BerandaPimpinan.this, LihatFeedbackPimpinan.class);
+                feedback.putExtra(TAG_ID, id);
+                feedback.putExtra(TAG_NAMA, nama);
                 startActivity(feedback);
             }
         });
@@ -119,6 +119,8 @@ public class BerandaPimpinan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent cekhadiah = new Intent(BerandaPimpinan.this, LihatHadiah.class);
+                cekhadiah.putExtra(TAG_ID, id);
+                cekhadiah.putExtra(TAG_NAMA, nama);
                 startActivity(cekhadiah);
             }
         });

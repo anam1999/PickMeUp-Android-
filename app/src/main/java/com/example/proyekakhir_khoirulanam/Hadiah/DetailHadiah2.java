@@ -2,6 +2,7 @@ package com.example.proyekakhir_khoirulanam.Hadiah;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -26,6 +27,8 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
+import com.example.proyekakhir_khoirulanam.Feedback.DetailFeedback;
+import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.R;
@@ -54,16 +57,33 @@ public class DetailHadiah2 extends AppCompatActivity {
     public final static String TAG_ID = "id";
     public static final String EXTRA_DETAILs ="penukaranhadiah";
     public static int poins,poinhadiah,a=0 ;
+    public final static String TAG_NAMA = "username";
+    Toolbar toolbar;
+    String nama;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        ss=1;
         setContentView(R.layout.activity_detail_hadiah2);
         getPoin();
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setTitle("Penukaran Hadiah");
-        actionBar.show();
 
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Hadiah ");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(DetailHadiah2.this, LihatHadiah.class);
+                inten.putExtra(TAG_ID, id);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
+            }
+        });
 
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id=getIntent().getStringExtra(TAG_ID);
@@ -317,4 +337,24 @@ public class DetailHadiah2 extends AppCompatActivity {
             pDialog.dismiss();
     }
 
+    long lastPress;
+    Toast backpressToast;
+    @Override
+    public void onBackPressed() {
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - lastPress > 5000){
+            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+            backpressToast.show();
+            lastPress = currentTime;
+
+        } else {
+            if (backpressToast != null) backpressToast.cancel();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(intent);
+            super.onBackPressed();
+        }
+    }
 }
