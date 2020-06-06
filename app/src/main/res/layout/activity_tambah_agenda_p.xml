@@ -14,13 +14,16 @@
     android:background="@drawable/bgs"
     android:orientation="vertical"
     tools:context=".Agenda.TambahAgendaP">
-
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ecoranger">
+    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"
         android:background="@drawable/radius"
         android:gravity="center"
         android:orientation="vertical">

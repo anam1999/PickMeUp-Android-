@@ -1,6 +1,5 @@
 package com.example.proyekakhir_khoirulanam.Agenda;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -8,19 +7,16 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.AgendaAdapterView;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
 import com.example.proyekakhir_khoirulanam.Constructor.Agenda;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Model.ModelAgenda;
@@ -28,7 +24,7 @@ import com.example.proyekakhir_khoirulanam.R;
 
 import java.util.ArrayList;
 
-public class LihatAgenda extends AppCompatActivity {
+public class LihatAgendaPL extends AppCompatActivity {
     RecyclerView rvNama;
     AgendaAdapterView agendaAdapter;
     ArrayList<Agenda> agendaArrayList;
@@ -38,11 +34,10 @@ public class LihatAgenda extends AppCompatActivity {
     String id,nama;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_agenda);
+        setContentView(R.layout.activity_lihat_agenda_p_l);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Agenda");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -55,16 +50,13 @@ public class LihatAgenda extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(LihatAgenda.this, BerandaMasyarakats.class);
+                Intent inten = new Intent(LihatAgendaPL.this, BerandaPetugasLapangan.class);
                inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
                 startActivity(inten);
             }
         });
-//        ActionBar actionBar = getSupportActionBar();
-//        getSupportActionBar().setTitle("Lihat Agenda");
-//        actionBar.show();
 
         agendaArrayList = new ArrayList<>();
         rvNama = findViewById(R.id.rv_Agenda);
@@ -84,27 +76,6 @@ public class LihatAgenda extends AppCompatActivity {
         rvNama.setAdapter(agendaAdapter);
         agendaAdapter.notifyDataSetChanged();
 
-    }
-
-    long lastPress;
-    Toast backpressToast;
-    @Override
-    public void onBackPressed() {
-        long currentTime = System.currentTimeMillis();
-        if(currentTime - lastPress > 5000){
-            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
-            backpressToast.show();
-            lastPress = currentTime;
-
-        } else {
-            if (backpressToast != null) backpressToast.cancel();
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            finish();
-            startActivity(intent);
-            super.onBackPressed();
-        }
     }
 
 }

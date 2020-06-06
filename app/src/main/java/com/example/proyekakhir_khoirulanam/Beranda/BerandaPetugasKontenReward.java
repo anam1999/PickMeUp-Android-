@@ -23,8 +23,10 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
+import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaPKW;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
+import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPKW;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiahPKW;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
@@ -101,7 +103,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         agenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent agenda = new Intent(BerandaPetugasKontenReward.this, LihatAgenda.class);
+                Intent agenda = new Intent(BerandaPetugasKontenReward.this, LihatAgendaPKW.class);
                 agenda.putExtra(TAG_ID, id);
                 agenda.putExtra(TAG_NAMA, nama);
                 startActivity(agenda);
@@ -110,7 +112,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent feedback = new Intent(BerandaPetugasKontenReward.this, LihatFeedback.class);
+                Intent feedback = new Intent(BerandaPetugasKontenReward.this, LihatFeedbackPKW.class);
                 feedback.putExtra(TAG_ID, id);
                 feedback.putExtra(TAG_NAMA, nama);
                 startActivity(feedback);

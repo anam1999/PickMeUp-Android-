@@ -17,15 +17,11 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
         android:rowCount="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bgtop"
-        app:layout_editor_absoluteX="0dp">
+     >
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -68,15 +64,25 @@
                     android:id="@+id/tukarkode"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
                     android:text="Tukar"
                     />
 
-
+                <TextView
+                    android:id="@+id/totals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Poin Anda"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/totalpoins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Poin Anda"
+                    android:text="0"
                     android:textSize="20sp"
                     android:layout_marginBottom="10dp"
                     android:textAlignment="center"

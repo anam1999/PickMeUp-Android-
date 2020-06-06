@@ -24,6 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
 import com.example.proyekakhir_khoirulanam.Masuk;
@@ -143,7 +144,7 @@ public class ProfilPimpinan extends AppCompatActivity {
                 this);
 
         // set title dialog
-        alertDialogBuilder.setTitle("Keluar dari aplikasi?");
+        alertDialogBuilder.setTitle("Keluar dari Akun "+ Preferences.getLoggedInUser(getBaseContext())+" ?");
 
         // set pesan dari dialog
         alertDialogBuilder

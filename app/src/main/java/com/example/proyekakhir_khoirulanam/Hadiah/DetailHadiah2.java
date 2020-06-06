@@ -66,7 +66,8 @@ public class DetailHadiah2 extends AppCompatActivity {
 //        ss=1;
         setContentView(R.layout.activity_detail_hadiah2);
         getPoin();
-
+        id= Preferences.getId(getBaseContext());
+        nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Hadiah ");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -85,8 +86,8 @@ public class DetailHadiah2 extends AppCompatActivity {
             }
         });
 
-        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
-        id=getIntent().getStringExtra(TAG_ID);
+//        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
+//        id=getIntent().getStringExtra(TAG_ID);
         nilai = (TextView) findViewById(R.id.nilai);
         rvHadiah = findViewById(R.id.tvNamaHadiah);
         rvDeskripsi = findViewById(R.id.tvDeskripsi);

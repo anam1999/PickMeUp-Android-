@@ -2,6 +2,7 @@ package com.example.proyekakhir_khoirulanam.Agenda;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -41,14 +43,34 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
     Bitmap BitPhoto;
     Button btnSimpan;
     ProgressDialog pDialog;
+    public final static String TAG_NAMA = "username";
+    public final static String TAG_ID = "id";
+    Toolbar toolbar;
+    String ids, nama;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_agenda_p);
+        ids= Preferences.getId(getBaseContext());
+        nama=Preferences.getLoggedInUser(getBaseContext());
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Agenda");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
 
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setTitle("Tambah Agenda");
-        actionBar.show();
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(TambahAgendaP.this, LihatAgendaP.class);
+                inten.putExtra(TAG_ID, ids);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
+            }
+        });
+
 
         tvAgenda = findViewById(R.id.tv_nama_agenda);
         tvKeterangan = findViewById(R.id.tv_keterangan);
@@ -88,7 +110,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
     private void pickImage() {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(4,3)
+//                .setAspectRatio(4,3)
                 .start(TambahAgendaP.this);
         ;
     }
@@ -133,7 +155,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahagenda", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Intent intent = new Intent(TambahAgendaP.this, LihatAgenda.class);
+                Intent intent = new Intent(TambahAgendaP.this, LihatAgendaP.class);
                 startActivity(intent);
                 finish();
                 Toast.makeText(TambahAgendaP.this, "Data Agenda berhasil ditambahkan", Toast.LENGTH_LONG).show();

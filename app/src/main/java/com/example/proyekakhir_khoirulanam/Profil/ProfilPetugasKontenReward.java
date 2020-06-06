@@ -146,7 +146,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                 this);
 
         // set title dialog
-        alertDialogBuilder.setTitle("Keluar dari Akun ?"+ Preferences.getLoggedInUser(getBaseContext()));
+        alertDialogBuilder.setTitle("Keluar dari Akun "+ Preferences.getLoggedInUser(getBaseContext())+" ?");
 
         // set pesan dari dialog
         alertDialogBuilder

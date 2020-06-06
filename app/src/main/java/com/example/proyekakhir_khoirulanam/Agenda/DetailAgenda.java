@@ -34,19 +34,6 @@ public class DetailAgenda extends AppCompatActivity {
 
         id= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
-
-        TextView rvNamaagenda = findViewById(R.id.tvNamaAgenda);
-        TextView rvKeterangan = findViewById(R.id.tvKeterangan);
-        ImageView ivAgenda = findViewById(R.id.ivAgenda);
-
-        Agenda agenda = getIntent().getParcelableExtra(EXTRA_AGENDA);
-        rvNamaagenda.setText(agenda.getNama_agenda());
-        rvKeterangan.setText(agenda.getKeterangan());
-        Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/agenda/" + agenda.getGambar())
-                .apply(new RequestOptions().centerCrop())
-                .into(ivAgenda);
-
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Agenda ");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -65,6 +52,18 @@ public class DetailAgenda extends AppCompatActivity {
             }
         });
 
+
+        TextView rvNamaagenda = findViewById(R.id.tvNamaAgenda);
+        TextView rvKeterangan = findViewById(R.id.tvKeterangan);
+        ImageView ivAgenda = findViewById(R.id.ivAgenda);
+
+        Agenda agenda = getIntent().getParcelableExtra(EXTRA_AGENDA);
+        rvNamaagenda.setText(agenda.getNama_agenda());
+        rvKeterangan.setText(agenda.getKeterangan());
+        Glide.with(this)
+                .load( "http://192.168.43.229/relasi/public/agenda/" + agenda.getGambar())
+                .apply(new RequestOptions().centerCrop())
+                .into(ivAgenda);
     }
     long lastPress;
     Toast backpressToast;
