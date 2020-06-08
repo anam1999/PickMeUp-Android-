@@ -68,8 +68,6 @@ public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickLis
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(LihatHadiahPKW.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

@@ -70,7 +70,7 @@
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".KontenAnimasi.TambahKontenAnimasiPKW"
-            android:parentActivityName=".KontenAnimasi.LihatKontenAnimasiPKW" />
+            android:theme="@style/tanpaactionbar"/>
         <activity
             android:name=".KontenAnimasi.LihatKontenAnimasiPKW"
             android:theme="@style/tanpaactionbar" />

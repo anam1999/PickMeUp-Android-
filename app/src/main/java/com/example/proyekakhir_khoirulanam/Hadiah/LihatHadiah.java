@@ -75,8 +75,6 @@ public class LihatHadiah extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(LihatHadiah.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

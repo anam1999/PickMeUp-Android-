@@ -29,22 +29,23 @@ public class DetailKontenAnimasi extends AppCompatActivity {
         setContentView(R.layout.activity_detail_konten_animasi);
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Feedback ");
+        toolbar.setTitle("Konten Animasi ");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 
-        //Set icon to toolbar
-        toolbar.setNavigationIcon(R.drawable.back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inten = new Intent(DetailKontenAnimasi.this, LihatKontenAnimasi.class);
-                inten.putExtra(TAG_ID, id);
-                inten.putExtra(TAG_NAMA, nama);
-                finish();
-                startActivity(inten);
-            }
-        });
+//
+//        //Set icon to toolbar
+//        toolbar.setNavigationIcon(R.drawable.back);
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent inten = new Intent(DetailKontenAnimasi.this, LihatKontenAnimasi.class);
+//                inten.putExtra(TAG_ID, id);
+//                inten.putExtra(TAG_NAMA, nama);
+//                finish();
+//                startActivity(inten);
+//            }
+//        });
 
         TextView rvNamakonten = findViewById(R.id.tvNamaKonten);
         TextView rvDeskripsi = findViewById(R.id.tvDeskripsi);
@@ -58,24 +59,24 @@ public class DetailKontenAnimasi extends AppCompatActivity {
                 .apply(new RequestOptions().centerCrop())
                 .into(ivAgenda);
     }
-    long lastPress;
-    Toast backpressToast;
-    @Override
-    public void onBackPressed() {
-        long currentTime = System.currentTimeMillis();
-        if(currentTime - lastPress > 5000){
-            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
-            backpressToast.show();
-            lastPress = currentTime;
-
-        } else {
-            if (backpressToast != null) backpressToast.cancel();
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            finish();
-            startActivity(intent);
-            super.onBackPressed();
-        }
-    }
+//    long lastPress;
+//    Toast backpressToast;
+//    @Override
+//    public void onBackPressed() {
+//        long currentTime = System.currentTimeMillis();
+//        if(currentTime - lastPress > 5000){
+//            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+//            backpressToast.show();
+//            lastPress = currentTime;
+//
+//        } else {
+//            if (backpressToast != null) backpressToast.cancel();
+//            Intent intent = new Intent(Intent.ACTION_MAIN);
+//            intent.addCategory(Intent.CATEGORY_HOME);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            finish();
+//            startActivity(intent);
+//            super.onBackPressed();
+//        }
+//    }
 }

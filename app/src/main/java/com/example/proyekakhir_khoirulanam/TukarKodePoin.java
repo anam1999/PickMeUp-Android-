@@ -71,8 +71,6 @@ LinearLayout llayout;
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(TukarKodePoin.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

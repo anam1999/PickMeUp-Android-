@@ -71,8 +71,6 @@ public class ProfilPimpinan extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(ProfilPimpinan.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

@@ -68,9 +68,6 @@ public class LihatKontenAnimasiPKW extends AppCompatActivity implements View.OnC
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
-
-                        llayout.setBackground(ContextCompat.getDrawable(LihatKontenAnimasiPKW.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

@@ -66,8 +66,6 @@ public class LihatKontenAnimasi extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(LihatKontenAnimasi.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

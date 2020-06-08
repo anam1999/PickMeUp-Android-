@@ -71,7 +71,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(ProfilPetugasKontenReward.this, R.color.ecoranger));
+                        llayout.setBackground(ContextCompat.getDrawable(ProfilPetugasKontenReward.this, R.drawable.bgs));
 
                     }
                 }, 5000);

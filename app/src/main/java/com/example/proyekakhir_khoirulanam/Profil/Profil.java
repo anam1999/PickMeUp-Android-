@@ -71,8 +71,6 @@ public class Profil extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(Profil.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

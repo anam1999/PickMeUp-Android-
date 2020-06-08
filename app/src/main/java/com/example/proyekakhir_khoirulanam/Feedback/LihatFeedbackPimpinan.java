@@ -67,8 +67,6 @@ public class LihatFeedbackPimpinan extends AppCompatActivity implements View.OnC
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(LihatFeedbackPimpinan.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

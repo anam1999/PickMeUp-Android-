@@ -70,8 +70,6 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(LihatFeedback.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

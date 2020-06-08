@@ -172,7 +172,7 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
                 Intent intent = new Intent(TambahHadiahPKW.this, LihatHadiahPKW.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
-                Toast.makeText(TambahHadiahPKW.this, "Data Hadiah Berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Data Hadiah Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
                 hideDialog();

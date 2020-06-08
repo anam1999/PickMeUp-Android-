@@ -19,19 +19,16 @@
         android:layout_height="wrap_content"
         android:background="@color/ecoranger">
     </androidx.appcompat.widget.Toolbar>
+
         <LinearLayout
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="vertical"
+            android:layout_margin="10dp"
             android:padding="8dp">
 
-            <ImageView
-                android:id="@+id/ivGambar"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:padding="4dp"/>
 
             <TextView
                 android:id="@+id/tvNamaKonten"
@@ -41,9 +38,16 @@
                 android:layout_marginTop="@dimen/dimen_16"
                 android:layout_toRightOf="@id/ivGambar"
                 android:text="Nama Konten"
+                android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
+            <ImageView
+                android:id="@+id/ivGambar"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:padding="4dp"/>
+
 
             <TextView
                 android:id="@+id/tvDeskripsi"

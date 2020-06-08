@@ -66,8 +66,6 @@ public class LihatFeedbackPKW extends AppCompatActivity implements View.OnClickL
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(LihatFeedbackPKW.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,8 +22,9 @@
         <LinearLayout
             android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -32,27 +39,30 @@
                 android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
-            <ImageView
-                android:layout_marginTop="40dp"
-                android:id="@+id/ivFeedback"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_gravity="center"
-                android:padding="4dp"/>
+
             <TextView
                 android:id="@+id/tvKomentar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNama"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@id/ivFeedback"
                 android:text="Kritiksaran"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:inputType="textMultiLine"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <ImageView
+                android:layout_marginTop="50dp"
+                android:id="@+id/ivFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:padding="4dp"/>
+
 
 
         </LinearLayout>
 </LinearLayout>
+</ScrollView>

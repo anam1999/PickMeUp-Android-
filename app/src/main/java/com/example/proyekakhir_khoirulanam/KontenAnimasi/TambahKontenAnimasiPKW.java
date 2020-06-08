@@ -2,12 +2,14 @@ package com.example.proyekakhir_khoirulanam.KontenAnimasi;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -28,6 +30,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
+import com.example.proyekakhir_khoirulanam.Hadiah.TambahHadiahPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -51,16 +55,34 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
     Bitmap BitPhoto;
     Button btnSimpan;
     ProgressDialog pDialog;
-
+    public final static String TAG_NAMA = "username";
+    public final static String TAG_ID = "id";
+    Toolbar toolbar;
+    String id,nama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_konten_animasi_p_k_w);
 
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setTitle("Tukar Konten Animasi");
-        actionBar.show();
+        id= Preferences.getId(getBaseContext());
+        nama=Preferences.getLoggedInUser(getBaseContext());
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Hadiah ");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(TambahKontenAnimasiPKW.this, LihatKontenAnimasiPKW.class);
+                inten.putExtra(TAG_ID, id);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
+            }
+        });
 
         tvJudul = findViewById(R.id.tv_namakonten);
         tvDeskripsi = findViewById(R.id.tv_deskripsi);
@@ -97,6 +119,8 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
     private void pickImage() {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
+                .setCropShape(CropImageView.CropShape.OVAL)
+                .setFixAspectRatio(true)
 //                .setAspectRatio(4,3)
                 .start(TambahKontenAnimasiPKW.this);
     }
@@ -141,7 +165,9 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahKontenAnimasiPKW.this, LihatKontenAnimasiPKW.class);
-                Toast.makeText(TambahKontenAnimasiPKW.this, "Data Konten Animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_NAMA, nama);
+                Toast.makeText(getApplicationContext(), "Data Konten Animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
                 hideDialog();
