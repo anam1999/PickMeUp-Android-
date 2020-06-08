@@ -2,6 +2,8 @@ package com.example.proyekakhir_khoirulanam.Beranda;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -9,8 +11,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +33,7 @@ import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPimpinan;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
 import com.example.proyekakhir_khoirulanam.Masuk;
+import com.example.proyekakhir_khoirulanam.Profil.ProfilPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Profil.ProfilPimpinan;
 import com.example.proyekakhir_khoirulanam.SampahPintar.MonitoringSampahPintar;
 import com.example.proyekakhir_khoirulanam.Profil.Profil;
@@ -39,12 +44,14 @@ import org.json.JSONObject;
 
 public class BerandaPimpinan extends AppCompatActivity {
     TextView txt_nama,emailku;
-
     ImageView monitorings,konten,cekhadiah,feedback,agenda,keluar,profil;
     String nama,id,email, role;
     SharedPreferences sharedpreferences;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
+    SwipeRefreshLayout swLayout;
+    LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ActionBar actionBar = getSupportActionBar();
@@ -52,6 +59,30 @@ public class BerandaPimpinan extends AppCompatActivity {
         getProfil();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda_pimpinan);
+
+
+        swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
+        llayout = (LinearLayout) findViewById(R.id.swipe);
+        swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
+
+        // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
+        swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                // Handler untuk menjalankan jeda selama 5 detik
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+
+                        // Berhenti berputar/refreshing
+                        swLayout.setRefreshing(false);
+
+                        llayout.setBackground(ContextCompat.getDrawable(BerandaPimpinan.this, R.color.ecoranger));
+
+                    }
+                }, 5000);
+            }
+        });
         txt_nama = findViewById(R.id.username);
         emailku =findViewById(R.id.txt_nama_dashboard);
         monitorings = findViewById(R.id.monitoring);

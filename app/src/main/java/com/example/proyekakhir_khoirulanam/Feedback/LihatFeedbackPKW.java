@@ -2,21 +2,26 @@ package com.example.proyekakhir_khoirulanam.Feedback;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapterView;
+import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Constructor.Feedback;
@@ -38,13 +43,37 @@ public class LihatFeedbackPKW extends AppCompatActivity implements View.OnClickL
     public final static String TAG_ID = "id";
     Toolbar toolbar;
     SharedPreferences sharedpreferences;
+    SwipeRefreshLayout swLayout;
+    LinearLayout llayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_feedback_p_k_w);
 
+        swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
+        llayout = (LinearLayout) findViewById(R.id.swipe);
+        swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
+
+        // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
+        swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                // Handler untuk menjalankan jeda selama 5 detik
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+
+                        // Berhenti berputar/refreshing
+                        swLayout.setRefreshing(false);
+
+                        llayout.setBackground(ContextCompat.getDrawable(LihatFeedbackPKW.this, R.color.ecoranger));
+
+                    }
+                }, 5000);
+            }
+        });
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Lihat Hadiah ");
+        toolbar.setTitle(" Feedback");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

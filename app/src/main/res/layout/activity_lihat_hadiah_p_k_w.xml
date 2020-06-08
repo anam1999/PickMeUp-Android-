@@ -6,8 +6,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/bgs"
     tools:context=".Hadiah.LihatHadiahPKW">
-
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swlayout"
+        >
     <LinearLayout
+        android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -37,6 +42,7 @@
         tools:listitem="@layout/list_hadiah"
       />
     </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_tambah"
         android:layout_width="wrap_content"

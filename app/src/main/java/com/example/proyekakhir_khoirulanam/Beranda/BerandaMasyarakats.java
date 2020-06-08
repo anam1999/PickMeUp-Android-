@@ -2,6 +2,8 @@ package com.example.proyekakhir_khoirulanam.Beranda;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -9,8 +11,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,10 +47,36 @@ public class BerandaMasyarakats extends AppCompatActivity {
     TextView txt_nama,emailku,poin;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
+    SwipeRefreshLayout swLayout;
+    LinearLayout llayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda_masyarakats);
+
+        swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
+
+        llayout = (LinearLayout) findViewById(R.id.swipe);
+        swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
+
+        // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
+        swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                // Handler untuk menjalankan jeda selama 5 detik
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+
+                        // Berhenti berputar/refreshing
+                        swLayout.setRefreshing(false);
+
+                        llayout.setBackground(ContextCompat.getDrawable(BerandaMasyarakats.this, R.color.ecoranger));
+
+                    }
+                }, 5000);
+            }
+        });
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         getPoin();

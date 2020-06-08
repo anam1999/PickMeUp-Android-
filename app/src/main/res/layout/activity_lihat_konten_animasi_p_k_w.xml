@@ -6,10 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/ecoranger"
     tools:context=".KontenAnimasi.LihatKontenAnimasiPKW">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swlayout"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -39,6 +45,8 @@
         tools:listitem="@layout/list_kontenanimasi"
         />
 </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_tambah"
         android:layout_width="wrap_content"
@@ -52,6 +60,5 @@
         android:src="@drawable/tambah"
         app:fabSize="normal"
         android:layout_marginEnd="10dp" />
-
 
 </RelativeLayout>

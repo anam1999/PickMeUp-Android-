@@ -6,9 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/ecoranger"
     tools:context=".Feedback.LihatFeedback">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swlayout"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:id="@+id/swipe"
         android:layout_height="match_parent">
 
 
@@ -39,6 +46,7 @@
         android:layout_marginTop="40dp"
      />
     </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_tambah"
         android:layout_width="wrap_content"
