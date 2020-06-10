@@ -5,31 +5,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgs"
     android:orientation="vertical"
     tools:context=".Agenda.UpdateAgendaP">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ecoranger">
     </androidx.appcompat.widget.Toolbar>
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="UPDATE AGENDA"
-        android:textAllCaps="true"
-        android:textSize="@dimen/dimen_32"
-        android:textColor="@color/white"
-        android:layout_gravity="center"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bgs"
+        android:orientation="vertical"
+        >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,6 +35,18 @@
         android:background="@drawable/radius"
         android:gravity="center"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="UPDATE AGENDA"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_32"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            />
 
     <EditText
         android:id="@+id/tv_nama_agenda"
@@ -89,7 +98,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_photo" />
 
-
+    </LinearLayout>
 </LinearLayout>
 </LinearLayout>
 </ScrollView>

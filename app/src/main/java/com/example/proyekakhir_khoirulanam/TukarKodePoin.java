@@ -81,7 +81,7 @@ LinearLayout llayout;
         Tukarkan = findViewById(R.id.tukarkode);
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Transaksi Hadiah ");
+        toolbar.setTitle("Tukar Kode Poin");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

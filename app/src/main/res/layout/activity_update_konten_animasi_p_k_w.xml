@@ -5,13 +5,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bgs"
     tools:context=".KontenAnimasi.UpdateKontenAnimasiPKW">
 
     <androidx.appcompat.widget.Toolbar
@@ -21,84 +21,88 @@
         android:background="@color/ecoranger">
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/konten">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:text="Update Konten Animasi"
-        android:textAllCaps="true"
-        android:layout_marginBottom="20dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:background="@drawable/radius"
+        android:gravity="center"
+        android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
-                android:background="@drawable/radius"
-                android:gravity="center"
-                android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="Update Konten Animasi"
+            android:textAllCaps="true"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/tv_namakonten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Judul"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
 
+        <EditText
+            android:id="@+id/tv_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:hint="deskripsi...."
+            android:gravity="top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_namakonten" />
 
-                <EditText
-                    android:id="@+id/tv_namakonten"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16"
-                    android:layout_marginTop="@dimen/dimen_16"
-                    android:layout_marginEnd="@dimen/dimen_16"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="Judul"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView" />
+        <ImageView
+            android:id="@+id/ivAnimasi"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_deskripsi"
+            app:srcCompat="@android:drawable/screen_background_dark_transparent"/>
 
-                <EditText
-                    android:id="@+id/tv_deskripsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="@dimen/dimen_16"
-                    android:layout_marginStart="@dimen/dimen_16"
-                    android:layout_marginEnd="@dimen/dimen_16"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
-                    android:hint="deskripsi...."
-                    android:gravity="top"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_namakonten" />
+        <Button
+            android:id="@+id/updateanimasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:background="@drawable/radius4"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_photo" />
 
-                <ImageView
-                    android:id="@+id/ivAnimasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_deskripsi"
-                    app:srcCompat="@android:drawable/screen_background_dark_transparent"/>
-
-                <Button
-                    android:id="@+id/updateanimasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Update"
-                    android:background="@drawable/radius4"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/dimen_16"
-                    android:layout_marginStart="@dimen/dimen_16"
-                    android:layout_marginEnd="@dimen/dimen_16"
-                    android:layout_marginBottom="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_photo" />
-
-            </LinearLayout>
-
+    </LinearLayout>
+</LinearLayout>
 </LinearLayout>
 </ScrollView>

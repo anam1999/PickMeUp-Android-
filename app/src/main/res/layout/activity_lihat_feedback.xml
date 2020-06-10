@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ecoranger"
+    android:orientation="vertical"
     tools:context=".Feedback.LihatFeedback">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ecoranger">
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
@@ -16,15 +23,9 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:id="@+id/swipe"
+        android:background="@drawable/bgs"
         android:layout_height="match_parent">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/ecoranger">
-    </androidx.appcompat.widget.Toolbar>
     <TextView
         android:id="@+id/judul"
         android:layout_width="wrap_content"
@@ -43,7 +44,7 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         tools:listitem="@layout/list_feedback"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="0dp"
      />
     </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -60,4 +61,4 @@
         android:src="@drawable/tambah"
         app:fabSize="normal"
         android:layout_marginEnd="10dp" />
-</RelativeLayout>
+</LinearLayout>

@@ -10,7 +10,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgs"
     android:orientation="vertical"
     tools:context=".Hadiah.DetailHadiah2">
     <androidx.appcompat.widget.Toolbar
@@ -19,6 +18,12 @@
         android:layout_height="wrap_content"
         android:background="@color/ecoranger">
     </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/masyarakat">
     <TextView
         android:id="@+id/penukaran"
         android:layout_width="wrap_content"
@@ -326,5 +331,6 @@
                 android:text="Tukarkan" />
 
         </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
 </ScrollView>

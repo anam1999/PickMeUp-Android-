@@ -19,9 +19,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Feedback.LihatFeedbackPL"
-            android:theme="@style/tanpaactionbar"></activity>
-        <activity android:name=".Feedback.LihatFeedbackPKW"
+        <activity android:name=".Hadiah.DetailHadiahP"
+            android:theme="@style/tanpaactionbar"
+            ></activity>
+        <activity android:name=".Hadiah.LihatHadiahP"
+            android:theme="@style/tanpaactionbar"/>
+        <activity
+            android:name=".Feedback.LihatFeedbackPL"
+            android:theme="@style/tanpaactionbar" />
+        <activity
+            android:name=".Feedback.LihatFeedbackPKW"
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Agenda.LihatAgendaPL"
@@ -32,8 +39,12 @@
         <activity android:name=".Profil.UpdateProfilPetugasKontenReward" />
         <activity android:name=".Profil.UpdateProfilPetugasLapangan" />
         <activity android:name=".Profil.UpdateProfilPimpinan" />
-        <activity android:name=".Feedback.LihatFeedbackPimpinan" />
-        <activity android:name=".Beranda.BerandaMasyarakats" />
+        <activity android:name=".Feedback.LihatFeedbackPimpinan"
+            android:theme="@style/tanpaactionbar"
+            />
+        <activity
+            android:name=".Beranda.BerandaMasyarakats"
+            android:theme="@style/AppTheme" />
         <activity android:name=".Profil.ProfilPetugasKontenReward" />
         <activity android:name=".Profil.ProfilPetugasLapangan" />
         <activity android:name=".Profil.ProfilPimpinan" />
@@ -56,7 +67,8 @@
         <activity
             android:name=".Hadiah.UpdateHadiahPKW"
             android:theme="@style/tanpaactionbar" />
-        <activity android:name=".Hadiah.LihatHadiah"
+        <activity
+            android:name=".Hadiah.LihatHadiah"
             android:theme="@style/tanpaactionbar" />
         <activity android:name=".SampahPintar.MonitoringSampahPintar" />
         <activity
@@ -70,7 +82,7 @@
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".KontenAnimasi.TambahKontenAnimasiPKW"
-            android:theme="@style/tanpaactionbar"/>
+            android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".KontenAnimasi.LihatKontenAnimasiPKW"
             android:theme="@style/tanpaactionbar" />
@@ -92,7 +104,7 @@
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Agenda.TambahAgendaP"
-            android:parentActivityName=".Agenda.LihatAgendaP" />
+            android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Agenda.UpdateAgendaP"
             android:theme="@style/tanpaactionbar" />
@@ -104,15 +116,22 @@
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Beranda.BerandaPetugasKontenReward"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Beranda.BerandaPetugasLapangan"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Beranda.BerandaPimpinan"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Daftar" />
-        <activity android:name=".Masuk" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Daftar"
+            android:theme="@style/AppThemelapangan" />
+        <activity
+            android:name=".Masuk"
+            android:theme="@style/AppThemelapangan" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

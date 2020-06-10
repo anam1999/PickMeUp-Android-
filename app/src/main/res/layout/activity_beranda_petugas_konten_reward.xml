@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgs"
     tools:context=".Beranda.BerandaPetugasKontenReward"
     android:orientation="vertical">
 
@@ -24,7 +23,7 @@
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/potongan3"
+            android:background="@drawable/kontenview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +31,10 @@
             android:id="@+id/txt_nama_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-146dp"
+            android:layout_marginTop="-190dp"
             android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="Selamat Datang"
             android:textColor="@color/black" />
 
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:layout_marginLeft="10dp"
+            android:textSize="20sp"
             android:text="Nama"
             android:textColor="@color/black"
             />

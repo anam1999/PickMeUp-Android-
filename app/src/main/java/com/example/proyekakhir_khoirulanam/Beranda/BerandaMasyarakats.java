@@ -71,8 +71,6 @@ public class BerandaMasyarakats extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(BerandaMasyarakats.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

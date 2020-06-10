@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/ecoranger"
+    android:background="@drawable/masyarakat"
     tools:context=".Hadiah.LihatTransaksi">
 
     <androidx.appcompat.widget.Toolbar
@@ -28,7 +28,7 @@
         android:textStyle="bold" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTransaksi"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"

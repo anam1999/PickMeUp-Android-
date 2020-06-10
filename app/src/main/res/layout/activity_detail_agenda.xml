@@ -10,7 +10,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgs"
     android:orientation="vertical"
     tools:context=".Agenda.DetailAgenda">
 
@@ -21,6 +20,11 @@
         android:background="@color/ecoranger">
     </androidx.appcompat.widget.Toolbar>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/masyarakat">
         <LinearLayout
             android:background="@color/white"
             android:layout_width="match_parent"
@@ -56,5 +60,6 @@
                 android:text="Keterangan"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
         </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
 </ScrollView>

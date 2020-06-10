@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bgs"
+    android:background="@drawable/konten"
     tools:context=".Profil.ProfilPetugasKontenReward">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgs"
     tools:context=".Beranda.BerandaPimpinan"
     android:orientation="vertical">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -22,8 +21,8 @@
         <View
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/potongan"
+            android:layout_height="250dp"
+            android:background="@drawable/pimpinanview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,8 +30,10 @@
             android:id="@+id/txt_nama_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-146dp"
+            android:layout_marginTop="-200dp"
             android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:text="Selamat Datang"
             android:textColor="@color/black" />
 
@@ -42,9 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:layout_marginLeft="10dp"
+            android:textSize="20sp"
             android:text="Nama"
             android:textColor="@color/black"
         />
+
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profil"
@@ -96,7 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikon_kontenanimasi" />
+                        android:background="@drawable/agenda" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -216,7 +219,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/cekhadiah" />
+                        android:background="@drawable/agenda" />
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/swipe"
-    android:background="@drawable/bgs"
+    android:background="@color/putih"
     tools:context=".Beranda.BerandaMasyarakats">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -24,8 +24,8 @@
         <View
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/potongan1"
+            android:layout_height="250dp"
+            android:background="@drawable/masyarakatview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,17 +33,20 @@
             android:id="@+id/txt_nama_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-176dp"
+            android:layout_marginTop="-200dp"
             android:layout_marginLeft="10dp"
             android:text="Selamat Datang"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:textSize="20sp"
             android:text="Nama"
             android:textColor="@color/black"
             />

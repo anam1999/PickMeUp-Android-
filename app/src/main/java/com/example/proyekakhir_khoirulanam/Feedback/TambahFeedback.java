@@ -183,24 +183,24 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
             pDialog.dismiss();
     }
 
-    long lastPress;
-    Toast backpressToast;
-    @Override
-    public void onBackPressed() {
-        long currentTime = System.currentTimeMillis();
-        if(currentTime - lastPress > 5000){
-            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
-            backpressToast.show();
-            lastPress = currentTime;
-
-        } else {
-            if (backpressToast != null) backpressToast.cancel();
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            finish();
-            startActivity(intent);
-            super.onBackPressed();
-        }
-    }
+//    long lastPress;
+//    Toast backpressToast;
+//    @Override
+//    public void onBackPressed() {
+//        long currentTime = System.currentTimeMillis();
+//        if(currentTime - lastPress > 5000){
+//            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+//            backpressToast.show();
+//            lastPress = currentTime;
+//
+//        } else {
+//            if (backpressToast != null) backpressToast.cancel();
+//            Intent intent = new Intent(Intent.ACTION_MAIN);
+//            intent.addCategory(Intent.CATEGORY_HOME);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            finish();
+//            startActivity(intent);
+//            super.onBackPressed();
+//        }
+//    }
 }

@@ -65,8 +65,6 @@ public class LihatAgenda extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(LihatAgenda.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

@@ -11,7 +11,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bgs"
     android:layout_height="match_parent"
     tools:context=".Hadiah.TambahHadiahPKW">
 
@@ -24,21 +23,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/konten"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:background="@drawable/radius"
+        android:layout_margin="10dp"
+      android:background="@drawable/radius"
         android:orientation="vertical">
     <TextView
+        android:layout_gravity="center"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Tambah Hadiah"
+        android:text="Tambah Hadiah"
         android:textAllCaps="true"
-        android:textSize="@dimen/dimen_16"
-        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -122,6 +126,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_photo" />
+</LinearLayout>
 </LinearLayout>
 </LinearLayout>
 </ScrollView>

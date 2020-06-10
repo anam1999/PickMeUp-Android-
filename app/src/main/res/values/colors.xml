@@ -12,5 +12,6 @@
     <color name="petugaslapangan">#62d182</color>
     <color name="biru">#03DAC5</color>
     <color name="netral">#9adee9</color>
-    <color name="ecoranger">#1BBADD</color>
+    <color name="ecorangers">#1BBADD</color>
+    <color name="ecoranger">#80000000</color>
 </resources>

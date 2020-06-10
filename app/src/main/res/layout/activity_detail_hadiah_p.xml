@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Hadiah.DetailHadiahP">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ecoranger">
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/masyarakat">
+            <TextView
+                android:id="@+id/penukaran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0dp"
+                android:text="Penukaran Hadiah"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+            <RelativeLayout
+                android:background="@drawable/radius"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/ivHadiah"
+                    android:layout_width="120dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="150dp"
+                    android:padding="4dp"/>
+
+
+
+                <TextView
+                    android:id="@+id/tvNamaHadiah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@id/ivHadiah"
+                    android:text="Nama Hadiah"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/textharga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvNamaHadiah"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@id/ivHadiah"
+                    android:text="HargaHadiah:"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                <TextView
+                    android:id="@+id/TotalPoin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvNamaHadiah"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@id/textjumlah"
+                    android:text="0"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                <TextView
+                    android:id="@+id/textjumlah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textharga"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/ivHadiah"
+                    android:text="jumlah hadiah :"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/jumlahhadiah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/TotalPoin"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/textjumlah"
+                    android:text="0"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
+
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

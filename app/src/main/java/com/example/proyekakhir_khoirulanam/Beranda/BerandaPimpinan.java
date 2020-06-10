@@ -31,6 +31,7 @@ import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPimpinan;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah;
+import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiahP;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.ProfilPetugasKontenReward;
@@ -76,8 +77,6 @@ public class BerandaPimpinan extends AppCompatActivity {
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
-
-                        llayout.setBackground(ContextCompat.getDrawable(BerandaPimpinan.this, R.color.ecoranger));
 
                     }
                 }, 5000);
@@ -149,7 +148,7 @@ public class BerandaPimpinan extends AppCompatActivity {
         cekhadiah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cekhadiah = new Intent(BerandaPimpinan.this, LihatHadiah.class);
+                Intent cekhadiah = new Intent(BerandaPimpinan.this, LihatHadiahP.class);
                 cekhadiah.putExtra(TAG_ID, id);
                 cekhadiah.putExtra(TAG_NAMA, nama);
                 startActivity(cekhadiah);
