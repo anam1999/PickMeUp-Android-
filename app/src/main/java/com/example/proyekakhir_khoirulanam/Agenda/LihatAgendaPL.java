@@ -2,7 +2,6 @@ package com.example.proyekakhir_khoirulanam.Agenda;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -67,7 +66,7 @@ public class LihatAgendaPL extends AppCompatActivity {
         });
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle(" Agenda");
+        toolbar.setTitle(" agenda");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

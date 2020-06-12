@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,16 +24,13 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaPKW;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPKW;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiahPKW;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.Masuk;
-import com.example.proyekakhir_khoirulanam.Profil.Profil;
 import com.example.proyekakhir_khoirulanam.Profil.ProfilPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.R;
 

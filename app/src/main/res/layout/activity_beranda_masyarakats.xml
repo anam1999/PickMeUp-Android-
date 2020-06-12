@@ -70,7 +70,7 @@
                 android:id="@+id/profil"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="-30dp"
+                android:layout_marginTop="-50dp"
                 android:layout_gravity="center"
                 android:background="@drawable/userikon"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/kontenanimasi"
-                        android:background="@drawable/ikon_kontenanimasi" />
+                        android:background="@drawable/ikonanimasi" />
 
                 </LinearLayout>
 
@@ -137,30 +137,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/tukarhadiah"
-                        android:background="@drawable/agenda"
-
-
-
+                        android:background="@drawable/tukarhadiah"
                         />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tukar Hadiah"
-                        android:textAlignment="center"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -182,24 +169,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:id="@+id/agenda"
                         android:layout_gravity="center"
-                        android:background="@drawable/agenda" />
+                        android:background="@drawable/ikonagenda" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Agenda"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                    android:layout_height="12dp"-->
+<!--                    android:text="Agenda"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="13sp"-->
+<!--                    android:textStyle="bold" />-->
 
                 </LinearLayout>
 
@@ -221,7 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -230,7 +217,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/feedback"
-                        android:background="@drawable/feedback" />
+                        android:background="@drawable/ikonfeddback" />
 
                 </LinearLayout>
 
@@ -252,7 +239,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="8dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -260,8 +247,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/zs"
                         android:id="@+id/tukarkode"
+                        android:background="@drawable/ikontukarkode"
 
                         />
 
@@ -285,7 +272,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -294,18 +281,14 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/riwayat"
-                        android:background="@drawable/agenda"
+                        android:background="@drawable/ikonriwayattransaksi"
 
                        />
-
-
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
         </GridLayout>
-
 
     </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

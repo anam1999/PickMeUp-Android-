@@ -54,7 +54,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
         ids= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Agenda");
+        toolbar.setTitle("agenda");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 
@@ -95,7 +95,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
                     sendData(nama_agenda,keterangan);
                 } else {
                     // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext() ,"Nama Agenda/Keterangan tidak boleh kosong", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext() ,"Nama agenda/Keterangan tidak boleh kosong", Toast.LENGTH_LONG).show();
                 }
 
                 break;
@@ -158,7 +158,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(TambahAgendaP.this, LihatAgendaP.class);
                 startActivity(intent);
                 finish();
-                Toast.makeText(TambahAgendaP.this, "Data Agenda berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                Toast.makeText(TambahAgendaP.this, "Data agenda berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 hideDialog();
 
             }
@@ -166,7 +166,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(TambahAgendaP.this, "Maaf ada kesalahan menambah Data Agenda  ", Toast.LENGTH_LONG).show();
+                Toast.makeText(TambahAgendaP.this, "Maaf ada kesalahan menambah Data agenda  ", Toast.LENGTH_LONG).show();
                 hideDialog();
 //                Toast.makeText(TambahAgendaP.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }

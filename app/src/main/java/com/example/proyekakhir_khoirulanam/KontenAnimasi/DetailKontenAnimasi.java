@@ -29,7 +29,7 @@ public class DetailKontenAnimasi extends AppCompatActivity {
         setContentView(R.layout.activity_detail_konten_animasi);
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Konten Animasi ");
+        toolbar.setTitle("konten animasi");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 

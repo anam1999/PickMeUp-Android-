@@ -29,9 +29,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.R;
 
@@ -93,6 +91,7 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
         edit=findViewById(R.id.edit);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
+        nama=getIntent().getStringExtra(TAG_NAMA);
 
 
         username.setText(" "+nama);
@@ -174,7 +173,7 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
                 this);
 
         // set title dialog
-        alertDialogBuilder.setTitle("Keluar dari Akun ?"+ Preferences.getLoggedInUser(getBaseContext())+" ?");
+        alertDialogBuilder.setTitle("Keluar dari Akun "+ Preferences.getLoggedInUser(getBaseContext())+" ?");
 
         // set pesan dari dialog
         alertDialogBuilder

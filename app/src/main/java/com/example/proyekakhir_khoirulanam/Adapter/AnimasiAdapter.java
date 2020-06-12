@@ -61,7 +61,7 @@ public class AnimasiAdapter extends RecyclerView.Adapter<AnimasiAdapter.ViewHold
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Animasi animasi = animasislist.get(holder.getAdapterPosition());
+//                animasi animasi = animasislist.get(holder.getAdapterPosition());
 //                Intent intent = new Intent(holder.itemView.getContext(), DetailKontenAnimasi.class);
 //               intent.putExtra(DetailKontenAnimasi.EXTRA_ANIMASI,animasi);
 //                holder.itemView.getContext().startActivity(intent);

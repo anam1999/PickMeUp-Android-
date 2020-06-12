@@ -3,22 +3,14 @@ package com.example.proyekakhir_khoirulanam.Agenda;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
 import com.example.proyekakhir_khoirulanam.Constructor.Agenda;
-import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.R;
 
 public class DetailAgenda extends AppCompatActivity {
@@ -35,7 +27,7 @@ public class DetailAgenda extends AppCompatActivity {
         id= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Agenda ");
+        toolbar.setTitle("agenda ");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 

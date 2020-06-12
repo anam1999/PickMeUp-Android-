@@ -1,9 +1,7 @@
 package com.example.proyekakhir_khoirulanam.Feedback;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,19 +14,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapter;
 import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapterView;
-import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Constructor.Feedback;
-import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiahPKW;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Model.ModelFeedback;
 import com.example.proyekakhir_khoirulanam.R;

@@ -90,24 +90,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/kontenanimasi"
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/agenda" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Konten Animasi"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:layout_gravity="center"
+                        android:background="@drawable/ikonanimasi" />
+
 
                 </LinearLayout>
 
@@ -129,28 +122,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/monitoring"
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ikon_monitoring"
+                        android:background="@drawable/ikonmonitoring"
 
                         />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Monitoring"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -171,25 +154,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/agenda"
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/agenda" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Agenda"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
+                        android:layout_gravity="center"
+                        android:background="@drawable/ikonagenda" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -210,24 +184,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/cekhadiah"
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/agenda" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cek Hadiah"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:layout_gravity="center"
+                        android:background="@drawable/tukarhadiah" />
+
 
                 </LinearLayout>
 
@@ -250,24 +217,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/feedback"
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/feedback" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Feedback"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:layout_gravity="center"
+                        android:background="@drawable/ikonfeddback" />
 
                 </LinearLayout>
 

@@ -24,9 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.proyekakhir_khoirulanam.Adapter.HadiahAdapterView;
+import com.example.proyekakhir_khoirulanam.Adapter.HadiahAdapterViewPimpinan;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
 import com.example.proyekakhir_khoirulanam.Masuk;
@@ -40,7 +39,7 @@ import java.util.ArrayList;
 
 public class LihatHadiahP extends AppCompatActivity {
     RecyclerView rvHadiah;
-    HadiahAdapterView hadiahAdapter;
+    HadiahAdapterViewPimpinan hadiahAdapter;
     ArrayList<Hadiah> hadiahArrayList;
     RequestQueue queue;
     String id,nama;
@@ -84,7 +83,7 @@ public class LihatHadiahP extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle(" Hadiah");
+        toolbar.setTitle("Hadiah");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
@@ -108,7 +107,7 @@ public class LihatHadiahP extends AppCompatActivity {
         rvHadiah = findViewById(R.id.rv_Hadiah);
         queue = Volley.newRequestQueue(this);
         rvHadiah.setLayoutManager(new LinearLayoutManager(this));
-        hadiahAdapter = new HadiahAdapterView();
+        hadiahAdapter = new HadiahAdapterViewPimpinan();
         ModelHadiah modelHadiah = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelHadiah.class);
         modelHadiah.simpan(queue, this);
         modelHadiah.Ambil().observe(this, new Observer<ArrayList<Hadiah>>() {
@@ -152,5 +151,26 @@ public class LihatHadiahP extends AppCompatActivity {
             }
         });
         queue.add(arrayRequest);
+    }
+
+    long lastPress;
+    Toast backpressToast;
+    @Override
+    public void onBackPressed() {
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - lastPress > 5000){
+            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+            backpressToast.show();
+            lastPress = currentTime;
+
+        } else {
+            if (backpressToast != null) backpressToast.cancel();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(intent);
+            super.onBackPressed();
+        }
     }
 }

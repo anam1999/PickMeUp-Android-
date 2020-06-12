@@ -167,7 +167,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
                 Intent intent = new Intent(TambahKontenAnimasiPKW.this, LihatKontenAnimasiPKW.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
-                Toast.makeText(getApplicationContext(), "Data Konten Animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Data konten animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
                 hideDialog();
@@ -176,7 +176,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(TambahKontenAnimasiPKW.this, "Maaf ada kesalahan menambah Data Konten Animasi(Upload Foto)  ", Toast.LENGTH_LONG).show();
+                Toast.makeText(TambahKontenAnimasiPKW.this, "Maaf ada kesalahan menambah Data konten animasi(Upload Foto)  ", Toast.LENGTH_LONG).show();
                 hideDialog();
 //                Toast.makeText(TambahKontenAnimasiPKW.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }

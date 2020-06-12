@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,12 +31,17 @@ public class Daftar extends AppCompatActivity {
     ProgressDialog pDialog;
     EditText editText1,editText2,editText3;
     ConnectivityManager conMgr;
+
+
+    String success;
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
 
         Button button1 = findViewById(R.id.tombolmasuk);
@@ -55,12 +64,13 @@ public class Daftar extends AppCompatActivity {
             public void onClick(View view) {
 
                 String user = editText1.getText().toString();
-                String password = editText2.getText().toString();
-                String email = editText3.getText().toString();
+                String email = editText2.getText().toString();
+                String password = editText3.getText().toString();
+
 
                 // mengecek kolom yang kosong
                 if (email.trim().length() > 0 && password.trim().length() > 0&& user.trim().length() > 0) {
-                        daftar(user,password,email);
+                        daftar(user,email,password);
                 }else {
                     Toast.makeText(getApplicationContext() ,"Username ,Email atau Paswword tidak boleh kosong", Toast.LENGTH_LONG).show();
                 }
@@ -70,37 +80,81 @@ public class Daftar extends AppCompatActivity {
         });
     }
 
-    private void daftar(final String email, final String password,final String user) {
+    private void daftar(final String user, final String email,final String password) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Mendaftar ...");
         showDialog();
         final String token = FirebaseInstanceId.getInstance().getToken();
-        RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
+        final RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="http://192.168.43.229/relasi/public/api/Daftar";
         StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+//                Log.e(TAG, "Login Response: " + response.toString());
+//                try {
+//                    JSONObject jObj=null;
+//                    try {
+//                        jObj = new JSONObject(response);
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                    success = jObj.getString("success");
+//
+//                    // Check for error node in json
+//                    if (success.equals("0")) {
+//
+//                        Log.e("Successfully Login!", jObj.toString());
+//
+//                        Toast.makeText(getApplicationContext(), jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+//                        Intent a = new Intent(Daftar.this, Masuk.class);
+//                        startActivity(a);
+//                        hideDialog();
+//
+//                    } else {
+//                        //Toast.makeText(getApplicationContext(),
+//                        //jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+//
+//                        Toast.makeText(getApplicationContext(), jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+//
+//                        hideDialog();
+//                    }
+//                }
+//                catch (JSONException e) {
+//                    // JSON error
+//                    e.printStackTrace();
+//                    Toast.makeText(getApplicationContext(), "Maaf Jaringan Bermasalah"+e, Toast.LENGTH_LONG).show();
+//
+//                    hideDialog();
+//                }
+//
+//
+//
+//
+////                Toast.makeText(getBaseContext(), ""+response, Toast.LENGTH_SHORT).show();
+////
+////                hideDialog();
 
-                Toast.makeText(getBaseContext(), "Berhasil Daftar Akun", Toast.LENGTH_SHORT).show();
-                Intent a = new Intent(Daftar.this, Masuk.class);
-                startActivity(a);
-                hideDialog();
+
+                        if (response!=null){
+                            Toast.makeText(getApplicationContext(), ""+response, Toast.LENGTH_LONG).show();
+
+                            hideDialog();
+                        }
+                            Intent a = new Intent(Daftar.this, Masuk.class);
+                            startActivity(a);
+
+                            hideDialog();
+
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                if (editText1.getText().toString().length()==0){
-//                    editText1.setError("username tidak boleh ksong");
-//                    hideDialog();
-//                }else if(editText2.getText().toString().length()==0) {
-//                    editText2.setError(" email tidak boleh kosong");
-//                    hideDialog();
-//                }else if(editText3.getText().toString().length()==0) {
-//                    editText3.setError("password tidak boleh kosong");
-//                    hideDialog();
-//                }
+                Toast.makeText(getBaseContext(), ""+error, Toast.LENGTH_SHORT).show();
+//                Intent a = new Intent(Daftar.this, Masuk.class);
+//                startActivity(a);
+                hideDialog();
 
             }
         }){

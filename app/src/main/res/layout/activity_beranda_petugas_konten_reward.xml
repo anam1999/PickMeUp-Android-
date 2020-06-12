@@ -22,7 +22,7 @@
         <View
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="230dp"
             android:background="@drawable/kontenview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -88,24 +88,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/kontenanimasi"
-                        android:background="@drawable/agenda" />
+                        android:background="@drawable/ikonanimasi" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lihat Animasi"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -127,28 +120,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/uploadkonten"
-                        android:background="@drawable/agenda"
+                        android:background="@drawable/ikonanimasi"
 
                         />
 
-                    <TextView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Upload Konten"
-                        android:textAlignment="center"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -170,24 +155,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:id="@+id/agenda"
                         android:layout_gravity="center"
-                        android:background="@drawable/agenda" />
+                        android:background="@drawable/ikonagenda" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Agenda"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+
 
                 </LinearLayout>
 
@@ -209,24 +188,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/feedback"
-                        android:background="@drawable/feedback" />
+                        android:background="@drawable/ikonfeddback" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Feedback"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -248,26 +220,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/cekhadiah"
-                        android:background="@drawable/agenda" />
+                        android:background="@drawable/tukarhadiah" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cek Hadiah"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 

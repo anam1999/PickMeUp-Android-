@@ -28,7 +28,9 @@ import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,8 +71,7 @@ public class Masuk extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_masuk);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+
 
         txt_email = findViewById(R.id.email);
         txt_password = findViewById(R.id.paswword);
@@ -294,7 +295,6 @@ public class Masuk extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
-
     long lastPress;
     Toast backpressToast;
     @Override

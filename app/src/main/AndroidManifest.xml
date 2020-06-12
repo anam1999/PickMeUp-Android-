@@ -19,11 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Hadiah.DetailHadiahP"
+        <activity android:name=".KontenAnimasi.LihatKontenAnimasiP"
             android:theme="@style/tanpaactionbar"
             ></activity>
-        <activity android:name=".Hadiah.LihatHadiahP"
-            android:theme="@style/tanpaactionbar"/>
+        <activity
+            android:name=".Hadiah.DetailHadiahP"
+            android:theme="@style/tanpaactionbar" />
+        <activity
+            android:name=".Hadiah.LihatHadiahP"
+            android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Feedback.LihatFeedbackPL"
             android:theme="@style/tanpaactionbar" />
@@ -39,9 +43,9 @@
         <activity android:name=".Profil.UpdateProfilPetugasKontenReward" />
         <activity android:name=".Profil.UpdateProfilPetugasLapangan" />
         <activity android:name=".Profil.UpdateProfilPimpinan" />
-        <activity android:name=".Feedback.LihatFeedbackPimpinan"
-            android:theme="@style/tanpaactionbar"
-            />
+        <activity
+            android:name=".Feedback.LihatFeedbackPimpinan"
+            android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Beranda.BerandaMasyarakats"
             android:theme="@style/AppTheme" />
@@ -127,11 +131,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Daftar"
-            android:theme="@style/AppThemelapangan" />
-        <activity
             android:name=".Masuk"
-            android:theme="@style/AppThemelapangan" />
+            android:theme="@style/tanpaactionbar" />
+        <activity
+            android:name=".Daftar"
+            android:theme="@style/tanpaactionbar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
