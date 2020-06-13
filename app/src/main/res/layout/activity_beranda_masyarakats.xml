@@ -25,7 +25,7 @@
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/masyarakatview"
+            android:background="@drawable/view_masyarakat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/kontenanimasi"
-                        android:background="@drawable/ikonanimasi" />
+                        android:background="@drawable/ikon_kontenedukasi" />
 
                 </LinearLayout>
 
@@ -146,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/tukarhadiah"
-                        android:background="@drawable/tukarhadiah"
+                        android:background="@drawable/ikon_tukarhadiah"
                         />
 
                 </LinearLayout>
@@ -178,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/agenda"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikonagenda" />
+                        android:background="@drawable/ikon_agenda" />
 
 <!--                    <TextView-->
 <!--                        android:layout_width="wrap_content"-->
@@ -217,7 +217,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/feedback"
-                        android:background="@drawable/ikonfeddback" />
+                        android:background="@drawable/ikon_feedback" />
 
                 </LinearLayout>
 
@@ -248,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/tukarkode"
-                        android:background="@drawable/ikontukarkode"
+                        android:background="@drawable/ikon_tukarkode"
 
                         />
 
@@ -281,7 +281,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/riwayat"
-                        android:background="@drawable/ikonriwayattransaksi"
+                        android:background="@drawable/ikon_riwayattransaksihadiah"
 
                        />
                 </LinearLayout>

@@ -22,7 +22,7 @@
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/pimpinanview"
+            android:background="@drawable/view_pimpinan"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikonanimasi" />
+                        android:background="@drawable/ikon_kontenedukasi" />
 
 
                 </LinearLayout>
@@ -131,7 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ikonmonitoring"
+                        android:background="@drawable/ikon_monitoring"
 
                         />
                 </LinearLayout>
@@ -163,7 +163,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikonagenda" />
+                        android:background="@drawable/ikon_agenda" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -193,7 +193,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/tukarhadiah" />
+                        android:background="@drawable/ikon_tukarhadiah" />
 
 
                 </LinearLayout>
@@ -226,7 +226,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikonfeddback" />
+                        android:background="@drawable/ikon_feedback" />
 
                 </LinearLayout>
 

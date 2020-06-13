@@ -5,7 +5,7 @@
         <shape>
 
             <solid
-                android:color="@color/ecoranger">
+                android:color="@color/ecorangers">
             </solid>
 
             <padding

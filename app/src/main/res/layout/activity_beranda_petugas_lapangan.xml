@@ -24,7 +24,7 @@
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/lapanganview"
+            android:background="@drawable/view_lapangan"
             />
 
         <TextView
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/monitoring"
-                        android:background="@drawable/ikonmonitoring" />
+                        android:background="@drawable/ikon_monitoring" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -135,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/feedback"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ikonfeddback"
+                        android:background="@drawable/ikon_feedback"
 
                         />
 
@@ -168,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/agenda"
-                        android:background="@drawable/ikonagenda" />
+                        android:background="@drawable/ikon_agenda" />
 
                 </LinearLayout>
 

@@ -250,7 +250,7 @@ public class DetailHadiah2 extends AppCompatActivity {
         jumlahharga.setText(hadiahhargas);
         namahadiah.setText(hadiah.getNama_hadiah());
         hargahadiah.setText(hadiah.getPoin());
-        jumlahhadiahs.setText(stokpesan);
+        jumlahhadiahs.setText(stokhadiah);
         sisa.setText(poinsa);
 
 

@@ -23,7 +23,7 @@
             android:id="@+id/bgtop"
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:background="@drawable/kontenview"
+            android:background="@drawable/view_konten"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/kontenanimasi"
-                        android:background="@drawable/ikonanimasi" />
+                        android:background="@drawable/ikon_kontenedukasi" />
 
 
                 </LinearLayout>
@@ -129,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/uploadkonten"
-                        android:background="@drawable/ikonanimasi"
+                        android:background="@drawable/ikon_tambahkontenedukasi"
 
                         />
 
@@ -164,7 +164,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/agenda"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikonagenda" />
+                        android:background="@drawable/ikon_agenda" />
 
 
 
@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/feedback"
-                        android:background="@drawable/ikonfeddback" />
+                        android:background="@drawable/ikon_feedback" />
 
 
                 </LinearLayout>
@@ -229,7 +229,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/cekhadiah"
-                        android:background="@drawable/tukarhadiah" />
+                        android:background="@drawable/ikon_tukarhadiah" />
 
 
             </androidx.cardview.widget.CardView>
