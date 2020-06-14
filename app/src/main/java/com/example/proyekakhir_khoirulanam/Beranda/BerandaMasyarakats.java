@@ -210,7 +210,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
 
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
-                        poin.setText(data.getString("poin")+"Poin");
+                        poin.setText(data.getString("poin")+" Poin");
                     }
 
                 } catch (Exception e) {

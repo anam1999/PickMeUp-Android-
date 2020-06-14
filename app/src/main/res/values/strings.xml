@@ -3,7 +3,7 @@
     <string name="feedback">feedback</string>
     <string name="agenda_pick_me_up">Agenda Pick Me UP</string>
     <string name="tambah_konten_animasi">tambah konten animasi</string>
-    <string name="list_konten_animasi">List Konten Animasi</string>
+    <string name="list_konten_animasi">Konten Edukasi</string>
     <string name="deskripsi">deskripsi</string>
     <string name="judul">Judul</string>
     <string name="todo">TODO</string>
@@ -11,7 +11,7 @@
     <string name="register">REGISTER</string>
     <string name="login">LOGIN</string>
     <string name="email">Email</string>
-    <string name="belum_punya_akun_silahkan_daftar">Belum Punya Akun? Silahkan Dafatar</string>
+    <string name="belum_punya_akun_silahkan_daftar">Belum Punya Akun ? Silahkan Daftar</string>
     <string name="password">Password</string>
 
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>

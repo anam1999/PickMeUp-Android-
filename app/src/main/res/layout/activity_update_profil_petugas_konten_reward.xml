@@ -4,19 +4,22 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/konten"
+    android:background="@drawable/rv_petugaskrw"
     tools:context=".Profil.UpdateProfilPetugasKontenReward">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300dp">
-        <LinearLayout
 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:orientation="vertical">
@@ -25,7 +28,7 @@
                 android:id="@+id/back"
                 android:layout_width="50dp"
                 android:layout_marginRight="3dp"
-                android:background="@drawable/back"
+                android:background="@drawable/backs"
                 android:layout_height="50dp"/>
 
             <de.hdodenhof.circleimageview.CircleImageView

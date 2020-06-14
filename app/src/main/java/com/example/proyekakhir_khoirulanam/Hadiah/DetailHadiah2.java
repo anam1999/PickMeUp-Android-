@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class DetailHadiah2 extends AppCompatActivity {
     Hadiah hadiah ;
-    TextView jumlahhadiahs,jumlahhadiah, poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,isi,jumlahharga,namahadiah,hargahadiah,sisa,nilai;
+    TextView jumlahhadiahs,jumlahhadiah, poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,isi,jumlahharga,namahadiah,hargahadiah,sisa,nilai,jumlahhargacek;
     Button checkout,tukarkan,kurang,tambah;
     HitungTukarHadiah hitungTukarHadiah =new HitungTukarHadiah();
     SharedPreferences sharedpreferences;
@@ -44,7 +44,7 @@ public class DetailHadiah2 extends AppCompatActivity {
     int poinku,hargaha,stokku,stokhadiah=0;
     String hadiahhargas,stoks,stokhad;
     String alamatgambarhadiah;
-    int poinkus=0;
+    int jumlah,sisajumlah=0;
     int ids;
     public static String  id, poinsa,stokpesan="";
     public final static String TAG_ID = "id";
@@ -62,7 +62,7 @@ public class DetailHadiah2 extends AppCompatActivity {
         id= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Hadiah ");
+        toolbar.setTitle("Penukaran Hadiah");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 
@@ -86,6 +86,7 @@ public class DetailHadiah2 extends AppCompatActivity {
         rvDeskripsi = findViewById(R.id.tvDeskripsi);
         rvpoin = findViewById(R.id.TotalPoin);
         jumlahharga = findViewById(R.id.jumlahdanharga);
+        jumlahhargacek = findViewById(R.id.jumlahharga);
         isi = findViewById(R.id.status);
         checkout = findViewById(R.id.tukarkan);
         ImageView ivHadiah = findViewById(R.id.ivHadiah);
@@ -218,10 +219,15 @@ public class DetailHadiah2 extends AppCompatActivity {
     }
 
     private void Checkout() {
+        jumlah= Integer.parseInt(hadiah.getJumlah());
+        sisajumlah=j;
+        String hasil;
+        hasil= String.valueOf((jumlah-sisajumlah));
+        isi.setText(hasil);
         stokpesan=(hadiah.getJumlah());
         stokhad= String.valueOf(j);
-
         stokhadiah=j;
+        String stoks= String.valueOf(j);
         stokku= Integer.parseInt(hadiah.getJumlah());
 
         isi.setText(hitungTukarHadiah.jumlahhadiah(Double.parseDouble(stokpesan), Double.parseDouble(stokhad)));
@@ -250,10 +256,10 @@ public class DetailHadiah2 extends AppCompatActivity {
         jumlahharga.setText(hadiahhargas);
         namahadiah.setText(hadiah.getNama_hadiah());
         hargahadiah.setText(hadiah.getPoin());
-        jumlahhadiahs.setText(stokhadiah);
+        jumlahhargacek.setText(hadiahhargas);
+        jumlahhadiahs.setText(hasil);
+
         sisa.setText(poinsa);
-
-
     }
 
     private void updatepoin() {

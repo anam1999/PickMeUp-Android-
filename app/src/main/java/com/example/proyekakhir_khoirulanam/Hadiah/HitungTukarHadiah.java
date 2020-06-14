@@ -9,7 +9,7 @@ public class HitungTukarHadiah {
     public String hadiah1(double poinsaya, double hadiah1) {
         if (poinsaya >= hadiah1) {
             poinSementara = poinsaya - hadiah1;
-            status = "Hadiah berhasil ditukar";
+            status = "Poin Anda Cukup";
             DetailHadiah2.poinsa = String.valueOf((int)poinSementara);
 
         } else {

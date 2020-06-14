@@ -27,7 +27,7 @@ public class DetailAgenda extends AppCompatActivity {
         id= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("agenda ");
+        toolbar.setTitle("Agenda ");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 

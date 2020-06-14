@@ -68,7 +68,7 @@ public class LihatKontenAnimasiPKW extends AppCompatActivity implements View.OnC
         });
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("konten animasi");
+        toolbar.setTitle("Konten Edukasi");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

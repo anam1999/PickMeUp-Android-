@@ -97,7 +97,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
         ids= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Hadiah ");
+        toolbar.setTitle("Update Hadiah");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         //Set icon to toolbar

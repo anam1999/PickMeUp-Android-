@@ -136,16 +136,16 @@ public class Daftar extends AppCompatActivity {
 ////                hideDialog();
 
 
-                        if (response!=null){
+                        if (response.equals("Email Sudah Digunakan")){
                             Toast.makeText(getApplicationContext(), ""+response, Toast.LENGTH_LONG).show();
 
                             hideDialog();
-                        }
+                        }else {
+                            Toast.makeText(getBaseContext(), "Selamat Anda Berhasil Daftar, Silahkan Login", Toast.LENGTH_SHORT).show();
                             Intent a = new Intent(Daftar.this, Masuk.class);
                             startActivity(a);
-
                             hideDialog();
-
+                        }
 
             }
         }, new Response.ErrorListener() {

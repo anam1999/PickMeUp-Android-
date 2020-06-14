@@ -25,7 +25,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/konten">
+    android:background="@drawable/rv_petugaskrw">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,7 +80,7 @@
         <ImageView
             android:id="@+id/ivAnimasi"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="350dp"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

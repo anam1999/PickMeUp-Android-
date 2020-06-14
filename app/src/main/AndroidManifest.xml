@@ -64,7 +64,7 @@
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Hadiah.LihatHadiahPKW"
-            android:theme="@style/tanpaactionbar" />
+            android:theme="@style/AppThemekonten" />
         <activity
             android:name=".TukarKodePoin"
             android:theme="@style/tanpaactionbar" />

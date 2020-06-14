@@ -42,7 +42,7 @@
             android:layout_marginTop="10dp"
             android:text="UPDATE HADIAH"
             android:textAllCaps="true"
-            android:textSize="30dp"
+            android:textSize="@dimen/dimen_24"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_gravity="center"

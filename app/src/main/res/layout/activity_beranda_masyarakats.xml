@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/swipe"
-    android:background="@color/putih"
+
     tools:context=".Beranda.BerandaMasyarakats">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -33,7 +33,7 @@
             android:id="@+id/txt_nama_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-200dp"
+            android:layout_marginTop="-230dp"
             android:layout_marginLeft="10dp"
             android:text="Selamat Datang"
             android:textSize="20sp"
@@ -55,8 +55,9 @@
             android:id="@+id/poinsesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:background="@color/white"
             android:text="Poin"
             android:textColor="@color/black"
             android:textStyle="italic"
@@ -70,7 +71,7 @@
                 android:id="@+id/profil"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="-50dp"
+                android:layout_marginTop="-20dp"
                 android:layout_gravity="center"
                 android:background="@drawable/userikon"
                 app:layout_constraintEnd_toEndOf="parent"

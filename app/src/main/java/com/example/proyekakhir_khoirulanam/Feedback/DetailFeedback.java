@@ -43,7 +43,7 @@ public class DetailFeedback extends AppCompatActivity {
         id= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Feedback ");
+        toolbar.setTitle("Feedback");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 

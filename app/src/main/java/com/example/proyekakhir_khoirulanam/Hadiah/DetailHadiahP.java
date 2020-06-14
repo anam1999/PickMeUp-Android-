@@ -48,7 +48,7 @@ public class DetailHadiahP extends AppCompatActivity {
         id= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Hadiah ");
+        toolbar.setTitle("Hadiah");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 

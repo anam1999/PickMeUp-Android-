@@ -69,8 +69,6 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
-                        llayout.setBackground(ContextCompat.getDrawable(ProfilPetugasLapangan.this, R.color.ecoranger));
-
                     }
                 }, 5000);
             }

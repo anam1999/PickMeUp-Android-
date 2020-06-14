@@ -62,7 +62,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         ids= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Feedback ");
+        toolbar.setTitle("Update Agenda");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 

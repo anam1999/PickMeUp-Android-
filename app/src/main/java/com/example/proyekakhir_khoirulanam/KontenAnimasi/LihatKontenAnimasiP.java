@@ -66,7 +66,7 @@ public class LihatKontenAnimasiP extends AppCompatActivity {
         });
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("konten animasi ");
+        toolbar.setTitle("Konten Edukasi");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

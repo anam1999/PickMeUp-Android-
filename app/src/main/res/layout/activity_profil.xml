@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profil.Profil"
-    android:background="@drawable/masyarakat"
+    android:background="@drawable/rv_masyarakat"
     android:orientation="vertical">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -34,7 +34,7 @@
                 android:layout_marginRight="3dp"
                 android:layout_gravity="right"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/keluars"
+                android:background="@drawable/ikon_logout"
                 android:layout_height="50dp"/>
 
             <ImageButton
@@ -42,22 +42,12 @@
                 android:layout_width="50dp"
                 android:layout_marginTop="-60dp"
                 android:layout_marginRight="3dp"
-                android:background="@drawable/back"
-                android:layout_height="50dp"/>
+                android:background="@drawable/backs"
+                android:layout_height="60dp"/>
 
-            <TextView
-                android:layout_width="60dp"
-                android:layout_gravity="right"
-                android:layout_marginRight="-5dp"
-                android:text="keluar"
-                android:layout_toRightOf="@id/profils"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:layout_height="30dp"/>
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profils"
-                android:layout_marginTop="-72dp"
+                android:layout_marginTop="-42dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="250dp"
                 android:layout_height="200dp"

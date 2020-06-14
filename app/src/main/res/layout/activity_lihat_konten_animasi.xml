@@ -20,7 +20,7 @@
         >
     <LinearLayout
         android:id="@+id/swipe"
-        android:background="@drawable/masyarakat"
+        android:background="@drawable/rv_masyarakat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"

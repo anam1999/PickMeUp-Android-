@@ -68,7 +68,7 @@ public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickLi
             }
         });
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle(" Feedback");
+        toolbar.setTitle("Feedback");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

@@ -30,7 +30,7 @@
             android:id="@+id/txt_nama_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-200dp"
+            android:layout_marginTop="-230dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -53,7 +53,7 @@
                 android:id="@+id/profil"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="-40dp"
+                android:layout_marginTop="0dp"
                 android:layout_gravity="center"
                 android:background="@drawable/userikon"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -193,7 +193,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/ikon_tukarhadiah" />
+                        android:background="@drawable/ikon_hadiah" />
 
 
                 </LinearLayout>

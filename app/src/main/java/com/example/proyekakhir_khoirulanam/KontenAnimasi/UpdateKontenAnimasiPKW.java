@@ -89,7 +89,7 @@ public class UpdateKontenAnimasiPKW extends AppCompatActivity {
         ids= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Feedback ");
+        toolbar.setTitle("Update Konten Edukasi");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 

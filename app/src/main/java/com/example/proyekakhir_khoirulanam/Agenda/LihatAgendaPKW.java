@@ -65,7 +65,7 @@ public class LihatAgendaPKW extends AppCompatActivity {
             }
         });
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle(" agenda");
+        toolbar.setTitle("Agenda");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

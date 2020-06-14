@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/masyarakat"
     tools:context=".Hadiah.LihatTransaksi">
 
     <androidx.appcompat.widget.Toolbar
@@ -14,16 +13,21 @@
         android:layout_height="wrap_content"
         android:background="@color/ecoranger">
     </androidx.appcompat.widget.Toolbar>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rv_masyarakat"
+    android:orientation="vertical"
+    >
     <TextView
         android:id="@+id/judul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:text="Riwayat Tukar Hadiah"
+        android:text="Riwayat Transaksi Hadiah"
         android:layout_gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold" />
     <androidx.recyclerview.widget.RecyclerView
@@ -36,4 +40,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_tambah" />
+</LinearLayout>
 </LinearLayout>

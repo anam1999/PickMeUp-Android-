@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/masyarakat">
+        android:background="@drawable/rv_masyarakat">
     <TextView
         android:id="@+id/penukaran"
         android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/ivHadiah"
-                android:background="@color/ecoranger"
+                android:background="@drawable/radius4"
                 android:text="-"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
             <TextView
@@ -148,7 +148,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/nilai"
-                android:background="@color/ecoranger"
+                android:background="@drawable/radius4"
                 android:text="+"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
@@ -162,7 +162,7 @@
                 android:layout_below="@id/kurang"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:background="@color/ecoranger"
+                android:background="@drawable/radius4"
                 android:layout_toRightOf="@id/ivHadiah"
                 android:text="Checkout"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
@@ -327,7 +327,7 @@
                 android:layout_below="@id/jumlahharga"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
-                android:background="@color/ecoranger"
+                android:background="@drawable/radius4"
                 android:text="Tukarkan" />
 
         </RelativeLayout>

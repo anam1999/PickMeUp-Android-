@@ -70,7 +70,7 @@ public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickLis
         });
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle(" Hadiah");
+        toolbar.setTitle("Hadiah");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);

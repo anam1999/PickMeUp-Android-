@@ -5,13 +5,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/lapangan"
+    android:background="@drawable/rv_petugaslapangan"
     tools:context=".Profil.UpdateProfilPetugasLapangan">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                 android:id="@+id/back"
                 android:layout_width="50dp"
                 android:layout_marginRight="3dp"
-                android:background="@drawable/back"
+                android:background="@drawable/backs"
                 android:layout_height="50dp"/>
 
             <de.hdodenhof.circleimageview.CircleImageView

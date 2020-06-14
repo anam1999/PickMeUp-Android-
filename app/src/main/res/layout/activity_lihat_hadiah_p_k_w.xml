@@ -6,12 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Hadiah.LihatHadiahPKW">
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ecoranger">
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,7 +28,7 @@
         android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/konten"
+        android:background="@drawable/rv_petugaskr"
         android:orientation="vertical">
 
     <TextView
@@ -33,8 +39,8 @@
         android:layout_alignParentStart="true"
         android:text="Hadiah"
         android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_32"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -45,7 +51,11 @@
         tools:listitem="@layout/list_hadiah"
       />
     </LinearLayout>
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_tambah"
         android:layout_width="wrap_content"
@@ -59,4 +69,5 @@
         android:src="@drawable/tambah"
         app:fabSize="normal"
         android:layout_marginEnd="10dp" />
+
 </RelativeLayout>
