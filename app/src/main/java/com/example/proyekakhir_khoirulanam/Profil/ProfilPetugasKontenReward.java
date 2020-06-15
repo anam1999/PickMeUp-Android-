@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -45,6 +46,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
     ImageView profil;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+    ProgressDialog pDialog;
 
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
@@ -121,7 +123,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                showDialog();
+                KeluarAkun();
 
             }
         });
@@ -145,7 +147,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                         username.setText(data.getString("username"));
                         emailnya.setText(data.getString("email"));
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }
@@ -167,7 +169,11 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
         queue.add(arrayRequest);
     }
 
-    private void showDialog(){
+    private void KeluarAkun(){
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Keluar...");
+        showDialog();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
 
@@ -190,6 +196,8 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                         Intent ua = new Intent(ProfilPetugasKontenReward.this, Masuk.class);
                         finish();
                         startActivity(ua);
+                        hideDialog();
+
 
                     }
                 })
@@ -207,5 +215,14 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
         // menampilkan alert dialog
         alertDialog.show();
 
+    }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

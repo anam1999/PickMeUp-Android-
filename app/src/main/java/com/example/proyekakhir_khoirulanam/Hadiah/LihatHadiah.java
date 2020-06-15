@@ -51,6 +51,7 @@ public class LihatHadiah extends AppCompatActivity {
     Toolbar toolbar;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

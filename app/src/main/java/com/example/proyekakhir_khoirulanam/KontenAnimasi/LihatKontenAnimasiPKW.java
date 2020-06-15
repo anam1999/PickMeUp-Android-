@@ -42,6 +42,7 @@ public class LihatKontenAnimasiPKW extends AppCompatActivity implements View.OnC
     SharedPreferences sharedpreferences;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +87,6 @@ public class LihatKontenAnimasiPKW extends AppCompatActivity implements View.OnC
                 startActivity(inten);
             }
         });
-
 
         animasiArrayList = new ArrayList<>();
         btnTambah = findViewById(R.id.btn_tambah);

@@ -247,24 +247,20 @@ public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickLi
 EditText tvNama,tvdeskripsi,poin,jumlah;
     Button btnSimpan;
     ImageView ivPhoto;
-    Uri UriPhoto;
-    Bitmap BitPhoto;
-    String StringImage;
     ProgressDialog pDialog;
-
     Bitmap bitmap, decoded;
-    int success;
-    int PICK_IMAGE_REQUEST = 1;
     int bitmap_size = 60; // range 1 - 100
-
     Intent intent;
     Uri fileUri;
-    Button btn_choose_image;
-    ImageView imageView;
     public final int REQUEST_CAMERA = 0;
     public final int SELECT_FILE = 1;
-
     int max_resolution_image = 2048;
+    public final static String TAG_NAMA = "username";
+    public final static String TAG_ID = "id";
+    Toolbar toolbar;
+    SharedPreferences sharedpreferences;
+    String id,nama;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -278,6 +274,22 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         ivPhoto = findViewById(R.id.iv_photo);
         btnSimpan.setOnClickListener(this);
         ivPhoto.setOnClickListener(this);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Tambah Hadiah");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        //Set icon to toolbar
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten = new Intent(TambahHadiahPKW.this, LihatHadiahPKW.class);
+                inten.putExtra(TAG_ID, id);
+                inten.putExtra(TAG_NAMA, nama);
+                finish();
+                startActivity(inten);
+            }
+        });
     }
     public void onClick(View v) {
         switch (v.getId()){
@@ -315,7 +327,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(TambahHadiahPKW.this);
         builder.setTitle("Add Photo!");
-        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setIcon(R.drawable.logoaplikasi);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
@@ -432,11 +444,11 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
-                map.put("nama_hadiah",nama_hadiah);
+                map.put("nama",nama_hadiah);
                 map.put("deskripsi", deskripsi);
                 map.put("harga_hadiah", harga_hadiah);
                 map.put("jumlah_hadiah", jumlahhadiah);
-                map.put("file",getStringImage(decoded));
+                map.put("file_gambar",getStringImage(decoded));
 
                 return map;
             }

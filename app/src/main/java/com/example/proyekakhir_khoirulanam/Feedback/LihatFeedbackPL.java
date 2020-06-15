@@ -42,6 +42,7 @@ public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickLi
     SharedPreferences sharedpreferences;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,38 +111,38 @@ public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickLi
     }
 
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_tambah:
-                sendToTambah();
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_tambah:
+                    sendToTambah();
+            }
         }
-    }
 
-    private void sendToTambah() {
-        Intent intent = new Intent(this, TambahFeedback.class);
-        startActivity(intent);
-        finish();
-    }
-    long lastPress;
-    Toast backpressToast;
-    @Override
-    public void onBackPressed() {
-        long currentTime = System.currentTimeMillis();
-        if(currentTime - lastPress > 5000){
-            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
-            backpressToast.show();
-            lastPress = currentTime;
-
-        } else {
-            if (backpressToast != null) backpressToast.cancel();
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            finish();
+        private void sendToTambah() {
+            Intent intent = new Intent(this, TambahFeedback.class);
             startActivity(intent);
-            super.onBackPressed();
+            finish();
         }
-    }
+        long lastPress;
+        Toast backpressToast;
+        @Override
+        public void onBackPressed() {
+            long currentTime = System.currentTimeMillis();
+            if(currentTime - lastPress > 5000){
+                backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
+                backpressToast.show();
+                lastPress = currentTime;
+
+            } else {
+                if (backpressToast != null) backpressToast.cancel();
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                finish();
+                startActivity(intent);
+                super.onBackPressed();
+            }
+        }
 
 }

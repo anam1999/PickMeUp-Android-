@@ -33,9 +33,9 @@ public class ModelHadiah extends ViewModel {
                     for (int i =0; i <data.length(); i++){
                         JSONObject objek =data.getJSONObject(i);
                         int id = objek.getInt("id");
-                        String title = objek.getString("nama_hadiah");
+                        String title = objek.getString("nama");
                         String deskripsi = objek.getString("deskripsi");
-                        String image = objek.getString("file");
+                        String image = objek.getString("file_gambar");
                         String poin =objek.getString("harga_hadiah");
                         String jumlah = objek.getString("jumlah_hadiah");
                         Hadiah hadiah = new Hadiah(id, title,image,deskripsi,poin,jumlah);

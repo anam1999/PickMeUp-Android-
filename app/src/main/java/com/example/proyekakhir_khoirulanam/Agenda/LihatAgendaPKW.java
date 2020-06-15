@@ -39,6 +39,7 @@ public class LihatAgendaPKW extends AppCompatActivity {
     public final static String TAG_ID = "id";
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,9 +84,6 @@ public class LihatAgendaPKW extends AppCompatActivity {
                 startActivity(inten);
             }
         });
-//        ActionBar actionBar = getSupportActionBar();
-//        getSupportActionBar().setTitle("Lihat agenda");
-//        actionBar.show();
 
         agendaArrayList = new ArrayList<>();
         rvNama = findViewById(R.id.rv_Agenda);

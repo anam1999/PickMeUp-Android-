@@ -41,6 +41,7 @@ public class LihatKontenAnimasi extends AppCompatActivity {
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_konten_animasi);
@@ -48,7 +49,6 @@ public class LihatKontenAnimasi extends AppCompatActivity {
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
         swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
-
         // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
         swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

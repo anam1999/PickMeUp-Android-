@@ -33,30 +33,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DetailHadiah2 extends AppCompatActivity {
+
     Hadiah hadiah ;
-    TextView jumlahhadiahs,jumlahhadiah, poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,isi,jumlahharga,namahadiah,hargahadiah,sisa,nilai,jumlahhargacek;
+    TextView jumlahhadiahs,jumlahhadiah, poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,isi,
+            jumlahharga,namahadiah,hargahadiah,sisa,nilai,jumlahhargacek;
     Button checkout,tukarkan,kurang,tambah;
     HitungTukarHadiah hitungTukarHadiah =new HitungTukarHadiah();
-    SharedPreferences sharedpreferences;
     ProgressDialog pDialog;
-    int quantity,j,k = 0;
-//    int ss=0;
-    int poinku,hargaha,stokku,stokhadiah=0;
     String hadiahhargas,stoks,stokhad;
     String alamatgambarhadiah;
-    int jumlah,sisajumlah=0;
-    int ids;
     public static String  id, poinsa,stokpesan="";
     public final static String TAG_ID = "id";
     public static final String EXTRA_DETAILs ="penukaranhadiah";
     public static int poins,poinhadiah,a=0 ;
     public final static String TAG_NAMA = "username";
+    int jumlah,sisajumlah=0;
+    int ids;
+    int quantity,j,k = 0;
+    int poinku,hargaha,stokku,stokhadiah=0;
     Toolbar toolbar;
     String nama;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        ss=1;
+
         setContentView(R.layout.activity_detail_hadiah2);
         getPoin();
         id= Preferences.getId(getBaseContext());
@@ -79,8 +80,6 @@ public class DetailHadiah2 extends AppCompatActivity {
             }
         });
 
-//        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
-//        id=getIntent().getStringExtra(TAG_ID);
         nilai = (TextView) findViewById(R.id.nilai);
         rvHadiah = findViewById(R.id.tvNamaHadiah);
         rvDeskripsi = findViewById(R.id.tvDeskripsi);
@@ -101,7 +100,6 @@ public class DetailHadiah2 extends AppCompatActivity {
         nilai =findViewById(R.id.nilai);
         jumlahhadiah=findViewById(R.id.jumlahhadiah);
         jumlahhadiahs=findViewById(R.id.jumlahhadiahs);
-
         hadiah = getIntent().getParcelableExtra(EXTRA_DETAILs);
         ids = hadiah.getId();
         rvHadiah.setText(hadiah.getNama_hadiah());
@@ -109,13 +107,8 @@ public class DetailHadiah2 extends AppCompatActivity {
         rvpoin.setText(hadiah.getPoin()+"Poin");
         poinhadiah= Integer.parseInt(hadiah.getPoin());
         jumlahhadiah.setText(hadiah.getJumlah());
-//        String sss= String.valueOf(ss);
-//        String hitungs = String.valueOf((k*ss));
-//        nilai.setText(sss);
         k = Integer.parseInt((hadiah.getPoin()));
 
-//
-//        isi.setText(hitungs);
 
         Glide.with(this)
                 .load( "http://192.168.43.229/relasi/public/hadiah/" +hadiah.getGambar())
@@ -162,7 +155,6 @@ public class DetailHadiah2 extends AppCompatActivity {
                 Checkout();
             }
         });
-
                         tukarkan.setEnabled(false);
                         tukarkan.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -182,12 +174,9 @@ public class DetailHadiah2 extends AppCompatActivity {
 
     }
 
-
     private void display(int number) {
         nilai.setText("" + number);
         j = (number);
-
-
     }
 
     private void getPoin() {
@@ -238,7 +227,7 @@ public class DetailHadiah2 extends AppCompatActivity {
             Toast.makeText(getBaseContext(),"hadiah habis",Toast.LENGTH_SHORT).show();
             tukarkan.setEnabled(false);
         }
-        //
+
         k = Integer.parseInt(hadiah.getPoin());
         hadiahhargas = String.valueOf(j * k);
         hargaha= Integer.parseInt(hadiahhargas);
@@ -246,19 +235,18 @@ public class DetailHadiah2 extends AppCompatActivity {
         isi.setText(hitungTukarHadiah.hadiah1(Double.parseDouble(poinsa), Double.parseDouble(hadiahhargas)));
         if (poinku >= hargaha&&stokku>=stokhadiah){
             Toast.makeText(getBaseContext(),"Anda bisa menukar ",Toast.LENGTH_SHORT).show();
-//            updatepoin();
             tukarkan.setEnabled(true);
         }else {
             Toast.makeText(getBaseContext(),"Anda tidak bisa menukar",Toast.LENGTH_SHORT).show();
             tukarkan.setEnabled(false);
         }
+
         poinsaya.setText("Poin saya :"+poinsa+"Poin");
         jumlahharga.setText(hadiahhargas);
         namahadiah.setText(hadiah.getNama_hadiah());
         hargahadiah.setText(hadiah.getPoin());
         jumlahhargacek.setText(hadiahhargas);
         jumlahhadiahs.setText(hasil);
-
         sisa.setText(poinsa);
     }
 

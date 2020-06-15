@@ -142,7 +142,7 @@ public class ProfilPimpinan extends AppCompatActivity {
                         username.setText(data.getString("username"));
                         emailnya.setText(data.getString("email"));
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

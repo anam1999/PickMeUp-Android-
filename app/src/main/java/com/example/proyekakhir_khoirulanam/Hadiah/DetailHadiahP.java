@@ -65,8 +65,6 @@ public class DetailHadiahP extends AppCompatActivity {
             }
         });
 
-//        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
-//        id=getIntent().getStringExtra(TAG_ID);
         rvHadiah = findViewById(R.id.tvNamaHadiah);
         rvDeskripsi = findViewById(R.id.tvDeskripsi);
         rvpoin = findViewById(R.id.TotalPoin);

@@ -36,7 +36,7 @@ public class ModelTransaksi extends ViewModel {
                         String nama_hadiah = objek.getString("nama_hadiah");
                         String harga_hadiah = objek.getString("harga_hadiah");
                         String sisapoin =objek.getString("sisapoin");
-                        String image = objek.getString("file");
+                        String image = objek.getString("file_gambar");
 
                         Transaksi transaksi = new Transaksi(id, nama_hadiah,harga_hadiah,sisapoin,image);
                         transaksiArrayList.add(transaksi);

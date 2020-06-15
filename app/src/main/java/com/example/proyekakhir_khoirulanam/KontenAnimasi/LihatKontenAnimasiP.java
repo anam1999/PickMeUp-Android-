@@ -39,6 +39,7 @@ public class LihatKontenAnimasiP extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

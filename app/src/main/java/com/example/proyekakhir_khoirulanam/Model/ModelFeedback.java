@@ -35,7 +35,7 @@ public class ModelFeedback extends ViewModel {
                         int id = objek.getInt("id");
                         String title = objek.getString("email");
                         String keterangan =objek.getString("kritik_saran");
-                        String image = objek.getString("file");
+                        String image = objek.getString("file_gambar");
 //                        String username = objek.getString("user_id");
                         Feedback feedback = new Feedback(id, title,keterangan,image);
                         feedbackArrayList.add(feedback);

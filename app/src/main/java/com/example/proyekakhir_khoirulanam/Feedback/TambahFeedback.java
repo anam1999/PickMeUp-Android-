@@ -3,13 +3,18 @@ package com.example.proyekakhir_khoirulanam.Feedback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,10 +30,12 @@ import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Agenda.TambahAgendaP;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Hadiah.TambahHadiahPKW;
+import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,13 +44,18 @@ import java.util.Map;
 
 public class TambahFeedback extends AppCompatActivity implements View.OnClickListener {
     TextView tvNama, tvKomentar;
-    String StringImage;
     String email;
     ImageView ivPhoto;
-    Uri UriPhoto;
-    Bitmap BitPhoto;
     Button btnSimpan;
     ProgressDialog pDialog;
+    Bitmap bitmap, decoded;
+    int bitmap_size = 60; // range 1 - 100
+    Intent intent;
+    Uri fileUri;
+    public final int REQUEST_CAMERA = 0;
+    public final int SELECT_FILE = 1;
+    int max_resolution_image = 2048;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,15 +65,12 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setTitle("Tambah Feedback");
         actionBar.show();
 
-//        tvNama = findViewById(R.id.tv_nama);
         tvKomentar = findViewById(R.id.tv_komentar);
         ivPhoto = findViewById(R.id.iv_photo);
         btnSimpan = findViewById(R.id.btn_simpan);
         btnSimpan.setOnClickListener(this);
         ivPhoto.setOnClickListener(this);
-//        tvNama.setText(Preferences.getLoggedInUser(getBaseContext()));
         email=(Preferences.getLoggedInUser(getBaseContext()));
-
     }
 
     @Override
@@ -88,45 +97,72 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
     }
 
     private void pickImage() {
-        CropImage.activity()
-                .setGuidelines(CropImageView.Guidelines.ON)
-//                .setAspectRatio(6,5)
-                .start(TambahFeedback.this);
-        ;
+        ivPhoto.setImageResource(0);
+        final CharSequence[] items = {"Take Photo", "Choose from Library",
+                "Cancel"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(TambahFeedback.this);
+        builder.setTitle("Add Photo!");
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (items[item].equals("Take Photo")) {
+                    intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                    fileUri = getOutputMediaFileUri();
+                    intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fileUri);
+                    startActivityForResult(intent, REQUEST_CAMERA);
+                } else if (items[item].equals("Choose from Library")) {
+                    intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_FILE);
+                } else if (items[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
     }
 
+    private void kosong() {
+        ivPhoto.setImageResource(0);
+
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK){
-                UriPhoto = result.getUri();
-                if (UriPhoto != null){
+        Log.e("onActivityResult", "requestCode " + requestCode + ", resultCode " + resultCode);
 
-                    try {
-                        InputStream inputStream = getContentResolver().openInputStream(UriPhoto);
-                        BitPhoto = BitmapFactory.decodeStream(inputStream);
-                        StringImage = imgToString(BitPhoto);
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_CAMERA) {
+                try {
+                    bitmap = (Bitmap) data.getExtras().get("data");
+                    setToImageView(getResizedBitmap(bitmap, max_resolution_image));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            } else if (requestCode == SELECT_FILE && data != null && data.getData() != null) {
+                try {
+                    // mengambil gambar dari Gallery
+                    bitmap = MediaStore.Images.Media.getBitmap(TambahFeedback.this.getContentResolver(), data.getData());
 
-                ivPhoto.setImageURI(UriPhoto);
-
-            }
-            else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
-                Exception error = result.getError();
+                    setToImageView(getResizedBitmap(bitmap, max_resolution_image));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
-
     }
 
-
+    public String getStringImage(Bitmap bmp) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, bitmap_size, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
 
     private void sendDataFeedback(final String feedback) {
         pDialog = new ProgressDialog(this);
@@ -137,8 +173,9 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahFeedback.this, LihatFeedback.class);
-                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 startActivity(intent);
+                kosong();
+                Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 finish();
                 hideDialog();
 
@@ -155,9 +192,7 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
                 Map<String, String> map = new HashMap<>();
                 map.put("email", email);
                 map.put("kritik_saran", feedback);
-                if(StringImage!=null){
-                    map.put("file",StringImage);
-                }
+                map.put("file_gambar",getStringImage(decoded));
                 return map;
             }
         };
@@ -165,14 +200,6 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         requestQueue.add(srSendData);
     }
 
-    private String imgToString(Bitmap bitmap){
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-        byte[] imageByte = outputStream.toByteArray();
-
-        String encodeImage = Base64.encodeToString(imageByte, Base64.DEFAULT);
-        return encodeImage;
-    }
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -182,25 +209,30 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+    private void setToImageView(Bitmap bmp) {
+        //compress image
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, bitmap_size, bytes);
+        decoded = BitmapFactory.decodeStream(new ByteArrayInputStream(bytes.toByteArray()));
 
-//    long lastPress;
-//    Toast backpressToast;
-//    @Override
-//    public void onBackPressed() {
-//        long currentTime = System.currentTimeMillis();
-//        if(currentTime - lastPress > 5000){
-//            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
-//            backpressToast.show();
-//            lastPress = currentTime;
-//
-//        } else {
-//            if (backpressToast != null) backpressToast.cancel();
-//            Intent intent = new Intent(Intent.ACTION_MAIN);
-//            intent.addCategory(Intent.CATEGORY_HOME);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            finish();
-//            startActivity(intent);
-//            super.onBackPressed();
-//        }
-//    }
+        //menampilkan gambar yang dipilih dari camera/gallery ke ImageView
+        ivPhoto.setImageBitmap(decoded);
+    }
+
+    // fungsi resize image
+    public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        float bitmapRatio = (float) width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true);
+    }
+
 }

@@ -33,52 +33,19 @@ public class DetailFeedback extends AppCompatActivity {
         TextView rvNama = findViewById(R.id.tvNama);
         TextView rvKomentar = findViewById(R.id.tvKomentar);
         ImageView ivFeedback = findViewById(R.id.ivFeedback);
-        Feedback feedback= getIntent().getParcelableExtra(DetailFeedback.EXTRA_FEEDBACK);
+        Feedback feedback = getIntent().getParcelableExtra(DetailFeedback.EXTRA_FEEDBACK);
         rvNama.setText(feedback.getNama());
         rvKomentar.setText(feedback.getKomentar());
         Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/feedback/" + feedback.getGambar())
+                .load("http://192.168.43.229/relasi/public/feedback/" + feedback.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivFeedback);
-        id= Preferences.getId(getBaseContext());
-        nama=Preferences.getLoggedInUser(getBaseContext());
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        id = Preferences.getId(getBaseContext());
+        nama = Preferences.getLoggedInUser(getBaseContext());
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Feedback");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 
-//        //Set icon to toolbar
-//        toolbar.setNavigationIcon(R.drawable.back);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent inten = new Intent(DetailFeedback.this, LihatFeedback.class);
-//                inten.putExtra(TAG_ID, id);
-//                inten.putExtra(TAG_NAMA, nama);
-//                finish();
-//                startActivity(inten);
-//            }
-//        });
-
     }
-//    long lastPress;
-//    Toast backpressToast;
-//    @Override
-//    public void onBackPressed() {
-//        long currentTime = System.currentTimeMillis();
-//        if(currentTime - lastPress > 5000){
-//            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
-//            backpressToast.show();
-//            lastPress = currentTime;
-//
-//        } else {
-//            if (backpressToast != null) backpressToast.cancel();
-//            Intent intent = new Intent(Intent.ACTION_MAIN);
-//            intent.addCategory(Intent.CATEGORY_HOME);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            finish();
-//            startActivity(intent);
-//            super.onBackPressed();
-//        }
-//    }
 }

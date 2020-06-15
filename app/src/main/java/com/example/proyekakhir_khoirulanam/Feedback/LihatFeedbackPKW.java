@@ -42,6 +42,7 @@ public class LihatFeedbackPKW extends AppCompatActivity implements View.OnClickL
     SharedPreferences sharedpreferences;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

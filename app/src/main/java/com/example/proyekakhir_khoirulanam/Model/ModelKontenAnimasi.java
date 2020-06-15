@@ -32,9 +32,9 @@ public class ModelKontenAnimasi extends ViewModel {
                     for (int i =0; i <data.length(); i++){
                         JSONObject objek =data.getJSONObject(i);
                         int id = objek.getInt("id");
-                        String title = objek.getString("nama_konten");
+                        String title = objek.getString("nama");
                         String keterangan =objek.getString("deskripsi");
-                        String image = objek.getString("file");
+                        String image = objek.getString("file_gambar");
                         Animasi animasi = new Animasi(id, title,keterangan,image);
                         animasiArrayList.add(animasi);
 

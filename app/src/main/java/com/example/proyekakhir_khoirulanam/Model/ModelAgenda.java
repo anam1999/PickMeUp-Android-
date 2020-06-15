@@ -32,9 +32,9 @@ public class ModelAgenda extends ViewModel {
                     for (int i =0; i <data.length(); i++){
                         JSONObject objek =data.getJSONObject(i);
                         int id = objek.getInt("id");
-                        String title = objek.getString("nama_agenda");
+                        String title = objek.getString("nama");
                         String keterangan =objek.getString("keterangan");
-                        String image = objek.getString("file");
+                        String image = objek.getString("file_gambar");
                         Agenda agenda = new Agenda(id, title,keterangan,image);
                         agendaArrayList.add(agenda);
 

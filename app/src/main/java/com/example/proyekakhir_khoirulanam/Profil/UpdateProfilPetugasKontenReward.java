@@ -169,7 +169,7 @@ public class UpdateProfilPetugasKontenReward extends AppCompatActivity {
                         username.setText(data.getString("username"));
                         emailnya.setText(data.getString("email"));
                         Glide.with(UpdateProfilPetugasKontenReward.this)
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }
@@ -231,7 +231,7 @@ public class UpdateProfilPetugasKontenReward extends AppCompatActivity {
                 MyData.put("username",username.getText().toString());
                 MyData.put("email",emailnya.getText().toString());
                 if(StringImage!=null){
-                    MyData.put("file",StringImage);
+                    MyData.put("file_gambar",StringImage);
                 }
                 return MyData;
             }
