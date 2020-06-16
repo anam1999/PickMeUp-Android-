@@ -213,10 +213,9 @@ public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.O
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);
-                startActivity(intent);
-                kosong();
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
+                startActivity(intent);
                 Toast.makeText(getApplicationContext(), "Data konten animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 finish();
                 hideDialog();

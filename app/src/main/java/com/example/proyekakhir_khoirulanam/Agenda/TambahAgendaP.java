@@ -193,10 +193,9 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahAgendaP.this, LihatAgendaP.class);
-                startActivity(intent);
-                kosong();
                 intent.putExtra(TAG_ID, ids);
                 intent.putExtra(TAG_NAMA, nama);
+                startActivity(intent);
                 finish();
                 Toast.makeText(TambahAgendaP.this, "Data agenda berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 hideDialog();

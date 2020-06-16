@@ -170,7 +170,6 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahFeedback.this, LihatFeedback.class);
                 startActivity(intent);
-                kosong();
                 Toast.makeText(TambahFeedback.this, "Feedback Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 finish();
                 hideDialog();
