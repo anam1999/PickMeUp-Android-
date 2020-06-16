@@ -1,4 +1,4 @@
-package com.example.proyekakhir_khoirulanam.KontenAnimasi;
+package com.example.proyekakhir_khoirulanam.KontenEdukasi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,19 +18,19 @@ import android.widget.LinearLayout;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.example.proyekakhir_khoirulanam.Adapter.AnimasiAdapterView;
+import com.example.proyekakhir_khoirulanam.Adapter.KontenEdukasiAdapterView;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
-import com.example.proyekakhir_khoirulanam.Constructor.Animasi;
+import com.example.proyekakhir_khoirulanam.Constructor.KontenEdukasi;
 import com.example.proyekakhir_khoirulanam.Masuk;
-import com.example.proyekakhir_khoirulanam.Model.ModelKontenAnimasi;
+import com.example.proyekakhir_khoirulanam.Model.ModelKontenEdukasi;
 import com.example.proyekakhir_khoirulanam.R;
 
 import java.util.ArrayList;
 
-public class LihatKontenAnimasiP extends AppCompatActivity {
+public class LihatKontenEdukasi_Pimpinan extends AppCompatActivity {
     RecyclerView rvAnimasi;
-    AnimasiAdapterView animasiAdapter;
-    ArrayList<Animasi> animasiArrayList;
+    KontenEdukasiAdapterView animasiAdapter;
+    ArrayList<KontenEdukasi> animasiArrayList;
     RequestQueue queue;
     String id,nama;
     public final static String TAG_NAMA = "username";
@@ -78,7 +78,7 @@ public class LihatKontenAnimasiP extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(LihatKontenAnimasiP.this, BerandaPimpinan.class);
+                Intent inten = new Intent(LihatKontenEdukasi_Pimpinan.this, BerandaPimpinan.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -91,13 +91,13 @@ public class LihatKontenAnimasiP extends AppCompatActivity {
         rvAnimasi = findViewById(R.id.rv_Animasi);
         queue = Volley.newRequestQueue(this);
         rvAnimasi.setLayoutManager(new LinearLayoutManager(this));
-        animasiAdapter = new AnimasiAdapterView();
+        animasiAdapter = new KontenEdukasiAdapterView();
 
-        ModelKontenAnimasi model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelKontenAnimasi.class);
+        ModelKontenEdukasi model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelKontenEdukasi.class);
         model.simpan(queue,this);
-        model.Ambil().observe(this, new Observer<ArrayList<Animasi>>() {
+        model.Ambil().observe(this, new Observer<ArrayList<KontenEdukasi>>() {
             @Override
-            public void onChanged(ArrayList<Animasi> animasi) {
+            public void onChanged(ArrayList<KontenEdukasi> animasi) {
                 animasiAdapter.adapter(animasi);
             }
         });

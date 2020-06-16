@@ -26,9 +26,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
-import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah;
-import com.example.proyekakhir_khoirulanam.Hadiah.LihatTransaksi;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
+import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_Masyarakat;
+import com.example.proyekakhir_khoirulanam.Hadiah.LihatTransaksi_Masyarakat;
+import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_Masyarakat;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.Profil;
 import com.example.proyekakhir_khoirulanam.R;
@@ -118,7 +118,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         transaksi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent transaksi= new Intent(BerandaMasyarakats.this, LihatTransaksi.class);
+                Intent transaksi= new Intent(BerandaMasyarakats.this, LihatTransaksi_Masyarakat.class);
                 transaksi.putExtra(TAG_ID, id);
                 transaksi.putExtra(TAG_NAMA, nama);
                 startActivity(transaksi);
@@ -136,7 +136,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         konten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent konten = new Intent(BerandaMasyarakats.this, LihatKontenAnimasi.class);
+                Intent konten = new Intent(BerandaMasyarakats.this, LihatKontenEdukasi_Masyarakat.class);
                 konten.putExtra(TAG_ID, id);
                 konten.putExtra(TAG_NAMA, nama);
                 startActivity(konten);
@@ -145,7 +145,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         tukarhadiah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent tukarhadiah = new Intent(BerandaMasyarakats.this, LihatHadiah.class);
+                Intent tukarhadiah = new Intent(BerandaMasyarakats.this, LihatHadiah_Masyarakat.class);
                 tukarhadiah.putExtra(TAG_ID, id);
                 tukarhadiah.putExtra(TAG_NAMA,nama);
                 startActivity(tukarhadiah);
@@ -174,7 +174,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

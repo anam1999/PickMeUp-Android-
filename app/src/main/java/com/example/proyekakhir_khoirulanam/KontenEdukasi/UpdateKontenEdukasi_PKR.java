@@ -1,4 +1,4 @@
-package com.example.proyekakhir_khoirulanam.Hadiah;
+package com.example.proyekakhir_khoirulanam.KontenEdukasi;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,10 +30,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.proyekakhir_khoirulanam.Agenda.UpdateAgendaP;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.UpdateKontenAnimasiPKW;
+import com.example.proyekakhir_khoirulanam.Constructor.KontenEdukasi;
+import com.example.proyekakhir_khoirulanam.Profil.UpdateProfil;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -45,20 +45,19 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UpdateHadiahPKW extends AppCompatActivity {
+public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
     public static final String EXTRA_DETAILs ="penukaranhadiah";
+    ImageView ivAnimasi;
+    EditText rvAnimasi;
+    EditText rvDeskripsi;
+    Button updateanimasi;
+    String StringImage, alamatanimasi;
+    ProgressDialog pDialog;
+    int id;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
     Toolbar toolbar;
     String ids, nama;
-    ImageView ivHadiah;
-    EditText rvHadiah;
-    EditText rvDeskripsi;
-    EditText rvpoin;
-    EditText jumlahhadiah;
-    Button updatehadiah;
-    ProgressDialog pDialog;
-    int id;
     Bitmap bitmap, decoded;
     int bitmap_size = 60; // range 1 - 100
     Intent intent;
@@ -70,52 +69,49 @@ public class UpdateHadiahPKW extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_hadiah_p);
-        ivHadiah = findViewById(R.id.iv_photo);
-        rvHadiah = findViewById(R.id.tv_nama_hadiah);
+        setContentView(R.layout.activity_update_konten_animasi_p_k_w);
+
+        ivAnimasi = findViewById(R.id.ivAnimasi);
+        rvAnimasi = findViewById(R.id.tv_namakonten);
         rvDeskripsi = findViewById(R.id.tv_deskripsi);
-        rvpoin = findViewById(R.id.tv_poin);
-        updatehadiah =findViewById(R.id.updatehadiah);
-        jumlahhadiah = findViewById(R.id.tv_jumlah);
+        updateanimasi =findViewById(R.id.updateanimasi);
 
-        Hadiah hadiah = getIntent().getParcelableExtra(EXTRA_DETAILs);
-        id =hadiah.getId();
-        rvHadiah.setText(hadiah.getNama_hadiah());
-        rvDeskripsi.setText(hadiah.getDeskripsi());
-        rvpoin.setText(hadiah.getPoin());
-        jumlahhadiah.setText(hadiah.getJumlah());
-
+        KontenEdukasi animasi = getIntent().getParcelableExtra(EXTRA_DETAILs);
+        id =animasi.getId();
+        rvAnimasi.setText(animasi.getNama_konten());
+        rvDeskripsi.setText(animasi.getDeskripsi());
+     alamatanimasi =("http://192.168.43.229/relasi/public/animasi/" +animasi.getGambar());
         Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/hadiah/" +hadiah.getGambar())
+                .load( "http://192.168.43.229/relasi/public/animasi/" +animasi.getGambar())
                 .apply(new RequestOptions().centerCrop())
-                .into(ivHadiah);
-        updatehadiah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UPDATEHADIAH();
+                .into(ivAnimasi);
 
-
-            }
-        });
-        ivHadiah.setOnClickListener(new View.OnClickListener() {
+        ivAnimasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pickImage();
             }
         });
+        updateanimasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               UPDATEKONTENANIMASI();
 
+            }
+        });
         ids= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Update Hadiah");
+        toolbar.setTitle("Update Konten Edukasi");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
+
         //Set icon to toolbar
         toolbar.setNavigationIcon(R.drawable.back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(UpdateHadiahPKW.this, LihatKontenAnimasiPKW.class);
+                Intent inten = new Intent(UpdateKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);
                 inten.putExtra(TAG_ID, ids);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -125,11 +121,11 @@ public class UpdateHadiahPKW extends AppCompatActivity {
     }
 
     private void pickImage() {
-        ivHadiah.setImageResource(0);
+        ivAnimasi.setImageResource(0);
         final CharSequence[] items = {"Take Photo", "Choose from Library",
                 "Cancel"};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(UpdateHadiahPKW.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(UpdateKontenEdukasi_PKR.this);
         builder.setTitle("Add Photo!");
         builder.setIcon(R.mipmap.ic_launcher);
         builder.setItems(items, new DialogInterface.OnClickListener() {
@@ -137,6 +133,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Take Photo")) {
                     intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                    fileUri = getOutputMediaFileUri();
                     intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fileUri);
                     startActivityForResult(intent, REQUEST_CAMERA);
                 } else if (items[item].equals("Choose from Library")) {
@@ -168,7 +165,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
             } else if (requestCode == SELECT_FILE && data != null && data.getData() != null) {
                 try {
                     // mengambil gambar dari Gallery
-                    bitmap = MediaStore.Images.Media.getBitmap(UpdateHadiahPKW.this.getContentResolver(), data.getData());
+                    bitmap = MediaStore.Images.Media.getBitmap(UpdateKontenEdukasi_PKR.this.getContentResolver(), data.getData());
 
                     setToImageView(getResizedBitmap(bitmap, max_resolution_image));
                 } catch (IOException e) {
@@ -176,8 +173,8 @@ public class UpdateHadiahPKW extends AppCompatActivity {
                 }
             }
         }
-
     }
+
     public String getStringImage(Bitmap bmp) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, bitmap_size, baos);
@@ -186,24 +183,25 @@ public class UpdateHadiahPKW extends AppCompatActivity {
         return encodedImage;
     }
     private void kosong() {
-        ivHadiah.setImageResource(0);
+        ivAnimasi.setImageResource(0);
     }
 
-
-    private void UPDATEHADIAH() {
+    private void UPDATEKONTENANIMASI() {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Update ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/updatehadiah/"+id;
+        String url ="http://192.168.43.229/relasi/public/api/updatekonten/"+id;
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Intent profils = new Intent(UpdateHadiahPKW.this, LihatHadiahPKW.class);
-                profils.putExtra(EXTRA_DETAILs,id);
+                Intent profils = new Intent(UpdateKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);
                 startActivity(profils);
                 kosong();
+                profils.putExtra(EXTRA_DETAILs,id);
+                profils.putExtra(TAG_ID,ids);
+                profils.putExtra(TAG_NAMA,nama);
                 finish();
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
                 hideDialog();
@@ -221,18 +219,19 @@ public class UpdateHadiahPKW extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> MyData = new HashMap<String, String>();
-                MyData.put("nama", rvHadiah.getText().toString());
-                MyData.put("harga_hadiah",rvpoin.getText().toString());
+                MyData.put("nama", rvAnimasi.getText().toString());
                 MyData.put("deskripsi", rvDeskripsi.getText().toString());
-                MyData.put("jumlah_hadiah",jumlahhadiah.getText().toString());
-                MyData.put("file_gambar",getStringImage(decoded));
+//                MyData.put("file", alamatanimasi.toString());
+//                MyData.put("file_gambar",getStringImage(decoded));
+                if(decoded!=null){
+                    MyData.put("file_gambar",getStringImage(decoded));
+                }
                 return MyData;
             }
         };
 
         requestQueue.add(stringRequest);
     }
-
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -243,6 +242,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
             pDialog.dismiss();
     }
 
+
     private void setToImageView(Bitmap bmp) {
         //compress image
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -250,7 +250,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
         decoded = BitmapFactory.decodeStream(new ByteArrayInputStream(bytes.toByteArray()));
 
         //menampilkan gambar yang dipilih dari camera/gallery ke ImageView
-        ivHadiah.setImageBitmap(decoded);
+        ivAnimasi.setImageBitmap(decoded);
     }
 
     // fungsi resize image
@@ -268,6 +268,7 @@ public class UpdateHadiahPKW extends AppCompatActivity {
         }
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
+
 
     long lastPress;
     Toast backpressToast;
@@ -290,4 +291,3 @@ public class UpdateHadiahPKW extends AppCompatActivity {
         }
     }
 }
-

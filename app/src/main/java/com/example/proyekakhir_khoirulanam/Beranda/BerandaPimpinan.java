@@ -26,8 +26,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaP;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPimpinan;
-import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiahP;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiP;
+import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_Pimpinan;
+import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_Pimpinan;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.ProfilPimpinan;
 import com.example.proyekakhir_khoirulanam.SampahPintar.MonitoringSampahPintar;
@@ -113,7 +113,7 @@ public class BerandaPimpinan extends AppCompatActivity {
         konten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent konten = new Intent(BerandaPimpinan.this, LihatKontenAnimasiP.class);
+                Intent konten = new Intent(BerandaPimpinan.this, LihatKontenEdukasi_Pimpinan.class);
                 konten.putExtra(TAG_ID, id);
                 konten.putExtra(TAG_NAMA, nama);
                 startActivity(konten);
@@ -141,7 +141,7 @@ public class BerandaPimpinan extends AppCompatActivity {
         cekhadiah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cekhadiah = new Intent(BerandaPimpinan.this, LihatHadiahP.class);
+                Intent cekhadiah = new Intent(BerandaPimpinan.this, LihatHadiah_Pimpinan.class);
                 cekhadiah.putExtra(TAG_ID, id);
                 cekhadiah.putExtra(TAG_NAMA, nama);
                 startActivity(cekhadiah);
@@ -161,7 +161,7 @@ public class BerandaPimpinan extends AppCompatActivity {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

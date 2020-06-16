@@ -1,4 +1,4 @@
-package com.example.proyekakhir_khoirulanam.KontenAnimasi;
+package com.example.proyekakhir_khoirulanam.KontenEdukasi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,12 +12,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.proyekakhir_khoirulanam.Constructor.Animasi;
+import com.example.proyekakhir_khoirulanam.Constructor.KontenEdukasi;
 import com.example.proyekakhir_khoirulanam.Feedback.DetailFeedback;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.R;
 
-public class DetailKontenAnimasi extends AppCompatActivity {
+public class DetailKontenEdukasi extends AppCompatActivity {
     public static final String EXTRA_ANIMASI="animasi";
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
@@ -35,7 +35,7 @@ public class DetailKontenAnimasi extends AppCompatActivity {
         TextView rvNamakonten = findViewById(R.id.tvNamaKonten);
         TextView rvDeskripsi = findViewById(R.id.tvDeskripsi);
         ImageView ivAgenda = findViewById(R.id.ivGambar);
-        Animasi animasi = getIntent().getParcelableExtra(EXTRA_ANIMASI);
+       KontenEdukasi animasi = getIntent().getParcelableExtra(EXTRA_ANIMASI);
         rvNamakonten.setText(animasi.getNama_konten());
         rvDeskripsi.setText(animasi.getDeskripsi());
 

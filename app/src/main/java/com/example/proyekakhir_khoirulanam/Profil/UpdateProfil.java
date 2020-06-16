@@ -141,12 +141,8 @@ public class UpdateProfil extends AppCompatActivity {
 
     }
 
-
     private void SEND() {
-
-
     }
-
 
     private void getprofil() {
 
@@ -186,12 +182,6 @@ public class UpdateProfil extends AppCompatActivity {
         });
         queue.add(arrayRequest);
     }
-    private void sendToMain() {
-        Intent intent = new Intent(this, Profil.class);
-        startActivity(intent);
-        finish();
-    }
-
 
     private void UPDATE() {
         pDialog = new ProgressDialog(this);

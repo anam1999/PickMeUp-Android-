@@ -66,13 +66,19 @@ public class Daftar extends AppCompatActivity {
                 String user = editText1.getText().toString();
                 String email = editText2.getText().toString();
                 String password = editText3.getText().toString();
-
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 // mengecek kolom yang kosong
-                if (email.trim().length() > 0 && password.trim().length() > 0&& user.trim().length() > 0) {
-                        daftar(user,email,password);
+                if (email.trim().length() > 0 && password.trim().length() > 0&& user.trim().length() > 0 ) {
+//                    if (email.trim().equals("1") && password.trim().equals("1")&& user.trim().equals("1")) {
+                        if (email.trim().matches(emailPattern)){
+                            daftar(user,email,password);
+                        }else {
+                            Toast.makeText(getApplicationContext(),"Email tidak Valid,pakai @gmail.com atau @yahoo.com", Toast.LENGTH_SHORT).show();
+                        }
+//                    daftar(user,email,password);
                 }else {
-                    Toast.makeText(getApplicationContext() ,"Username ,Email atau Paswword tidak boleh kosong", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext() ,"Username, Email atau Paswword tidak boleh kosong", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -91,50 +97,6 @@ public class Daftar extends AppCompatActivity {
         StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-//                Log.e(TAG, "Login Response: " + response.toString());
-//                try {
-//                    JSONObject jObj=null;
-//                    try {
-//                        jObj = new JSONObject(response);
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//                    success = jObj.getString("success");
-//
-//                    // Check for error node in json
-//                    if (success.equals("0")) {
-//
-//                        Log.e("Successfully Login!", jObj.toString());
-//
-//                        Toast.makeText(getApplicationContext(), jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-//                        Intent a = new Intent(Daftar.this, Masuk.class);
-//                        startActivity(a);
-//                        hideDialog();
-//
-//                    } else {
-//                        //Toast.makeText(getApplicationContext(),
-//                        //jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-//
-//                        Toast.makeText(getApplicationContext(), jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-//
-//                        hideDialog();
-//                    }
-//                }
-//                catch (JSONException e) {
-//                    // JSON error
-//                    e.printStackTrace();
-//                    Toast.makeText(getApplicationContext(), "Maaf Jaringan Bermasalah"+e, Toast.LENGTH_LONG).show();
-//
-//                    hideDialog();
-//                }
-//
-//
-//
-//
-////                Toast.makeText(getBaseContext(), ""+response, Toast.LENGTH_SHORT).show();
-////
-////                hideDialog();
-
 
                         if (response.equals("Email Sudah Digunakan")){
                             Toast.makeText(getApplicationContext(), ""+response, Toast.LENGTH_LONG).show();

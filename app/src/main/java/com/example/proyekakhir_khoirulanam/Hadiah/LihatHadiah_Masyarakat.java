@@ -24,12 +24,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.proyekakhir_khoirulanam.Adapter.HadiahAdapterViewPimpinan;
-import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaPimpinan;
+import com.example.proyekakhir_khoirulanam.Adapter.HadiahAdapterView;
+import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Model.ModelHadiah;
+import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.R;
 
 import org.json.JSONArray;
@@ -37,9 +37,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class LihatHadiahP extends AppCompatActivity {
+public class LihatHadiah_Masyarakat extends AppCompatActivity {
     RecyclerView rvHadiah;
-    HadiahAdapterViewPimpinan hadiahAdapter;
+    HadiahAdapterView hadiahAdapter;
     ArrayList<Hadiah> hadiahArrayList;
     RequestQueue queue;
     String id,nama;
@@ -51,10 +51,11 @@ public class LihatHadiahP extends AppCompatActivity {
     Toolbar toolbar;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_hadiah_p);
+        setContentView(R.layout.activity_lihat_hadiah);
 
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
@@ -94,7 +95,7 @@ public class LihatHadiahP extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(LihatHadiahP.this, BerandaPimpinan.class);
+                Intent inten = new Intent(LihatHadiah_Masyarakat.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -107,7 +108,7 @@ public class LihatHadiahP extends AppCompatActivity {
         rvHadiah = findViewById(R.id.rv_Hadiah);
         queue = Volley.newRequestQueue(this);
         rvHadiah.setLayoutManager(new LinearLayoutManager(this));
-        hadiahAdapter = new HadiahAdapterViewPimpinan();
+        hadiahAdapter = new HadiahAdapterView();
         ModelHadiah modelHadiah = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelHadiah.class);
         modelHadiah.simpan(queue, this);
         modelHadiah.Ambil().observe(this, new Observer<ArrayList<Hadiah>>() {
@@ -151,26 +152,5 @@ public class LihatHadiahP extends AppCompatActivity {
             }
         });
         queue.add(arrayRequest);
-    }
-
-    long lastPress;
-    Toast backpressToast;
-    @Override
-    public void onBackPressed() {
-        long currentTime = System.currentTimeMillis();
-        if(currentTime - lastPress > 5000){
-            backpressToast = Toast.makeText(getBaseContext(), "Tekan Kembali untuk keluar", Toast.LENGTH_LONG);
-            backpressToast.show();
-            lastPress = currentTime;
-
-        } else {
-            if (backpressToast != null) backpressToast.cancel();
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            finish();
-            startActivity(intent);
-            super.onBackPressed();
-        }
     }
 }

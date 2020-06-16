@@ -24,7 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
-import com.example.proyekakhir_khoirulanam.Hadiah.UpdateHadiahPKW;
+import com.example.proyekakhir_khoirulanam.Hadiah.UpdateHadiah_PKR;
 import com.example.proyekakhir_khoirulanam.R;
 
 import java.util.ArrayList;
@@ -76,8 +76,8 @@ public class HadiahAdapter extends RecyclerView.Adapter<HadiahAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 Hadiah hadiah= hadiahlist.get(holder.getAdapterPosition());
-                Intent intents = new Intent(holder.itemView.getContext(), UpdateHadiahPKW.class);
-                intents.putExtra(UpdateHadiahPKW.EXTRA_DETAILs,hadiah);
+                Intent intents = new Intent(holder.itemView.getContext(), UpdateHadiah_PKR.class);
+                intents.putExtra(UpdateHadiah_PKR.EXTRA_DETAILs,hadiah);
                 holder.itemView.getContext().startActivity(intents);
             }
         });

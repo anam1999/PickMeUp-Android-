@@ -29,38 +29,19 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-//
-////        if (remoteMessage.getNotification() != null) {
-////            sendNotification(remoteMessage.getNotification().getBody());
-////        }
-//        if (remoteMessage != null) {
-//            super.onMessageReceived(remoteMessage);
-//        }
-//        // tampilkan di log
-//        Log.d(ContentValues.TAG, String.valueOf(remoteMessage.getData()));
-//        // cek apakah notifikasi null / tidak
-//        if (remoteMessage.getNotification() != null){
-//            Log.d(ContentValues.TAG, "Pesan FCM "+remoteMessage.getData());
-//
-//            // tampilkan notifikasi
-//            sendNotification(String.valueOf(remoteMessage));
-//        }
+
         Log.d(TAG, "From: " + remoteMessage.getFrom());
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-
-
         }
-
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getTitle());
             sendNotification(remoteMessage);
         }
-
     }
 
     private void sendNotification(RemoteMessage remoteMessage) {

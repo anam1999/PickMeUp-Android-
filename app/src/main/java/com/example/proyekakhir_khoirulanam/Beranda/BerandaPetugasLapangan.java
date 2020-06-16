@@ -153,7 +153,7 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

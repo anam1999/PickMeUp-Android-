@@ -29,9 +29,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
-import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -43,7 +40,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TambahHadiahPKW extends AppCompatActivity implements View.OnClickListener {
+public class TambahHadiah_PKR extends AppCompatActivity implements View.OnClickListener {
 //    EditText tvNama,tvdeskripsi,poin,jumlah;
 //    Button btnSimpan;
 //    ImageView ivPhoto;
@@ -283,7 +280,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(TambahHadiahPKW.this, LihatHadiahPKW.class);
+                Intent inten = new Intent(TambahHadiah_PKR.this, LihatHadiah_PKR.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -325,7 +322,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         final CharSequence[] items = {"Take Photo", "Choose from Library",
                 "Cancel"};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(TambahHadiahPKW.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(TambahHadiah_PKR.this);
         builder.setTitle("Add Photo!");
         builder.setIcon(R.drawable.logoaplikasi);
         builder.setItems(items, new DialogInterface.OnClickListener() {
@@ -400,7 +397,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
             } else if (requestCode == SELECT_FILE && data != null && data.getData() != null) {
                 try {
                     // mengambil gambar dari Gallery
-                    bitmap = MediaStore.Images.Media.getBitmap(TambahHadiahPKW.this.getContentResolver(), data.getData());
+                    bitmap = MediaStore.Images.Media.getBitmap(TambahHadiah_PKR.this.getContentResolver(), data.getData());
 
                     setToImageView(getResizedBitmap(bitmap, max_resolution_image));
                 } catch (IOException e) {
@@ -427,8 +424,8 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahhadiah", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Intent intent = new Intent(TambahHadiahPKW.this, LihatHadiahPKW.class);
-                Toast.makeText(TambahHadiahPKW.this, "Data Hadiah Berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(TambahHadiah_PKR.this, LihatHadiah_PKR.class);
+                Toast.makeText(TambahHadiah_PKR.this, "Data Hadiah Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 kosong();
                 startActivity(intent);
                 finish();
@@ -437,7 +434,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(TambahHadiahPKW.this, "Maaf ada kesalahan menambah Data Hadiah  ", Toast.LENGTH_LONG).show();
+                Toast.makeText(TambahHadiah_PKR.this, "Maaf ada kesalahan menambah Data Hadiah  ", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }){
@@ -453,7 +450,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
                 return map;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(TambahHadiahPKW.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(TambahHadiah_PKR.this);
         requestQueue.add(srSendData);
     }
 

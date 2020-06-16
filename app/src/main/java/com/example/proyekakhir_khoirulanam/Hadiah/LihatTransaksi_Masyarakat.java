@@ -25,7 +25,7 @@ import com.example.proyekakhir_khoirulanam.R;
 
 import java.util.ArrayList;
 
-public class LihatTransaksi extends AppCompatActivity {
+public class LihatTransaksi_Masyarakat extends AppCompatActivity {
     RecyclerView rvTransaksi;
     TransaksiAdapter transaksiAdapter;
     ArrayList<Transaksi> transaksiArrayList;
@@ -53,7 +53,7 @@ public class LihatTransaksi extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(LihatTransaksi.this, BerandaMasyarakats.class);
+                Intent inten = new Intent(LihatTransaksi_Masyarakat.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();

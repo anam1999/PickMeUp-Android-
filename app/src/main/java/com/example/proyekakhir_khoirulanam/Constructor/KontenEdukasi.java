@@ -4,32 +4,32 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 
-public class Animasi implements Parcelable {
+public class KontenEdukasi implements Parcelable {
     private int id;
     private String nama_konten,gambar,deskripsi;
 
-    public Animasi(int id, String nama_konten, String deskripsi , String gambar) {
+    public KontenEdukasi(int id, String nama_konten, String deskripsi , String gambar) {
         this.id = id;
         this.gambar = gambar;
         this.nama_konten = nama_konten;
         this.deskripsi=deskripsi;
     }
 
-    protected Animasi(Parcel in) {
+    protected KontenEdukasi(Parcel in) {
         id = in.readInt();
         nama_konten = in.readString();
         gambar = in.readString();
         deskripsi=in.readString();
     }
 
-    public static final Creator<Animasi> CREATOR = new Creator<Animasi>() {
+    public static final Creator<KontenEdukasi> CREATOR = new Creator<KontenEdukasi>() {
         @Override
-        public Animasi createFromParcel(Parcel in) {
-            return new Animasi(in);
+        public KontenEdukasi createFromParcel(Parcel in) {
+            return new KontenEdukasi(in);
         }
 
         @Override
-        public Animasi[] newArray(int size) {return new Animasi[size]; }
+        public KontenEdukasi[] newArray(int size) {return new KontenEdukasi[size]; }
     };
     public int getId(){return id;}
     public String getGambar() {

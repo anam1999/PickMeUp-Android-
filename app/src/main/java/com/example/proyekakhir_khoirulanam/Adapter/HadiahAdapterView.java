@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
-import com.example.proyekakhir_khoirulanam.Hadiah.DetailHadiah2;
+import com.example.proyekakhir_khoirulanam.Hadiah.DetailHadiah_Masyarakat;
 import com.example.proyekakhir_khoirulanam.R;
 
 import java.util.ArrayList;
@@ -57,8 +57,8 @@ public class HadiahAdapterView extends RecyclerView.Adapter<HadiahAdapterView.Vi
             @Override
             public void onClick(View v) {
                 Hadiah hadiah= hadiahlist.get(holder.getAdapterPosition());
-                Intent intent = new Intent(holder.itemView.getContext(), DetailHadiah2.class);
-                intent.putExtra(DetailHadiah2.EXTRA_DETAILs,hadiah);
+                Intent intent = new Intent(holder.itemView.getContext(), DetailHadiah_Masyarakat.class);
+                intent.putExtra(DetailHadiah_Masyarakat.EXTRA_DETAILs,hadiah);
                 intent.putExtra(TAG_ID,id);
                 holder.itemView.getContext().startActivity(intent);
             }

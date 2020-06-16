@@ -32,7 +32,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DetailHadiah2 extends AppCompatActivity {
+public class DetailHadiah_Masyarakat extends AppCompatActivity {
 
     Hadiah hadiah ;
     TextView jumlahhadiahs,jumlahhadiah, poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,isi,
@@ -72,7 +72,7 @@ public class DetailHadiah2 extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(DetailHadiah2.this, LihatHadiah.class);
+                Intent inten = new Intent(DetailHadiah_Masyarakat.this, LihatHadiah_Masyarakat.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();

@@ -19,14 +19,14 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".KontenAnimasi.LihatKontenAnimasiP"
+        <activity android:name=".KontenEdukasi.LihatKontenEdukasi_Pimpinan"
             android:theme="@style/tanpaactionbar"
             ></activity>
         <activity
-            android:name=".Hadiah.DetailHadiahP"
+            android:name=".Hadiah.DetailHadiah_Pimpinan"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".Hadiah.LihatHadiahP"
+            android:name=".Hadiah.LihatHadiah_Pimpinan"
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Feedback.LihatFeedbackPL"
@@ -57,22 +57,22 @@
             android:name=".Profil.Profil"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Hadiah.DetailHadiah2"
+            android:name=".Hadiah.DetailHadiah_Masyarakat"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".Hadiah.TambahHadiahPKW"
+            android:name=".Hadiah.TambahHadiah_PKR"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".Hadiah.LihatHadiahPKW"
+            android:name=".Hadiah.LihatHadiah_PKR"
             android:theme="@style/AppThemekonten" />
         <activity
             android:name=".TukarKodePoin"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".Hadiah.UpdateHadiahPKW"
+            android:name=".Hadiah.UpdateHadiah_PKR"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".Hadiah.LihatHadiah"
+            android:name=".Hadiah.LihatHadiah_Masyarakat"
             android:theme="@style/tanpaactionbar" />
         <activity android:name=".SampahPintar.MonitoringSampahPintar" />
         <activity
@@ -82,23 +82,23 @@
             android:name=".Feedback.TambahFeedback"
             android:parentActivityName=".Feedback.LihatFeedback" />
         <activity
-            android:name=".Hadiah.LihatTransaksi"
+            android:name=".Hadiah.LihatTransaksi_Masyarakat"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".KontenAnimasi.TambahKontenAnimasiPKW"
+            android:name=".KontenEdukasi.TambahKontenEdukasi_PKR"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".KontenAnimasi.LihatKontenAnimasiPKW"
+            android:name=".KontenEdukasi.LihatKontenEdukasi_PKR"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".KontenAnimasi.LihatKontenAnimasi"
+            android:name=".KontenEdukasi.LihatKontenEdukasi_Masyarakat"
             android:screenOrientation="portrait"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".KontenAnimasi.DetailKontenAnimasi"
+            android:name=".KontenEdukasi.DetailKontenEdukasi"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".KontenAnimasi.UpdateKontenAnimasiPKW"
+            android:name=".KontenEdukasi.UpdateKontenEdukasi_PKR"
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Agenda.LihatAgendaP"

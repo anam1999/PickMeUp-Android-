@@ -2,7 +2,6 @@ package com.example.proyekakhir_khoirulanam;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
@@ -27,8 +26,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasi;
-import com.example.proyekakhir_khoirulanam.Profil.ProfilPetugasKontenReward;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;

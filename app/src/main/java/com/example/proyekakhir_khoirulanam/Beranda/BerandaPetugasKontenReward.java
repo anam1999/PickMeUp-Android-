@@ -27,9 +27,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaPKW;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPKW;
-import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiahPKW;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.TambahKontenAnimasiPKW;
+import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_PKR;
+import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_PKR;
+import com.example.proyekakhir_khoirulanam.KontenEdukasi.TambahKontenEdukasi_PKR;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.ProfilPetugasKontenReward;
 import com.example.proyekakhir_khoirulanam.R;
@@ -110,7 +110,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         konten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent konten = new Intent(BerandaPetugasKontenReward.this, LihatKontenAnimasiPKW.class);
+                Intent konten = new Intent(BerandaPetugasKontenReward.this, LihatKontenEdukasi_PKR.class);
                 konten.putExtra(TAG_ID, id);
                 konten.putExtra(TAG_NAMA, nama);
                 startActivity(konten);
@@ -119,7 +119,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         uploadkonten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent uploadkonten = new Intent(BerandaPetugasKontenReward.this, TambahKontenAnimasiPKW.class);
+                Intent uploadkonten = new Intent(BerandaPetugasKontenReward.this, TambahKontenEdukasi_PKR.class);
                 uploadkonten.putExtra(TAG_ID, id);
                 uploadkonten.putExtra(TAG_NAMA, nama);
                 startActivity(uploadkonten);
@@ -147,7 +147,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         cekhadiah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cekhadiah = new Intent(BerandaPetugasKontenReward.this, LihatHadiahPKW.class);
+                Intent cekhadiah = new Intent(BerandaPetugasKontenReward.this, LihatHadiah_PKR.class);
                 cekhadiah.putExtra(TAG_ID, id);
                 cekhadiah.putExtra(TAG_NAMA, nama);
                 startActivity(cekhadiah);
@@ -167,7 +167,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file") )
+                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

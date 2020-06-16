@@ -31,9 +31,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Constructor.Agenda;
-import com.example.proyekakhir_khoirulanam.Hadiah.UpdateHadiahPKW;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.UpdateKontenAnimasiPKW;
+
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -224,7 +222,10 @@ public class UpdateAgendaP extends AppCompatActivity {
                 Map<String, String> MyData = new HashMap<String, String>();
                 MyData.put("nama", Namaagenda.getText().toString());
                 MyData.put("keterangan", Keterangan.getText().toString());
-                MyData.put("file_gambar",getStringImage(decoded));
+//                MyData.put("file_gambar",getStringImage(decoded));
+                if(decoded!=null){
+                    MyData.put("file_gambar",getStringImage(decoded));
+                }
                 return MyData;
             }
         };

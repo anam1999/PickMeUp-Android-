@@ -1,4 +1,4 @@
-package com.example.proyekakhir_khoirulanam.Hadiah;
+package com.example.proyekakhir_khoirulanam.KontenEdukasi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,21 +19,21 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.example.proyekakhir_khoirulanam.Adapter.HadiahAdapter;
+import com.example.proyekakhir_khoirulanam.Adapter.KontenEdukasiAdapter;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasKontenReward;
-import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
+import com.example.proyekakhir_khoirulanam.Constructor.KontenEdukasi;
 import com.example.proyekakhir_khoirulanam.Masuk;
-import com.example.proyekakhir_khoirulanam.Model.ModelHadiah;
+import com.example.proyekakhir_khoirulanam.Model.ModelKontenEdukasi;
 import com.example.proyekakhir_khoirulanam.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickListener {
+public class LihatKontenEdukasi_PKR extends AppCompatActivity implements View.OnClickListener {
     FloatingActionButton btnTambah;
-    RecyclerView rvHadiah;
-    HadiahAdapter hadiahAdapter;
-    ArrayList<Hadiah> hadiahArrayList;
+    RecyclerView rvAnimasi;
+    KontenEdukasiAdapter animasiAdapter;
+    ArrayList<KontenEdukasi> animasiArrayList;
     RequestQueue queue;
     String id,nama;
     public final static String TAG_NAMA = "username";
@@ -46,7 +46,7 @@ public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_hadiah_p_k_w);
+        setContentView(R.layout.activity_lihat_konten_animasi_p_k_w);
 
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
@@ -63,14 +63,13 @@ public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickLis
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
-
                     }
                 }, 5000);
             }
         });
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Hadiah");
+        toolbar.setTitle("Konten Edukasi");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
@@ -81,7 +80,7 @@ public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickLis
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(LihatHadiahPKW.this, BerandaPetugasKontenReward.class);
+                Intent inten = new Intent(LihatKontenEdukasi_PKR.this, BerandaPetugasKontenReward.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -89,25 +88,25 @@ public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-
-        hadiahArrayList = new ArrayList<>();
-        rvHadiah = findViewById(R.id.rv_Hadiah);
+        animasiArrayList = new ArrayList<>();
         btnTambah = findViewById(R.id.btn_tambah);
+        rvAnimasi = findViewById(R.id.rv_Animasi);
         btnTambah.setOnClickListener(this);
         queue = Volley.newRequestQueue(this);
-        rvHadiah.setLayoutManager(new LinearLayoutManager(this));
-        hadiahAdapter = new HadiahAdapter();
-        ModelHadiah modelHadiah = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelHadiah.class);
-        modelHadiah.simpan(queue, this);
-        modelHadiah.Ambil().observe(this, new Observer<ArrayList<Hadiah>>() {
+        rvAnimasi.setLayoutManager(new LinearLayoutManager(this));
+        animasiAdapter = new KontenEdukasiAdapter();
+
+        ModelKontenEdukasi model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelKontenEdukasi.class);
+        model.simpan(queue, this);
+        model.Ambil().observe(this, new Observer<ArrayList<KontenEdukasi>>() {
             @Override
-            public void onChanged(ArrayList<Hadiah> hadiahs) {
-                hadiahAdapter.adapter(hadiahs);
+            public void onChanged(ArrayList<KontenEdukasi> animasi) {
+                animasiAdapter.adapter(animasi);
             }
         });
-        rvHadiah.setHasFixedSize(true);
-        rvHadiah.setAdapter(hadiahAdapter);
-        hadiahAdapter.notifyDataSetChanged();
+        rvAnimasi.setHasFixedSize(true);
+        rvAnimasi.setAdapter(animasiAdapter);
+        animasiAdapter.notifyDataSetChanged();
 
     }
     @Override
@@ -119,12 +118,11 @@ public class LihatHadiahPKW extends AppCompatActivity implements View.OnClickLis
     }
 
     private void sendToTambah() {
-        Intent intent = new Intent(this, TambahHadiahPKW.class);
-        intent.putExtra(TAG_ID, id);
-        intent.putExtra(TAG_NAMA, nama);
+        Intent intent = new Intent(this,TambahKontenEdukasi_PKR.class);
         startActivity(intent);
         finish();
     }
+
     long lastPress;
     Toast backpressToast;
     @Override

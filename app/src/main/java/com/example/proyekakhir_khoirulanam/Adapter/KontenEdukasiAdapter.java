@@ -21,16 +21,15 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.proyekakhir_khoirulanam.Constructor.Animasi;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.LihatKontenAnimasiPKW;
+import com.example.proyekakhir_khoirulanam.Constructor.KontenEdukasi;
 import com.example.proyekakhir_khoirulanam.R;
-import com.example.proyekakhir_khoirulanam.KontenAnimasi.UpdateKontenAnimasiPKW;
+
 
 import java.util.ArrayList;
 
-public class AnimasiAdapter extends RecyclerView.Adapter<AnimasiAdapter.ViewHolder> {
-    private ArrayList<Animasi> animasislist = new ArrayList<>();
-    public void adapter( ArrayList<Animasi> animasilist) {
+public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdapter.ViewHolder> {
+    private ArrayList<KontenEdukasi> animasislist = new ArrayList<>();
+    public void adapter( ArrayList<KontenEdukasi> animasilist) {
         animasislist.clear();
         animasislist.addAll(animasilist);
         notifyDataSetChanged();
@@ -48,7 +47,7 @@ public class AnimasiAdapter extends RecyclerView.Adapter<AnimasiAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final Animasi animasi = animasislist.get(position);
+        final KontenEdukasi animasi = animasislist.get(position);
         holder.tvNamaKonten.setText(animasi.getNama_konten());
         holder.tvDeskripsi.setText(animasi.getDeskripsi());
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
@@ -71,9 +70,9 @@ public class AnimasiAdapter extends RecyclerView.Adapter<AnimasiAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animasi animasi = animasislist.get(holder.getAdapterPosition());
-                Intent intent = new Intent(holder.itemView.getContext(), UpdateKontenAnimasiPKW.class);
-                intent.putExtra(UpdateKontenAnimasiPKW.EXTRA_DETAILs,animasi);
+                KontenEdukasi animasi = animasislist.get(holder.getAdapterPosition());
+                Intent intent = new Intent(holder.itemView.getContext(), com.example.proyekakhir_khoirulanam.KontenEdukasi.UpdateKontenEdukasi_PKR.class);
+                intent.putExtra(com.example.proyekakhir_khoirulanam.KontenEdukasi.UpdateKontenEdukasi_PKR.EXTRA_DETAILs,animasi);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

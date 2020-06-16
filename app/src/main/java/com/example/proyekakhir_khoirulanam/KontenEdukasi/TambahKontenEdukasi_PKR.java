@@ -1,4 +1,4 @@
-package com.example.proyekakhir_khoirulanam.KontenAnimasi;
+package com.example.proyekakhir_khoirulanam.KontenEdukasi;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +31,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Hadiah.TambahHadiahPKW;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -47,7 +46,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.OnClickListener {
+public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.OnClickListener {
 
     EditText tvJudul, tvDeskripsi;
     String StringImage;
@@ -90,7 +89,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(TambahKontenAnimasiPKW.this, LihatKontenAnimasiPKW.class);
+                Intent inten = new Intent(TambahKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -142,7 +141,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         final CharSequence[] items = {"Take Photo", "Choose from Library",
                 "Cancel"};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(TambahKontenAnimasiPKW.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(TambahKontenEdukasi_PKR.this);
         builder.setTitle("Add Photo!");
         builder.setIcon(R.mipmap.ic_launcher);
         builder.setItems(items, new DialogInterface.OnClickListener() {
@@ -188,7 +187,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
             } else if (requestCode == SELECT_FILE && data != null && data.getData() != null) {
                 try {
                     // mengambil gambar dari Gallery
-                    bitmap = MediaStore.Images.Media.getBitmap(TambahKontenAnimasiPKW.this.getContentResolver(), data.getData());
+                    bitmap = MediaStore.Images.Media.getBitmap(TambahKontenEdukasi_PKR.this.getContentResolver(), data.getData());
 
                     setToImageView(getResizedBitmap(bitmap, max_resolution_image));
                 } catch (IOException e) {
@@ -213,7 +212,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
         StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahkonten", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Intent intent = new Intent(TambahKontenAnimasiPKW.this, LihatKontenAnimasiPKW.class);
+                Intent intent = new Intent(TambahKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);
                 startActivity(intent);
                 kosong();
                 intent.putExtra(TAG_ID, id);
@@ -226,7 +225,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(TambahKontenAnimasiPKW.this, "Maaf ada kesalahan menambah Data konten animasi(Upload Foto)  ", Toast.LENGTH_LONG).show();
+                Toast.makeText(TambahKontenEdukasi_PKR.this, "Maaf ada kesalahan menambah Data konten animasi(Upload Foto)  ", Toast.LENGTH_LONG).show();
                 hideDialog();
 //                Toast.makeText(TambahKontenAnimasiPKW.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }
@@ -240,7 +239,7 @@ public class TambahKontenAnimasiPKW extends AppCompatActivity implements View.On
                 return map;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(TambahKontenAnimasiPKW.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(TambahKontenEdukasi_PKR.this);
         requestQueue.add(srSendData);
     }
 

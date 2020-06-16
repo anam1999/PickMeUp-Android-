@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Hadiah.LihatTransaksi">
+    tools:context=".Hadiah.LihatTransaksi_Masyarakat">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
