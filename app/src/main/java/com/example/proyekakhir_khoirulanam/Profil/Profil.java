@@ -70,6 +70,7 @@ public class Profil extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
+
                     }
                 }, 5000);
             }
@@ -126,6 +127,7 @@ public class Profil extends AppCompatActivity {
             }
         });
     }
+
 
     private void getprofil() {
 

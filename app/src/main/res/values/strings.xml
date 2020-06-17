@@ -8,9 +8,9 @@
     <string name="judul">Judul</string>
     <string name="todo">TODO</string>
     <string name="_0">0 %</string>
-    <string name="register">REGISTER</string>
-    <string name="login">LOGIN</string>
-    <string name="email">Email</string>
+    <string name="register">DAFTAR</string>
+    <string name="login">MASUK</string>
+    <string name="email">Email atau Username</string>
     <string name="belum_punya_akun_silahkan_daftar">Belum Punya Akun ? Silahkan Daftar</string>
     <string name="password">Password</string>
 

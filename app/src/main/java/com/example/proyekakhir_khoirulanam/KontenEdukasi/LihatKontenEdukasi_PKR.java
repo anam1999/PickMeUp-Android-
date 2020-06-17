@@ -63,6 +63,7 @@ public class LihatKontenEdukasi_PKR extends AppCompatActivity implements View.On
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
+                        KontenEdukasiPKR();
                     }
                 }, 5000);
             }
@@ -109,6 +110,21 @@ public class LihatKontenEdukasi_PKR extends AppCompatActivity implements View.On
         animasiAdapter.notifyDataSetChanged();
 
     }
+
+    private void KontenEdukasiPKR() {
+        ModelKontenEdukasi model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelKontenEdukasi.class);
+        model.simpan(queue,this);
+        model.Ambil().observe(this, new Observer<ArrayList<KontenEdukasi>>() {
+            @Override
+            public void onChanged(ArrayList<KontenEdukasi> animasi) {
+                animasiAdapter.adapter(animasi);
+            }
+        });
+        rvAnimasi.setHasFixedSize(true);
+        rvAnimasi.setAdapter(animasiAdapter);
+        animasiAdapter.notifyDataSetChanged();
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){

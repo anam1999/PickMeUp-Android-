@@ -280,7 +280,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
                 MyData.put("harga_hadiah", hargahadiah.getText().toString());
                 MyData.put("sisapoin", sisa.getText().toString());
                 MyData.put("jumlah_hadiah", jumlahhadiahs.getText().toString());
-                MyData.put("file", alamatgambarhadiah.toString());
+                MyData.put("file_gambar", alamatgambarhadiah.toString());
 
                 return MyData;
             }

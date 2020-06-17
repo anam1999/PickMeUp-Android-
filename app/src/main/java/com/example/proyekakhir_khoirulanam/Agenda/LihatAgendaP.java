@@ -63,6 +63,7 @@ public class LihatAgendaP extends AppCompatActivity {
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
+                        AgendaPimpinan();
 
                     }
                 }, 5000);
@@ -116,6 +117,21 @@ public class LihatAgendaP extends AppCompatActivity {
         agendaAdapter.notifyDataSetChanged();
 
     }
+
+    private void AgendaPimpinan() {
+        ModelAgenda model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelAgenda.class);
+        model.simpan(queue,this);
+        model.Ambil().observe(this, new Observer<ArrayList<Agenda>>() {
+            @Override
+            public void onChanged(ArrayList<Agenda> agenda) {
+                agendaAdapter.adapter(agenda);
+            }
+        });
+        rvNama.setHasFixedSize(true);
+        rvNama.setAdapter(agendaAdapter);
+        agendaAdapter.notifyDataSetChanged();
+    }
+
     long lastPress;
     Toast backpressToast;
     @Override

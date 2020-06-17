@@ -68,6 +68,7 @@ public class ProfilPimpinan extends AppCompatActivity {
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
 
+
                     }
                 }, 5000);
             }
@@ -76,7 +77,7 @@ public class ProfilPimpinan extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         getSupportActionBar().setTitle("Profil");
         actionBar.hide();
-        getprofilPetugasKontenReward();
+        getprofilPimpinan();
         username = findViewById(R.id.usernameku);
         emails =findViewById(R.id.emailku);
         emailnya =findViewById(R.id.emails);
@@ -124,7 +125,7 @@ public class ProfilPimpinan extends AppCompatActivity {
         });
     }
 
-    private void getprofilPetugasKontenReward() {
+    private void getprofilPimpinan() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         String url = "http://192.168.43.229/relasi/public/api/showpimpinan/"+getIntent().getStringExtra(TAG_ID);
 

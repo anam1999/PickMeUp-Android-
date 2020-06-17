@@ -67,7 +67,7 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
         // Add a marker in Sydney and move the camera
         LatLng banyuwangi = new LatLng(-8.5982547, 114.0294519);
         gMap.addMarker(new MarkerOptions().position(banyuwangi).title("Pulau Merah "));
-        CameraPosition home = CameraPosition.builder().target(new LatLng(-8.603255, 114.029219)).zoom(14).bearing(0).tilt(45).build();
+        CameraPosition home = CameraPosition.builder().target(new LatLng(-8.603255, 114.029219)).zoom(9).bearing(0).tilt(45).build();
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(home));
         getMarkers();
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

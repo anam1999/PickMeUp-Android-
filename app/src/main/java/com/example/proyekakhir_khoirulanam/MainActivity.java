@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         progessAnimation();
     }
     public void progessAnimation(){
-
         Loading anim = new Loading(this, progessbar, textView, 0f,100f);
         anim.setDuration(2000);
         progessbar.setAnimation(anim);

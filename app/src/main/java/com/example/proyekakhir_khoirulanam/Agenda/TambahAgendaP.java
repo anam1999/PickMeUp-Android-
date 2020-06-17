@@ -119,21 +119,21 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
     private void pickImage() {
 
         ivPhoto.setImageResource(0);
-        final CharSequence[] items = {"Take Photo", "Choose from Library",
+        final CharSequence[] items = {"Kamera", "Galeri/Library",
                 "Cancel"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(TambahAgendaP.this);
-        builder.setTitle("Add Photo!");
-        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setTitle("Tambahkan File_gambar");
+        builder.setIcon(R.drawable.logoaplikasi);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                if (items[item].equals("Take Photo")) {
+                if (items[item].equals("Kamera")) {
                     intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 //                    fileUri = getOutputMediaFileUri();
                     intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fileUri);
                     startActivityForResult(intent, REQUEST_CAMERA);
-                } else if (items[item].equals("Choose from Library")) {
+                } else if (items[item].equals("Galeri/Library")) {
                     intent = new Intent();
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_GET_CONTENT);

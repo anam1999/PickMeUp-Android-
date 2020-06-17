@@ -61,7 +61,9 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
                     @Override public void run() {
 
                         // Berhenti berputar/refreshing
-                        swLayout.setRefreshing(false);
+                        swLayout.setRefreshing(true);
+                        feedbackAdapter.notifyDataSetChanged();
+                        Feedbacks();
 
                     }
                 }, 5000);
@@ -107,6 +109,21 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
         rvFeedback.setAdapter(feedbackAdapter);
         feedbackAdapter.notifyDataSetChanged();
 
+    }
+
+    private void Feedbacks() {
+
+        ModelFeedback model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelFeedback.class);
+        model.simpan(queue,this);
+        model.Ambil().observe(this, new Observer<ArrayList<Feedback>>() {
+            @Override
+            public void onChanged(ArrayList<Feedback> feedbacks) {
+                feedbackAdapter.adapter(feedbacks);
+            }
+        });
+        rvFeedback.setHasFixedSize(true);
+        rvFeedback.setAdapter(feedbackAdapter);
+        feedbackAdapter.notifyDataSetChanged();
     }
 
     @Override

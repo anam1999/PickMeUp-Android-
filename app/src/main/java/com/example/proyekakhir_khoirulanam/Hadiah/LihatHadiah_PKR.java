@@ -52,7 +52,7 @@ public class LihatHadiah_PKR extends AppCompatActivity implements View.OnClickLi
         llayout = (LinearLayout) findViewById(R.id.swipe);
         swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
 
-        // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
+        // Mengeset listener yang akan dijala     nkan saat layar di refresh/swipe
         swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -63,6 +63,7 @@ public class LihatHadiah_PKR extends AppCompatActivity implements View.OnClickLi
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
+                        Hadiahs();
 
                     }
                 }, 5000);
@@ -110,6 +111,21 @@ public class LihatHadiah_PKR extends AppCompatActivity implements View.OnClickLi
         hadiahAdapter.notifyDataSetChanged();
 
     }
+
+    private void Hadiahs() {
+        ModelHadiah modelHadiah = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelHadiah.class);
+        modelHadiah.simpan(queue, this);
+        modelHadiah.Ambil().observe(this, new Observer<ArrayList<Hadiah>>() {
+            @Override
+            public void onChanged(ArrayList<Hadiah> hadiahs) {
+                hadiahAdapter.adapter(hadiahs);
+            }
+        });
+        rvHadiah.setHasFixedSize(true);
+        rvHadiah.setAdapter(hadiahAdapter);
+        hadiahAdapter.notifyDataSetChanged();
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){

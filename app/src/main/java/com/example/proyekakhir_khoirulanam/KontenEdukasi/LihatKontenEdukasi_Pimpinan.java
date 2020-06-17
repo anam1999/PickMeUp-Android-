@@ -60,6 +60,7 @@ public class LihatKontenEdukasi_Pimpinan extends AppCompatActivity {
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
+                        KontenEdukasiPimpinan();
 
                     }
                 }, 5000);
@@ -105,5 +106,19 @@ public class LihatKontenEdukasi_Pimpinan extends AppCompatActivity {
         rvAnimasi.setAdapter(animasiAdapter);
         animasiAdapter.notifyDataSetChanged();
 
+    }
+
+    private void KontenEdukasiPimpinan() {
+        ModelKontenEdukasi model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelKontenEdukasi.class);
+        model.simpan(queue,this);
+        model.Ambil().observe(this, new Observer<ArrayList<KontenEdukasi>>() {
+            @Override
+            public void onChanged(ArrayList<KontenEdukasi> animasi) {
+                animasiAdapter.adapter(animasi);
+            }
+        });
+        rvAnimasi.setHasFixedSize(true);
+        rvAnimasi.setAdapter(animasiAdapter);
+        animasiAdapter.notifyDataSetChanged();
     }
 }

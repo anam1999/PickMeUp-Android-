@@ -63,6 +63,7 @@ public class LihatFeedbackPKW extends AppCompatActivity implements View.OnClickL
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
+                        FeedbackPetugaskontenReward();
 
                     }
                 }, 5000);
@@ -108,6 +109,20 @@ public class LihatFeedbackPKW extends AppCompatActivity implements View.OnClickL
         rvFeedback.setAdapter(feedbackAdapter);
         feedbackAdapter.notifyDataSetChanged();
 
+    }
+
+    private void FeedbackPetugaskontenReward() {
+        ModelFeedback model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelFeedback.class);
+        model.simpan(queue,this);
+        model.Ambil().observe(this, new Observer<ArrayList<Feedback>>() {
+            @Override
+            public void onChanged(ArrayList<Feedback> feedbacks) {
+                feedbackAdapter.adapter(feedbacks);
+            }
+        });
+        rvFeedback.setHasFixedSize(true);
+        rvFeedback.setAdapter(feedbackAdapter);
+        feedbackAdapter.notifyDataSetChanged();
     }
 
 

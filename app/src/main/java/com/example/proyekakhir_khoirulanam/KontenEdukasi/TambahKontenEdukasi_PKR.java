@@ -130,34 +130,27 @@ public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.O
     }
 
     private void pickImage() {
-//        CropImage.activity()
-////                .setGuidelines(CropImageView.Guidelines.ON)
-////                .setCropShape(CropImageView.CropShape.OVAL)
-////                .setFixAspectRatio(true)
-//////                .setAspectRatio(4,3)
-////                .start(TambahKontenAnimasiPKW.this);
-
         ivPhoto.setImageResource(0);
-        final CharSequence[] items = {"Take Photo", "Choose from Library",
-                "Cancel"};
+        final CharSequence[] items = {"Kamera", "Galeri/Library",
+                "Batal"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(TambahKontenEdukasi_PKR.this);
-        builder.setTitle("Add Photo!");
-        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setTitle("Pilih Gambar");
+        builder.setIcon(R.drawable.logoaplikasi);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                if (items[item].equals("Take Photo")) {
+                if (items[item].equals("Kamera")) {
                     intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 //                    fileUri = getOutputMediaFileUri();
                     intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fileUri);
                     startActivityForResult(intent, REQUEST_CAMERA);
-                } else if (items[item].equals("Choose from Library")) {
+                } else if (items[item].equals("Galeri/Library")) {
                     intent = new Intent();
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_FILE);
-                } else if (items[item].equals("Cancel")) {
+                    startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), SELECT_FILE);
+                } else if (items[item].equals("Batal")) {
                     dialog.dismiss();
                 }
             }

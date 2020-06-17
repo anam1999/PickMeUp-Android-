@@ -63,6 +63,7 @@ public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickLi
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
+                        LihatFeedbackPLapangan();
 
                     }
                 }, 5000);
@@ -110,8 +111,22 @@ public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    private void LihatFeedbackPLapangan() {
+        ModelFeedback model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelFeedback.class);
+        model.simpan(queue,this);
+        model.Ambil().observe(this, new Observer<ArrayList<Feedback>>() {
+            @Override
+            public void onChanged(ArrayList<Feedback> feedbacks) {
+                feedbackAdapter.adapter(feedbacks);
+            }
+        });
+        rvFeedback.setHasFixedSize(true);
+        rvFeedback.setAdapter(feedbackAdapter);
+        feedbackAdapter.notifyDataSetChanged();
+    }
 
-        @Override
+
+    @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.btn_tambah:
