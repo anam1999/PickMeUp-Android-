@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/bgs"
-        tools:context=".Masuk"
-        android:scrollbarAlwaysDrawVerticalTrack="true">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_masukdaftar"
+    android:gravity="center_vertical"
+    tools:context=".Masuk"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -19,7 +18,7 @@
             android:layout_below="@+id/login_title"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="145dp"
+            android:layout_marginTop="200dp"
             android:layout_marginBottom="60dp"
             android:background="@drawable/radius"
             android:elevation="4dp"
@@ -90,13 +89,5 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profils"
-            android:layout_marginTop="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:src="@drawable/logoaplikasi"
-            />
 
     </RelativeLayout>
-</ScrollView>

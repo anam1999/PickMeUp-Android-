@@ -122,35 +122,6 @@ public class LihatHadiah_Pimpinan extends AppCompatActivity {
     }
     private void getpoin() {
 
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
-
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                try {
-
-                    for( int i=0; i < response.length();i++){
-                        JSONObject data = response.getJSONObject(i);
-                        poin.setText(data.getString("poin"));
-
-
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), error.toString(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        queue.add(arrayRequest);
     }
 
     long lastPress;

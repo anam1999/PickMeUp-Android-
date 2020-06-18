@@ -154,7 +154,7 @@ public class Masuk extends AppCompatActivity {
                             && conMgr.getActiveNetworkInfo().isConnected()) {
                         checkLogin(email_1, password_1);
                     } else {
-                        Toast.makeText(getApplicationContext() ,"No Internet Connection", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext() ,"Tidak ada Koneksi Internet", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     // Prompt user to enter credentials

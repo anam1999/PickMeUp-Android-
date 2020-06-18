@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,7 +6,8 @@
         android:layout_height="match_parent"
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
-        android:background="@drawable/bgs"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_masukdaftar"
         tools:context=".Daftar"
         android:scrollbarAlwaysDrawVerticalTrack="true">
 
@@ -18,9 +15,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/login_title"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="165dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+           android:layout_marginTop="200dp"
             android:layout_marginBottom="50dp"
             android:elevation="4dp"
             android:background="@drawable/radius"
@@ -116,12 +113,4 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profils"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/logoaplikasi"
-            />
     </RelativeLayout>
-</ScrollView>

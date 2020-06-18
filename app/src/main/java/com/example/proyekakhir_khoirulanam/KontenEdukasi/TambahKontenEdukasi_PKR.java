@@ -71,7 +71,7 @@ public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.O
     ImageView imageView;
     public final int REQUEST_CAMERA = 0;
     public final int SELECT_FILE = 1;
-    int max_resolution_image = 2048;
+    int max_resolution_image = 1024;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

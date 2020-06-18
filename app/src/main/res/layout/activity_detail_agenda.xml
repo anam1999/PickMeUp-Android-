@@ -47,7 +47,7 @@
             <ImageView
                 android:id="@+id/ivAgenda"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="350dp"
                 android:padding="4dp"/>
 
             <TextView
