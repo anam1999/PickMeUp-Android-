@@ -39,9 +39,9 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
 
     public static final String ID = "id";
     public static final String TITLE = "nama";
-    public static final String K = "keterangan";
-    public static final String LAT = "lat";
-    public static final String LNG = "lng";
+    public static final String K = "status";
+    public static final String LAT = "latitude";
+    public static final String LNG = "longitude";
 
     //    private String url = "http://192.168.43.229/uploadedFiles/markers.php";
     private String url = "http://192.168.43.229/relasi/public/api/monitoring";
@@ -78,8 +78,8 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
     }
     private void addMarker(LatLng latlng, final String title, final String keterangan) {
         markerOptions.position(latlng);
-        markerOptions.title(title);
-        markerOptions.title(keterangan);
+        markerOptions.title(title +" : "+ keterangan);
+//        markerOptions.title(keterangan);
         gMap.addMarker(markerOptions);
 
         gMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
