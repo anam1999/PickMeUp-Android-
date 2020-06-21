@@ -29,6 +29,7 @@ import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_Masyarakat;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatTransaksi_Masyarakat;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_Masyarakat;
+import com.example.proyekakhir_khoirulanam.LihatRiwayatPembuanganSampah;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.Profil;
 import com.example.proyekakhir_khoirulanam.R;
@@ -109,7 +110,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         kode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Kode = new Intent(BerandaMasyarakats.this, TukarKodePoin.class);
+                Intent Kode = new Intent(BerandaMasyarakats.this, LihatRiwayatPembuanganSampah.class);
                 Kode.putExtra(TAG_ID, id);
                 Kode.putExtra(TAG_NAMA,nama);
                 startActivity(Kode);
