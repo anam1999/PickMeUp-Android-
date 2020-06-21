@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.example.proyekakhir_khoirulanam.Adapter.KontenEdukasiAdapter;
 import com.example.proyekakhir_khoirulanam.Adapter.KontenEdukasiAdapterView;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Constructor.KontenEdukasi;
@@ -45,7 +44,7 @@ public class LihatKontenEdukasi_Masyarakat extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_konten_animasi);
+        setContentView(R.layout.activity_lihat_konten_edukasi);
 
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);

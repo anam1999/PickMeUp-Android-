@@ -78,7 +78,7 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
     }
     private void addMarker(LatLng latlng, final String title, final String keterangan) {
         markerOptions.position(latlng);
-        markerOptions.title(title +" : "+ keterangan);
+        markerOptions.title(title +" : \n"+ keterangan);
 //        markerOptions.title(keterangan);
         gMap.addMarker(markerOptions);
 

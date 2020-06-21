@@ -43,7 +43,7 @@ public class LihatKontenEdukasi_Pimpinan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_konten_animasi_p);
+        setContentView(R.layout.activity_lihat_konten_edukasi_p);
 
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);

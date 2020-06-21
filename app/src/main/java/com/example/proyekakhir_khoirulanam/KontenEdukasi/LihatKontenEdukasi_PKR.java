@@ -46,7 +46,7 @@ public class LihatKontenEdukasi_PKR extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_konten_animasi_p_k_w);
+        setContentView(R.layout.activity_lihat_konten_edukasi_p_k_w);
 
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
