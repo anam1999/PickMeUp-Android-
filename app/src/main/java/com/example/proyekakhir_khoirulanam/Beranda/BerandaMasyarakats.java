@@ -25,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
+import com.example.proyekakhir_khoirulanam.Constructor.RiwayatPembuanganSampah;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_Masyarakat;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatTransaksi_Masyarakat;
@@ -40,7 +41,7 @@ import org.json.JSONObject;
 
 public class BerandaMasyarakats extends AppCompatActivity {
     String  nama,id,email,role;
-    ImageView transaksi,tukarhadiah,konten,feedback,agenda,kode,profil;
+    ImageView transaksi,tukarhadiah,konten,feedback,agenda,kode,profil,riwayatsampah;
     SharedPreferences sharedpreferences;
     TextView txt_nama,emailku,poin;
     public final static String TAG_NAMA = "username";
@@ -94,6 +95,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         agenda=findViewById(R.id.agenda);
         poin =findViewById(R.id.poinsesion);
         kode=findViewById(R.id.tukarkode);
+        riwayatsampah=findViewById(R.id.riwayatsampah);
 
         //setText
         txt_nama.setText(nama);
@@ -110,7 +112,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         kode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Kode = new Intent(BerandaMasyarakats.this, LihatRiwayatPembuanganSampah.class);
+                Intent Kode = new Intent(BerandaMasyarakats.this, TukarKodePoin.class);
                 Kode.putExtra(TAG_ID, id);
                 Kode.putExtra(TAG_NAMA,nama);
                 startActivity(Kode);
@@ -159,6 +161,15 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 agenda.putExtra(TAG_ID, id);
                 agenda.putExtra(TAG_NAMA,nama);
                 startActivity(agenda);
+            }
+        });
+        riwayatsampah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent riwayatsampah = new Intent(BerandaMasyarakats.this, LihatRiwayatPembuanganSampah.class);
+                riwayatsampah.putExtra(TAG_ID, id);
+                riwayatsampah.putExtra(TAG_NAMA,nama);
+                startActivity(riwayatsampah);
             }
         });
 
