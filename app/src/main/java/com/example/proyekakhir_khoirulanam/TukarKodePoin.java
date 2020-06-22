@@ -118,7 +118,7 @@ LinearLayout llayout;
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         String url = "http://192.168.43.229/relasi/public/api/show/"+(Preferences.getId(getBaseContext()));
 
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.PUT, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
@@ -151,7 +151,7 @@ LinearLayout llayout;
         final String token = FirebaseInstanceId.getInstance().getToken();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="http://192.168.43.229/relasi/public/api/kode";
-        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
