@@ -89,16 +89,16 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
         nama = getIntent().getStringExtra(TAG_NAMA);
         //Set icon to toolbar
 //        toolbar.setNavigationIcon(R.drawable.back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inten = new Intent(LihatFeedback.this, BerandaMasyarakats.class);
-                inten.putExtra(TAG_ID, id);
-                inten.putExtra(TAG_NAMA, nama);
-                finish();
-                startActivity(inten);
-            }
-        });
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent inten = new Intent(LihatFeedback.this, BerandaMasyarakats.class);
+//                inten.putExtra(TAG_ID, id);
+//                inten.putExtra(TAG_NAMA, nama);
+//                finish();
+//                startActivity(inten);
+//            }
+//        });
 
 
         agendaArrayList = new ArrayList<>();

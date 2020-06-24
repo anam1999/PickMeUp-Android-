@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapter;
 import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapterView;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
 import com.example.proyekakhir_khoirulanam.Constructor.Feedback;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickListener {
     FloatingActionButton btnTambah;
     RecyclerView rvFeedback;
-    FeedbackAdapterView feedbackAdapter;
+    FeedbackAdapter feedbackAdapter;
     ArrayList<Feedback> agendaArrayList;
     RequestQueue queue;
     String id,nama;
@@ -95,7 +96,7 @@ public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickLi
         btnTambah.setOnClickListener(this);
         queue = Volley.newRequestQueue(this);
         rvFeedback.setLayoutManager(new LinearLayoutManager(this));
-        feedbackAdapter = new FeedbackAdapterView();
+        feedbackAdapter = new FeedbackAdapter();
 
         ModelFeedback model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelFeedback.class);
         model.simpan(queue,this);

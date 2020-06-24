@@ -26,7 +26,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaPKW;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPKW;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_PKR;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_PKR;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.TambahKontenEdukasi_PKR;
@@ -38,8 +37,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class BerandaPetugasKontenReward extends AppCompatActivity {
-    TextView txt_nama,emailku;
-    ImageView konten,cekhadiah,feedback,agenda,uploadkonten,btn_logout,profil;
+    TextView txt_nama;
+    ImageView konten,cekhadiah,agenda,uploadkonten,profil;
     SharedPreferences sharedpreferences;
     String nama,id;
     public final static String TAG_NAMA = "username";
@@ -47,22 +46,18 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda_petugas_konten_reward);
 
-
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
         swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
-
         // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
         swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
                 // Handler untuk menjalankan jeda selama 5 detik
                 new Handler().postDelayed(new Runnable() {
                     @Override public void run() {
@@ -82,7 +77,6 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         getProfil();
         konten = findViewById(R.id.kontenanimasi);
         cekhadiah = findViewById(R.id.cekhadiah);
-        feedback = findViewById(R.id.feedback);
         agenda = findViewById(R.id.agenda);
         uploadkonten=findViewById(R.id.uploadkonten);
         txt_nama = findViewById(R.id.username);
@@ -135,15 +129,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
                 startActivity(agenda);
             }
         });
-        feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent feedback = new Intent(BerandaPetugasKontenReward.this, LihatFeedbackPKW.class);
-                feedback.putExtra(TAG_ID, id);
-                feedback.putExtra(TAG_NAMA, nama);
-                startActivity(feedback);
-            }
-        });
+
         cekhadiah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,6 +175,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         queue.add(arrayRequest);
 
     }
+
     long lastPress;
     Toast backpressToast;
     @Override
@@ -209,29 +196,4 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-//    public void onBackPressed() {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setCancelable(false);
-//        builder.setMessage("Keluar aplikasi?");
-//        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//                Intent intent = new Intent(Intent.ACTION_MAIN);
-//                intent.addCategory(Intent.CATEGORY_HOME);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                finish();
-//                startActivity(intent);
-//            }
-//        });
-//        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.cancel();
-//            }
-//        });
-//        AlertDialog alert = builder.create();
-//        alert.show();
-//
-//    }
 }

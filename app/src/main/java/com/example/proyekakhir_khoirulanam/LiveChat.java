@@ -2,7 +2,6 @@ package com.example.proyekakhir_khoirulanam;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,9 +12,6 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
-
-
-import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 
 public class LiveChat extends AppCompatActivity {
@@ -31,7 +27,6 @@ public class LiveChat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_chat);
 
-
         webView = (WebView) findViewById(R.id.webView);
         bar=(ProgressBar) findViewById(R.id.progressBar2);
         webView.setWebViewClient(new myWebclient());
@@ -46,7 +41,7 @@ public class LiveChat extends AppCompatActivity {
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
         //Set icon to toolbar
-//        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationIcon(R.drawable.back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

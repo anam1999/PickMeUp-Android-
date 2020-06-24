@@ -25,7 +25,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaP;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedbackPimpinan;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_Pimpinan;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_Pimpinan;
 import com.example.proyekakhir_khoirulanam.Masuk;
@@ -38,8 +37,8 @@ import org.json.JSONObject;
 
 public class BerandaPimpinan extends AppCompatActivity {
     TextView txt_nama,emailku;
-    ImageView monitorings,konten,cekhadiah,feedback,agenda,keluar,profil;
-    String nama,id,email, role;
+    ImageView monitorings,konten,cekhadiah,agenda,profil;
+    String nama,id;
     SharedPreferences sharedpreferences;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
@@ -80,7 +79,6 @@ public class BerandaPimpinan extends AppCompatActivity {
         monitorings = findViewById(R.id.monitoring);
         konten = findViewById(R.id.kontenanimasi);
         cekhadiah = findViewById(R.id.cekhadiah);
-        feedback = findViewById(R.id.feedback);
         agenda = findViewById(R.id.agenda);
         profil=findViewById(R.id.profil);
 
@@ -129,15 +127,7 @@ public class BerandaPimpinan extends AppCompatActivity {
                 startActivity(agenda);
             }
         });
-        feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent feedback = new Intent(BerandaPimpinan.this, LihatFeedbackPimpinan.class);
-                feedback.putExtra(TAG_ID, id);
-                feedback.putExtra(TAG_NAMA, nama);
-                startActivity(feedback);
-            }
-        });
+
         cekhadiah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -203,32 +193,4 @@ public class BerandaPimpinan extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
-//    public void onBackPressed() {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setCancelable(false);
-//        builder.setMessage("Keluar aplikasi?");
-//        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//                //if user pressed "yes", then he is allowed to exit from application
-//                Intent intent = new Intent(Intent.ACTION_MAIN);
-//                intent.addCategory(Intent.CATEGORY_HOME);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                finish();
-//                startActivity(intent);
-//
-//            }
-//        });
-//        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                //if user select "No", just cancel this dialog and continue with app
-//                dialog.cancel();
-//            }
-//        });
-//        AlertDialog alert = builder.create();
-//        alert.show();
-//    }
 }

@@ -39,9 +39,6 @@
             android:name=".Feedback.LihatFeedbackPL"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".Feedback.LihatFeedbackPKW"
-            android:theme="@style/tanpaactionbar" />
-        <activity
             android:name=".Agenda.LihatAgendaPL"
             android:theme="@style/tanpaactionbar" />
         <activity
@@ -50,9 +47,6 @@
         <activity android:name=".Profil.UpdateProfilPetugasKontenReward" />
         <activity android:name=".Profil.UpdateProfilPetugasLapangan" />
         <activity android:name=".Profil.UpdateProfilPimpinan" />
-        <activity
-            android:name=".Feedback.LihatFeedbackPimpinan"
-            android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Beranda.BerandaMasyarakats"
             android:theme="@style/AppTheme" />
