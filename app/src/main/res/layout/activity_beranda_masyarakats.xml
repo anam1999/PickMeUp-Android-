@@ -76,8 +76,8 @@
              />
 
         <GridLayout
-            android:layout_width="300dp"
-            android:layout_height="480dp"
+            android:layout_width="290dp"
+            android:layout_height="470dp"
             android:layout_gravity="center"
             android:alignmentMode="alignMargins"
             android:columnCount="2"

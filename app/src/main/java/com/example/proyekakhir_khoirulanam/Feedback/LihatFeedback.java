@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.FeedbackAdapterView;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Constructor.Feedback;
+import com.example.proyekakhir_khoirulanam.LiveChat;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Model.ModelFeedback;
 import com.example.proyekakhir_khoirulanam.R;
@@ -29,7 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class LihatFeedback extends AppCompatActivity implements View.OnClickListener{
-    FloatingActionButton btnTambah;
+    FloatingActionButton btnTambah,livechat;
     RecyclerView rvFeedback;
     FeedbackAdapterView feedbackAdapter;
     ArrayList<Feedback> agendaArrayList;
@@ -50,7 +51,17 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
         swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
+        livechat= findViewById(R.id.btn_livechat);
 
+        livechat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent livechats = new Intent(LihatFeedback.this, LiveChat.class);
+                livechats.putExtra(TAG_ID, id);
+                livechats.putExtra(TAG_NAMA, nama);
+                startActivity(livechats);
+            }
+        });
         // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
         swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -88,6 +99,7 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
                 startActivity(inten);
             }
         });
+
 
         agendaArrayList = new ArrayList<>();
         btnTambah = findViewById(R.id.btn_tambah);
