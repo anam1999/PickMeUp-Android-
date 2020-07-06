@@ -187,7 +187,10 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
                 Map<String, String> map = new HashMap<>();
                 map.put("email", email);
                 map.put("kritik_saran", feedback);
-                map.put("file_gambar",getStringImage(decoded));
+                if (decoded!=null){
+                    map.put("file_gambar",getStringImage(decoded));
+                }
+
                 return map;
             }
         };

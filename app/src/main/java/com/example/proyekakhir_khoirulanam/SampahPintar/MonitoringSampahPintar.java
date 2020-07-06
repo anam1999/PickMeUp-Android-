@@ -15,11 +15,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -35,13 +38,14 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
     MarkerOptions markerOptions = new MarkerOptions();
     CameraPosition cameraPosition;
     LatLng center, latLng;
-    String title,ket;
+    String title,ket,file;
 
     public static final String ID = "id";
     public static final String TITLE = "nama";
     public static final String K = "status";
     public static final String LAT = "latitude";
     public static final String LNG = "longitude";
+    public static final String FILE = "file";
 
     //    private String url = "http://192.168.43.229/uploadedFiles/markers.php";
     private String url = "http://192.168.43.229/relasi/public/api/monitoring";
@@ -56,6 +60,8 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
 
@@ -76,10 +82,9 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
         }
         gMap.setMyLocationEnabled(true);
     }
-    private void addMarker(LatLng latlng, final String title, final String keterangan) {
+    private void addMarker(LatLng latlng, final String title, final String keterangan, final String gambar) {
         markerOptions.position(latlng);
-        markerOptions.title(title +" : \n"+ keterangan);
-//        markerOptions.title(keterangan);
+        markerOptions.title(title +" : \n"+ keterangan+":\n"+gambar);
         gMap.addMarker(markerOptions);
 
         gMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -108,10 +113,14 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         title = jsonObject.getString(TITLE);
                         ket = jsonObject.getString(K);
+                        file = jsonObject.getString(FILE);
                         latLng = new LatLng(Double.parseDouble(jsonObject.getString(LAT)), Double.parseDouble(jsonObject.getString(LNG)));
-
+//                        Glide.with(getBaseContext())
+//                                .load( "http://192.168.43.229/relasi/public/hadiah/"+jsonObject.getString("file") )
+//                                .apply(new RequestOptions().centerCrop())
+//                                .into(file);
                         // Menambah data marker untuk di tampilkan ke google map
-                        addMarker(latLng, title,ket);
+                        addMarker(latLng, title,ket,file);
                     }
 
                 } catch (JSONException e) {

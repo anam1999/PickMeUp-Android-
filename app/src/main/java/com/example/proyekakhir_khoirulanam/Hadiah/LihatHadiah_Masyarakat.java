@@ -102,7 +102,7 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
                 startActivity(inten);
             }
         });
-        btn.setText(Preferences.getId(getBaseContext()));
+//        btn.setText(Preferences.getId(getBaseContext()));
 
         hadiahArrayList = new ArrayList<>();
         rvHadiah = findViewById(R.id.rv_Hadiah);
@@ -134,7 +134,7 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
 
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
-                        poin.setText(data.getString("poin"));
+//                        poin.setText(data.getString("poin"));
 
 
                     }

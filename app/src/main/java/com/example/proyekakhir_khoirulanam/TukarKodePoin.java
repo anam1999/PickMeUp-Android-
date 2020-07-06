@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TukarKodePoin extends AppCompatActivity {
-TextView Totalpoin;
+TextView Totalpoin,totals;
 EditText Kode;
 Button Tukarkan;
 ProgressDialog pDialog;
@@ -55,7 +55,6 @@ LinearLayout llayout;
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
         swLayout.setColorSchemeResources(R.color.ecoranger,R.color.petugaslapangan);
-
         // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
         swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -118,7 +117,7 @@ LinearLayout llayout;
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         String url = "http://192.168.43.229/relasi/public/api/show/"+(Preferences.getId(getBaseContext()));
 
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.PUT, url, null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
@@ -150,13 +149,14 @@ LinearLayout llayout;
         showDialog();
         final String token = FirebaseInstanceId.getInstance().getToken();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/kode";
+        String url ="http://192.168.43.229/relasi/public/api/kode/"+(Preferences.getId(getBaseContext()));
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 Toast.makeText(getBaseContext(), "Berhasil Menukar Kode dengan Poin", Toast.LENGTH_SHORT).show();
                 Intent a = new Intent(TukarKodePoin.this, TukarKodePoin.class);
+                a.putExtra(id,TAG_ID);
                 startActivity(a);
                 hideDialog();
 

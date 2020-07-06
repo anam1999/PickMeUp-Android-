@@ -205,6 +205,7 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
                 Intent profils = new Intent(UpdateProfilPetugasLapangan.this, ProfilPetugasLapangan.class);
                 profils.putExtra(TAG_ID, id);
+                profils.putExtra(TAG_NAMA, usernames);
                 startActivity(profils);
                 hideDialog();
 

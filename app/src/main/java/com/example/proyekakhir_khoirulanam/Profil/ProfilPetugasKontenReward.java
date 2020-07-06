@@ -196,7 +196,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                         Intent ua = new Intent(ProfilPetugasKontenReward.this, Masuk.class);
                         finish();
                         startActivity(ua);
-                        hideDialog();
+
 
 
                     }
@@ -206,6 +206,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                         // jika tombol ini diklik, akan menutup dialog
                         // dan tidak terjadi apa2
                         dialog.cancel();
+
                     }
                 });
 

@@ -300,7 +300,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
-                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, Transaksi.class);
+                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, LihatHadiah_Masyarakat.class);
                 hadiah.putExtra(TAG_ID,id);
                 hadiah.putExtra(TAG_NAMA,nama);
                 startActivity(hadiah);
