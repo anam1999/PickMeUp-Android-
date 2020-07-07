@@ -45,7 +45,7 @@ public class  FeedbackAdapterView extends RecyclerView.Adapter<FeedbackAdapterVi
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load("http://192.168.43.229/relasi/public/feedback/" + feedback.getGambar())
+                .load("http://ta.poliwangi.ac.id/~ti17136/feedback/" + feedback.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivFeedback);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

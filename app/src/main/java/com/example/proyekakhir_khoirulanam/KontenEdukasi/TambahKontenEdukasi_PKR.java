@@ -202,7 +202,7 @@ public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.O
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menambahkan ...");
         showDialog();
-        StringRequest srSendData = new StringRequest(Request.Method.POST, "http://192.168.43.229/relasi/public/api/tambahkonten", new Response.Listener<String>() {
+        StringRequest srSendData = new StringRequest(Request.Method.POST, "http://ta.poliwangi.ac.id/~ti17136/api/tambahkonten", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);

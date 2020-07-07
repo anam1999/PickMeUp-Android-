@@ -176,7 +176,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
     }
     private void getProfil() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/show/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -186,7 +186,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
+                                .load( "http://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }
@@ -212,7 +212,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
     private void getPoin() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/show/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -222,7 +222,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
 
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
-                        poin.setText(data.getString("poin")+" Poin");
+                        poin.setText(data.getString("total_poin")+" Poin");
                     }
 
                 } catch (Exception e) {

@@ -50,7 +50,7 @@ public class HadiahAdapterView extends RecyclerView.Adapter<HadiahAdapterView.Vi
 
 
         Glide.with(holder.itemView.getContext())
-                .load( "http://192.168.43.229/relasi/public/hadiah/" + hadiah.getGambar())
+                .load( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" + hadiah.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivHadiah);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

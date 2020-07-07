@@ -35,7 +35,7 @@ public class DetailKontenEdukasi extends AppCompatActivity {
         rvDeskripsi.setText(animasi.getDeskripsi());
 
         Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/animasi/" + animasi.getGambar())
+                .load( "http://ta.poliwangi.ac.id/~ti17136/animasi/" + animasi.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivAgenda);
     }

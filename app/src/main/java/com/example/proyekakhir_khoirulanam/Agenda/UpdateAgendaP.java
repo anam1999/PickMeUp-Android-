@@ -98,9 +98,9 @@ public class UpdateAgendaP extends AppCompatActivity {
         Namaagenda.setText(agenda.getNama_agenda());
         Keterangan.setText(agenda.getKeterangan());
 
-        alamatagenda=( "http://192.168.43.229/relasi/public/agenda/" +agenda.getGambar());
+        alamatagenda=( "http://ta.poliwangi.ac.id/~ti17136/agenda/" +agenda.getGambar());
         Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/agenda/" +agenda.getGambar())
+                .load( "http://ta.poliwangi.ac.id/~ti17136/agenda/" +agenda.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivAgenda);
 
@@ -194,7 +194,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         pDialog.setMessage("Proses Update ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/updateagenda/"+id;
+        String url ="http://ta.poliwangi.ac.id/~ti17136/api/updateagenda/"+id;
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

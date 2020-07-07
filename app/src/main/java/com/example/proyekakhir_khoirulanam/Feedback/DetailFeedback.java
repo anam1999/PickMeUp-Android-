@@ -37,7 +37,7 @@ public class DetailFeedback extends AppCompatActivity {
         rvNama.setText(feedback.getNama());
         rvKomentar.setText(feedback.getKomentar());
         Glide.with(this)
-                .load("http://192.168.43.229/relasi/public/feedback/" + feedback.getGambar())
+                .load("http://ta.poliwangi.ac.id/~ti17136/feedback/" + feedback.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivFeedback);
         id = Preferences.getId(getBaseContext());

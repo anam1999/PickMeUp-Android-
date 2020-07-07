@@ -23,7 +23,7 @@ public class ModelHadiah extends ViewModel {
     private MutableLiveData<ArrayList<Hadiah>> hadiah = new MutableLiveData<>();
     public void simpan (RequestQueue queue, final Context context){
         final ArrayList<Hadiah> hadiahArrayList= new ArrayList<>();
-        String url = "http://192.168.43.229/relasi/public/api/lihathadiah";
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/lihathadiah";
         JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

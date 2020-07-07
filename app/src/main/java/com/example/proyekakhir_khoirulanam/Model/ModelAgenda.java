@@ -22,7 +22,7 @@ public class ModelAgenda extends ViewModel {
     private MutableLiveData<ArrayList<Agenda>> agenda = new MutableLiveData<>();
     public void simpan (RequestQueue queue, final Context context){
         final ArrayList<Agenda> agendaArrayList= new ArrayList<>();
-        String url = "http://192.168.43.229/relasi/public/api/lihatagenda";
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/lihatagenda";
         JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

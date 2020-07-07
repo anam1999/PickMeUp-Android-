@@ -147,7 +147,7 @@ public class UpdateProfil extends AppCompatActivity {
     private void getprofil() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/show/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -163,7 +163,7 @@ public class UpdateProfil extends AppCompatActivity {
                         username.setText(data.getString("username"));
                         emailnya.setText(data.getString("email"));
                         Glide.with(UpdateProfil.this)
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
+                                .load( "http://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }
@@ -189,8 +189,8 @@ public class UpdateProfil extends AppCompatActivity {
         pDialog.setMessage("Proses Update Profil ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/edit/"+getIntent().getStringExtra(TAG_ID) ;
-        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+        String url ="http://ta.poliwangi.ac.id/~ti17136/api/edit/"+getIntent().getStringExtra(TAG_ID) ;
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();

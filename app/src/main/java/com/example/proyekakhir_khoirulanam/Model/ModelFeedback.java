@@ -23,7 +23,7 @@ public class ModelFeedback extends ViewModel {
     private MutableLiveData<ArrayList<Feedback>> feedback = new MutableLiveData<>();
     public void simpan (RequestQueue queue, final Context context){
         final ArrayList<Feedback> feedbackArrayList= new ArrayList<>();
-        String url = "http://192.168.43.229/relasi/public/api/lihatfeedback";
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/lihatfeedback";
         JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

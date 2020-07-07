@@ -40,7 +40,7 @@ public class DetailAgenda extends AppCompatActivity {
         rvNamaagenda.setText(agenda.getNama_agenda());
         rvKeterangan.setText(agenda.getKeterangan());
         Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/agenda/" + agenda.getGambar())
+                .load( "http://ta.poliwangi.ac.id/~ti17136/agenda/" + agenda.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivAgenda);
     }

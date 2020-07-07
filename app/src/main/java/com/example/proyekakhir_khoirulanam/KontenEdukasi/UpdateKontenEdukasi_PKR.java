@@ -80,9 +80,9 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
         id =animasi.getId();
         rvAnimasi.setText(animasi.getNama_konten());
         rvDeskripsi.setText(animasi.getDeskripsi());
-     alamatanimasi =("http://192.168.43.229/relasi/public/animasi/" +animasi.getGambar());
+     alamatanimasi =("http://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" +animasi.getGambar());
         Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/animasi/" +animasi.getGambar())
+                .load( "http://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" +animasi.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivAnimasi);
 
@@ -192,7 +192,7 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
         pDialog.setMessage("Proses Update ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/updatekonten/"+id;
+        String url ="http://ta.poliwangi.ac.id/~ti17136/api/updatekonten/"+id;
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

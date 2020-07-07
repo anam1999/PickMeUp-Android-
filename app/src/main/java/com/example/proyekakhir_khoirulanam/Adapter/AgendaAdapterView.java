@@ -49,7 +49,7 @@ public class AgendaAdapterView extends RecyclerView.Adapter<AgendaAdapterView.Vi
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load( "http://192.168.43.229/relasi/public/agenda/" + agenda.getGambar())
+                .load( "http://ta.poliwangi.ac.id/~ti17136/agenda/" + agenda.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivAgenda);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

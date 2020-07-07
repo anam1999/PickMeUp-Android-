@@ -72,7 +72,7 @@ public class LihatFeedback extends AppCompatActivity implements View.OnClickList
                     @Override public void run() {
 
                         // Berhenti berputar/refreshing
-                        swLayout.setRefreshing(true);
+                        swLayout.setRefreshing(false);
                         feedbackAdapter.notifyDataSetChanged();
                         Feedbacks();
 

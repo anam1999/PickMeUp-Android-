@@ -23,7 +23,7 @@ public class ModelTransaksi extends ViewModel {
     private MutableLiveData<ArrayList<Transaksi>> transaksi = new MutableLiveData<>();
     public void simpan (RequestQueue queue, final Context context){
         final ArrayList<Transaksi> transaksiArrayList= new ArrayList<>();
-        String url = "http://192.168.43.229/relasi/public/api/lihattransaksi/"+(Preferences.getId(context));
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/lihattransaksi/"+(Preferences.getId(context));
         JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

@@ -111,10 +111,10 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
 
 
         Glide.with(this)
-                .load( "http://192.168.43.229/relasi/public/hadiah/" +hadiah.getGambar())
+                .load( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivHadiah);
-        alamatgambarhadiah=( "http://192.168.43.229/relasi/public/hadiah/" +hadiah.getGambar());
+        alamatgambarhadiah=( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar());
         display(1);
         kurang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,7 +182,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
     private void getPoin() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/show/"+(Preferences.getId(getBaseContext()));
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/show/"+(Preferences.getId(getBaseContext()));
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -256,8 +256,8 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
         pDialog.setMessage("Proses Menukar ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/transaksi/"+(Preferences.getId(getBaseContext()));
-        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+        String url ="http://ta.poliwangi.ac.id/~ti17136/api/transaksi/"+(Preferences.getId(getBaseContext()));
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Selamat, Anda Berhasil Menukar ", Toast.LENGTH_SHORT).show();
@@ -295,8 +295,8 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
     }
     private void updatejumlahhadiah() {
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://192.168.43.229/relasi/public/api/upjumlah/"+ids;
-        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+        String url ="http://ta.poliwangi.ac.id/~ti17136/api/upjumlah/"+ids;
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();

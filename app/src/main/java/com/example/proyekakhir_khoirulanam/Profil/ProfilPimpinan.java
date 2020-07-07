@@ -127,7 +127,7 @@ public class ProfilPimpinan extends AppCompatActivity {
 
     private void getprofilPimpinan() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/showpimpinan/"+getIntent().getStringExtra(TAG_ID);
+        String url = "http://ta.poliwangi.ac.id/~ti17136/api/showpimpinan/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -143,7 +143,7 @@ public class ProfilPimpinan extends AppCompatActivity {
                         username.setText(data.getString("username"));
                         emailnya.setText(data.getString("email"));
                         Glide.with(getBaseContext())
-                                .load( "http://192.168.43.229/relasi/public/foto_user/"+data.getString("file_gambar") )
+                                .load( "http://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

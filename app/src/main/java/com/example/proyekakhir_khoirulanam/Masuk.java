@@ -105,7 +105,7 @@ public class Masuk extends AppCompatActivity {
         email = sharedpreferences.getString(TAG_EMAIL, null);
         role = sharedpreferences.getString(TAG_ROLE, null);
 
-        if (session&&role.equals("berandaadmin")) {
+        if (session&&role.equals("pimpinanecoranger")) {
             Intent intent = new Intent(Masuk.this, BerandaPimpinan.class);
             intent.putExtra(TAG_ID, id);
             intent.putExtra(TAG_NAMA, nama);
@@ -203,7 +203,7 @@ public class Masuk extends AppCompatActivity {
                         editor.commit();
 
                         // Memanggil Dashboards
-                        if (role.equals("berandaadmin")){
+                        if (role.equals("pimpinanecoranger")){
                             Intent intent = new Intent(Masuk.this,BerandaPimpinan.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_NAMA, nama);
