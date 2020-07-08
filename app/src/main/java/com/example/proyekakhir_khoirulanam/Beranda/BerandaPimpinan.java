@@ -141,7 +141,7 @@ public class BerandaPimpinan extends AppCompatActivity {
 
     private void getProfil() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://ta.poliwangi.ac.id/~ti17136/api/showpimpinan/"+getIntent().getStringExtra(TAG_ID);
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/showpimpinan/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -151,7 +151,7 @@ public class BerandaPimpinan extends AppCompatActivity {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
                         Glide.with(getBaseContext())
-                                .load( "http://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
+                                .load( "https://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

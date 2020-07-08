@@ -42,10 +42,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="Update Konten Animasi"
+            android:text="Update Konten EDUKASI"
             android:textAllCaps="true"
             android:layout_marginBottom="20dp"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@color/black" />
         <EditText

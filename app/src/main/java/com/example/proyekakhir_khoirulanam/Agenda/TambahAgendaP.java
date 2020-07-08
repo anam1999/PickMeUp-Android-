@@ -189,7 +189,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
         pDialog.setCancelable(false);
         pDialog.setMessage("Proses Menambahkan ...");
         showDialog();
-        StringRequest srSendData = new StringRequest(Request.Method.POST, "http://ta.poliwangi.ac.id/~ti17136/api/tambahagenda", new Response.Listener<String>() {
+        StringRequest srSendData = new StringRequest(Request.Method.POST, "https://ta.poliwangi.ac.id/~ti17136/api/tambahagenda", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TambahAgendaP.this, LihatAgendaP.class);

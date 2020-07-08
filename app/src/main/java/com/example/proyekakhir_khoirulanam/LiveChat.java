@@ -31,7 +31,7 @@ public class LiveChat extends AppCompatActivity {
         bar=(ProgressBar) findViewById(R.id.progressBar2);
         webView.setWebViewClient(new myWebclient());
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("http://192.168.43.229/relasi/public/feedbac");
+        webView.loadUrl("https://ta.poliwangi.ac.id/~ti17136/feedbac");
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle(" Feedback");

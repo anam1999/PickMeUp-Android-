@@ -53,7 +53,7 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load( "http://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" + animasi.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" + animasi.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivAnimasi);
 //
@@ -89,9 +89,9 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
 
 
                                 RequestQueue queue = Volley.newRequestQueue(holder.itemView.getContext());
-                                String url = "http://192.168.43.229/relasi/public/api/hapuskonten/"+animasi.getId();
+                                String url = "https://ta.poliwangi.ac.id/~ti17136/api/hapuskonten/"+animasi.getId();
 
-                                StringRequest stringRequest  = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
+                                StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
                                         Toast.makeText(holder.itemView.getContext(), "berhasil"+response.toString(), Toast.LENGTH_SHORT).show();

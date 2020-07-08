@@ -54,7 +54,7 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.ViewHo
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load( "http://ta.poliwangi.ac.id/~ti17136/api/feedback/" + feedback.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/api/feedback/" + feedback.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivFeedback);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -79,9 +79,9 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.ViewHo
 
 
                                 RequestQueue queue = Volley.newRequestQueue(holder.itemView.getContext());
-                                String url = "http://192.168.43.229/relasi/public/api/hapusfeedback/"+feedback.getId();
+                                String url = "https://ta.poliwangi.ac.id/~ti17136/api/hapusfeedback/"+feedback.getId();
 
-                                StringRequest stringRequest  = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
+                                StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
                                         Toast.makeText(holder.itemView.getContext(), "berhasil"+response.toString(), Toast.LENGTH_SHORT).show();

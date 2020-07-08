@@ -111,10 +111,10 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
 
 
         Glide.with(this)
-                .load( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivHadiah);
-        alamatgambarhadiah=( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar());
+        alamatgambarhadiah=( "https://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar());
         display(1);
         kurang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,7 +182,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
     private void getPoin() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://ta.poliwangi.ac.id/~ti17136/api/show/"+(Preferences.getId(getBaseContext()));
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/show/"+(Preferences.getId(getBaseContext()));
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -190,7 +190,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
                 try {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
-                        poinsa = data.getString("poin");
+                        poinsa = data.getString("total_poin");
                     }
                     poinsaya.setText("Poin Anda: "+poinsa);
                 } catch (Exception e) {
@@ -256,12 +256,12 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
         pDialog.setMessage("Proses Menukar ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://ta.poliwangi.ac.id/~ti17136/api/transaksi/"+(Preferences.getId(getBaseContext()));
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/transaksi/"+(Preferences.getId(getBaseContext()));
         StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Selamat, Anda Berhasil Menukar ", Toast.LENGTH_SHORT).show();
-                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, Transaksi.class);
+                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, LihatTransaksi_Masyarakat.class);
                 hadiah.putExtra(TAG_ID,id);
                 hadiah.putExtra(TAG_NAMA,nama);
                 startActivity(hadiah);
@@ -279,7 +279,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> MyData = new HashMap<String, String>();
-                MyData.put("poin", sisa.getText().toString());
+                MyData.put("total_poin", sisa.getText().toString());
                 MyData.put("nama_hadiah", namahadiah.getText().toString());
                 MyData.put("harga_hadiah", hargahadiah.getText().toString());
                 MyData.put("sisapoin", sisa.getText().toString());
@@ -295,12 +295,12 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
     }
     private void updatejumlahhadiah() {
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://ta.poliwangi.ac.id/~ti17136/api/upjumlah/"+ids;
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/upjumlah/"+ids;
         StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
-                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, LihatHadiah_Masyarakat.class);
+                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, LihatTransaksi_Masyarakat.class);
                 hadiah.putExtra(TAG_ID,id);
                 hadiah.putExtra(TAG_NAMA,nama);
                 startActivity(hadiah);

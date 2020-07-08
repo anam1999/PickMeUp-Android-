@@ -194,7 +194,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         pDialog.setMessage("Proses Update ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://ta.poliwangi.ac.id/~ti17136/api/updateagenda/"+id;
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/updateagenda/"+id;
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

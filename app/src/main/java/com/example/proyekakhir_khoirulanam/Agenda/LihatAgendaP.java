@@ -30,7 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class LihatAgendaP extends AppCompatActivity {
-    FloatingActionButton btnTambah;
+//    FloatingActionButton btnTambah;
     RecyclerView rvNama;
     AgendaAdapter agendaAdapter;
     ArrayList<Agenda> agendaArrayList;
@@ -90,15 +90,16 @@ public class LihatAgendaP extends AppCompatActivity {
         });
 
         agendaArrayList = new ArrayList<>();
-        btnTambah = findViewById(R.id.btn_tambah);
         rvNama = findViewById(R.id.rv_Agenda);
-        btnTambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 =new Intent(LihatAgendaP.this, TambahAgendaP.class);
-                startActivity(intent2);
-            }
-        });
+//        btnTambah = findViewById(R.id.btn_tambah);
+//
+//        btnTambah.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent2 =new Intent(LihatAgendaP.this, TambahAgendaP.class);
+//                startActivity(intent2);
+//            }
+//        });
         queue = Volley.newRequestQueue(this);
         rvNama.setLayoutManager(new LinearLayoutManager(this));
         agendaAdapter = new AgendaAdapter();

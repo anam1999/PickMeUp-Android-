@@ -46,10 +46,11 @@ public class AgendaAdapterView extends RecyclerView.Adapter<AgendaAdapterView.Vi
         Agenda agenda = agendaslist.get(position);
         holder.tvNama.setText(agenda.getNama_agenda());
         holder.tvKeterangan.setText(agenda.getKeterangan());
+        holder.tanggal.setText(agenda.getTanggal());
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load( "http://ta.poliwangi.ac.id/~ti17136/agenda/" + agenda.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/agenda/" + agenda.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivAgenda);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +73,7 @@ public class AgendaAdapterView extends RecyclerView.Adapter<AgendaAdapterView.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvNama,tvKeterangan;
+        TextView tvNama,tvKeterangan, tanggal;
         ImageView ivAgenda;
 
         public ViewHolder(@NonNull View itemView) {
@@ -81,7 +82,7 @@ public class AgendaAdapterView extends RecyclerView.Adapter<AgendaAdapterView.Vi
             tvNama = itemView.findViewById(R.id.tvNamaAgenda);
             tvKeterangan=itemView.findViewById(R.id.tvKeterangan);
             ivAgenda = itemView.findViewById(R.id.ivAgenda);
-
+            tanggal = itemView.findViewById(R.id.tvtanggal);
 
         }
 

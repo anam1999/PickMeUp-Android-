@@ -4,13 +4,14 @@ import android.os.Parcelable;
 
 public class Agenda  implements Parcelable {
     private int id;
-    private String nama_agenda,gambar,keterangan;
+    private String nama_agenda,gambar,keterangan,tanggal;
 
-    public Agenda(int id, String nama_agenda, String keterangan , String gambar) {
+    public Agenda(int id, String nama_agenda, String keterangan , String gambar, String tanggal) {
         this.id = id;
         this.gambar = gambar;
         this.nama_agenda = nama_agenda;
         this.keterangan=keterangan;
+        this.tanggal = tanggal;
     }
 
     protected Agenda(Parcel in) {
@@ -18,6 +19,7 @@ public class Agenda  implements Parcelable {
         nama_agenda = in.readString();
         gambar = in.readString();
         keterangan=in.readString();
+        tanggal= in.readString();
     }
 
     public static final Creator<Agenda> CREATOR = new Creator<Agenda>() {
@@ -39,6 +41,7 @@ public class Agenda  implements Parcelable {
     public String getKeterangan(){
         return keterangan;
     }
+    public String getTanggal(){ return tanggal; };
 
     @Override
     public int describeContents() {
@@ -51,5 +54,6 @@ public class Agenda  implements Parcelable {
         dest.writeString(nama_agenda);
         dest.writeString(gambar);
         dest.writeString(keterangan);
+        dest.writeString(tanggal);
     }
 }

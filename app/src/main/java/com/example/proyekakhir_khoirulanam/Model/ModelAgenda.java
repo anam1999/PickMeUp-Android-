@@ -22,7 +22,7 @@ public class ModelAgenda extends ViewModel {
     private MutableLiveData<ArrayList<Agenda>> agenda = new MutableLiveData<>();
     public void simpan (RequestQueue queue, final Context context){
         final ArrayList<Agenda> agendaArrayList= new ArrayList<>();
-        String url = "http://ta.poliwangi.ac.id/~ti17136/api/lihatagenda";
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/lihatagenda";
         JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -35,7 +35,8 @@ public class ModelAgenda extends ViewModel {
                         String title = objek.getString("nama");
                         String keterangan =objek.getString("keterangan");
                         String image = objek.getString("file_gambar");
-                        Agenda agenda = new Agenda(id, title,keterangan,image);
+                        String tanggal = objek.getString("tanggal");
+                        Agenda agenda = new Agenda(id, title,keterangan,image,tanggal);
                         agendaArrayList.add(agenda);
 
                     }

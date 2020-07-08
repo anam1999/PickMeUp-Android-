@@ -97,7 +97,6 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UPDATE();
-                SEND();
             }
         });
     }
@@ -141,16 +140,11 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
     }
 
 
-    private void SEND() {
-
-
-    }
-
 
     private void getprofil() {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://ta.poliwangi.ac.id/~ti17136/api/showlapangan/"+getIntent().getStringExtra(TAG_ID);
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/showlapangan/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -166,7 +160,7 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
                         username.setText(data.getString("username"));
                         emailnya.setText(data.getString("email"));
                         Glide.with(UpdateProfilPetugasLapangan.this)
-                                .load( "http://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
+                                .load( "https://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }
@@ -198,7 +192,7 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
         pDialog.setMessage("Proses Update Profil ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://ta.poliwangi.ac.id/~ti17136/api/editdatapl/"+getIntent().getStringExtra(TAG_ID) ;
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/editdatapl/"+getIntent().getStringExtra(TAG_ID) ;
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

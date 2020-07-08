@@ -34,13 +34,15 @@ public class DetailAgenda extends AppCompatActivity {
 
         TextView rvNamaagenda = findViewById(R.id.tvNamaAgenda);
         TextView rvKeterangan = findViewById(R.id.tvKeterangan);
+        TextView rvtanggal = findViewById(R.id.tvtanggals);
         ImageView ivAgenda = findViewById(R.id.ivAgenda);
 
         Agenda agenda = getIntent().getParcelableExtra(EXTRA_AGENDA);
         rvNamaagenda.setText(agenda.getNama_agenda());
         rvKeterangan.setText(agenda.getKeterangan());
+        rvtanggal.setText(agenda.getTanggal());
         Glide.with(this)
-                .load( "http://ta.poliwangi.ac.id/~ti17136/agenda/" + agenda.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/agenda/" + agenda.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivAgenda);
     }

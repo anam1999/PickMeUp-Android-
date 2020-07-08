@@ -129,7 +129,7 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
 
     private void getprofilPetugasLapangan() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/showlapangan/"+getIntent().getStringExtra(TAG_ID);
+        String url = "https://192.168.43.229/relasi/public/api/showlapangan/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -145,7 +145,7 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
                         username.setText(data.getString("username"));
                         emailnya.setText(data.getString("email"));
                         Glide.with(getBaseContext())
-                                .load( "http://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
+                                .load( "https://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())
                                 .into(profil);
                     }

@@ -24,7 +24,7 @@ public class ModelRiwayatPembuanganSampah extends ViewModel {
     private MutableLiveData<ArrayList<RiwayatPembuanganSampah>> riwayatsampah = new MutableLiveData<>();
     public void simpan (RequestQueue queue, final Context context){
         final ArrayList<RiwayatPembuanganSampah> riwayatPembuanganSampahArrayList= new ArrayList<>();
-        String url = "http://ta.poliwangi.ac.id/~ti17136/api/showpoin/"+(Preferences.getId(context));
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/showpoin/"+(Preferences.getId(context));
         JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

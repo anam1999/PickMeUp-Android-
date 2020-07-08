@@ -18,7 +18,7 @@ public class ModelKontenEdukasi extends ViewModel {
     private MutableLiveData<ArrayList<KontenEdukasi>> animasi = new MutableLiveData<>();
     public void simpan (RequestQueue queue, final Context context){
         final ArrayList<KontenEdukasi> animasiArrayList= new ArrayList<>();
-        String url = "http://ta.poliwangi.ac.id/~ti17136/api/lihatkonten";
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/lihatkonten";
         JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

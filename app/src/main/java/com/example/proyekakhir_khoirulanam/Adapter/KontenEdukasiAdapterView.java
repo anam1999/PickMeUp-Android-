@@ -43,7 +43,7 @@ public class KontenEdukasiAdapterView extends RecyclerView.Adapter<KontenEdukasi
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load( "http://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" + animasi.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" + animasi.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivAnimasi);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

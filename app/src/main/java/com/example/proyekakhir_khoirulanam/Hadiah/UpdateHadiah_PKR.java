@@ -84,7 +84,7 @@ public class UpdateHadiah_PKR extends AppCompatActivity {
         jumlahhadiah.setText(hadiah.getJumlah());
 
         Glide.with(this)
-                .load( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivHadiah);
         updatehadiah.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +195,7 @@ public class UpdateHadiah_PKR extends AppCompatActivity {
         pDialog.setMessage("Proses Update ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://ta.poliwangi.ac.id/~ti17136/api/updatehadiah/"+id;
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/updatehadiah/"+id;
         StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

@@ -81,7 +81,7 @@ public class DetailHadiah_Pimpinan extends AppCompatActivity {
         jumlahhadiah.setText(hadiah.getJumlah());
 
         Glide.with(this)
-                .load( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/hadiah/" +hadiah.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(ivHadiah);
     }

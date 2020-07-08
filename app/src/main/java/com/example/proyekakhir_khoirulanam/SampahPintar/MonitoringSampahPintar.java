@@ -38,17 +38,18 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
     MarkerOptions markerOptions = new MarkerOptions();
     CameraPosition cameraPosition;
     LatLng center, latLng;
-    String title,ket,file;
+    String title,ket,file,user_id;
 
     public static final String ID = "id";
     public static final String TITLE = "nama";
     public static final String K = "status";
     public static final String LAT = "latitude";
     public static final String LNG = "longitude";
-    public static final String FILE = "file";
+    public static final String FILE = "file_gambar";
+    public static final String USER_ID = "user_id";
 
     //    private String url = "http://192.168.43.229/uploadedFiles/markers.php";
-    private String url = "http://192.168.43.229/relasi/public/api/monitoring";
+    private String url = "https://ta.poliwangi.ac.id/~ti17136/api/monitoring";
 
     String tag_json_obj = "json_obj_req";
     @Override
@@ -82,9 +83,9 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
         }
         gMap.setMyLocationEnabled(true);
     }
-    private void addMarker(LatLng latlng, final String title, final String keterangan, final String gambar) {
+    private void addMarker(LatLng latlng, final String title, final String keterangan ) {
         markerOptions.position(latlng);
-        markerOptions.title(title +" : \n"+ keterangan+":\n"+gambar);
+        markerOptions.title(title +" : \n"+ keterangan);
         gMap.addMarker(markerOptions);
 
         gMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -113,14 +114,14 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         title = jsonObject.getString(TITLE);
                         ket = jsonObject.getString(K);
-                        file = jsonObject.getString(FILE);
+
                         latLng = new LatLng(Double.parseDouble(jsonObject.getString(LAT)), Double.parseDouble(jsonObject.getString(LNG)));
 //                        Glide.with(getBaseContext())
 //                                .load( "http://192.168.43.229/relasi/public/hadiah/"+jsonObject.getString("file") )
 //                                .apply(new RequestOptions().centerCrop())
 //                                .into(file);
                         // Menambah data marker untuk di tampilkan ke google map
-                        addMarker(latLng, title,ket,file);
+                        addMarker(latLng, title,ket);
                     }
 
                 } catch (JSONException e) {

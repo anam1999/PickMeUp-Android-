@@ -93,7 +93,7 @@ public class Daftar extends AppCompatActivity {
         showDialog();
         final String token = FirebaseInstanceId.getInstance().getToken();
         final RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://ta.poliwangi.ac.id/~ti17136/api/Daftar";
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/Daftar";
         StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

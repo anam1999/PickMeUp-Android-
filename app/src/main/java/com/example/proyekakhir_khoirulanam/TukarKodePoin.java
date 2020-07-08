@@ -115,7 +115,7 @@ LinearLayout llayout;
 
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://ta.poliwangi.ac.id/~ti17136/api/show/"+(Preferences.getId(getBaseContext()));
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/show/"+(Preferences.getId(getBaseContext()));
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -149,7 +149,7 @@ LinearLayout llayout;
         showDialog();
         final String token = FirebaseInstanceId.getInstance().getToken();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url ="http://ta.poliwangi.ac.id/~ti17136/api/kode/"+(Preferences.getId(getBaseContext()));
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/kode/"+(Preferences.getId(getBaseContext()));
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

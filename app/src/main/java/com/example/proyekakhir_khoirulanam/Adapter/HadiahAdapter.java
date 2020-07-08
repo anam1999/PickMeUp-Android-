@@ -59,7 +59,7 @@ public class HadiahAdapter extends RecyclerView.Adapter<HadiahAdapter.ViewHolder
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load( "http://ta.poliwangi.ac.id/~ti17136/hadiah/" + hadiah.getGambar())
+                .load( "https://ta.poliwangi.ac.id/~ti17136/hadiah/" + hadiah.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivHadiah);
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -94,9 +94,9 @@ public class HadiahAdapter extends RecyclerView.Adapter<HadiahAdapter.ViewHolder
 
 
                                 RequestQueue queue = Volley.newRequestQueue(holder.itemView.getContext());
-                                String url = "http://192.168.43.229/relasi/public/api/hapushadiah/"+hadiah.getId();
+                                String url = "https://ta.poliwangi.ac.id/~ti17136/api/hapushadiah/"+hadiah.getId();
 
-                                StringRequest stringRequest  = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
+                                StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
                                         Toast.makeText(holder.itemView.getContext(), "berhasil"+response.toString(), Toast.LENGTH_SHORT).show();
