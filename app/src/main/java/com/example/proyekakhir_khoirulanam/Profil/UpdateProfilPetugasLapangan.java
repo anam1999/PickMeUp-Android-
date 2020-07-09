@@ -193,7 +193,7 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="https://ta.poliwangi.ac.id/~ti17136/api/editdatapl/"+getIntent().getStringExtra(TAG_ID) ;
-        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();

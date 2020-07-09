@@ -129,7 +129,7 @@ public class ProfilPetugasLapangan extends AppCompatActivity {
 
     private void getprofilPetugasLapangan() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "https://192.168.43.229/relasi/public/api/showlapangan/"+getIntent().getStringExtra(TAG_ID);
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/showlapangan/"+getIntent().getStringExtra(TAG_ID);
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override

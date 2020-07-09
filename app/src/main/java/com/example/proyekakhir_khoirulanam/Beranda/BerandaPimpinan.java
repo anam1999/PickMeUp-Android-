@@ -89,7 +89,7 @@ public class BerandaPimpinan extends AppCompatActivity {
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
         Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
         //setText
-        txt_nama.setText(" "+nama);
+//        txt_nama.setText(" "+nama);
 
         monitorings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +150,7 @@ public class BerandaPimpinan extends AppCompatActivity {
 
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
+                        txt_nama.setText(data.getString("username"));
                         Glide.with(getBaseContext())
                                 .load( "https://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())

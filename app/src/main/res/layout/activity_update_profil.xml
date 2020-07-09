@@ -16,11 +16,11 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="320dp">
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="290dp"
             android:orientation="vertical">
 
             <ImageButton
@@ -33,8 +33,8 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profilupdate"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:background="@drawable/userikon"
                 />
             <EditText
@@ -43,7 +43,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="(Username)"
+                android:text="Username"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
