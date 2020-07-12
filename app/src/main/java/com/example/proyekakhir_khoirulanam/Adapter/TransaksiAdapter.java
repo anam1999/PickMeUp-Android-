@@ -40,6 +40,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.View
         holder.tvNamaKonten.setText(transaksi.getNama_hadiah());
         holder.tvDeskripsi.setText("Harga Hadiah : "+transaksi.getHarga_hadiah()+" Poin");
         holder.tvsisa.setText("Sisa Poin Anda :"+transaksi.getSisapoin()+" Poin");
+        holder.tvkodetransaksi.setText("Kode Transaksi :"+transaksi.getKodetransaksi());
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
@@ -68,7 +69,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvNamaKonten,tvDeskripsi,tvsisa;
+        TextView tvNamaKonten,tvDeskripsi,tvsisa, tvkodetransaksi;
         ImageView ivtransaksi;
 
 
@@ -79,6 +80,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.View
             tvDeskripsi=itemView.findViewById(R.id.tvHargaHadiah);
             tvsisa=itemView.findViewById(R.id.tvsisapoinku);
             ivtransaksi = itemView.findViewById(R.id.ivTransaksi);
+            tvkodetransaksi = itemView.findViewById(R.id.tvKodeTransaksi);
 
         }
 

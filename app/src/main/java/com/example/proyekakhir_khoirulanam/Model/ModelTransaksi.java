@@ -33,12 +33,13 @@ public class ModelTransaksi extends ViewModel {
                     for (int i =0; i <data.length(); i++){
                         JSONObject objek =data.getJSONObject(i);
                         int id = objek.getInt("id");
+                        String kodetransaksi = objek.getString("kode_transaksi");
                         String nama_hadiah = objek.getString("nama_hadiah");
                         String harga_hadiah = objek.getString("harga_hadiah");
                         String sisapoin =objek.getString("sisapoin");
                         String image = objek.getString("file_gambar");
 
-                        Transaksi transaksi = new Transaksi(id, nama_hadiah,harga_hadiah,sisapoin,image);
+                        Transaksi transaksi = new Transaksi(id, nama_hadiah,harga_hadiah,sisapoin,image,kodetransaksi);
                         transaksiArrayList.add(transaksi);
 
                     }

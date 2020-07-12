@@ -123,7 +123,7 @@ LinearLayout llayout;
                 try {
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
-                        poin = data.getString("poin");
+                        poin = data.getString("total_poin");
                     }
                     Totalpoin.setText(poin);
                 } catch (Exception e) {
@@ -150,7 +150,7 @@ LinearLayout llayout;
         final String token = FirebaseInstanceId.getInstance().getToken();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="https://ta.poliwangi.ac.id/~ti17136/api/kode/"+(Preferences.getId(getBaseContext()));
-        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 

@@ -7,14 +7,15 @@ public class Transaksi implements Parcelable {
 
 
     private int id;
-    private String nama_hadiah, harga_hadiah, sisapoin,gambar;
+    private String nama_hadiah, harga_hadiah, sisapoin,gambar,kodetransaksi;
 
-    public Transaksi(int id, String nama_hadiah,  String harga_hadiah, String sisapoin, String gambar) {
+    public Transaksi(int id, String nama_hadiah,  String harga_hadiah, String sisapoin, String gambar, String kodetransaksi) {
         this.id = id;
         this.harga_hadiah = harga_hadiah;
         this.sisapoin =sisapoin;
         this.nama_hadiah = nama_hadiah;
         this.gambar= gambar;
+        this.kodetransaksi=kodetransaksi;
 
     }
 
@@ -24,6 +25,7 @@ public class Transaksi implements Parcelable {
         harga_hadiah = in.readString();
         sisapoin = in.readString();
         gambar = in.readString();
+        kodetransaksi = in.readString();
     }
 
     public static final Creator<Transaksi> CREATOR = new Creator<Transaksi>() {
@@ -54,6 +56,7 @@ public class Transaksi implements Parcelable {
         return sisapoin;
     }
     public String getGambar(){return gambar;}
+    public String getKodetransaksi(){return  kodetransaksi;}
 
     @Override
     public int describeContents() {
@@ -67,5 +70,6 @@ public class Transaksi implements Parcelable {
         dest.writeString((harga_hadiah));
         dest.writeString(sisapoin);
         dest.writeString(gambar);
+        dest.writeString(kodetransaksi);
     }
 }
