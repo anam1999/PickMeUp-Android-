@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UpdateProfilPetugasLapangan extends AppCompatActivity {
-    EditText nama,nohp,alamat,email,username,emailnya;
+    EditText nama,nohp,alamat,email,username,emailnya, password;
     String id,usernames,emailku;
     ImageView profil;
     ImageButton kembali;
@@ -72,6 +72,7 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
         profil=findViewById(R.id.profilupdate);
         update=findViewById(R.id.update);
         kembali=findViewById(R.id.back);
+        password = findViewById(R.id.passwords);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         usernames = getIntent().getStringExtra(TAG_NAMA);
@@ -222,6 +223,7 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
                 MyData.put("alamat",alamat.getText().toString());
                 MyData.put("username",username.getText().toString());
                 MyData.put("email",emailnya.getText().toString());
+                MyData.put("password",password.getText().toString());
                 if(StringImage!=null){
                     MyData.put("file_gambar",StringImage);
                 }

@@ -29,6 +29,7 @@ import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_Pimpinan;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_Pimpinan;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.ProfilPimpinan;
+import com.example.proyekakhir_khoirulanam.SampahPintar.GrafikSampah;
 import com.example.proyekakhir_khoirulanam.SampahPintar.MonitoringSampahPintar;
 import com.example.proyekakhir_khoirulanam.R;
 
@@ -37,7 +38,7 @@ import org.json.JSONObject;
 
 public class BerandaPimpinan extends AppCompatActivity {
     TextView txt_nama,emailku;
-    ImageView monitorings,konten,cekhadiah,agenda,profil;
+    ImageView monitorings,konten,cekhadiah,agenda,profil, grafik;
     String nama,id;
     SharedPreferences sharedpreferences;
     public final static String TAG_NAMA = "username";
@@ -81,6 +82,7 @@ public class BerandaPimpinan extends AppCompatActivity {
         cekhadiah = findViewById(R.id.cekhadiah);
         agenda = findViewById(R.id.agenda);
         profil=findViewById(R.id.profil);
+        grafik= findViewById(R.id.grafiksampah);
 
         //session
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
@@ -135,6 +137,16 @@ public class BerandaPimpinan extends AppCompatActivity {
                 cekhadiah.putExtra(TAG_ID, id);
                 cekhadiah.putExtra(TAG_NAMA, nama);
                 startActivity(cekhadiah);
+            }
+        });
+
+        grafik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent grafiksampah = new Intent(BerandaPimpinan.this, GrafikSampah.class);
+                grafiksampah.putExtra(TAG_ID, id);
+                grafiksampah.putExtra(TAG_NAMA, nama);
+                startActivity(grafiksampah);
             }
         });
     }

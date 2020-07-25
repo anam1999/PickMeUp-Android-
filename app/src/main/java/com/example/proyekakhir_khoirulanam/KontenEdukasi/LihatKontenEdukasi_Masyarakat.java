@@ -33,9 +33,10 @@ public class LihatKontenEdukasi_Masyarakat extends AppCompatActivity {
     KontenEdukasiAdapterView animasiAdapter;
     ArrayList<KontenEdukasi> animasiArrayList;
     RequestQueue queue;
-    String id,nama;
+    String id,nama,email;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
+    public final static  String TAG_EMAIL="email";
     Toolbar toolbar;
     SharedPreferences sharedpreferences;
     SwipeRefreshLayout swLayout;
@@ -74,6 +75,7 @@ public class LihatKontenEdukasi_Masyarakat extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
+        email = getIntent().getStringExtra(TAG_EMAIL);
         //Set icon to toolbar
         toolbar.setNavigationIcon(R.drawable.back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -82,6 +84,7 @@ public class LihatKontenEdukasi_Masyarakat extends AppCompatActivity {
                 Intent inten = new Intent(LihatKontenEdukasi_Masyarakat.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
+                inten.putExtra(TAG_EMAIL, email);
                 finish();
                 startActivity(inten);
             }

@@ -46,6 +46,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
     TextView txt_nama,emailku,poin;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
+    public final static  String TAG_EMAIL="email";
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
     @Override
@@ -85,9 +86,11 @@ public class BerandaMasyarakats extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id=getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
+        email = getIntent().getStringExtra(TAG_EMAIL);
 
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
-        Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
+        Preferences.setLoggedInName(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
+        Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_EMAIL));
         transaksi =findViewById(R.id.riwayat);
         tukarhadiah =findViewById(R.id.tukarhadiah);
         konten=findViewById(R.id.kontenanimasi);
@@ -105,6 +108,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent profils = new Intent(BerandaMasyarakats.this, Profil.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
+                profils.putExtra(TAG_EMAIL, email);
                 startActivity(profils);
             }
         });
@@ -124,6 +128,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent transaksi= new Intent(BerandaMasyarakats.this, LihatTransaksi_Masyarakat.class);
                 transaksi.putExtra(TAG_ID, id);
                 transaksi.putExtra(TAG_NAMA, nama);
+                transaksi.putExtra(TAG_EMAIL, email);
                 startActivity(transaksi);
             }
         });
@@ -133,6 +138,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent feedback = new Intent(BerandaMasyarakats.this, LihatFeedback.class);
                 feedback.putExtra(TAG_ID, id);
                 feedback.putExtra(TAG_NAMA, nama);
+                feedback.putExtra(TAG_EMAIL, email);
                 startActivity(feedback);
             }
         });
@@ -185,6 +191,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
 
                     for( int i=0; i < response.length();i++){
                         JSONObject data = response.getJSONObject(i);
+
                         Glide.with(getBaseContext())
                                 .load( "https://ta.poliwangi.ac.id/~ti17136/foto_user/"+data.getString("file_gambar") )
                                 .apply(new RequestOptions().centerCrop())

@@ -40,7 +40,7 @@ import java.util.Map;
 
 public class TambahFeedback extends AppCompatActivity implements View.OnClickListener {
     TextView tvNama, tvKomentar;
-    String email;
+    String email, nama;
     ImageView ivPhoto;
     Button btnSimpan;
     ProgressDialog pDialog;
@@ -67,6 +67,9 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         btnSimpan.setOnClickListener(this);
         ivPhoto.setOnClickListener(this);
         email=(Preferences.getLoggedInUser(getBaseContext()));
+        nama=(Preferences.getLoggedInName(getBaseContext()));
+
+        tvKomentar.setText(email+nama);
     }
 
     @Override
@@ -185,6 +188,7 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> map = new HashMap<>();
+                map.put("nama", nama);
                 map.put("email", email);
                 map.put("kritik_saran", feedback);
                 if (decoded!=null){

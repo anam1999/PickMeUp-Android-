@@ -44,7 +44,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.View
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
         Glide.with(holder.itemView.getContext())
-                .load( transaksi.getGambar())
+                .load(transaksi.getGambar())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.ivtransaksi);
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {

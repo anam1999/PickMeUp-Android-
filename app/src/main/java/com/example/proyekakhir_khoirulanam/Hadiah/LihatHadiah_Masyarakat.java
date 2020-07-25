@@ -80,7 +80,6 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
 
         poin =findViewById(R.id.poinku);
         btn=findViewById(R.id.btn_tambah);
-        getpoin();
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
@@ -121,36 +120,5 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
         rvHadiah.setAdapter(hadiahAdapter);
         hadiahAdapter.notifyDataSetChanged();
     }
-    private void getpoin() {
 
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://192.168.43.229/relasi/public/api/show/"+getIntent().getStringExtra(TAG_ID);
-
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                try {
-
-                    for( int i=0; i < response.length();i++){
-                        JSONObject data = response.getJSONObject(i);
-//                        poin.setText(data.getString("poin"));
-
-
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), error.toString(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        queue.add(arrayRequest);
-    }
 }

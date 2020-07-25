@@ -35,6 +35,7 @@ import java.util.Map;
 public class DetailHadiah_Masyarakat extends AppCompatActivity {
 
     Hadiah hadiah ;
+    ImageView ivHadiah;
     TextView jumlahhadiahs,jumlahhadiah, poin1,poinsaya,rvHadiah,rvDeskripsi,rvpoin,isi,
             jumlahharga,namahadiah,hargahadiah,sisa,nilai,jumlahhargacek;
     Button checkout,tukarkan,kurang,tambah;
@@ -88,7 +89,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
         jumlahhargacek = findViewById(R.id.jumlahharga);
         isi = findViewById(R.id.status);
         checkout = findViewById(R.id.tukarkan);
-        ImageView ivHadiah = findViewById(R.id.ivHadiah);
+        ivHadiah = findViewById(R.id.ivHadiah);
         tambah =findViewById(R.id.tambahi);
         kurang =findViewById(R.id.kurang);
         poin1=findViewById(R.id.TotalPoin);

@@ -38,10 +38,10 @@ public class RiwayatPembuanganSampahAdapter extends RecyclerView.Adapter<Riwayat
     @Override
     public void onBindViewHolder(@NonNull final RiwayatPembuanganSampahAdapter.ViewHolder holder, int position) {
         final RiwayatPembuanganSampah riwayatPembuanganSampah = riwayatPembuanganSampahArrayList.get(position);
-        holder.tvNamaLokasi.setText(riwayatPembuanganSampah.getNama_lokasi());
-        holder.tvkodeReward.setText(riwayatPembuanganSampah.getKode_reward());
-        holder.tvNilai.setText(riwayatPembuanganSampah.getNilai()+" Poin");
-        holder.tvStatus.setText(riwayatPembuanganSampah.getStatus());
+        holder.tvNamaLokasi.setText("Nama Lokasi   :"+riwayatPembuanganSampah.getNama_lokasi());
+        holder.tvkodeReward.setText("Kode_ Reward :"+riwayatPembuanganSampah.getKode_reward());
+        holder.tvNilai.setText("Nilai                  :"+riwayatPembuanganSampah.getNilai()+" Poin");
+        holder.tvStatus.setText("Status               :"+riwayatPembuanganSampah.getStatus());
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
 //        Glide.with(holder.itemView.getContext())

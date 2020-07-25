@@ -30,9 +30,10 @@ public class LihatTransaksi_Masyarakat extends AppCompatActivity {
     TransaksiAdapter transaksiAdapter;
     ArrayList<Transaksi> transaksiArrayList;
     RequestQueue queue;
-    String id,nama;
+    String id,nama,email;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
+    public final static  String TAG_EMAIL="email";
     Toolbar toolbar;
     SharedPreferences sharedpreferences;
     @Override
@@ -40,7 +41,7 @@ public class LihatTransaksi_Masyarakat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_transaksi);
 
-
+        email = getIntent().getStringExtra(TAG_EMAIL);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Transaksi Hadiah");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -56,6 +57,7 @@ public class LihatTransaksi_Masyarakat extends AppCompatActivity {
                 Intent inten = new Intent(LihatTransaksi_Masyarakat.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
+                inten.putExtra(TAG_EMAIL, email);
                 finish();
                 startActivity(inten);
             }

@@ -16,18 +16,12 @@
         android:background="@drawable/radius"
         android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/ivSampah"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:padding="4dp"/>
 
         <TextView
             android:id="@+id/tvNamaSampah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@id/ivSampah"
             android:text="Nama Sampah"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="#000000" />
@@ -39,8 +33,8 @@
             android:layout_below="@id/tvNamaSampah"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/ivSampah"
             android:text="kODE reward "
+            android:textColor="@color/black"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
         <TextView
             android:id="@+id/tvNilai"
@@ -49,8 +43,8 @@
             android:layout_below="@id/tvKodeRewared"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/ivSampah"
             android:text="Nilai"
+            android:textColor="@color/black"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
         <TextView
@@ -60,7 +54,7 @@
             android:layout_below="@id/tvNilai"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/ivSampah"
+            android:textColor="@color/black"
             android:text="Status"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 

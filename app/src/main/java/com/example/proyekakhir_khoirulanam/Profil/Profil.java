@@ -48,6 +48,7 @@ public class Profil extends AppCompatActivity {
 
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
+    public final static  String TAG_EMAIL="email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,7 @@ public class Profil extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
+        email = getIntent().getStringExtra(TAG_EMAIL);
         username.setText(" "+nama);
         emails.setText(""+id);
 
@@ -104,6 +106,7 @@ public class Profil extends AppCompatActivity {
                 Intent profils = new Intent(Profil.this, UpdateProfil.class);
                 profils.putExtra(TAG_ID, id);
                 profils.putExtra(TAG_NAMA, nama);
+                profils.putExtra(TAG_EMAIL, email);
                 startActivity(profils);
             }
         });
@@ -114,6 +117,7 @@ public class Profil extends AppCompatActivity {
                 Intent intent=new Intent(Profil.this, BerandaMasyarakats.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
+                intent.putExtra(TAG_EMAIL, email);
                 startActivity(intent);
             }
         });

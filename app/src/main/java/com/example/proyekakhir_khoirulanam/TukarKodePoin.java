@@ -39,9 +39,10 @@ TextView Totalpoin,totals;
 EditText Kode;
 Button Tukarkan;
 ProgressDialog pDialog;
-String poin,kodeku,nama,id;
+String poin,kodeku,nama,id,email;
 public final static String TAG_NAMA = "username";
 public final static String TAG_ID = "id";
+    public final static  String TAG_EMAIL="email";
 Toolbar toolbar;
 SharedPreferences sharedpreferences;
 SwipeRefreshLayout swLayout;
@@ -83,6 +84,7 @@ LinearLayout llayout;
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
+        email = getIntent().getStringExtra(TAG_EMAIL);
         //Set icon to toolbar
         toolbar.setNavigationIcon(R.drawable.back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -91,6 +93,7 @@ LinearLayout llayout;
                 Intent inten = new Intent(TukarKodePoin.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
+                inten.putExtra(TAG_EMAIL, email);
                 finish();
                 startActivity(inten);
             }
@@ -157,6 +160,8 @@ LinearLayout llayout;
                 Toast.makeText(getBaseContext(), "Berhasil Menukar Kode dengan Poin", Toast.LENGTH_SHORT).show();
                 Intent a = new Intent(TukarKodePoin.this, TukarKodePoin.class);
                 a.putExtra(id,TAG_ID);
+                a.putExtra(nama,TAG_NAMA);
+                a.putExtra(email,TAG_EMAIL);
                 startActivity(a);
                 hideDialog();
 
