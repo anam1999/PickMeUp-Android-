@@ -71,6 +71,8 @@
             <EditText
                 android:id="@+id/namaku"
                 android:textStyle="bold"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,7 +96,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="nohp"/>
+                android:backgroundTint="@color/black"
+                android:width="300dp"
+                android:text="Nohp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -116,6 +120,8 @@
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="Alamat"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -138,6 +144,8 @@
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="Email"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
@@ -159,6 +167,8 @@
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="Password"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

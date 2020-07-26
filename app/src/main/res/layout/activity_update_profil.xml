@@ -84,6 +84,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:text="Nama"/>
         </LinearLayout>
         <LinearLayout
@@ -103,6 +105,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:text="nohp"/>
         </LinearLayout>
 
@@ -125,6 +129,8 @@
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="Alamat"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -146,6 +152,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:text="Email"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -165,6 +173,8 @@
                 android:id="@+id/passwords"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:width="300dp"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:textStyle="bold" />
