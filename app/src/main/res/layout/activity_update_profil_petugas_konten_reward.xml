@@ -178,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="Password"
+                android:text=""
                 android:backgroundTint="@color/black"
                 android:width="300dp"
                 android:textStyle="bold" />

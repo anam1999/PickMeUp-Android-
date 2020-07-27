@@ -65,11 +65,10 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
 
     }
 
-
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
+        gMap.setMyLocationEnabled(true);
 
         // Add a marker in Sydney and move the camera
         LatLng banyuwangi = new LatLng(-8.5982547, 114.0294519);
@@ -81,7 +80,7 @@ public class MonitoringSampahPintar extends FragmentActivity implements OnMapRea
 
             return;
         }
-        gMap.setMyLocationEnabled(true);
+
     }
     private void addMarker(LatLng latlng, final String title, final String keterangan ) {
         markerOptions.position(latlng);

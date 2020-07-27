@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -26,6 +27,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -36,6 +38,9 @@ import com.example.proyekakhir_khoirulanam.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProfilPetugasKontenReward extends AppCompatActivity {
     String nama,id,email,role;
@@ -187,15 +192,16 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         // jika tombol diklik, maka akan menutup activity ini
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putBoolean(Masuk.session_status, false);
-                        editor.putString(TAG_ID, null);
-                        editor.putString(TAG_NAMA, null);
-
-                        editor.commit();
-                        Intent ua = new Intent(ProfilPetugasKontenReward.this, Masuk.class);
-                        finish();
-                        startActivity(ua);
+//                        SharedPreferences.Editor editor = sharedpreferences.edit();
+//                        editor.putBoolean(Masuk.session_status, false);
+//                        editor.putString(TAG_ID, null);
+//                        editor.putString(TAG_NAMA, null);
+//
+//                        editor.commit();
+//                        Intent ua = new Intent(ProfilPetugasKontenReward.this, Masuk.class);
+//                        finish();
+//                        startActivity(ua);
+                        Logout();
 
 
 
@@ -217,6 +223,52 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
         alertDialog.show();
 
     }
+
+
+    private void Logout() {
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Update Profil ...");
+        showDialog();
+        RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/Logout" ;
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putBoolean(Masuk.session_status, false);
+                editor.putString(TAG_ID, null);
+                editor.putString(TAG_NAMA, null);
+                editor.commit();
+                Intent profils = new Intent(ProfilPetugasKontenReward.this, Masuk.class);
+                startActivity(profils);
+                hideDialog();
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getBaseContext(), "gagal update profil", Toast.LENGTH_SHORT).show();
+                hideDialog();
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> MyData = new HashMap<String, String>();
+                MyData.put("id", Preferences.getId(getBaseContext()));
+
+                return MyData;
+            }
+        };
+
+        requestQueue.add(stringRequest);
+    }
+
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();

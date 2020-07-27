@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -35,6 +37,9 @@ import com.example.proyekakhir_khoirulanam.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProfilPimpinan extends AppCompatActivity {
     String nama,id,email,role;
     TextView username,emails, namaku,alamat,nohp,emailnya;
@@ -42,6 +47,7 @@ public class ProfilPimpinan extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     Button edit;
     ImageView profil;
+    ProgressDialog pDialog;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
 
@@ -119,7 +125,7 @@ public class ProfilPimpinan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                showDialog();
+                showDialogs();
 
             }
         });
@@ -165,7 +171,7 @@ public class ProfilPimpinan extends AppCompatActivity {
         queue.add(arrayRequest);
     }
 
-    private void showDialog(){
+    private void showDialogs(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
 
@@ -178,16 +184,17 @@ public class ProfilPimpinan extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
+                        Logout();
                         // jika tombol diklik, maka akan menutup activity ini
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putBoolean(Masuk.session_status, false);
-                        editor.putString(TAG_ID, null);
-                        editor.putString(TAG_NAMA, null);
-
-                        editor.commit();
-                        Intent ua = new Intent(ProfilPimpinan.this, Masuk.class);
-                        finish();
-                        startActivity(ua);
+//                        SharedPreferences.Editor editor = sharedpreferences.edit();
+//                        editor.putBoolean(Masuk.session_status, false);
+//                        editor.putString(TAG_ID, null);
+//                        editor.putString(TAG_NAMA, null);
+//
+//                        editor.commit();
+//                        Intent ua = new Intent(ProfilPimpinan.this, Masuk.class);
+//                        finish();
+//                        startActivity(ua);
 
                     }
                 })
@@ -205,5 +212,59 @@ public class ProfilPimpinan extends AppCompatActivity {
         // menampilkan alert dialog
         alertDialog.show();
 
+    }
+
+    private void Logout() {
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Proses Update Profil ...");
+        showDialog();
+        RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
+        String url ="https://ta.poliwangi.ac.id/~ti17136/api/Logout" ;
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putBoolean(Masuk.session_status, false);
+                editor.putString(TAG_ID, null);
+                editor.putString(TAG_NAMA, null);
+                editor.commit();
+                Intent profils = new Intent(ProfilPimpinan.this, Masuk.class);
+                startActivity(profils);
+                hideDialog();
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getBaseContext(), "gagal update profil", Toast.LENGTH_SHORT).show();
+                hideDialog();
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> MyData = new HashMap<String, String>();
+                MyData.put("id", Preferences.getId(getBaseContext()));
+
+                return MyData;
+            }
+        };
+
+        requestQueue.add(stringRequest);
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }
