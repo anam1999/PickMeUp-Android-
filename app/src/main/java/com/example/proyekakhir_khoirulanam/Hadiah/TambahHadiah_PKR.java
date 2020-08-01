@@ -15,6 +15,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -54,7 +55,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
     Uri fileUri;
     public final int REQUEST_CAMERA = 0;
     public final int SELECT_FILE = 1;
-    int max_resolution_image = 2048;
+    int max_resolution_image = 1024;
     public final static String TAG_NAMA = "username";
     public final static String TAG_ID = "id";
     Toolbar toolbar;
@@ -97,18 +98,19 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         switch (v.getId()){
 
             case R.id.btn_simpan:
-                String nama_hadiah = tvNama.getText().toString();
-                String deskripsi = tvdeskripsi.getText().toString();
-                String harga_hadiah = poin.getText().toString();
-                String jumlah_hadiah = jumlah.getText().toString();
-
-                if (nama_hadiah.trim().length() > 0 && deskripsi.trim().length() > 0
-                        && harga_hadiah.trim().length() > 0&& jumlah_hadiah.trim().length() > 0) {
-                    sendData(nama_hadiah, deskripsi,harga_hadiah,jumlah_hadiah);
-                } else {
-                    // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext(), "Field tidak boleh kosong", Toast.LENGTH_LONG).show();
-                }
+                validasi();
+//                String nama_hadiah = tvNama.getText().toString();
+//                String deskripsi = tvdeskripsi.getText().toString();
+//                String harga_hadiah = poin.getText().toString();
+//                String jumlah_hadiah = jumlah.getText().toString();
+//
+//                if (nama_hadiah.trim().length() > 0 && deskripsi.trim().length() > 0
+//                        && harga_hadiah.trim().length() > 0&& jumlah_hadiah.trim().length() > 0) {
+//                    sendData(nama_hadiah, deskripsi,harga_hadiah,jumlah_hadiah);
+//                } else {
+//                    // Prompt user to enter credentials
+//                    Toast.makeText(getApplicationContext(), "Kolom tidak boleh kosong", Toast.LENGTH_LONG).show();
+//                }
 
                 break;
 
@@ -116,6 +118,26 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
                 pickImage();
                 break;
 
+        }
+    }
+    public void validasi(){
+        String nama_hadiah = tvNama.getText().toString();
+        String deskripsi = tvdeskripsi.getText().toString();
+        String harga_hadiah = poin.getText().toString();
+        String jumlah_hadiah = jumlah.getText().toString();
+
+        if (TextUtils.isEmpty(nama_hadiah)){
+            tvNama.setError("Judul tidak boleh kosong");
+        }else if (TextUtils.isEmpty(deskripsi)){
+            tvdeskripsi.setError("Deskripsi tidak boleh kosong");
+
+        }else if (TextUtils.isEmpty(harga_hadiah)){
+           poin.setError("Poin tidak boleh kosong");
+        }else if (TextUtils.isEmpty(jumlah_hadiah)){
+            jumlah.setError("Jumla Hadiah tidak boleh kosong");
+            return;
+        }else {
+            sendData(nama_hadiah,deskripsi,harga_hadiah,jumlah_hadiah);
         }
     }
     private void pickImage() {
@@ -209,7 +231,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(TambahHadiah_PKR.this, "Maaf ada kesalahan menambah Data Hadiah  ", Toast.LENGTH_LONG).show();
+                Toast.makeText(TambahHadiah_PKR.this, "Maaf ada kesalahan menambah Data Hadiah(Upload Foto)  ", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }){
@@ -229,19 +251,7 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         requestQueue.add(srSendData);
     }
 
-    private String imgToString(Bitmap bitmap){
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
 
-        String encodeImage=null;
-        if (bitmap!=null){
-            byte[] imageByte = outputStream.toByteArray();
-            encodeImage = Base64.encodeToString(imageByte, Base64.DEFAULT);
-        }
-
-
-        return encodeImage;
-    }
 
     private void setToImageView(Bitmap bmp) {
         //compress image

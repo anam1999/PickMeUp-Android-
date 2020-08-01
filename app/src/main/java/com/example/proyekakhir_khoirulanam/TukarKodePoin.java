@@ -169,7 +169,7 @@ LinearLayout llayout;
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), "Maaf Terjadi Kesalahan.Silahkan Coba Lagi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Maaf Kode Anda Salah", Toast.LENGTH_SHORT).show();
                 hideDialog();
 
             }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ import com.example.proyekakhir_khoirulanam.R;
 import java.util.ArrayList;
 
 public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdapter.ViewHolder> {
+
     private ArrayList<KontenEdukasi> animasislist = new ArrayList<>();
     public void adapter( ArrayList<KontenEdukasi> animasilist) {
         animasislist.clear();
@@ -67,7 +69,7 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
 //
 //            }
 //        });
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 KontenEdukasi animasi = animasislist.get(holder.getAdapterPosition());
@@ -77,9 +79,9 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
             }
         });
 
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.hapus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 new AlertDialog.Builder((holder.itemView.getContext()))
                         .setMessage("Ingin menghapus  "+ animasi.getNama_konten()+" ?")
                         .setCancelable(false)
@@ -113,8 +115,46 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
                             }
                         })
                         .show();
-                return false;
+//                return false;
             }
+
+//            @Override
+//            public boolean onLongClick(View v) {
+//                new AlertDialog.Builder((holder.itemView.getContext()))
+//                        .setMessage("Ingin menghapus  "+ animasi.getNama_konten()+" ?")
+//                        .setCancelable(false)
+//                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//
+//                                RequestQueue queue = Volley.newRequestQueue(holder.itemView.getContext());
+//                                String url = "https://ta.poliwangi.ac.id/~ti17136/api/hapuskonten/"+animasi.getId();
+//
+//                                StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+//                                    @Override
+//                                    public void onResponse(String response) {
+//                                        Toast.makeText(holder.itemView.getContext(), "berhasil"+response.toString(), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                }, new Response.ErrorListener() {
+//                                    @Override
+//                                    public void onErrorResponse(VolleyError error) {
+//                                        Toast.makeText(holder.itemView.getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+//
+//                                    }
+//                                });
+//                                queue.add(stringRequest);
+//                            }
+//                        })
+//                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.cancel();
+//                            }
+//                        })
+//                        .show();
+//                return false;
+//            }
         });
     }
 
@@ -128,6 +168,7 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
 
         TextView tvNamaKonten,tvDeskripsi;
         ImageView ivAnimasi;
+        Button hapus,edit;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -136,6 +177,8 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
             tvNamaKonten = itemView.findViewById(R.id.tvNamaKonten);
             tvDeskripsi=itemView.findViewById(R.id.tvDeskripsi);
             ivAnimasi = itemView.findViewById(R.id.ivGambar);
+            edit= itemView.findViewById(R.id.edit);
+            hapus= itemView.findViewById(R.id.hapus);
 
         }
 

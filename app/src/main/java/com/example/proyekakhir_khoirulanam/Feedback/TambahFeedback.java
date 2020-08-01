@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -69,7 +70,6 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         email=(Preferences.getLoggedInUser(getBaseContext()));
         nama=(Preferences.getLoggedInName(getBaseContext()));
 
-        tvKomentar.setText(email+nama);
     }
 
     @Override
@@ -77,21 +77,31 @@ public class TambahFeedback extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
 
             case R.id.btn_simpan:
-                String feedback = tvKomentar.getText().toString();
-
-                // mengecek kolom yang kosong
-                if (feedback.trim().length() > 0) {
-                   sendDataFeedback(feedback);
-                } else {
-                    // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext() ,"Field tidak boleh kosong", Toast.LENGTH_LONG).show();
-                }
+                validasi();
+//                String feedback = tvKomentar.getText().toString();
+//
+//                // mengecek kolom yang kosong
+//                if (feedback.trim().length() > 0) {
+//                   sendDataFeedback(feedback);
+//                } else {
+//                    // Prompt user to enter credentials
+//                    Toast.makeText(getApplicationContext() ,"Kritik Saran tidak boleh kosong", Toast.LENGTH_LONG).show();
+//                }
                 break;
 
             case R.id.iv_photo:
                 pickImage();
                 break;
 
+        }
+    }
+    public void validasi(){
+        String feedback = tvKomentar.getText().toString();
+
+        if (TextUtils.isEmpty(feedback)){
+            tvKomentar.setError("Kritik Saran tidak boleh kosong");
+        }else {
+            sendDataFeedback(feedback);
         }
     }
 

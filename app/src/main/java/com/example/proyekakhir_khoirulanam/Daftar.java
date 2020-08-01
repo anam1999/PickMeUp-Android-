@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -63,27 +64,49 @@ public class Daftar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String user = editText1.getText().toString();
-                String email = editText2.getText().toString();
-                String password = editText3.getText().toString();
-                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
-                // mengecek kolom yang kosong
-                if (email.trim().length() > 0 && password.trim().length() > 0&& user.trim().length() > 0 ) {
-//                    if (email.trim().equals("1") && password.trim().equals("1")&& user.trim().equals("1")) {
-                        if (email.trim().matches(emailPattern)){
-                            daftar(user,email,password);
-                        }else {
-                            Toast.makeText(getApplicationContext(),"Email tidak Valid,pakai @gmail.com atau @yahoo.com", Toast.LENGTH_SHORT).show();
-                        }
-//                    daftar(user,email,password);
-                }else {
-                    Toast.makeText(getApplicationContext() ,"Username, Email atau Paswword tidak boleh kosong", Toast.LENGTH_LONG).show();
-                }
-
+//                String user = editText1.getText().toString();
+//                String email = editText2.getText().toString();
+//                String password = editText3.getText().toString();
+//                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+//
+//                // mengecek kolom yang kosong
+//                if (email.trim().length() > 0 && password.trim().length() > 0&& user.trim().length() > 0 ) {
+////                    if (email.trim().equals("1") && password.trim().equals("1")&& user.trim().equals("1")) {
+//                        if (email.trim().matches(emailPattern)){
+//                            daftar(user,email,password);
+//                        }else {
+//                            Toast.makeText(getApplicationContext(),"Email tidak Valid,pakai @gmail.com atau @yahoo.com", Toast.LENGTH_SHORT).show();
+//                        }
+////                    daftar(user,email,password);
+//                }else {
+//                    Toast.makeText(getApplicationContext() ,"Username, Email atau Paswword tidak boleh kosong", Toast.LENGTH_LONG).show();
+//                }
+        validasi();
 
             }
         });
+    }
+    private void  validasi(){
+        String user = editText1.getText().toString();
+        String email = editText2.getText().toString();
+        String password = editText3.getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        if (TextUtils.isEmpty(user)){
+            editText1.setError("Username tidak boleh kosong");
+        }else if (TextUtils.isEmpty(email)){
+            editText2.setError("Email tidak boleh kosong");
+
+        }else if (TextUtils.isEmpty(password)) {
+            editText3.setError("Password tidak boleh kosong");
+            return;
+        }else {
+            if (email.trim().matches(emailPattern)){
+                daftar(user,email,password);
+            }else {
+                Toast.makeText(getApplicationContext(),"Email tidak Valid", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void daftar(final String user, final String email,final String password) {

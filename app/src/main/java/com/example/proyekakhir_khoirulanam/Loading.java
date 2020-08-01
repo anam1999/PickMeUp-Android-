@@ -36,6 +36,7 @@ public class Loading extends Animation {
             context.startActivity(new Intent(context, Masuk.class));
         }
     }
+
 }
 
 

@@ -119,6 +119,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent Kode = new Intent(BerandaMasyarakats.this, TukarKodePoin.class);
                 Kode.putExtra(TAG_ID, id);
                 Kode.putExtra(TAG_NAMA,nama);
+                Kode.putExtra(TAG_EMAIL, email);
                 startActivity(Kode);
             }
         });
@@ -148,6 +149,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent konten = new Intent(BerandaMasyarakats.this, LihatKontenEdukasi_Masyarakat.class);
                 konten.putExtra(TAG_ID, id);
                 konten.putExtra(TAG_NAMA, nama);
+                konten.putExtra(TAG_EMAIL, email);
                 startActivity(konten);
             }
         });
@@ -157,6 +159,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent tukarhadiah = new Intent(BerandaMasyarakats.this, LihatHadiah_Masyarakat.class);
                 tukarhadiah.putExtra(TAG_ID, id);
                 tukarhadiah.putExtra(TAG_NAMA,nama);
+                tukarhadiah.putExtra(TAG_EMAIL, email);
                 startActivity(tukarhadiah);
             }
         });
@@ -166,6 +169,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent agenda = new Intent(BerandaMasyarakats.this, LihatAgenda.class);
                 agenda.putExtra(TAG_ID, id);
                 agenda.putExtra(TAG_NAMA,nama);
+                agenda.putExtra(TAG_EMAIL, email);
                 startActivity(agenda);
             }
         });
@@ -175,6 +179,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
                 Intent riwayatsampah = new Intent(BerandaMasyarakats.this, LihatRiwayatPembuanganSampah.class);
                 riwayatsampah.putExtra(TAG_ID, id);
                 riwayatsampah.putExtra(TAG_NAMA,nama);
+                riwayatsampah.putExtra(TAG_EMAIL, email);
                 startActivity(riwayatsampah);
             }
         });

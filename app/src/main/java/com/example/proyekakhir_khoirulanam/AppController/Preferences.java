@@ -11,7 +11,7 @@ public class Preferences {
     static final String KEY_USERNAME_SEDANG_LOGIN = "username";
     static final String KEY_EMAIL_SEDANG_LOGIN = "email";
     static final String KEY_STATUS_SEDANG_LOGIN = "Status_logged_in";
-
+    static final String FIREBASE = "id";
     private static SharedPreferences getSharedPreference(Context context){
         return PreferenceManager.getDefaultSharedPreferences(context);
     }
@@ -34,7 +34,7 @@ public class Preferences {
     }
 
     public static String getLoggedInUser(Context context){
-        return getSharedPreference(context).getString(KEY_EMAIL_SEDANG_LOGIN,"gak bisa");
+        return getSharedPreference(context).getString(KEY_EMAIL_SEDANG_LOGIN,"null");
     }
     public static void setLoggedInName(Context context, String id){
         SharedPreferences.Editor editor = getSharedPreference(context).edit();
@@ -42,7 +42,7 @@ public class Preferences {
         editor.apply();
     }
     public static String getLoggedInName(Context context){
-        return getSharedPreference(context).getString(KEY_USERNAME_SEDANG_LOGIN,"gak bisa");
+        return getSharedPreference(context).getString(KEY_USERNAME_SEDANG_LOGIN,"null");
     }
     public static void setLoggedInStatus(Context context, boolean status){
         SharedPreferences.Editor editor = getSharedPreference(context).edit();
@@ -60,4 +60,5 @@ public class Preferences {
         editor.remove(KEY_STATUS_SEDANG_LOGIN);
         editor.apply();
     }
+
 }

@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -111,21 +112,36 @@ public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.O
         switch (v.getId()) {
 
             case R.id.btn_simpan:
-                String nama_konten = tvJudul.getText().toString();
-                String deskripsi = tvDeskripsi.getText().toString();
-
-                if (nama_konten.trim().length() > 0 && deskripsi.trim().length() > 0) {
-                    sendData(nama_konten, deskripsi);
-                } else {
-                    // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext(), "Field tidak boleh kosong", Toast.LENGTH_LONG).show();
-                }
+                validasi();
+//                String nama_konten = tvJudul.getText().toString();
+//                String deskripsi = tvDeskripsi.getText().toString();
+//
+//                if (nama_konten.trim().length() > 0 && deskripsi.trim().length() > 0) {
+//                    sendData(nama_konten, deskripsi);
+//                } else {
+//                    // Prompt user to enter credentials
+//                    Toast.makeText(getApplicationContext(), "Kolom tidak boleh kosong", Toast.LENGTH_LONG).show();
+//                }
                 break;
 
             case R.id.iv_photo:
                 pickImage();
                 break;
 
+        }
+    }
+
+    public void validasi(){
+        String nama_konten = tvJudul.getText().toString();
+        String deskripsi = tvDeskripsi.getText().toString();
+
+        if (TextUtils.isEmpty(nama_konten)){
+            tvJudul.setError("Judul tidak boleh kosong");
+        }else if (TextUtils.isEmpty(deskripsi)){
+            tvDeskripsi.setError("Deskripsi tidak boleh kosong");
+            return;
+        }else {
+            sendData(nama_konten,deskripsi);
         }
     }
 
@@ -209,7 +225,7 @@ public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.O
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NAMA, nama);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Data konten animasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Data konten edukasi berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 finish();
                 hideDialog();
             }
@@ -217,7 +233,7 @@ public class TambahKontenEdukasi_PKR extends AppCompatActivity implements View.O
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(TambahKontenEdukasi_PKR.this, "Maaf ada kesalahan menambah Data konten animasi(Upload Foto)  ", Toast.LENGTH_LONG).show();
+                Toast.makeText(TambahKontenEdukasi_PKR.this, "Maaf ada kesalahan menambah Data konten edukasi (Upload Foto)  ", Toast.LENGTH_LONG).show();
                 hideDialog();
 //                Toast.makeText(TambahKontenAnimasiPKW.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }

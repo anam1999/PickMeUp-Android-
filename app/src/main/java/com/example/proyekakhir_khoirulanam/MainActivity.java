@@ -22,10 +22,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         progessbar = findViewById(R.id.progesbar);
         textView    = findViewById(R.id.textview);
-
         progessbar.setMax(100);
         progessbar.setScaleY(3f);
-
 
         progessAnimation();
     }
@@ -33,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         Loading anim = new Loading(this, progessbar, textView, 0f,100f);
         anim.setDuration(2000);
         progessbar.setAnimation(anim);
-
-
     }
 
 }

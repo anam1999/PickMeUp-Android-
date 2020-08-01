@@ -86,6 +86,7 @@ public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.ViewHolder
                                     @Override
                                     public void onResponse(String response) {
                                         Toast.makeText(holder.itemView.getContext(), "berhasil"+response.toString(), Toast.LENGTH_SHORT).show();
+
                                     }
                                 }, new Response.ErrorListener() {
                                     @Override

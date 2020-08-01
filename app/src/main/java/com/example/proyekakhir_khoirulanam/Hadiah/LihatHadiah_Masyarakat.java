@@ -42,12 +42,12 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
     HadiahAdapterView hadiahAdapter;
     ArrayList<Hadiah> hadiahArrayList;
     RequestQueue queue;
-    String id,nama;
+    String id,nama,email;
     TextView poin,btn;
     SharedPreferences sharedpreferences;
     public final static String TAG_ID = "id";
     public final static String TAG_NAMA = "username";
-
+    public final static  String TAG_EMAIL="email";
     Toolbar toolbar;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
@@ -80,8 +80,6 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
 
         poin =findViewById(R.id.poinku);
         btn=findViewById(R.id.btn_tambah);
-        sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
-        id = getIntent().getStringExtra(TAG_ID);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Hadiah");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -89,6 +87,7 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         nama = getIntent().getStringExtra(TAG_NAMA);
+        email = getIntent().getStringExtra(TAG_EMAIL);
         //Set icon to toolbar
         toolbar.setNavigationIcon(R.drawable.back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -97,6 +96,7 @@ public class LihatHadiah_Masyarakat extends AppCompatActivity {
                 Intent inten = new Intent(LihatHadiah_Masyarakat.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
+                inten.putExtra(TAG_EMAIL,email);
                 finish();
                 startActivity(inten);
             }

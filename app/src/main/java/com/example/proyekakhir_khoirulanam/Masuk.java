@@ -254,7 +254,7 @@ public class Masuk extends AppCompatActivity {
                 catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Maaf Jaringan Bermasalah", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Maaf Email/Password Salah", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -263,7 +263,7 @@ public class Masuk extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(), "Maaf Jaringan Bermasalah!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Maaf Email/Password Salah", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }) {

@@ -229,7 +229,7 @@ public class ProfilPetugasKontenReward extends AppCompatActivity {
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Proses Update Profil ...");
+        pDialog.setMessage("Proses Keluar Akun ...");
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="https://ta.poliwangi.ac.id/~ti17136/api/Logout" ;
