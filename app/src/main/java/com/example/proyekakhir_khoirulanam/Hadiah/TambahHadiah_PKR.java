@@ -127,14 +127,13 @@ EditText tvNama,tvdeskripsi,poin,jumlah;
         String jumlah_hadiah = jumlah.getText().toString();
 
         if (TextUtils.isEmpty(nama_hadiah)){
-            tvNama.setError("Judul tidak boleh kosong");
+            tvNama.setError("Nama Hadiah tidak boleh kosong");
         }else if (TextUtils.isEmpty(deskripsi)){
             tvdeskripsi.setError("Deskripsi tidak boleh kosong");
-
         }else if (TextUtils.isEmpty(harga_hadiah)){
-           poin.setError("Poin tidak boleh kosong");
+            poin.setError("harga hadiah tidak boleh kosong");
         }else if (TextUtils.isEmpty(jumlah_hadiah)){
-            jumlah.setError("Jumla Hadiah tidak boleh kosong");
+            jumlah.setError("jumlah hadiah tidak boleh kosong");
             return;
         }else {
             sendData(nama_hadiah,deskripsi,harga_hadiah,jumlah_hadiah);
