@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +40,7 @@ public class KontenEdukasiAdapter extends RecyclerView.Adapter<KontenEdukasiAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_kontenanimasi,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_konten_edukasi,parent,false);
 
         return new ViewHolder(view);
 

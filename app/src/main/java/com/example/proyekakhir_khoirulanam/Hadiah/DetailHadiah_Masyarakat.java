@@ -23,7 +23,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Constructor.Transaksi;
 import com.example.proyekakhir_khoirulanam.R;
 
 import org.json.JSONArray;
@@ -262,7 +261,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Selamat, Anda Berhasil Menukar ", Toast.LENGTH_SHORT).show();
-                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, LihatTransaksi_Masyarakat.class);
+                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, RiwayatTransaksiHadiah_Masyarakat.class);
                 hadiah.putExtra(TAG_ID,id);
                 hadiah.putExtra(TAG_NAMA,nama);
                 startActivity(hadiah);
@@ -301,7 +300,7 @@ public class DetailHadiah_Masyarakat extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
-                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, LihatTransaksi_Masyarakat.class);
+                Intent hadiah = new Intent(DetailHadiah_Masyarakat.this, RiwayatTransaksiHadiah_Masyarakat.class);
                 hadiah.putExtra(TAG_ID,id);
                 hadiah.putExtra(TAG_NAMA,nama);
                 startActivity(hadiah);

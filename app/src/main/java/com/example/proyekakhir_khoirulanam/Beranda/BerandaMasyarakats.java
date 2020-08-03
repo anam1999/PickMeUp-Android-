@@ -25,12 +25,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgenda;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
-import com.example.proyekakhir_khoirulanam.Constructor.RiwayatPembuanganSampah;
 import com.example.proyekakhir_khoirulanam.Feedback.LihatFeedback;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_Masyarakat;
-import com.example.proyekakhir_khoirulanam.Hadiah.LihatTransaksi_Masyarakat;
+import com.example.proyekakhir_khoirulanam.Hadiah.RiwayatTransaksiHadiah_Masyarakat;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_Masyarakat;
-import com.example.proyekakhir_khoirulanam.LihatRiwayatPembuanganSampah;
+import com.example.proyekakhir_khoirulanam.RiwayatPenukaranKodeReward;
 import com.example.proyekakhir_khoirulanam.Masuk;
 import com.example.proyekakhir_khoirulanam.Profil.Profil;
 import com.example.proyekakhir_khoirulanam.R;
@@ -126,7 +125,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         transaksi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent transaksi= new Intent(BerandaMasyarakats.this, LihatTransaksi_Masyarakat.class);
+                Intent transaksi= new Intent(BerandaMasyarakats.this, RiwayatTransaksiHadiah_Masyarakat.class);
                 transaksi.putExtra(TAG_ID, id);
                 transaksi.putExtra(TAG_NAMA, nama);
                 transaksi.putExtra(TAG_EMAIL, email);
@@ -176,7 +175,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         riwayatsampah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent riwayatsampah = new Intent(BerandaMasyarakats.this, LihatRiwayatPembuanganSampah.class);
+                Intent riwayatsampah = new Intent(BerandaMasyarakats.this, RiwayatPenukaranKodeReward.class);
                 riwayatsampah.putExtra(TAG_ID, id);
                 riwayatsampah.putExtra(TAG_NAMA,nama);
                 riwayatsampah.putExtra(TAG_EMAIL, email);

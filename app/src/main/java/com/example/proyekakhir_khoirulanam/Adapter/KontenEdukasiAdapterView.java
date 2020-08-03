@@ -29,7 +29,7 @@ public class KontenEdukasiAdapterView extends RecyclerView.Adapter<KontenEdukasi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_kontenanimasi,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_konten_edukasi,parent,false);
 
         return new ViewHolder(view);
 

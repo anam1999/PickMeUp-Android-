@@ -25,7 +25,7 @@
             android:name=".LiveChat"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".LihatRiwayatPembuanganSampah"
+            android:name=".RiwayatPenukaranKodeReward"
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".KontenEdukasi.LihatKontenEdukasi_Pimpinan"
@@ -84,7 +84,7 @@
             android:name=".Feedback.TambahFeedback"
             android:parentActivityName=".Feedback.LihatFeedback" />
         <activity
-            android:name=".Hadiah.LihatTransaksi_Masyarakat"
+            android:name=".Hadiah.RiwayatTransaksiHadiah_Masyarakat"
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".KontenEdukasi.TambahKontenEdukasi_PKR"
@@ -112,7 +112,7 @@
             android:name=".Agenda.TambahAgendaP"
             android:theme="@style/tanpaactionbar" />
         <activity
-            android:name=".Agenda.UpdateAgendaP"
+            android:name=".Agenda.UpdateAgendaPL"
             android:theme="@style/tanpaactionbar" />
         <activity
             android:name=".Feedback.DetailFeedback"

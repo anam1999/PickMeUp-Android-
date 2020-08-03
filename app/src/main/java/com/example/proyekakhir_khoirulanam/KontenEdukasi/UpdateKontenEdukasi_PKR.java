@@ -1,6 +1,5 @@
 package com.example.proyekakhir_khoirulanam.KontenEdukasi;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -30,18 +29,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.proyekakhir_khoirulanam.Agenda.UpdateAgendaP;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Constructor.KontenEdukasi;
-import com.example.proyekakhir_khoirulanam.Profil.UpdateProfil;
 import com.example.proyekakhir_khoirulanam.R;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 

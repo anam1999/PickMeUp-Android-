@@ -25,7 +25,7 @@ import com.example.proyekakhir_khoirulanam.R;
 
 import java.util.ArrayList;
 
-public class LihatTransaksi_Masyarakat extends AppCompatActivity {
+public class RiwayatTransaksiHadiah_Masyarakat extends AppCompatActivity {
     RecyclerView rvTransaksi;
     TransaksiAdapter transaksiAdapter;
     ArrayList<Transaksi> transaksiArrayList;
@@ -39,7 +39,7 @@ public class LihatTransaksi_Masyarakat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_transaksi);
+        setContentView(R.layout.riwayat_transaksi_hadiah);
 
         email = getIntent().getStringExtra(TAG_EMAIL);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
@@ -54,7 +54,7 @@ public class LihatTransaksi_Masyarakat extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(LihatTransaksi_Masyarakat.this, BerandaMasyarakats.class);
+                Intent inten = new Intent(RiwayatTransaksiHadiah_Masyarakat.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 inten.putExtra(TAG_EMAIL, email);

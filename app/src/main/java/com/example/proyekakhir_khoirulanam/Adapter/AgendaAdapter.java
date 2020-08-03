@@ -21,7 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.proyekakhir_khoirulanam.Agenda.UpdateAgendaP;
+import com.example.proyekakhir_khoirulanam.Agenda.UpdateAgendaPL;
 import com.example.proyekakhir_khoirulanam.Constructor.Agenda;
 import com.example.proyekakhir_khoirulanam.R;
 
@@ -63,8 +63,8 @@ public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 Agenda agenda = agendaslist.get(holder.getAdapterPosition());
-                Intent intent = new Intent(holder.itemView.getContext(), UpdateAgendaP.class);
-                intent.putExtra(UpdateAgendaP.EXTRA_AGENDA,agenda);
+                Intent intent = new Intent(holder.itemView.getContext(), UpdateAgendaPL.class);
+                intent.putExtra(UpdateAgendaPL.EXTRA_AGENDA,agenda);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LihatRiwayatPembuanganSampah">
+    tools:context=".RiwayatPenukaranKodeReward">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -25,10 +25,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
-            android:text="Riwayat Pembuangan Sampah"
+            android:text="Riwayat Penukaran Kode Reward"
             android:layout_gravity="center"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTransaksi"
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
-            tools:listitem="@layout/list_riwayat_pembuangan_sampah"
+            tools:listitem="@layout/list_riwayat_penukaran_kode_reward"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_tambah" />

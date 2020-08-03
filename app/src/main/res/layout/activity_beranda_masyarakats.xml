@@ -310,7 +310,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/riwayatsampah"
-                        android:background="@drawable/ikon_riwayattransaksihadiah"
+                        android:background="@drawable/riwayatpenukarankode"
 
                         />
                 </LinearLayout>

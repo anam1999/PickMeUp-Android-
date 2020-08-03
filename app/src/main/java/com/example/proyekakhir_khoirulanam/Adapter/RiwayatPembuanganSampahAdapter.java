@@ -9,10 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Constructor.RiwayatPembuanganSampah;
-import com.example.proyekakhir_khoirulanam.Constructor.Transaksi;
 import com.example.proyekakhir_khoirulanam.R;
 
 import java.util.ArrayList;
@@ -29,7 +26,7 @@ public class RiwayatPembuanganSampahAdapter extends RecyclerView.Adapter<Riwayat
     @Override
     public RiwayatPembuanganSampahAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_riwayat_pembuangan_sampah,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_riwayat_penukaran_kode_reward,parent,false);
 
         return new ViewHolder(view);
 

@@ -32,19 +32,15 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Constructor.Agenda;
 
-import com.example.proyekakhir_khoirulanam.KontenEdukasi.TambahKontenEdukasi_PKR;
 import com.example.proyekakhir_khoirulanam.R;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UpdateAgendaP extends AppCompatActivity {
+public class UpdateAgendaPL extends AppCompatActivity {
     EditText Namaagenda,Keterangan;
     ImageView ivAgenda;
     String alamatagenda;
@@ -67,7 +63,7 @@ public class UpdateAgendaP extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_agenda_p);
+        setContentView(R.layout.activity_update_agenda_p_l);
 
         ids= Preferences.getId(getBaseContext());
         nama=Preferences.getLoggedInUser(getBaseContext());
@@ -81,7 +77,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(UpdateAgendaP.this, LihatAgendaPL.class);
+                Intent inten = new Intent(UpdateAgendaPL.this, LihatAgendaPL.class);
                 inten.putExtra(TAG_ID, ids);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -124,7 +120,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         final CharSequence[] items = {"Kamera", "Galeri/Library",
                 "Batal"};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(UpdateAgendaP.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(UpdateAgendaPL.this);
         builder.setTitle("Pilih Gambar");
         builder.setIcon(R.drawable.logoaplikasi);
         builder.setItems(items, new DialogInterface.OnClickListener() {
@@ -170,7 +166,7 @@ public class UpdateAgendaP extends AppCompatActivity {
             } else if (requestCode == SELECT_FILE && data != null && data.getData() != null) {
                 try {
                     // mengambil gambar dari Gallery
-                    bitmap = MediaStore.Images.Media.getBitmap(UpdateAgendaP.this.getContentResolver(), data.getData());
+                    bitmap = MediaStore.Images.Media.getBitmap(UpdateAgendaPL.this.getContentResolver(), data.getData());
 
                     setToImageView(getResizedBitmap(bitmap, max_resolution_image));
                 } catch (IOException e) {
@@ -198,7 +194,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Intent agenda = new Intent(UpdateAgendaP.this, LihatAgendaP.class);
+                Intent agenda = new Intent(UpdateAgendaPL.this, LihatAgendaP.class);
                 agenda.putExtra(EXTRA_AGENDA,id);
                 agenda.putExtra(TAG_NAMA, nama);
                 startActivity(agenda);

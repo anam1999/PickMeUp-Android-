@@ -16,17 +16,13 @@ import android.view.View;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.RiwayatPembuanganSampahAdapter;
-import com.example.proyekakhir_khoirulanam.Adapter.TransaksiAdapter;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaMasyarakats;
 import com.example.proyekakhir_khoirulanam.Constructor.RiwayatPembuanganSampah;
-import com.example.proyekakhir_khoirulanam.Constructor.Transaksi;
-import com.example.proyekakhir_khoirulanam.Hadiah.LihatTransaksi_Masyarakat;
 import com.example.proyekakhir_khoirulanam.Model.ModelRiwayatPembuanganSampah;
-import com.example.proyekakhir_khoirulanam.Model.ModelTransaksi;
 
 import java.util.ArrayList;
 
-public class LihatRiwayatPembuanganSampah extends AppCompatActivity {
+public class RiwayatPenukaranKodeReward extends AppCompatActivity {
     RecyclerView rvSampah;
     RiwayatPembuanganSampahAdapter riwayatPembuanganSampahAdapter;
     ArrayList<RiwayatPembuanganSampah> riwayatPembuanganSampahArrayList ;
@@ -41,11 +37,11 @@ public class LihatRiwayatPembuanganSampah extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lihat_riwayat_pembuangan_sampah);
+        setContentView(R.layout.riwayat_penukaran_kode_reward);
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Riwayat");
+        toolbar.setTitle("Riwayat Penukaran Kode");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
@@ -57,7 +53,7 @@ public class LihatRiwayatPembuanganSampah extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(LihatRiwayatPembuanganSampah.this, BerandaMasyarakats.class);
+                Intent inten = new Intent(RiwayatPenukaranKodeReward.this, BerandaMasyarakats.class);
                 inten.putExtra(TAG_ID, id);
                 inten.putExtra(TAG_NAMA, nama);
                 inten.putExtra(TAG_EMAIL, email);
