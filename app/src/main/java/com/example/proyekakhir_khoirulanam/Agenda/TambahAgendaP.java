@@ -56,7 +56,7 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
     Uri fileUri;
     public final int REQUEST_CAMERA = 0;
     public final int SELECT_FILE = 1;
-    int max_resolution_image = 2048;
+    int max_resolution_image = 1024;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,6 @@ public class TambahAgendaP extends AppCompatActivity implements View.OnClickList
             case R.id.iv_photo:
                 pickImage();
                 break;
-
         }
     }
 

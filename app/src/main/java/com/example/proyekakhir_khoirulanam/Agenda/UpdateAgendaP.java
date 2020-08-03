@@ -62,7 +62,7 @@ public class UpdateAgendaP extends AppCompatActivity {
     Uri fileUri;
     public final int REQUEST_CAMERA = 0;
     public final int SELECT_FILE = 1;
-    int max_resolution_image = 2048;
+    int max_resolution_image = 1024;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,7 @@ public class UpdateAgendaP extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten = new Intent(UpdateAgendaP.this, LihatAgendaP.class);
+                Intent inten = new Intent(UpdateAgendaP.this, LihatAgendaPL.class);
                 inten.putExtra(TAG_ID, ids);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();

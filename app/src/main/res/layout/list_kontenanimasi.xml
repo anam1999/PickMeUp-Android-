@@ -44,24 +44,6 @@
                 android:text="@string/deskripsi"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:id="@+id/edit"
-                    android:text="Edit"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvDeskripsi"
-                    android:layout_toEndOf="@id/ivGambar"
-                    android:layout_marginRight="10dp"
-                    />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:id="@+id/hapus"
-                android:text="Hapus"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDeskripsi"
-                android:layout_toEndOf="@id/edit"
-                />
         </RelativeLayout>
 
 

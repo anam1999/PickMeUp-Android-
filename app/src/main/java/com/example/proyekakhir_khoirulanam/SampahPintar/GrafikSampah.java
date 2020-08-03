@@ -1,5 +1,6 @@
 package com.example.proyekakhir_khoirulanam.SampahPintar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -43,12 +44,13 @@ public class GrafikSampah extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafik_sampah);
 
-
         AnyChartView anyChartView1 = (AnyChartView) findViewById(R.id.any_chart_views);
         pies = AnyChart.pie();
         benar = findViewById(R.id.benar);
         salah = findViewById(R.id.salah);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Grafik Sampah");
+        actionBar.show();
         Grafiksampah();
         pies.title("Grafik Sampah ");
 

@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.proyekakhir_khoirulanam.Adapter.AgendaAdapter;
 import com.example.proyekakhir_khoirulanam.Adapter.AgendaAdapterView;
 import com.example.proyekakhir_khoirulanam.Beranda.BerandaPetugasLapangan;
 import com.example.proyekakhir_khoirulanam.Constructor.Agenda;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 
 public class LihatAgendaPL extends AppCompatActivity {
     RecyclerView rvNama;
-    AgendaAdapterView agendaAdapter;
+    AgendaAdapter agendaAdapter;
     ArrayList<Agenda> agendaArrayList;
     RequestQueue queue;
     Toolbar toolbar;
@@ -90,7 +91,7 @@ public class LihatAgendaPL extends AppCompatActivity {
         rvNama = findViewById(R.id.rv_Agenda);
         queue = Volley.newRequestQueue(this);
         rvNama.setLayoutManager(new LinearLayoutManager(this));
-        agendaAdapter = new AgendaAdapterView();
+        agendaAdapter = new AgendaAdapter();
 
         ModelAgenda model = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelAgenda.class);
         model.simpan(queue,this);

@@ -99,7 +99,7 @@ public class HadiahAdapter extends RecyclerView.Adapter<HadiahAdapter.ViewHolder
                                 StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
-                                        Toast.makeText(holder.itemView.getContext(), "berhasil"+response.toString(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(holder.itemView.getContext(), response.toString(), Toast.LENGTH_SHORT).show();
                                     }
                                 }, new Response.ErrorListener() {
                                     @Override
