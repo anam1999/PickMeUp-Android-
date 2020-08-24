@@ -32,6 +32,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
 import com.example.proyekakhir_khoirulanam.Constructor.Hadiah;
+import com.example.proyekakhir_khoirulanam.Profil.Profil;
 import com.example.proyekakhir_khoirulanam.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -63,7 +64,7 @@ public class UpdateHadiah_PKR extends AppCompatActivity {
     Uri fileUri;
     public final int REQUEST_CAMERA = 0;
     public final int SELECT_FILE = 1;
-    int max_resolution_image = 2048;
+    int max_resolution_image = 1024;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,6 +202,8 @@ public class UpdateHadiah_PKR extends AppCompatActivity {
             public void onResponse(String response) {
                 Intent profils = new Intent(UpdateHadiah_PKR.this, LihatHadiah_PKR.class);
                 profils.putExtra(EXTRA_DETAILs,id);
+                profils.putExtra(TAG_NAMA, nama);
+                profils.putExtra(TAG_ID,ids);
                 startActivity(profils);
                 kosong();
                 finish();

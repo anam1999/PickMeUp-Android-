@@ -20,7 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SampahPintar.GrafikSampah"></activity>
+        <activity android:name=".CekTransaksiPenukaranHadiah"
+            android:theme="@style/tanpaactionbar"
+            ></activity>
+        <activity android:name=".SampahPintar.GrafikSampah" />
         <activity
             android:name=".LiveChat"
             android:theme="@style/tanpaactionbar" />

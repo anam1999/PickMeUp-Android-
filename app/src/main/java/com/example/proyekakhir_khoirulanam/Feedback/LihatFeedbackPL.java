@@ -93,7 +93,6 @@ public class LihatFeedbackPL extends AppCompatActivity implements View.OnClickLi
         agendaArrayList = new ArrayList<>();
         btnTambah = findViewById(R.id.btn_tambah);
         rvFeedback = findViewById(R.id.rv_Feedback);
-        btnTambah.setOnClickListener(this);
         queue = Volley.newRequestQueue(this);
         rvFeedback.setLayoutManager(new LinearLayoutManager(this));
         feedbackAdapter = new FeedbackAdapter();

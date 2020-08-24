@@ -26,6 +26,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.proyekakhir_khoirulanam.Agenda.LihatAgendaPKW;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
+import com.example.proyekakhir_khoirulanam.CekTransaksiPenukaranHadiah;
 import com.example.proyekakhir_khoirulanam.Hadiah.LihatHadiah_PKR;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.LihatKontenEdukasi_PKR;
 import com.example.proyekakhir_khoirulanam.KontenEdukasi.TambahKontenEdukasi_PKR;
@@ -38,7 +39,7 @@ import org.json.JSONObject;
 
 public class BerandaPetugasKontenReward extends AppCompatActivity {
     TextView txt_nama;
-    ImageView konten,cekhadiah,agenda,uploadkonten,profil;
+    ImageView konten,cekhadiah,agenda,uploadkonten,profil,transaksi;
     SharedPreferences sharedpreferences;
     String nama,id;
     public final static String TAG_NAMA = "username";
@@ -81,6 +82,7 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
         uploadkonten=findViewById(R.id.uploadkonten);
         txt_nama = findViewById(R.id.username);
         profil=findViewById(R.id.profil);
+        transaksi = findViewById(R.id.cektransaksi);
 
         //session
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
@@ -137,6 +139,15 @@ public class BerandaPetugasKontenReward extends AppCompatActivity {
                 cekhadiah.putExtra(TAG_ID, id);
                 cekhadiah.putExtra(TAG_NAMA, nama);
                 startActivity(cekhadiah);
+            }
+        });
+        transaksi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cektransaksi = new Intent(BerandaPetugasKontenReward.this, CekTransaksiPenukaranHadiah.class);
+                cektransaksi.putExtra(TAG_ID, id);
+                cektransaksi.putExtra(TAG_NAMA, nama);
+                startActivity(cektransaksi);
             }
         });
     }

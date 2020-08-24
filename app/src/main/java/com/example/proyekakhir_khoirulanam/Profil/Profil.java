@@ -234,7 +234,7 @@ public class Profil extends AppCompatActivity {
         StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Berhasil Keluar Akun", Toast.LENGTH_SHORT).show();
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putBoolean(Masuk.session_status, false);
                 editor.putString(TAG_ID, null);
@@ -249,7 +249,7 @@ public class Profil extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), "gagal update profil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Jaringan bermasalah", Toast.LENGTH_SHORT).show();
                 hideDialog();
 
             }

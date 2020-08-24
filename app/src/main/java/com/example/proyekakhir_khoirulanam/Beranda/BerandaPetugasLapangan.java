@@ -94,13 +94,6 @@ public class BerandaPetugasLapangan extends AppCompatActivity {
         //setText
         txt_nama.setText(" "+nama);
 
-//        notif.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Dialogs();
-//
-//            }
-//        });
 
         profil.setOnClickListener(new View.OnClickListener() {
             @Override

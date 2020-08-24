@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="0dp"
-                android:text="Penukaran Hadiah"
+                android:text="Cek Hadiah"
                 android:layout_gravity="center"
                 android:textSize="30dp"
                 android:textStyle="bold"
@@ -50,6 +50,7 @@
                     android:layout_width="120dp"
                     android:layout_marginTop="20dp"
                     android:layout_height="150dp"
+                    android:background="@drawable/ikon_hadiah"
                     android:padding="4dp"/>
 
 

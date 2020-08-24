@@ -14,6 +14,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyekakhir_khoirulanam.Adapter.HadiahAdapterViewPimpinan;
 import com.example.proyekakhir_khoirulanam.AppController.Preferences;
@@ -36,6 +39,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LihatHadiah_Pimpinan extends AppCompatActivity {
     RecyclerView rvHadiah;
@@ -47,14 +52,18 @@ public class LihatHadiah_Pimpinan extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     public final static String TAG_ID = "id";
     public final static String TAG_NAMA = "username";
-
     Toolbar toolbar;
     SwipeRefreshLayout swLayout;
     LinearLayout llayout;
+    EditText isi;
+    ImageButton search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_hadiah_p);
+        isi=findViewById(R.id.isi);
+        search=findViewById(R.id.cari);
+
 
         swLayout = (SwipeRefreshLayout) findViewById(R.id.swlayout);
         llayout = (LinearLayout) findViewById(R.id.swipe);
@@ -71,6 +80,7 @@ public class LihatHadiah_Pimpinan extends AppCompatActivity {
 
                         // Berhenti berputar/refreshing
                         swLayout.setRefreshing(false);
+                        HadiahPimpinan();
 
                     }
                 }, 5000);
@@ -101,7 +111,7 @@ public class LihatHadiah_Pimpinan extends AppCompatActivity {
                 startActivity(inten);
             }
         });
-        btn.setText(Preferences.getId(getBaseContext()));
+//        btn.setText(Preferences.getId(getBaseContext()));
 
         hadiahArrayList = new ArrayList<>();
         rvHadiah = findViewById(R.id.rv_Hadiah);
@@ -119,7 +129,95 @@ public class LihatHadiah_Pimpinan extends AppCompatActivity {
         rvHadiah.setHasFixedSize(true);
         rvHadiah.setAdapter(hadiahAdapter);
         hadiahAdapter.notifyDataSetChanged();
+
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hadiahArrayList.clear();
+                Search();
+            }
+        });
     }
+
+    private void Search() {
+        String isihadiah = isi.getText().toString();
+        if (isihadiah.trim().length() > 0) {
+            sendData(isihadiah);
+        } else {
+            // Prompt user to enter credentials
+            Toast.makeText(getApplicationContext() ," tidak boleh kosong", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void sendData(final String isihadiah) {
+
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        String url = "https://ta.poliwangi.ac.id/~ti17136/api/searchhadiah/"+isihadiah;
+        JsonObjectRequest request =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                JSONArray data = null;
+
+                try {
+                    data = response.getJSONArray("upload");
+                    for( int i=0; i <data.length();i++){
+                        JSONObject objek =data.getJSONObject(i);
+                        int id = objek.getInt("id");
+                        String title = objek.getString("nama");
+                        String deskripsi = objek.getString("deskripsi");
+                        String image = objek.getString("file_gambar");
+                        String poin =objek.getString("harga_hadiah");
+                        String jumlah = objek.getString("jumlah_hadiah");
+                        Hadiah hadiah = new Hadiah(id, title,image,deskripsi,poin,jumlah);
+                        hadiahArrayList.add(hadiah);
+
+                    }
+                    hadiahAdapter.adapter(hadiahArrayList);
+                    rvHadiah.setAdapter(hadiahAdapter);
+                    rvHadiah.setHasFixedSize(true);
+                    hadiahAdapter.notifyDataSetChanged();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getBaseContext(), error.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> MyData = new HashMap<String, String>();
+                if (isihadiah!=null){
+                    MyData.put("nama",isihadiah);
+                }
+                return MyData;
+            }
+        };
+        queue.add(request);
+
+    }
+
+
+    private void HadiahPimpinan() {
+        ModelHadiah modelHadiah = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ModelHadiah.class);
+        modelHadiah.simpan(queue, this);
+        modelHadiah.Ambil().observe(this, new Observer<ArrayList<Hadiah>>() {
+            @Override
+            public void onChanged(ArrayList<Hadiah> hadiahs) {
+                hadiahAdapter.adapter(hadiahs);
+            }
+        });
+        rvHadiah.setHasFixedSize(true);
+        rvHadiah.setAdapter(hadiahAdapter);
+        hadiahAdapter.notifyDataSetChanged();
+    }
+
     private void getpoin() {
 
     }

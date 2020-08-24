@@ -58,7 +58,7 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
     Uri fileUri;
     public final int REQUEST_CAMERA = 0;
     public final int SELECT_FILE = 1;
-    int max_resolution_image = 2048;
+    int max_resolution_image = 1024;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
         id =animasi.getId();
         rvAnimasi.setText(animasi.getNama_konten());
         rvDeskripsi.setText(animasi.getDeskripsi());
-     alamatanimasi =("https://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" +animasi.getGambar());
+        alamatanimasi =("https://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" +animasi.getGambar());
         Glide.with(this)
                 .load( "https://ta.poliwangi.ac.id/~ti17136/konten_edukasi/" +animasi.getGambar())
                 .apply(new RequestOptions().centerCrop())
@@ -106,6 +106,7 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inten = new Intent(UpdateKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);
+                inten.putExtra(EXTRA_DETAILs,id);
                 inten.putExtra(TAG_ID, ids);
                 inten.putExtra(TAG_NAMA, nama);
                 finish();
@@ -114,11 +115,9 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
         });
     }
 
-    private void pickImage() {
+        private void pickImage() {
         ivAnimasi.setImageResource(0);
-        final CharSequence[] items = {"Kamera", "Galeri/Library",
-                "Batal"};
-
+        final CharSequence[] items = {"Kamera", "Galeri/Library", "Batal"};
         AlertDialog.Builder builder = new AlertDialog.Builder(UpdateKontenEdukasi_PKR.this);
         builder.setTitle("Pilih Gambar");
         builder.setIcon(R.drawable.logoaplikasi);
@@ -147,7 +146,6 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         Log.e("onActivityResult", "requestCode " + requestCode + ", resultCode " + resultCode);
-
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_CAMERA) {
                 try {
@@ -187,15 +185,15 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="https://ta.poliwangi.ac.id/~ti17136/api/updatekonten/"+id;
-        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent profils = new Intent(UpdateKontenEdukasi_PKR.this, LihatKontenEdukasi_PKR.class);
-                startActivity(profils);
                 kosong();
                 profils.putExtra(EXTRA_DETAILs,id);
                 profils.putExtra(TAG_ID,ids);
                 profils.putExtra(TAG_NAMA,nama);
+                startActivity(profils);
                 finish();
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
                 hideDialog();
@@ -215,8 +213,6 @@ public class UpdateKontenEdukasi_PKR extends AppCompatActivity {
                 Map<String, String> MyData = new HashMap<String, String>();
                 MyData.put("nama", rvAnimasi.getText().toString());
                 MyData.put("deskripsi", rvDeskripsi.getText().toString());
-//                MyData.put("file", alamatanimasi.toString());
-//                MyData.put("file_gambar",getStringImage(decoded));
                 if(decoded!=null){
                     MyData.put("file_gambar",getStringImage(decoded));
                 }

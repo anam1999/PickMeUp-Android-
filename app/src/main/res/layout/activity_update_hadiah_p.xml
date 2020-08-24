@@ -102,11 +102,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_jumlah" />
 
+        <TextView
+            android:id="@+id/opsional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:ems="10"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:hint="Klik dibawah untuk mengunggah gambar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_komentar" />
+
         <ImageView
             android:id="@+id/iv_photo"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_poin"

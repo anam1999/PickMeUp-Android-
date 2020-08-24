@@ -78,9 +78,9 @@ public class BerandaMasyarakats extends AppCompatActivity {
         actionBar.hide();
         getPoin();
         getProfil();
+
         profil=findViewById(R.id.profil);
         txt_nama = findViewById(R.id.username);
-        emailku =findViewById(R.id.txt_nama_dashboard);
 
         sharedpreferences = getSharedPreferences(Masuk.my_shared_preferences, Context.MODE_PRIVATE);
         id=getIntent().getStringExtra(TAG_ID);
@@ -90,6 +90,7 @@ public class BerandaMasyarakats extends AppCompatActivity {
         Preferences.setid(getBaseContext(),getIntent().getStringExtra(TAG_ID));
         Preferences.setLoggedInName(getBaseContext(),getIntent().getStringExtra(TAG_NAMA));
         Preferences.setLoggedInUser(getBaseContext(),getIntent().getStringExtra(TAG_EMAIL));
+
         transaksi =findViewById(R.id.riwayat);
         tukarhadiah =findViewById(R.id.tukarhadiah);
         konten=findViewById(R.id.kontenanimasi);
@@ -271,30 +272,5 @@ public class BerandaMasyarakats extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-//    public void onBackPressed() {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setCancelable(false);
-//        builder.setMessage("Keluar aplikasi?");
-//        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//
-//                Intent intent = new Intent(Intent.ACTION_MAIN);
-//                intent.addCategory(Intent.CATEGORY_HOME);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                finish();
-//                startActivity(intent);
-//            }
-//        });
-//        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//                dialog.cancel();
-//            }
-//        });
-//        AlertDialog alert = builder.create();
-//        alert.show();
-//    }
+
 }

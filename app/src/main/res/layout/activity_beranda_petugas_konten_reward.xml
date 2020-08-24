@@ -31,7 +31,7 @@
             android:id="@+id/txt_nama_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-210dp"
+            android:layout_marginTop="-225dp"
             android:layout_marginLeft="10dp"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -61,7 +61,7 @@
 
         <GridLayout
             android:layout_width="310dp"
-            android:layout_height="270dp"
+            android:layout_height="400dp"
            android:layout_gravity="center"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
@@ -165,14 +165,9 @@
                         android:id="@+id/agenda"
                         android:layout_gravity="center"
                         android:background="@drawable/ikon_agenda" />
-
-
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -200,6 +195,36 @@
                         android:layout_gravity="center"
                         android:id="@+id/cekhadiah"
                         android:background="@drawable/ikon_hadiah" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/cektransaksi"
+                    android:background="@drawable/ikon_riwayattransaksihadiah" />
 
 
             </androidx.cardview.widget.CardView>

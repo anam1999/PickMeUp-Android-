@@ -191,15 +191,16 @@ public class UpdateAgendaPL extends AppCompatActivity {
         showDialog();
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         String url ="https://ta.poliwangi.ac.id/~ti17136/api/updateagenda/"+id;
-        StringRequest stringRequest  = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+        StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Intent agenda = new Intent(UpdateAgendaPL.this, LihatAgendaP.class);
+                Intent agenda = new Intent(UpdateAgendaPL.this, LihatAgendaPL.class);
                 agenda.putExtra(EXTRA_AGENDA,id);
                 agenda.putExtra(TAG_NAMA, nama);
-                startActivity(agenda);
-//                kosong();
+                agenda.putExtra(TAG_ID,ids);
+                kosong();
                 finish();
+                startActivity(agenda);
                 Toast.makeText(getBaseContext(), "Berhasil", Toast.LENGTH_SHORT).show();
                 hideDialog();
 

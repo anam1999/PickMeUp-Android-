@@ -50,6 +50,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/ivHadiah"
                 android:text="Deskripsi :"
+                android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
             <TextView
                 android:id="@+id/tvDeskripsi"
@@ -70,6 +71,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/ivHadiah"
                 android:text=""
+
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
             <TextView
                 android:id="@+id/TotalPoinsesion"
@@ -80,6 +82,9 @@
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/TotalPoin"
                 android:text="Poin"
+
+                android:textStyle="bold"
+
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
         </RelativeLayout>

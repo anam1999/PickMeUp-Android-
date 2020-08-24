@@ -78,7 +78,7 @@ public class UpdateProfilPetugasLapangan extends AppCompatActivity {
         usernames = getIntent().getStringExtra(TAG_NAMA);
 
         username.setText(" "+id);
-        email.setText(""+id);
+//        email.setText(""+id);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

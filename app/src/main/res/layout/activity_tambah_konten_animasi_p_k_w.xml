@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:text="Tambah Konten Edukasi"
             android:textAllCaps="true"
-            android:textSize="@dimen/dimen_24"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +90,7 @@
             android:textColor="@color/black"
             android:inputType="textMultiLine"
             android:gravity="center"
-            android:hint="Klik dibawah untuk tambahkan file gambar"
+            android:hint="Klik dibawah untuk mengunggah gambar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_komentar" />

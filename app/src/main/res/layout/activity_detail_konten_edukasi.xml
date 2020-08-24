@@ -52,6 +52,7 @@
                 android:id="@+id/ivGambar"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
+                android:background="@drawable/ikon_kontenedukasi"
                 android:padding="4dp"/>
 
 

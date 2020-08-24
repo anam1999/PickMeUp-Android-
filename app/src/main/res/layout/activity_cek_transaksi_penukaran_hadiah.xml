@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".KontenEdukasi.LihatKontenEdukasi_Pimpinan">
+    tools:context=".CekTransaksiPenukaranHadiah">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -18,41 +19,28 @@
         android:layout_height="match_parent"
         android:id="@+id/swlayout"
         >
+
         <LinearLayout
-            android:id="@+id/swipe"
-            android:background="@drawable/rv_pimpinan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:id="@+id/swipe"
+            android:background="@drawable/rv_petugaskr"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txt"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/list_konten_animasi"
-                android:textStyle="bold"
-                android:textSize="35sp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:layout_gravity="center"
-                />
-            />
             <EditText
                 android:id="@+id/isi"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true"
-                android:hint="cari nama konten.."
+                android:hint="cari kode transaksi"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="left"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:background="@drawable/radius"
-                />
+                 />
 
             <ImageButton
                 android:id="@+id/cari"
@@ -65,15 +53,30 @@
                 android:layout_gravity="right"
                 android:textColor="@color/black"
                 android:background="@drawable/ic_search" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:text="Cek Transaksi Penukaran Hadiah"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_Animasi"
+                android:id="@+id/rv_CekTransaksi"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical"
-                tools:listitem="@layout/list_konten_edukasi"
+                tools:listitem="@layout/list_cek_transaksi"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_tambah" />
+
         </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 </LinearLayout>
