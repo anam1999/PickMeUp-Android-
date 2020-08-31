@@ -7,12 +7,11 @@ public class RiwayatPembuanganSampah implements Parcelable {
 
 
     private int id;
-    private String nama_lokasi, kode_reward, nilai,status;
+    private String nama_lokasi, nilai,status;
 
-    public RiwayatPembuanganSampah (int id, String nama_lokasi,  String kode_reward, String nilai, String status) {
+    public RiwayatPembuanganSampah (int id, String nama_lokasi, String nilai, String status) {
         this.id = id;
         this.nama_lokasi = nama_lokasi;
-        this.kode_reward = kode_reward;
         this.nilai = nilai;
         this.status= status;
 
@@ -21,7 +20,6 @@ public class RiwayatPembuanganSampah implements Parcelable {
     protected RiwayatPembuanganSampah(Parcel in) {
         id = in.readInt();
         nama_lokasi = in.readString();
-        kode_reward = in.readString();
         nilai = in.readString();
         status = in.readString();
     }
@@ -46,10 +44,6 @@ public class RiwayatPembuanganSampah implements Parcelable {
         return nama_lokasi;
     }
 
-    public String getKode_reward() {
-        return kode_reward;
-    }
-
     public String getNilai() {
         return nilai;
     }
@@ -64,7 +58,6 @@ public class RiwayatPembuanganSampah implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nama_lokasi);
-        dest.writeString((kode_reward));
         dest.writeString(nilai);
         dest.writeString(status);
     }

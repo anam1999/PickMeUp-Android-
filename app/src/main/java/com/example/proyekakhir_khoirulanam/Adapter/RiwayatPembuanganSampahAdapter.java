@@ -15,6 +15,7 @@ import com.example.proyekakhir_khoirulanam.R;
 import java.util.ArrayList;
 
 public class RiwayatPembuanganSampahAdapter extends RecyclerView.Adapter<RiwayatPembuanganSampahAdapter.ViewHolder> {
+
     private ArrayList<RiwayatPembuanganSampah> riwayatPembuanganSampahArrayList = new ArrayList<>();
     public void adapter( ArrayList<RiwayatPembuanganSampah> riwayatPembuanganSampahs) {
         riwayatPembuanganSampahArrayList.clear();
@@ -35,10 +36,12 @@ public class RiwayatPembuanganSampahAdapter extends RecyclerView.Adapter<Riwayat
     @Override
     public void onBindViewHolder(@NonNull final RiwayatPembuanganSampahAdapter.ViewHolder holder, int position) {
         final RiwayatPembuanganSampah riwayatPembuanganSampah = riwayatPembuanganSampahArrayList.get(position);
-        holder.tvNamaLokasi.setText("Nama Lokasi   :"+riwayatPembuanganSampah.getNama_lokasi());
-        holder.tvkodeReward.setText("Kode_ Reward :"+riwayatPembuanganSampah.getKode_reward());
-        holder.tvNilai.setText("Nilai                  :"+riwayatPembuanganSampah.getNilai()+" Poin");
-        holder.tvStatus.setText("Status               :"+riwayatPembuanganSampah.getStatus());
+
+
+
+        holder.tvNamaLokasi.setText("Nama Lokasi   :" +riwayatPembuanganSampah.getNama_lokasi());
+        holder.tvNilai.setText("Nilai                  :" +riwayatPembuanganSampah.getNilai()+" Poin");
+        holder.tvStatus.setText("Status               : benar");
 //        holder.ivNotebook.setImageDrawable(myContext.getResources().getDrawable(product.getImage()));
 
 //        Glide.with(holder.itemView.getContext())
@@ -70,14 +73,13 @@ public class RiwayatPembuanganSampahAdapter extends RecyclerView.Adapter<Riwayat
         TextView tvNamaLokasi,tvkodeReward,tvNilai,tvStatus;
         ImageView ivtransaksi;
 
-
         public ViewHolder(@NonNull View itemView) {
 
             super(itemView);
             tvNamaLokasi = itemView.findViewById(R.id.tvNamaSampah);
-            tvkodeReward=itemView.findViewById(R.id.tvKodeRewared);
             tvNilai=itemView.findViewById(R.id.tvNilai);
             tvStatus= itemView.findViewById(R.id.tvStatus);
+
 
         }
 

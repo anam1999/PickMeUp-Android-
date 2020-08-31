@@ -35,11 +35,10 @@ public class ModelRiwayatPembuanganSampah extends ViewModel {
                         JSONObject objek =data.getJSONObject(i);
                         int id = objek.getInt("id");
                         String nilai =objek.getString("nilai");
-                        String kode_reward = objek.getString("kode_reward");
                         String status = objek.getString("status");
                         String nama_lokasi = objek.getString("tempat_sampah_id");
 
-                        RiwayatPembuanganSampah riwayatPembuanganSampah = new RiwayatPembuanganSampah(id, nama_lokasi,kode_reward,nilai,status);
+                        RiwayatPembuanganSampah riwayatPembuanganSampah = new RiwayatPembuanganSampah(id, nama_lokasi,nilai,status);
                         riwayatPembuanganSampahArrayList.add(riwayatPembuanganSampah);
 
                     }
